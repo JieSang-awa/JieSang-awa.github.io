@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  
+
+  
+
+  
+    <meta name="author" content="John Doe">
+  
+
+  
+
+  
+
+  <title>webstrom安装 | Hexo</title>
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/default.min.css" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="container">
+    <!-- header -->
+<header class="header">
+  <div class="header-container ">
+    <nav class="header-navbar">
+      <div class="header-navbar-left">
+        <h1 class="header-navbar-logo">
+          <a href="/">
+            
+              <img src="https://qiniu.miiiku.xyz/src/images/logo.png" alt="Hexo">
+            
+          </a>
+        </h1>
+      </div>
+      <div class="header-navbar-right">
+        <div class="header-navbar-btn">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul class="header-navbar-list">
+          
+            <li class="header-navbar-item"><a href="/">首页</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <section id="main"><!-- 文章详情页 -->
+
+
+<!-- banner container -->
+<div class="banner-container">
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    
+      <div class="banner-content post-content no-post-image">
+        <div class="post-text">
+          <div class="type-wrap">
+            <a class="article-category-link" href="/categories/9月/">9月</a>
+          </div>
+          <h1 class="title-wrap">webstrom安装</h1>
+          <div class="meta-wrap">
+            <strong>John Doe</strong>
+            <span>发布于</span>
+            
+  <a href="javascript:;" class="article-date">
+    <time datetime="2019-09-07T11:22:22.000Z" itemprop="datePublished">2019-09-07</time>
+  </a>
+
+          </div>
+        </div>
+      </div>
+    
+  
+
+  
+  
+
+</div>
+
+<!-- 文章内容 -->
+
+<div class="body-container">
+  <article id="article-content" class="main-container article-content zoom">
+    
+    
+
+    <div class="article-entry">
+      <p>安装webstorm首先应该配置环境安装 java的开源代码库,再下载安装包进行
+
+</p><p>WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就不用本步骤了</p>
+<p>安装 Oracle JDK 的命令如下:</p><p></p>
+<h3 id="1-sudo-add-apt-repository-ppa-webupd8team-java"><a href="#1-sudo-add-apt-repository-ppa-webupd8team-java" class="headerlink" title="1. sudo add-apt-repository ppa:webupd8team/java"></a>1. sudo add-apt-repository ppa:webupd8team/java</h3><p>add-apt-repository ppa:<ppa_name>  下载java开源代码库。</ppa_name></p>
+
+<h3 id="2-sudo-apt-get-update"><a href="#2-sudo-apt-get-update" class="headerlink" title="2.sudo apt-get update"></a>2.sudo apt-get update</h3><p>获取到最新的软件包(apt-get update)</p>
+
+<h3 id="3-sudo-apt-get-install-oracle-java7-installer"><a href="#3-sudo-apt-get-install-oracle-java7-installer" class="headerlink" title="3.sudo apt-get install oracle-java7-installer"></a>3.sudo apt-get install oracle-java7-installer</h3><p>下载并安装java开源代码库</p>
+
+<h3 id="4-sudo-apt-get-install-oracle-java7-set-defaul"><a href="#4-sudo-apt-get-install-oracle-java7-set-defaul" class="headerlink" title="4.sudo apt-get install oracle-java7-set-defaul"></a>4.sudo apt-get install oracle-java7-set-defaul</h3><p>运行命令查看是否安装成功:</p>
+
+<blockquote>
+<p>java -version</p>
+</blockquote>
+<p>显示java开源代码的版本,如果显示则说明java开源代码安装成功.</p>
+
+
+<p><strong>[WebStorm]安装</strong></p>
+<p>首先需要下载WebStrom的Linux安装包,地址如下:</p><p>
+
+<blockquote>
+<p>s<a href="https://www.jetbrains.com/webstorm/download/" target="_blank" rel="noopener">https://www.jetbrains.com/webstorm/download/</a></p>
+</blockquote>
+</p><p>然后运行如下命令解压并安装并运行WebStorm:</p>
+
+
+<blockquote>
+<p>sudo tar xfz ~/Downloads/WebStorm-16.2.3.tar.gz</p>
+</blockquote>
+<p>这一步是先进行解压缩</p>
+
+<blockquote>
+<p>sudo mv ~/Downloads/WebStorm-162.2228.20 /home/wang/下载/</p>
+</blockquote>
+<p>mv移动命令</p>
+
+<p>然后再把解压文件移动到 home/wang/下载/ 下</p>
+
+<blockquote>
+<p>cd /home/wang/下载/WebStorm-162.2228.20/<br>   cd bin/</p>
+</blockquote>
+<p>进入bin目录</p>
+
+<blockquote>
+<p>sudo sh webstorm.sh</p>
+</blockquote>
+<p>sh命令是shell命令语言解释器，执行命令从标准输入读取或从一个文件中读取
+启动webstorm</p>
+
+    </div>
+
+    <div class="article-footer">
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大杂烩/">#大杂烩</a></li></ul>
+    </div>
+
+    <div class="article-navs">
+      
+<nav class="card-container card-article-nav">
+  <div class="card-wrap">
+    
+      <div class="card-item">
+        <article>
+          
+          <a class="card-link article-nav-link" href="/2019/09/07/2019-9-7-dddd/"></a>
+          <div class="article-nav-caption">Newer</div>
+          <div class="article-nav-title">重装系统后重新与github建立连接</div>
+        </article>
+      </div>
+    
+    
+      <div class="card-item">
+        <article>
+          
+          <a class="card-link article-nav-link" href="/2019/09/06/2019-9-6-ddddd/"></a>
+          <div class="article-nav-caption">Older</div>
+          <div class="article-nav-title">6日日报</div>
+        </article>
+      </div>
+    
+  </div>
+</nav>
+
+    </div>
+    
+    
+
+  
+  <div class="valine-container">
+    <div id="valine_thread" class="valine-thread"></div>
+  </div>
+
+  
+  
+
+
+  </article>
+</div></section>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    <p>&copy; 2019 <a href="/" target="_blank">John Doe</a></p>
+
+    
+      <p id="hitokoto"></p>
+      <script src="https://v1.hitokoto.cn/?c=a&amp;encode=js&select=%23hitokoto" defer></script>
+    
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank">flex-block</a></p>
+  </div>
+</footer>
+  </div>
+
+  
+  <!-- 尾部其他内容 -->
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<!-- dplayer 视频 start -->
+<link rel="stylesheet" href="/lib/DPlayer.min.css">
+<script src="/lib/DPlayer.min.js"></script>
+<script type="text/javascript">
+  const dplayer = document.querySelectorAll(".dplayer");
+  dplayer && initDPlayer(dplayer);
+  function initDPlayer(els) {
+    let elsArr = Array.from(els);
+    elsArr.forEach(el => {
+      let url = el.dataset.url;
+      let cover = el.dataset.cover;
+      new DPlayer({
+        container: el,
+        video: { url: url, pic: cover },
+        theme: "#b7daff",
+        autoplay: false,
+        loop: false,
+        mutex: true,
+      });
+    });
+  }
+</script>
+<!-- dplayer 视频 end -->
+
+
+<!-- waterfall 瀑布流 start -->
+<script src="/lib/waterfall.min.js"></script>
+<script type="text/javascript">
+
+const waterfallDOM = document.querySelector(".waterfall-container");
+
+if (waterfallDOM) {
+  initCss();
+  initWaterfall(".waterfall-container", waterfallDOM);
+}
+
+function initWaterfall(selector, el) {
+  const options = {};
+  if (Object.keys(el.dataset).length > 0) {
+    for (let k in el.dataset) {
+      options[k] = el.dataset[k];
+    }
+  }
+  waterfall(selector, options);
+}
+
+function initCss() {
+  let cssStyle = document.createElement("style")
+  cssStyle.innerText = `.waterfall-container p { display: block; border-radius: 4px; overflow: hidden; margin: 0; }`
+  document.head.appendChild(cssStyle);
+}
+</script>
+<!-- waterfall 瀑布流 end -->
+
+
+<!-- zoom 图片预览 start -->
+<script src="/lib/zoom.min.js"></script>
+<script>
+  document.querySelector(".zoom") && zoom(".zoom", {
+    margin: 15,
+    padding: 15,
+    radius: 5,
+    specify: "",
+    filter: "gallery",
+  });
+</script>
+<!-- zoom 图片预览 end -->
+
+
+<script src="/js/script.js"></script>
+{% if theme.fireworks %}
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+{% endif %}<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":140,"height":260},"mobile":{"show":true},"fireworks":true,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

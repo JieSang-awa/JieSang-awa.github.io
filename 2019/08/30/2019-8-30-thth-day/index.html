@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  
+
+  
+
+  
+    <meta name="author" content="John Doe">
+  
+
+  
+
+  
+
+  <title>websocket和socketio的总结 | Hexo</title>
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/default.min.css" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="container">
+    <!-- header -->
+<header class="header">
+  <div class="header-container ">
+    <nav class="header-navbar">
+      <div class="header-navbar-left">
+        <h1 class="header-navbar-logo">
+          <a href="/">
+            
+              <img src="https://qiniu.miiiku.xyz/src/images/logo.png" alt="Hexo">
+            
+          </a>
+        </h1>
+      </div>
+      <div class="header-navbar-right">
+        <div class="header-navbar-btn">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul class="header-navbar-list">
+          
+            <li class="header-navbar-item"><a href="/">首页</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <section id="main"><!-- 文章详情页 -->
+
+
+<!-- banner container -->
+<div class="banner-container">
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    
+      <div class="banner-content post-content no-post-image">
+        <div class="post-text">
+          <div class="type-wrap">
+            <a class="article-category-link" href="/categories/8月/">8月</a>
+          </div>
+          <h1 class="title-wrap">websocket和socketio的总结</h1>
+          <div class="meta-wrap">
+            <strong>John Doe</strong>
+            <span>发布于</span>
+            
+  <a href="javascript:;" class="article-date">
+    <time datetime="2019-08-30T11:22:22.000Z" itemprop="datePublished">2019-08-30</time>
+  </a>
+
+          </div>
+        </div>
+      </div>
+    
+  
+
+  
+  
+
+</div>
+
+<!-- 文章内容 -->
+
+<div class="body-container">
+  <article id="article-content" class="main-container article-content zoom">
+    
+    
+
+    <div class="article-entry">
+      <h3 id="WebSocket和SocketIO总结"><a href="#WebSocket和SocketIO总结" class="headerlink" title="WebSocket和SocketIO总结"></a>WebSocket和SocketIO总结</h3><h4 id="WebSocket是什么？"><a href="#WebSocket是什么？" class="headerlink" title="WebSocket是什么？"></a>WebSocket是什么？</h4><p>WebScoket是一种让客户端和服务器之间能进行双向实时通信的技术。它是HTML最新标准HTML5的一个协议规范，本质上是个基于TCP的协议，它通过HTTP/HTTPS协议发送一条特殊的请求进行握手后创建了一个TCP连接，此后浏览器/客户端和服务器之间便可以通过此连接来进行双向实时通信。</p>
+<h4 id="为什么要用WebSocket？"><a href="#为什么要用WebSocket？" class="headerlink" title="为什么要用WebSocket？"></a>为什么要用WebSocket？</h4><ul>
+<li><p>一直以来，HTTP协议是无状态、单向通信的，即客户端请求一次，服务器回复一次。如果想让服务器消息及时下发到客户端，需要采用类似于轮询的机制，即客户端定时频繁的向服务器发出请求，这样效率很低，而且HTTP数据包头本身的字节量较大，浪费了大量带宽和服务器资源；</p>
+</li>
+<li><p>为提高效率，出现了AJAX/Comet技术，它实现了双向通信且节省了一定带宽，但仍然需要发出请求，本质上仍然是轮询；</p>
+</li>
+<li><p>新一代HTML标准HTML5推出了WebSocket技术，它使客户端和服务器之间能通过HTTP协议建立TCP连接，之后便可以随时随地进行双向通信，且交换的数据包头信息量很小；</p>
+<h4 id="如何使用WebSocket？"><a href="#如何使用WebSocket？" class="headerlink" title="如何使用WebSocket？"></a>如何使用WebSocket？</h4></li>
+</ul>
+<p>在支持WebSocket的浏览器中，创建Socket之后，通过onopen、onmessage、onclose、onerror四个事件的实现来处理Socket的响应；</p>
+<h4 id="WebSocket与HTTP、TCP的关系"><a href="#WebSocket与HTTP、TCP的关系" class="headerlink" title="WebSocket与HTTP、TCP的关系"></a>WebSocket与HTTP、TCP的关系</h4><p>WebSocket和HTTP都属于应用层协议，且都是基于TCP的，它们的send函数最终也是通过TCP系统接口来做数据传输。那么WebSocket和HTTP的关系呢？WebSocket在建立握手连接时，数据是通过HTTP协议传输的，但是在连接建立后，真正的数据传输阶段则不需要HTTP协议的参与</p>
+<h4 id="什么情况下使用WebSocket？"><a href="#什么情况下使用WebSocket？" class="headerlink" title="什么情况下使用WebSocket？"></a>什么情况下使用WebSocket？</h4><p>如果游戏需要同时支持手机端、Web端，那毫无疑问应该使用WebSocket，现在各个平台都提供了相应的WebSocket实现。如果游戏不需要支持Web端，且对实时性要求比较高，如多人射击、MMORPG之类，那么使用TCP/UDP结合的原生Socket会比较好。</p>
+<h4 id="SocketIO"><a href="#SocketIO" class="headerlink" title="SocketIO"></a>SocketIO</h4><p>WebSocket是HTML5最新提出的规范，虽然主流浏览器都已经支持，但仍然可能有不兼容的情况，为了兼容所有浏览器，给程序员提供一致的编程体验，SocketIO将WebSocket、AJAX和其它的通信方式全部封装成了统一的通信接口，也就是说，我们在使用SocketIO时，不用担心兼容问题，底层会自动选用最佳的通信方式。因此说，WebSocket是SocketIO的一个子集。</p>
+
+    </div>
+
+    <div class="article-footer">
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大杂烩/">#大杂烩</a></li></ul>
+    </div>
+
+    <div class="article-navs">
+      
+<nav class="card-container card-article-nav">
+  <div class="card-wrap">
+    
+      <div class="card-item">
+        <article>
+          
+          <a class="card-link article-nav-link" href="/2019/09/02/2019-9-2-dasda/"></a>
+          <div class="article-nav-caption">Newer</div>
+          <div class="article-nav-title">2日日报</div>
+        </article>
+      </div>
+    
+    
+      <div class="card-item">
+        <article>
+          
+          <a class="card-link article-nav-link" href="/2019/08/30/2019-8-30--ththth-day/"></a>
+          <div class="article-nav-caption">Older</div>
+          <div class="article-nav-title">30日日报</div>
+        </article>
+      </div>
+    
+  </div>
+</nav>
+
+    </div>
+    
+    
+
+  
+  <div class="valine-container">
+    <div id="valine_thread" class="valine-thread"></div>
+  </div>
+
+  
+  
+
+
+  </article>
+</div></section>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    <p>&copy; 2019 <a href="/" target="_blank">John Doe</a></p>
+
+    
+      <p id="hitokoto"></p>
+      <script src="https://v1.hitokoto.cn/?c=a&amp;encode=js&select=%23hitokoto" defer></script>
+    
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank">flex-block</a></p>
+  </div>
+</footer>
+  </div>
+
+  
+  <!-- 尾部其他内容 -->
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<!-- dplayer 视频 start -->
+<link rel="stylesheet" href="/lib/DPlayer.min.css">
+<script src="/lib/DPlayer.min.js"></script>
+<script type="text/javascript">
+  const dplayer = document.querySelectorAll(".dplayer");
+  dplayer && initDPlayer(dplayer);
+  function initDPlayer(els) {
+    let elsArr = Array.from(els);
+    elsArr.forEach(el => {
+      let url = el.dataset.url;
+      let cover = el.dataset.cover;
+      new DPlayer({
+        container: el,
+        video: { url: url, pic: cover },
+        theme: "#b7daff",
+        autoplay: false,
+        loop: false,
+        mutex: true,
+      });
+    });
+  }
+</script>
+<!-- dplayer 视频 end -->
+
+
+<!-- waterfall 瀑布流 start -->
+<script src="/lib/waterfall.min.js"></script>
+<script type="text/javascript">
+
+const waterfallDOM = document.querySelector(".waterfall-container");
+
+if (waterfallDOM) {
+  initCss();
+  initWaterfall(".waterfall-container", waterfallDOM);
+}
+
+function initWaterfall(selector, el) {
+  const options = {};
+  if (Object.keys(el.dataset).length > 0) {
+    for (let k in el.dataset) {
+      options[k] = el.dataset[k];
+    }
+  }
+  waterfall(selector, options);
+}
+
+function initCss() {
+  let cssStyle = document.createElement("style")
+  cssStyle.innerText = `.waterfall-container p { display: block; border-radius: 4px; overflow: hidden; margin: 0; }`
+  document.head.appendChild(cssStyle);
+}
+</script>
+<!-- waterfall 瀑布流 end -->
+
+
+<!-- zoom 图片预览 start -->
+<script src="/lib/zoom.min.js"></script>
+<script>
+  document.querySelector(".zoom") && zoom(".zoom", {
+    margin: 15,
+    padding: 15,
+    radius: 5,
+    specify: "",
+    filter: "gallery",
+  });
+</script>
+<!-- zoom 图片预览 end -->
+
+
+<script src="/js/script.js"></script>
+{% if theme.fireworks %}
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+{% endif %}<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":140,"height":260},"mobile":{"show":true},"fireworks":true,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
