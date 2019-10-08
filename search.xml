@@ -454,31 +454,6 @@
     
     
     <entry>
-      <title>webstrom安装</title>
-      <link href="/2019/09/07/2019-9-7-wwebstorm/"/>
-      <url>/2019/09/07/2019-9-7-wwebstorm/</url>
-      
-        <content type="html"><![CDATA[<p>安装webstorm首先应该配置环境安装 java的开源代码库,再下载安装包进行</p><p>WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就不用本步骤了</p><p>安装 Oracle JDK 的命令如下:</p><p></p><h3 id="1-sudo-add-apt-repository-ppa-webupd8team-java"><a href="#1-sudo-add-apt-repository-ppa-webupd8team-java" class="headerlink" title="1. sudo add-apt-repository ppa:webupd8team/java"></a>1. sudo add-apt-repository ppa:webupd8team/java</h3><p>add-apt-repository ppa:<ppa_name>  下载java开源代码库。</ppa_name></p><h3 id="2-sudo-apt-get-update"><a href="#2-sudo-apt-get-update" class="headerlink" title="2.sudo apt-get update"></a>2.sudo apt-get update</h3><p>获取到最新的软件包(apt-get update)</p><h3 id="3-sudo-apt-get-install-oracle-java7-installer"><a href="#3-sudo-apt-get-install-oracle-java7-installer" class="headerlink" title="3.sudo apt-get install oracle-java7-installer"></a>3.sudo apt-get install oracle-java7-installer</h3><p>下载并安装java开源代码库</p><h3 id="4-sudo-apt-get-install-oracle-java7-set-defaul"><a href="#4-sudo-apt-get-install-oracle-java7-set-defaul" class="headerlink" title="4.sudo apt-get install oracle-java7-set-defaul"></a>4.sudo apt-get install oracle-java7-set-defaul</h3><p>运行命令查看是否安装成功:</p><blockquote><p>java -version</p></blockquote><p>显示java开源代码的版本,如果显示则说明java开源代码安装成功.</p><p><strong>[WebStorm]安装</strong></p><p>首先需要下载WebStrom的Linux安装包,地址如下:</p><p></p><blockquote><p>s<a href="https://www.jetbrains.com/webstorm/download/" target="_blank" rel="noopener">https://www.jetbrains.com/webstorm/download/</a></p></blockquote><p></p><p>然后运行如下命令解压并安装并运行WebStorm:</p><blockquote><p>sudo tar xfz ~/Downloads/WebStorm-16.2.3.tar.gz</p></blockquote><p>这一步是先进行解压缩</p><blockquote><p>sudo mv ~/Downloads/WebStorm-162.2228.20 /home/wang/下载/</p></blockquote><p>mv移动命令</p><p>然后再把解压文件移动到 home/wang/下载/ 下</p><blockquote><p>cd /home/wang/下载/WebStorm-162.2228.20/<br>   cd bin/</p></blockquote><p>进入bin目录</p><blockquote><p>sudo sh webstorm.sh</p></blockquote><p>sh命令是shell命令语言解释器，执行命令从标准输入读取或从一个文件中读取启动webstorm</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 9月 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 大杂烩 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>重装系统后重新与github建立连接</title>
       <link href="/2019/09/07/2019-9-7-dddd/"/>
       <url>/2019/09/07/2019-9-7-dddd/</url>
@@ -496,6 +471,31 @@
         <tags>
             
             <tag> 日报 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>webstrom安装</title>
+      <link href="/2019/09/07/2019-9-7-wwebstorm/"/>
+      <url>/2019/09/07/2019-9-7-wwebstorm/</url>
+      
+        <content type="html"><![CDATA[<p>安装webstorm首先应该配置环境安装 java的开源代码库,再下载安装包进行</p><p>WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就不用本步骤了</p><p>安装 Oracle JDK 的命令如下:</p><p></p><h3 id="1-sudo-add-apt-repository-ppa-webupd8team-java"><a href="#1-sudo-add-apt-repository-ppa-webupd8team-java" class="headerlink" title="1. sudo add-apt-repository ppa:webupd8team/java"></a>1. sudo add-apt-repository ppa:webupd8team/java</h3><p>add-apt-repository ppa:<ppa_name>  下载java开源代码库。</ppa_name></p><h3 id="2-sudo-apt-get-update"><a href="#2-sudo-apt-get-update" class="headerlink" title="2.sudo apt-get update"></a>2.sudo apt-get update</h3><p>获取到最新的软件包(apt-get update)</p><h3 id="3-sudo-apt-get-install-oracle-java7-installer"><a href="#3-sudo-apt-get-install-oracle-java7-installer" class="headerlink" title="3.sudo apt-get install oracle-java7-installer"></a>3.sudo apt-get install oracle-java7-installer</h3><p>下载并安装java开源代码库</p><h3 id="4-sudo-apt-get-install-oracle-java7-set-defaul"><a href="#4-sudo-apt-get-install-oracle-java7-set-defaul" class="headerlink" title="4.sudo apt-get install oracle-java7-set-defaul"></a>4.sudo apt-get install oracle-java7-set-defaul</h3><p>运行命令查看是否安装成功:</p><blockquote><p>java -version</p></blockquote><p>显示java开源代码的版本,如果显示则说明java开源代码安装成功.</p><p><strong>[WebStorm]安装</strong></p><p>首先需要下载WebStrom的Linux安装包,地址如下:</p><p></p><blockquote><p>s<a href="https://www.jetbrains.com/webstorm/download/" target="_blank" rel="noopener">https://www.jetbrains.com/webstorm/download/</a></p></blockquote><p></p><p>然后运行如下命令解压并安装并运行WebStorm:</p><blockquote><p>sudo tar xfz ~/Downloads/WebStorm-16.2.3.tar.gz</p></blockquote><p>这一步是先进行解压缩</p><blockquote><p>sudo mv ~/Downloads/WebStorm-162.2228.20 /home/wang/下载/</p></blockquote><p>mv移动命令</p><p>然后再把解压文件移动到 home/wang/下载/ 下</p><blockquote><p>cd /home/wang/下载/WebStorm-162.2228.20/<br>   cd bin/</p></blockquote><p>进入bin目录</p><blockquote><p>sudo sh webstorm.sh</p></blockquote><p>sh命令是shell命令语言解释器，执行命令从标准输入读取或从一个文件中读取启动webstorm</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 9月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大杂烩 </tag>
             
         </tags>
       
