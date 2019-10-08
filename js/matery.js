@@ -46,7 +46,7 @@ $(function () {
      * 修复样式.
      */
     let fixStyles = function () {
-        fixPostCardWidth('navContainer');
+        fixPostCardWidth('navContainer', 'articles');
         fixPostCardWidth('artDetail', 'prenext-posts');
         fixFooterPosition();
     };
@@ -138,10 +138,10 @@ $(function () {
             $backTop.slideDown(300);
         }
     });
-    	
-	$(".nav-menu>li").hover(function(){
-		$(this).children('ul').stop(true,true).show();
-		 $(this).addClass('nav-show').siblings('li').removeClass('nav-show');
+    /*支持二级菜单*/
+    $(".nav-menu>li").hover(function(){
+	$(this).children('ul').stop(true,true).show();
+	$(this).addClass('nav-show').siblings('li').removeClass('nav-show');
 		
 	},function(){
 		$(this).children('ul').stop(true,true).hide();
@@ -151,10 +151,10 @@ $(function () {
     $('.m-nav-item>a').on('click',function(){
             if ($(this).next('ul').css('display') == "none") {
                 $('.m-nav-item').children('ul').slideUp(300);
-                $(this).next('ul').slideDown(300);
+                $(this).next('ul').slideDown(100);
                 $(this).parent('li').addClass('m-nav-show').siblings('li').removeClass('m-nav-show');
             }else{
-                $(this).next('ul').slideUp(300);
+                $(this).next('ul').slideUp(100);
                 $('.m-nav-item.m-nav-show').removeClass('m-nav-show');
             }
     });
