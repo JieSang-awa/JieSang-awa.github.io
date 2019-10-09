@@ -489,25 +489,7 @@ git mv a b // 把a文件名字改成b 并且直接放入git add">
 <p>git log –grep // 想过滤看到的内容   过滤日志</p>
 <p>git log -n // 查看近期提交的n条信息内容</p>
 <p>git log -p // 查看详细提交记录</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -949,7 +931,7 @@ git a
                 var now = new Date();
 
                 function createtime() {
-                    var grt = new Date("06/28/2019 00:00:00");
+                    var grt = new Date("08/14/2019 00:00:00");
                     now.setTime(now.getTime() + 250);
                     days = (now - grt) / 1000 / 60 / 60 / 24;
                     dnum = Math.floor(days);

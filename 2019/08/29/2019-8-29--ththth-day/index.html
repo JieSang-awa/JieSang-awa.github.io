@@ -455,25 +455,7 @@
 <li><p>接收请求与响应请求：服务器很容易创建，客户端可以使用浏览器或终端发送HTTP请求，服务器接收请求后返回响应数据。</p>
 </li>
 </ol>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -677,24 +659,29 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/08/29/2019-8-29--ththtz-day/">
+                <a href="/2019/08/30/2019-8-30--ththth-day/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="轮播图">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="30日日报">
                         
-                        <span class="card-title">轮播图</span>
+                        <span class="card-title">30日日报</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            轮播图代码123456789101112131415161718192021222324252627282930313233 &lt;!DOCTYPE html&gt;  &lt;html lang="ch"&gt;  &lt;head&g
+                            今日日报
+今天学习了服务器和客户端之间的知识
+
+然后搞了点视频教学,视频教学在B站
+
+https://www.bilibili.com/video/av16660731?from=search&amp;seid=16870578180827
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-29
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-30
                         </span>
                         <span class="publish-author">
                             
@@ -711,8 +698,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/大杂烩/" target="_blank">
-                        <span class="chip bg-color">大杂烩</span>
+                    <a href="/tags/日报/" target="_blank">
+                        <span class="chip bg-color">日报</span>
                     </a>
                     
                 </div>
@@ -726,28 +713,19 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/29/2019-8-29--ththth-da/">
+                <a href="/2019/08/29/2019-8-29--ththtz-day/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="29日日报">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="轮播图">
                         
-                        <span class="card-title">29日日报</span>
+                        <span class="card-title">轮播图</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            日报
-今天学习了点nodejs 并且安装了nodejs 环境算是对nodejs有点基础
-
-今天学习了制作定时器,分为定时弹出和周期性弹出
-
-今日感觉良好,并且看了点有关服务器和客户端的知识
-
-
-
-        document.query
+                            轮播图代码123456789101112131415161718192021222324252627282930313233 &lt;!DOCTYPE html&gt;  &lt;html lang=&quot;ch&quot;&gt;  
                         
                     </div>
                     <div class="publish-info">
@@ -769,8 +747,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/日报/" target="_blank">
-                        <span class="chip bg-color">日报</span>
+                    <a href="/tags/大杂烩/" target="_blank">
+                        <span class="chip bg-color">大杂烩</span>
                     </a>
                     
                 </div>
@@ -910,7 +888,7 @@
                 var now = new Date();
 
                 function createtime() {
-                    var grt = new Date("06/28/2019 00:00:00");
+                    var grt = new Date("08/14/2019 00:00:00");
                     now.setTime(now.getTime() + 250);
                     days = (now - grt) / 1000 / 60 / 60 / 24;
                     dnum = Math.floor(days);

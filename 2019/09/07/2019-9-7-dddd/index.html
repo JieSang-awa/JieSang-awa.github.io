@@ -448,7 +448,7 @@
 
 <h3 id="生成SSH秘钥"><a href="#生成SSH秘钥" class="headerlink" title="生成SSH秘钥"></a>生成SSH秘钥</h3><p>第一步先生成ssh秘钥。在系统根目录下打开命令行终端，执行命令：ssh-keygen -t rsa -C "填写你的任意邮箱"，</p>
 
-<p>执行完成后，会生成一个.ssh文件夹，里面的id_rsa.pub文件内容就是秘钥，那么我们就进入ssh文件夹打开该文件后复制它的内容。或者命令行快速打开cd ./.ssh &amp;&amp; cat id_rsa.pub然后会有一大串字符打印在终端，这个是秘钥内容，全部复制下来。</p>
+<p>执行完成后，会生成一个.ssh文件夹，里面的id_rsa.pub文件内容就是秘钥，那么我们就进入ssh文件夹打开该文件后复制它的内容。或者命令行快速打开cd ./.ssh && cat id_rsa.pub然后会有一大串字符打印在终端，这个是秘钥内容，全部复制下来。</p>
 
 <h3 id="登录github新建SSH-Key"><a href="#登录github新建SSH-Key" class="headerlink" title="登录github新建SSH Key"></a>登录github新建SSH Key</h3><p>登录自己的github，在右上角头像框点击邮件选择Settings，然后在左边菜单选择SSH and GPG keys,在SSH keys一栏点击New SSH key的绿色按钮，title随便写，key那一个框框里把刚才复制的id_rsa.pub的内容粘贴到这里，确定复制的是完整的秘钥不要漏了。粘贴完后点下面Add的绿色按钮，这样就在github上生成了一个对应的SSH秘钥了。</p>
 
@@ -484,25 +484,7 @@
 <blockquote>
 <p>git branch –set-upstream-to=origin/master</p>
 </blockquote>
-<p>至此，本地仓库重新与github远程仓库建立了连接,再次执行git pull,出现up to date就没问题了</p><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+<p>至此，本地仓库重新与github远程仓库建立了连接,再次执行git pull,出现up to date就没问题了</p>
             </div>
             <hr/>
 
@@ -706,28 +688,28 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/08/2019-9-8-singleton/">
+                <a href="/2019/09/07/2019-9-7-wwebstorm/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="单例设计模式">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="webstrom安装">
                         
-                        <span class="card-title">单例设计模式</span>
+                        <span class="card-title">webstrom安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            什么是单例设计模式？
-单例模式，是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例的特殊类。通过单例模式可以保证系统中，应用该模式的类一个类只有一个实例。即一个类只有一个对象实例。
+                            安装webstorm首先应该配置环境安装 java的开源代码库,再下载安装包进行
 
-具体实现需要：
-1. 将构造方法私有化，使其
+WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就不用本步骤了
+安装 Oracle JDK 的命令如下:
+1. 
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-08
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-07
                         </span>
                         <span class="publish-author">
                             
@@ -759,28 +741,29 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/07/2019-9-7-wwebstorm/">
+                <a href="/2019/09/06/2019-9-6-ddddd/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="webstrom安装">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="6日日报">
                         
-                        <span class="card-title">webstrom安装</span>
+                        <span class="card-title">6日日报</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            安装webstorm首先应该配置环境安装 java的开源代码库,再下载安装包进行
+                            今日日报今天也考核了
+考核前,感觉良好,因为看了好几天,总归是有点记忆的
+但是,航哥开口一瞬间,我感觉到了自己的不足(诧异),好像没学过似的
+但是我是不会努力的,杰宝come on
+Keep on going never give up
 
-WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就不用本步骤了
-安装 Oracle JDK 的命令如下:
-1. 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-07
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-06
                             </span>
                         <span class="publish-author">
                             
@@ -797,8 +780,8 @@ WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/大杂烩/" target="_blank">
-                        <span class="chip bg-color">大杂烩</span>
+                    <a href="/tags/日报/" target="_blank">
+                        <span class="chip bg-color">日报</span>
                     </a>
                     
                 </div>
@@ -938,7 +921,7 @@ WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就�
                 var now = new Date();
 
                 function createtime() {
-                    var grt = new Date("06/28/2019 00:00:00");
+                    var grt = new Date("08/14/2019 00:00:00");
                     now.setTime(now.getTime() + 250);
                     days = (now - grt) / 1000 / 60 / 60 / 24;
                     dnum = Math.floor(days);

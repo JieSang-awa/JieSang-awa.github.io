@@ -458,25 +458,7 @@
 <p>   create  table  column_cons(<br>       id    number   primary key,<br>       name  varchar2(30),<br>       salary  number<br>   );<br>   insert into  column_cons values(1,’t1’,12312);<br>   ERROR at line 1:<br>   ORA-00001: unique constraint (SYSTEM.SYS_C007123) violated<br>   SYSTEM.SYS_C007123  这代表约束的名字  系统默认提供一个不重复的<br>   约束名  但不方便记忆 和 对数据的维护。</p>
 <p>   建立约束时 给约束起名字 </p>
 <p>   名字构成 是  表名_字段名_约束简称<br>   drop    table  column_cons;<br>   create  table  column_cons(<br>       id    number  constraint  column_cons_id_pk primary key,<br>       name  varchar2(30),<br>       salary  number<br>   );<br>   insert into  column_cons values(1,’t1’,12312);<br>   ERROR at line 1:<br>ORA-00001: unique constraint (SYSTEM.COLUMN_CONS_ID_PK) violated<br>```</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -911,7 +893,7 @@
                 var now = new Date();
 
                 function createtime() {
-                    var grt = new Date("06/28/2019 00:00:00");
+                    var grt = new Date("08/14/2019 00:00:00");
                     now.setTime(now.getTime() + 250);
                     days = (now - grt) / 1000 / 60 / 60 / 24;
                     dnum = Math.floor(days);

@@ -449,25 +449,7 @@
 <p>于是我想到了用hexo部署至git，还可以加一个可爱的看板娘</p>
 <p>说干就干，我尝试百度了好多，终于安装好了hexo及其需要的环境</p>
 <p>博客是搭好了，可是出了乱码，原因是我的.md文件编码不是utf-8，于是乎我 关闭虚拟机，在win10上进行操作,最终干掉了疑难</p>
-<p>OK!</p><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+<p>OK!</p>
             </div>
             <hr/>
 
@@ -904,7 +886,7 @@
                 var now = new Date();
 
                 function createtime() {
-                    var grt = new Date("06/28/2019 00:00:00");
+                    var grt = new Date("08/14/2019 00:00:00");
                     now.setTime(now.getTime() + 250);
                     days = (now - grt) / 1000 / 60 / 60 / 24;
                     dnum = Math.floor(days);

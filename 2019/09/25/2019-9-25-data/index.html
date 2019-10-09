@@ -448,7 +448,7 @@
                 <p>** 日期类型 **</p>
 <h5 id="1-日期类型的默认表现"><a href="#1-日期类型的默认表现" class="headerlink" title="1.日期类型的默认表现"></a>1.日期类型的默认表现</h5><pre><code>&gt; dd-MON-yy   
    select  id,start_date from  s_emp;</code></pre> <p>按照入职日期排序 显示  id  first_name start_date</p>
-    &gt; select  id,first_name,start_date from s_emp order by start_date;
+    > select  id,first_name,start_date from s_emp order by start_date;
 
 <h5 id="2-使用-to-char-来改变显示的格式"><a href="#2-使用-to-char-来改变显示的格式" class="headerlink" title="2.使用 to_char 来改变显示的格式"></a>2.使用 to_char 来改变显示的格式</h5><pre><code>&lt;p&gt;新的日期格式:&lt;/p&gt;</code></pre><p>    yyyy     四位年</p>
 <p>    mm       两位月</p>
@@ -471,31 +471,13 @@
 <h5 id="3-日期数据的插入"><a href="#3-日期数据的插入" class="headerlink" title="3. 日期数据的插入"></a>3. 日期数据的插入</h5><blockquote>
 <p>sysdate   可以代表 当前的时间点 </p>
 </blockquote>
-   <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">   过去和 未来的时间 如何处理? </span><br><span class="line">   2008-08-08 20:08:10 </span><br><span class="line">   2090-08-08 08:10:25</span><br><span class="line">   dd-MON-yy  只能放入 年月日 时分秒 默认是 零 </span><br><span class="line">   ``` </span><br><span class="line">   &gt; to_date(par1,par2)  par1 是要处理的日期字符串  par2 是日期格式字符串 </span><br><span class="line">      能把日期字符串 根据日期格式转换成 日期数据 </span><br><span class="line"> </span><br><span class="line">``` </span><br><span class="line">   insert  into  myemp values(5,'test','test','08-AUG-08');</span><br><span class="line">   commit;</span><br><span class="line">   select  id,to_char(sdate,'yyyy-mm-dd hh24:mi:ss') from myemp;</span><br><span class="line">   insert  into  myemp values(6,'test','test',</span><br><span class="line">      to_date('2008-08-08 20:08:10','yyyy-mm-dd hh24:mi:ss'));</span><br><span class="line">   commit;</span><br><span class="line">   insert  into  myemp values(7,'test','test',</span><br><span class="line">      to_date('2090-08-08 08:10:25','yyyy-mm-dd hh24:mi:ss'));</span><br><span class="line">   commit;</span><br><span class="line">```   </span><br><span class="line">##### 4. 日期调整 </span><br><span class="line">     &gt; 先调整  秒  分钟  小时  天   默认以天为单位</span><br></pre></td></tr></tbody></table></figure>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">   过去和 未来的时间 如何处理? </span><br><span class="line">   2008-08-08 20:08:10 </span><br><span class="line">   2090-08-08 08:10:25</span><br><span class="line">   dd-MON-yy  只能放入 年月日 时分秒 默认是 零 </span><br><span class="line">   ``` </span><br><span class="line">   &gt; to_date(par1,par2)  par1 是要处理的日期字符串  par2 是日期格式字符串 </span><br><span class="line">      能把日期字符串 根据日期格式转换成 日期数据 </span><br><span class="line"> </span><br><span class="line">``` </span><br><span class="line">   insert  into  myemp values(5,&apos;test&apos;,&apos;test&apos;,&apos;08-AUG-08&apos;);</span><br><span class="line">   commit;</span><br><span class="line">   select  id,to_char(sdate,&apos;yyyy-mm-dd hh24:mi:ss&apos;) from myemp;</span><br><span class="line">   insert  into  myemp values(6,&apos;test&apos;,&apos;test&apos;,</span><br><span class="line">      to_date(&apos;2008-08-08 20:08:10&apos;,&apos;yyyy-mm-dd hh24:mi:ss&apos;));</span><br><span class="line">   commit;</span><br><span class="line">   insert  into  myemp values(7,&apos;test&apos;,&apos;test&apos;,</span><br><span class="line">      to_date(&apos;2090-08-08 08:10:25&apos;,&apos;yyyy-mm-dd hh24:mi:ss&apos;));</span><br><span class="line">   commit;</span><br><span class="line">```   </span><br><span class="line">##### 4. 日期调整 </span><br><span class="line">     &gt; 先调整  秒  分钟  小时  天   默认以天为单位</span><br></pre></td></tr></table></figure>
 
 <p>   select  to_char(sysdate,’yyyy-mm-dd hh24:mi:ss’),<br>    to_char(sysdate+1,’yyyy-mm-dd hh24:mi:ss’) from dual;<br>   select  to_char(sysdate,’yyyy-mm-dd hh24:mi:ss’),<br>    to_char(sysdate-2,’yyyy-mm-dd hh24:mi:ss’) from dual;<br>   select  to_char(sysdate,’yyyy-mm-dd hh24:mi:ss’),<br>    to_char(sysdate+10/(24*60),’yyyy-mm-dd hh24:mi:ss’) from dual;</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; add_months(par1,par2)  par1 要处理的日期   par2 几个月 正数负数都可以</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; add_months(par1,par2)  par1 要处理的日期   par2 几个月 正数负数都可以</span><br></pre></td></tr></table></figure>
 
 <p>   select  to_char(sysdate,’yyyy-mm-dd hh24:mi:ss’),<br>    to_char(add_months(sysdate,2),’yyyy-mm-dd hh24:mi:ss’) from dual;    </p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; trunc(par1,par2) par1 是要处理的日期   par2处理的精度  默认是天 </span><br><span class="line"></span><br><span class="line">```   </span><br><span class="line">select  to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),</span><br><span class="line"> to_char(trunc(sysdate),'yyyy-mm-dd hh24:mi:ss') from dual;     </span><br><span class="line">select  to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),</span><br><span class="line"> to_char(trunc(sysdate,'mm'),'yyyy-mm-dd hh24:mi:ss') from dual; </span><br><span class="line">select  to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),</span><br><span class="line"> to_char(trunc(add_months(sysdate,-1),'mm'),'yyyy-mm-dd hh24:mi:ss')</span><br><span class="line"> from dual;</span><br></pre></td></tr></tbody></table></figure><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; trunc(par1,par2) par1 是要处理的日期   par2处理的精度  默认是天 </span><br><span class="line"></span><br><span class="line">```   </span><br><span class="line">select  to_char(sysdate,&apos;yyyy-mm-dd hh24:mi:ss&apos;),</span><br><span class="line"> to_char(trunc(sysdate),&apos;yyyy-mm-dd hh24:mi:ss&apos;) from dual;     </span><br><span class="line">select  to_char(sysdate,&apos;yyyy-mm-dd hh24:mi:ss&apos;),</span><br><span class="line"> to_char(trunc(sysdate,&apos;mm&apos;),&apos;yyyy-mm-dd hh24:mi:ss&apos;) from dual; </span><br><span class="line">select  to_char(sysdate,&apos;yyyy-mm-dd hh24:mi:ss&apos;),</span><br><span class="line"> to_char(trunc(add_months(sysdate,-1),&apos;mm&apos;),&apos;yyyy-mm-dd hh24:mi:ss&apos;)</span><br><span class="line"> from dual;</span><br></pre></td></tr></table></figure>
             </div>
             <hr/>
 
@@ -933,7 +915,7 @@
                 var now = new Date();
 
                 function createtime() {
-                    var grt = new Date("06/28/2019 00:00:00");
+                    var grt = new Date("08/14/2019 00:00:00");
                     now.setTime(now.getTime() + 250);
                     days = (now - grt) / 1000 / 60 / 60 / 24;
                     dnum = Math.floor(days);

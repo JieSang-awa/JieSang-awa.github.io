@@ -456,7 +456,7 @@
 
 <p><em>实现一：立即加载 / “饿汉模式”</em></p>
 <p>立即加载就是使用类的时候已经将对象创建完毕（不管以后会不会使用到该实例化对象，先创建了再说。很着急的样子，故又被称为“饿汉模式”），常见的实现办法就是直接new实例化。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class Singleton {</span><br><span class="line"></span><br><span class="line">    // 将自身实例化对象设置为一个属性，并用static、final修饰</span><br><span class="line">    private static final Singleton instance = new Singleton();</span><br><span class="line">    </span><br><span class="line">    // 构造方法私有化</span><br><span class="line">    private Singleton() {}</span><br><span class="line">    </span><br><span class="line">    // 静态方法返回该实例</span><br><span class="line">    public static Singleton getInstance() {</span><br><span class="line">        return instance;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line"></span><br><span class="line">    // 将自身实例化对象设置为一个属性，并用static、final修饰</span><br><span class="line">    private static final Singleton instance = new Singleton();</span><br><span class="line">    </span><br><span class="line">    // 构造方法私有化</span><br><span class="line">    private Singleton() &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    // 静态方法返回该实例</span><br><span class="line">    public static Singleton getInstance() &#123;</span><br><span class="line">        return instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>“饿汉模式”的优缺点：</p>
 
@@ -466,7 +466,7 @@
 
 <p><em>实现二：延迟加载 / “懒汉模式”</em></p>
 <p>延迟加载就是调用get()方法时实例才被创建（先不急着实例化出对象，等要用的时候才给你创建出来。不着急，故又称为“懒汉模式”），常见的实现方法就是在get方法中进行new实例化</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Singleton {</span><br><span class="line"></span><br><span class="line">    // 将自身实例化对象设置为一个属性，并用static修饰</span><br><span class="line">    private static Singleton instance;</span><br><span class="line">    </span><br><span class="line">    // 构造方法私有化</span><br><span class="line">    private Singleton() {}</span><br><span class="line">    </span><br><span class="line">    // 静态方法返回该实例</span><br><span class="line">    public static Singleton getInstance() {</span><br><span class="line">        if(instance == null) {</span><br><span class="line">            instance = new Singleton();</span><br><span class="line">        }</span><br><span class="line">        return instance;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line"></span><br><span class="line">    // 将自身实例化对象设置为一个属性，并用static修饰</span><br><span class="line">    private static Singleton instance;</span><br><span class="line">    </span><br><span class="line">    // 构造方法私有化</span><br><span class="line">    private Singleton() &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    // 静态方法返回该实例</span><br><span class="line">    public static Singleton getInstance() &#123;</span><br><span class="line">        if(instance == null) &#123;</span><br><span class="line">            instance = new Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        return instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>“懒汉模式”的优缺点：</p>
 
@@ -475,34 +475,16 @@
 <p>缺点：在多线程环境中，这种实现方法是完全错误的，根本不能保证单例的状态。</p>
 
 <p><em>实现三：线程安全的“懒汉模式”</em></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Singleton {</span><br><span class="line"></span><br><span class="line">    // 将自身实例化对象设置为一个属性，并用static修饰</span><br><span class="line">    private static Singleton instance;</span><br><span class="line">    </span><br><span class="line">    // 构造方法私有化</span><br><span class="line">    private Singleton() {}</span><br><span class="line">    </span><br><span class="line">    // 静态方法返回该实例，加synchronized关键字实现同步</span><br><span class="line">    public static synchronized Singleton getInstance() {</span><br><span class="line">        if(instance == null) {</span><br><span class="line">            instance = new Singleton();</span><br><span class="line">        }</span><br><span class="line">        return instance;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line"></span><br><span class="line">    // 将自身实例化对象设置为一个属性，并用static修饰</span><br><span class="line">    private static Singleton instance;</span><br><span class="line">    </span><br><span class="line">    // 构造方法私有化</span><br><span class="line">    private Singleton() &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    // 静态方法返回该实例，加synchronized关键字实现同步</span><br><span class="line">    public static synchronized Singleton getInstance() &#123;</span><br><span class="line">        if(instance == null) &#123;</span><br><span class="line">            instance = new Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        return instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>优点：在多线程情形下，保证了“懒汉模式”的线程安全。</p>
 
 <p>缺点：众所周知在多线程情形下，synchronized方法通常效率低，显然这不是最佳的实现方案。</p>
 *实现四：DCL双检查锁机制（DCL：double checked locking）*
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class Singleton {</span><br><span class="line"></span><br><span class="line">    // 将自身实例化对象设置为一个属性，并用static修饰</span><br><span class="line">    private static Singleton instance;</span><br><span class="line">    </span><br><span class="line">    // 构造方法私有化</span><br><span class="line">    private Singleton() {}</span><br><span class="line">    </span><br><span class="line">    // 静态方法返回该实例</span><br><span class="line">    public static Singleton getInstance() {</span><br><span class="line">        // 第一次检查instance是否被实例化出来，如果没有进入if块</span><br><span class="line">        if(instance == null) {</span><br><span class="line">            synchronized (Singleton.class) {</span><br><span class="line">                // 某个线程取得了类锁，实例化对象前第二次检查instance是否已经被实例化出来，如果没有，才最终实例出对象</span><br><span class="line">                if (instance == null) {</span><br><span class="line">                    instance = new Singleton();</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        return instance;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line"></span><br><span class="line">    // 将自身实例化对象设置为一个属性，并用static修饰</span><br><span class="line">    private static Singleton instance;</span><br><span class="line">    </span><br><span class="line">    // 构造方法私有化</span><br><span class="line">    private Singleton() &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    // 静态方法返回该实例</span><br><span class="line">    public static Singleton getInstance() &#123;</span><br><span class="line">        // 第一次检查instance是否被实例化出来，如果没有进入if块</span><br><span class="line">        if(instance == null) &#123;</span><br><span class="line">            synchronized (Singleton.class) &#123;</span><br><span class="line">                // 某个线程取得了类锁，实例化对象前第二次检查instance是否已经被实例化出来，如果没有，才最终实例出对象</span><br><span class="line">                if (instance == null) &#123;</span><br><span class="line">                    instance = new Singleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>方法四算是单例模式的最佳实现方式。内存占用率高，效率高，线程安全，多线程操作原子性。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -722,7 +704,6 @@
 学的马马虎虎，但是能默写出来(时间够的话)
 哦，对了，今天还学会了div转圈圈 和 js设置选项卡
 emmm... 过了 ，毫无瑕疵
-        document.querySele
                         
                     </div>
                     <div class="publish-info">
@@ -759,20 +740,23 @@ emmm... 过了 ，毫无瑕疵
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/07/2019-9-7-dddd/">
+                <a href="/2019/09/07/2019-9-7-wwebstorm/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="重装系统后重新与github建立连接">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="webstrom安装">
                         
-                        <span class="card-title">重装系统后重新与github建立连接</span>
+                        <span class="card-title">webstrom安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            解决办法是，再次生成一个密钥，然后完成跟github远程仓库的认证即可建立连接。
-默认你已经安装好了git，如果没有安装，windows下安装gitbash自带git，linux系统的话sudo apt-get  install -g gi
+                            安装webstorm首先应该配置环境安装 java的开源代码库,再下载安装包进行
+
+WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就不用本步骤了
+安装 Oracle JDK 的命令如下:
+1. 
                         
                     </div>
                     <div class="publish-info">
@@ -794,8 +778,8 @@ emmm... 过了 ，毫无瑕疵
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/日报/" target="_blank">
-                        <span class="chip bg-color">日报</span>
+                    <a href="/tags/大杂烩/" target="_blank">
+                        <span class="chip bg-color">大杂烩</span>
                     </a>
                     
                 </div>
@@ -935,7 +919,7 @@ emmm... 过了 ，毫无瑕疵
                 var now = new Date();
 
                 function createtime() {
-                    var grt = new Date("06/28/2019 00:00:00");
+                    var grt = new Date("08/14/2019 00:00:00");
                     now.setTime(now.getTime() + 250);
                     days = (now - grt) / 1000 / 60 / 60 / 24;
                     dnum = Math.floor(days);

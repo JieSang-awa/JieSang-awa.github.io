@@ -455,25 +455,7 @@
 <h4 id="WebSocket与HTTP、TCP的关系"><a href="#WebSocket与HTTP、TCP的关系" class="headerlink" title="WebSocket与HTTP、TCP的关系"></a>WebSocket与HTTP、TCP的关系</h4><p>WebSocket和HTTP都属于应用层协议，且都是基于TCP的，它们的send函数最终也是通过TCP系统接口来做数据传输。那么WebSocket和HTTP的关系呢？WebSocket在建立握手连接时，数据是通过HTTP协议传输的，但是在连接建立后，真正的数据传输阶段则不需要HTTP协议的参与</p>
 <h4 id="什么情况下使用WebSocket？"><a href="#什么情况下使用WebSocket？" class="headerlink" title="什么情况下使用WebSocket？"></a>什么情况下使用WebSocket？</h4><p>如果游戏需要同时支持手机端、Web端，那毫无疑问应该使用WebSocket，现在各个平台都提供了相应的WebSocket实现。如果游戏不需要支持Web端，且对实时性要求比较高，如多人射击、MMORPG之类，那么使用TCP/UDP结合的原生Socket会比较好。</p>
 <h4 id="SocketIO"><a href="#SocketIO" class="headerlink" title="SocketIO"></a>SocketIO</h4><p>WebSocket是HTML5最新提出的规范，虽然主流浏览器都已经支持，但仍然可能有不兼容的情况，为了兼容所有浏览器，给程序员提供一致的编程体验，SocketIO将WebSocket、AJAX和其它的通信方式全部封装成了统一的通信接口，也就是说，我们在使用SocketIO时，不用担心兼容问题，底层会自动选用最佳的通信方式。因此说，WebSocket是SocketIO的一个子集。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -690,7 +672,6 @@
                     <div class="summary block-with-text">
                         
                             今日日报今天背了用socketio做成的聊天室 虽然比较简陋,但是是可以作为自己玩乐的小游戏的emmm…今天还和兄弟们一起装修了工作区,我们都很高兴,新办公桌办公椅真是舒服所以呀,要更加努力了come on!
-        documen
                         
                     </div>
                     <div class="publish-info">
@@ -907,7 +888,7 @@ https://www.bilibili.com/video/av16660731?from=search&amp;seid=16870578180827
                 var now = new Date();
 
                 function createtime() {
-                    var grt = new Date("06/28/2019 00:00:00");
+                    var grt = new Date("08/14/2019 00:00:00");
                     now.setTime(now.getTime() + 250);
                     days = (now - grt) / 1000 / 60 / 60 / 24;
                     dnum = Math.floor(days);

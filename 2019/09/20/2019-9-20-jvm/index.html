@@ -457,25 +457,7 @@ Java虚拟机有自己完善的硬件架构，如处理器、堆栈等">
    虚拟机的垃圾回收机制是完善的，动态内存分配和回收是比较成熟的，一般的对于内存回收首先就是判断某一个部分是生存还是死亡，主要是通过下面二种算法：
                                   <br>其一是引用计数算法:该算法实现简单，判定的效率也比较高，但是它难以处理对象之间相互调用的问题
    <br>其二是称可达性分析算法，该算法核心思想是依靠判断对象是否存活来实现的，本算法是通过一系列的GC ROOTS的对象作为起始点，采用搜索的算法遍历引用链，如果搜索过程中没有发现该节点，则认为该节点是不可达的，即可回收的
-   </p><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+   </p>
             </div>
             <hr/>
 
@@ -907,7 +889,7 @@ Java虚拟机有自己完善的硬件架构，如处理器、堆栈等">
                 var now = new Date();
 
                 function createtime() {
-                    var grt = new Date("06/28/2019 00:00:00");
+                    var grt = new Date("08/14/2019 00:00:00");
                     now.setTime(now.getTime() + 250);
                     days = (now - grt) / 1000 / 60 / 60 / 24;
                     dnum = Math.floor(days);
