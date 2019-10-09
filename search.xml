@@ -454,31 +454,6 @@
     
     
     <entry>
-      <title>webstrom安装</title>
-      <link href="/2019/09/07/2019-9-7-wwebstorm/"/>
-      <url>/2019/09/07/2019-9-7-wwebstorm/</url>
-      
-        <content type="html"><![CDATA[<p>安装webstorm首先应该配置环境安装 java的开源代码库,再下载安装包进行</p><p>WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就不用本步骤了</p><p>安装 Oracle JDK 的命令如下:</p><p></p><h3 id="1-sudo-add-apt-repository-ppa-webupd8team-java"><a href="#1-sudo-add-apt-repository-ppa-webupd8team-java" class="headerlink" title="1. sudo add-apt-repository ppa:webupd8team/java"></a>1. sudo add-apt-repository ppa:webupd8team/java</h3><p>add-apt-repository ppa:<ppa_name>  下载java开源代码库。</ppa_name></p><h3 id="2-sudo-apt-get-update"><a href="#2-sudo-apt-get-update" class="headerlink" title="2.sudo apt-get update"></a>2.sudo apt-get update</h3><p>获取到最新的软件包(apt-get update)</p><h3 id="3-sudo-apt-get-install-oracle-java7-installer"><a href="#3-sudo-apt-get-install-oracle-java7-installer" class="headerlink" title="3.sudo apt-get install oracle-java7-installer"></a>3.sudo apt-get install oracle-java7-installer</h3><p>下载并安装java开源代码库</p><h3 id="4-sudo-apt-get-install-oracle-java7-set-defaul"><a href="#4-sudo-apt-get-install-oracle-java7-set-defaul" class="headerlink" title="4.sudo apt-get install oracle-java7-set-defaul"></a>4.sudo apt-get install oracle-java7-set-defaul</h3><p>运行命令查看是否安装成功:</p><blockquote><p>java -version</p></blockquote><p>显示java开源代码的版本,如果显示则说明java开源代码安装成功.</p><p><strong>[WebStorm]安装</strong></p><p>首先需要下载WebStrom的Linux安装包,地址如下:</p><p><blockquote><p>s<a href="https://www.jetbrains.com/webstorm/download/" target="_blank" rel="noopener">https://www.jetbrains.com/webstorm/download/</a></p></blockquote></p><p>然后运行如下命令解压并安装并运行WebStorm:</p><blockquote><p>sudo tar xfz ~/Downloads/WebStorm-16.2.3.tar.gz</p></blockquote><p>这一步是先进行解压缩</p><blockquote><p>sudo mv ~/Downloads/WebStorm-162.2228.20 /home/wang/下载/</p></blockquote><p>mv移动命令</p><p>然后再把解压文件移动到 home/wang/下载/ 下</p><blockquote><p>cd /home/wang/下载/WebStorm-162.2228.20/<br>   cd bin/</p></blockquote><p>进入bin目录</p><blockquote><p>sudo sh webstorm.sh</p></blockquote><p>sh命令是shell命令语言解释器，执行命令从标准输入读取或从一个文件中读取启动webstorm</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 9月 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 大杂烩 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>重装系统后重新与github建立连接</title>
       <link href="/2019/09/07/2019-9-7-dddd/"/>
       <url>/2019/09/07/2019-9-7-dddd/</url>
@@ -496,6 +471,31 @@
         <tags>
             
             <tag> 日报 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>webstrom安装</title>
+      <link href="/2019/09/07/2019-9-7-wwebstorm/"/>
+      <url>/2019/09/07/2019-9-7-wwebstorm/</url>
+      
+        <content type="html"><![CDATA[<p>安装webstorm首先应该配置环境安装 java的开源代码库,再下载安装包进行</p><p>WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就不用本步骤了</p><p>安装 Oracle JDK 的命令如下:</p><p></p><h3 id="1-sudo-add-apt-repository-ppa-webupd8team-java"><a href="#1-sudo-add-apt-repository-ppa-webupd8team-java" class="headerlink" title="1. sudo add-apt-repository ppa:webupd8team/java"></a>1. sudo add-apt-repository ppa:webupd8team/java</h3><p>add-apt-repository ppa:<ppa_name>  下载java开源代码库。</ppa_name></p><h3 id="2-sudo-apt-get-update"><a href="#2-sudo-apt-get-update" class="headerlink" title="2.sudo apt-get update"></a>2.sudo apt-get update</h3><p>获取到最新的软件包(apt-get update)</p><h3 id="3-sudo-apt-get-install-oracle-java7-installer"><a href="#3-sudo-apt-get-install-oracle-java7-installer" class="headerlink" title="3.sudo apt-get install oracle-java7-installer"></a>3.sudo apt-get install oracle-java7-installer</h3><p>下载并安装java开源代码库</p><h3 id="4-sudo-apt-get-install-oracle-java7-set-defaul"><a href="#4-sudo-apt-get-install-oracle-java7-set-defaul" class="headerlink" title="4.sudo apt-get install oracle-java7-set-defaul"></a>4.sudo apt-get install oracle-java7-set-defaul</h3><p>运行命令查看是否安装成功:</p><blockquote><p>java -version</p></blockquote><p>显示java开源代码的版本,如果显示则说明java开源代码安装成功.</p><p><strong>[WebStorm]安装</strong></p><p>首先需要下载WebStrom的Linux安装包,地址如下:</p><p><blockquote><p>s<a href="https://www.jetbrains.com/webstorm/download/" target="_blank" rel="noopener">https://www.jetbrains.com/webstorm/download/</a></p></blockquote></p><p>然后运行如下命令解压并安装并运行WebStorm:</p><blockquote><p>sudo tar xfz ~/Downloads/WebStorm-16.2.3.tar.gz</p></blockquote><p>这一步是先进行解压缩</p><blockquote><p>sudo mv ~/Downloads/WebStorm-162.2228.20 /home/wang/下载/</p></blockquote><p>mv移动命令</p><p>然后再把解压文件移动到 home/wang/下载/ 下</p><blockquote><p>cd /home/wang/下载/WebStorm-162.2228.20/<br>   cd bin/</p></blockquote><p>进入bin目录</p><blockquote><p>sudo sh webstorm.sh</p></blockquote><p>sh命令是shell命令语言解释器，执行命令从标准输入读取或从一个文件中读取启动webstorm</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 9月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大杂烩 </tag>
             
         </tags>
       
@@ -1004,11 +1004,11 @@
     
     
     <entry>
-      <title>ubantu安装QQ</title>
-      <link href="/2019/08/20/2019-8-20-sixth-technology/"/>
-      <url>/2019/08/20/2019-8-20-sixth-technology/</url>
+      <title>git4中协议</title>
+      <link href="/2019/08/20/2019-8-20-sixth-day/"/>
+      <url>/2019/08/20/2019-8-20-sixth-day/</url>
       
-        <content type="html"><![CDATA[<p><strong>安装 wine</strong></p><p>git clone <a href="https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git" target="_blank" rel="noopener">https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git</a><br><br>cd deepin-wine-for-ubuntu<br><br>sudo sh install.sh<br><br><strong>安装QQ</strong></p><p>wget <a href="http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_8.9.19983deepin23_i386.deb" target="_blank" rel="noopener">http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_8.9.19983deepin23_i386.deb</a><br><br>sudo dpkg -i deepin.com.qq.im_8.9.19983deepin23_i386.deb<br><br>sudo apt-get install -f<br></p><p>卸载QQ请自行百度</p>]]></content>
+        <content type="html"><![CDATA[<p>Git 可以使用四种主要的协议来传输数据：本地传输，SSH 协议，Git 协议和 HTTP 协议。<br></p><p>最基本的就是<em>本地协议（Local protocol）</em>，所谓的远程仓库在该协议中的表示，就是硬盘上的另一个目录<br></p><p>SSH 也是唯一一个同时支持读写操作的网络协议。另外两个网络协议（HTTP 和Git）通常都是只读的<br></p><p>ssh-keygen -t rsa -C<br></p><p>Git 协议是一个包含在 Git 软件包中的特殊守护进程<br></p><p>HTTP 或 HTTPS 协议的优美之处在于架设的简便性。基本上，只需要把 Git 的裸仓库文件放在 HTTP 的根目录下，配置一个特定的 post-update挂钩（hook）就可以搞定</p>]]></content>
       
       
       <categories>
@@ -1029,11 +1029,11 @@
     
     
     <entry>
-      <title>git4中协议</title>
-      <link href="/2019/08/20/2019-8-20-sixth-day/"/>
-      <url>/2019/08/20/2019-8-20-sixth-day/</url>
+      <title>ubantu安装QQ</title>
+      <link href="/2019/08/20/2019-8-20-sixth-technology/"/>
+      <url>/2019/08/20/2019-8-20-sixth-technology/</url>
       
-        <content type="html"><![CDATA[<p>Git 可以使用四种主要的协议来传输数据：本地传输，SSH 协议，Git 协议和 HTTP 协议。<br></p><p>最基本的就是<em>本地协议（Local protocol）</em>，所谓的远程仓库在该协议中的表示，就是硬盘上的另一个目录<br></p><p>SSH 也是唯一一个同时支持读写操作的网络协议。另外两个网络协议（HTTP 和Git）通常都是只读的<br></p><p>ssh-keygen -t rsa -C<br></p><p>Git 协议是一个包含在 Git 软件包中的特殊守护进程<br></p><p>HTTP 或 HTTPS 协议的优美之处在于架设的简便性。基本上，只需要把 Git 的裸仓库文件放在 HTTP 的根目录下，配置一个特定的 post-update挂钩（hook）就可以搞定</p>]]></content>
+        <content type="html"><![CDATA[<p><strong>安装 wine</strong></p><p>git clone <a href="https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git" target="_blank" rel="noopener">https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git</a><br><br>cd deepin-wine-for-ubuntu<br><br>sudo sh install.sh<br><br><strong>安装QQ</strong></p><p>wget <a href="http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_8.9.19983deepin23_i386.deb" target="_blank" rel="noopener">http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_8.9.19983deepin23_i386.deb</a><br><br>sudo dpkg -i deepin.com.qq.im_8.9.19983deepin23_i386.deb<br><br>sudo apt-get install -f<br></p><p>卸载QQ请自行百度</p>]]></content>
       
       
       <categories>
