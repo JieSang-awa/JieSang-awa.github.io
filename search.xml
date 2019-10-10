@@ -329,31 +329,6 @@
     
     
     <entry>
-      <title>vue.js安装</title>
-      <link href="/2019/09/16/2019-9-16-dsaf-day/"/>
-      <url>/2019/09/16/2019-9-16-dsaf-day/</url>
-      
-        <content type="html"><![CDATA[<h3 id="1-独立版本"><a href="#1-独立版本" class="headerlink" title="1. 独立版本"></a>1. 独立版本<br></h3><p>我们可以在 Vue.js 的官网上直接下载 vue.min.js 并用 <code>&lt;script&gt;</code> 标签引入</p><h3 id="2-使用-CDN-方法"><a href="#2-使用-CDN-方法" class="headerlink" title="2. 使用 CDN 方法"></a>2. 使用 CDN 方法<br></h3><p>以下推荐国外比较稳定的两个 CDN，国内还没发现哪一家比较好，目前还是建议下载到本地。</p><blockquote><p>Staticfile CDN（国内） : <a href="https://cdn.staticfile.org/vue/2.2.2/vue.min.js" target="_blank" rel="noopener">https://cdn.staticfile.org/vue/2.2.2/vue.min.js</a></p></blockquote><blockquote><p>unpkg：<a href="https://unpkg.com/vue/dist/vue.js" target="_blank" rel="noopener">https://unpkg.com/vue/dist/vue.js</a>, 会保持和 npm 发布的最新的版本一致。</p></blockquote><blockquote><p>cdnjs : <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js" target="_blank" rel="noopener">https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js</a></p></blockquote><h3 id="3-NPM-方法"><a href="#3-NPM-方法" class="headerlink" title="3. NPM 方法"></a>3. NPM 方法</h3><p>npm 版本需要大于 3.0，如果低于此版本需要升级它</p><h4 id="升级npm"><a href="#升级npm" class="headerlink" title="升级npm"></a>升级npm</h4><blockquote><p>npm install npm -g</p></blockquote><h4 id="全局安装-vue-cli"><a href="#全局安装-vue-cli" class="headerlink" title="全局安装 vue-cli"></a>全局安装 vue-cli</h4><blockquote><p>$ cnpm install –global vue-cli</p></blockquote><h4 id="创建一个基于-webpack-模板的新项目"><a href="#创建一个基于-webpack-模板的新项目" class="headerlink" title="创建一个基于 webpack 模板的新项目"></a>创建一个基于 webpack 模板的新项目</h4><blockquote><p>$ vue init webpack my-project</p></blockquote><h4 id="这里需要进行一些配置，默认回车即可"><a href="#这里需要进行一些配置，默认回车即可" class="headerlink" title="这里需要进行一些配置，默认回车即可"></a>这里需要进行一些配置，默认回车即可</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">This will install Vue 2.x version of the template.</span><br><span class="line"></span><br><span class="line">For Vue 1.x use: vue init webpack#1.0 my-project</span><br><span class="line"></span><br><span class="line">? Project name my-project</span><br><span class="line">? Project description A Vue.js project</span><br><span class="line">? Author runoob &lt;test@runoob.com&gt;</span><br><span class="line">? Vue build standalone</span><br><span class="line">? Use ESLint to lint your code? Yes</span><br><span class="line">? Pick an ESLint preset Standard</span><br><span class="line">? Setup unit tests with Karma + Mocha? Yes</span><br><span class="line">? Setup e2e tests with Nightwatch? Yes</span><br></pre></td></tr></table></figure><h4 id="进入项目，安装并运行："><a href="#进入项目，安装并运行：" class="headerlink" title="进入项目，安装并运行："></a>进入项目，安装并运行：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd my-project </span><br><span class="line">$ cnpm install</span><br><span class="line">$ cnpm run dev</span><br><span class="line">DONE  Compiled successfully in 4388ms</span><br><span class="line">Listening at http://localhost:8080</span><br></pre></td></tr></table></figure><p>成功执行以上命令后访问 <a href="http://localhost:8080/，可得输出结果" target="_blank" rel="noopener">http://localhost:8080/，可得输出结果</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 9月 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 大杂烩 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>vue语法格式</title>
       <link href="/2019/09/16/2019-9-16-ribao/"/>
       <url>/2019/09/16/2019-9-16-ribao/</url>
@@ -371,6 +346,31 @@
         <tags>
             
             <tag> 日报 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue.js安装</title>
+      <link href="/2019/09/16/2019-9-16-dsaf-day/"/>
+      <url>/2019/09/16/2019-9-16-dsaf-day/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-独立版本"><a href="#1-独立版本" class="headerlink" title="1. 独立版本"></a>1. 独立版本<br></h3><p>我们可以在 Vue.js 的官网上直接下载 vue.min.js 并用 <code>&lt;script&gt;</code> 标签引入</p><h3 id="2-使用-CDN-方法"><a href="#2-使用-CDN-方法" class="headerlink" title="2. 使用 CDN 方法"></a>2. 使用 CDN 方法<br></h3><p>以下推荐国外比较稳定的两个 CDN，国内还没发现哪一家比较好，目前还是建议下载到本地。</p><blockquote><p>Staticfile CDN（国内） : <a href="https://cdn.staticfile.org/vue/2.2.2/vue.min.js" target="_blank" rel="noopener">https://cdn.staticfile.org/vue/2.2.2/vue.min.js</a></p></blockquote><blockquote><p>unpkg：<a href="https://unpkg.com/vue/dist/vue.js" target="_blank" rel="noopener">https://unpkg.com/vue/dist/vue.js</a>, 会保持和 npm 发布的最新的版本一致。</p></blockquote><blockquote><p>cdnjs : <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js" target="_blank" rel="noopener">https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js</a></p></blockquote><h3 id="3-NPM-方法"><a href="#3-NPM-方法" class="headerlink" title="3. NPM 方法"></a>3. NPM 方法</h3><p>npm 版本需要大于 3.0，如果低于此版本需要升级它</p><h4 id="升级npm"><a href="#升级npm" class="headerlink" title="升级npm"></a>升级npm</h4><blockquote><p>npm install npm -g</p></blockquote><h4 id="全局安装-vue-cli"><a href="#全局安装-vue-cli" class="headerlink" title="全局安装 vue-cli"></a>全局安装 vue-cli</h4><blockquote><p>$ cnpm install –global vue-cli</p></blockquote><h4 id="创建一个基于-webpack-模板的新项目"><a href="#创建一个基于-webpack-模板的新项目" class="headerlink" title="创建一个基于 webpack 模板的新项目"></a>创建一个基于 webpack 模板的新项目</h4><blockquote><p>$ vue init webpack my-project</p></blockquote><h4 id="这里需要进行一些配置，默认回车即可"><a href="#这里需要进行一些配置，默认回车即可" class="headerlink" title="这里需要进行一些配置，默认回车即可"></a>这里需要进行一些配置，默认回车即可</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">This will install Vue 2.x version of the template.</span><br><span class="line"></span><br><span class="line">For Vue 1.x use: vue init webpack#1.0 my-project</span><br><span class="line"></span><br><span class="line">? Project name my-project</span><br><span class="line">? Project description A Vue.js project</span><br><span class="line">? Author runoob &lt;test@runoob.com&gt;</span><br><span class="line">? Vue build standalone</span><br><span class="line">? Use ESLint to lint your code? Yes</span><br><span class="line">? Pick an ESLint preset Standard</span><br><span class="line">? Setup unit tests with Karma + Mocha? Yes</span><br><span class="line">? Setup e2e tests with Nightwatch? Yes</span><br></pre></td></tr></table></figure><h4 id="进入项目，安装并运行："><a href="#进入项目，安装并运行：" class="headerlink" title="进入项目，安装并运行："></a>进入项目，安装并运行：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd my-project </span><br><span class="line">$ cnpm install</span><br><span class="line">$ cnpm run dev</span><br><span class="line">DONE  Compiled successfully in 4388ms</span><br><span class="line">Listening at http://localhost:8080</span><br></pre></td></tr></table></figure><p>成功执行以上命令后访问 <a href="http://localhost:8080/，可得输出结果" target="_blank" rel="noopener">http://localhost:8080/，可得输出结果</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 9月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大杂烩 </tag>
             
         </tags>
       
@@ -504,31 +504,6 @@
     
     
     <entry>
-      <title>webstrom安装</title>
-      <link href="/2019/09/07/2019-9-7-wwebstorm/"/>
-      <url>/2019/09/07/2019-9-7-wwebstorm/</url>
-      
-        <content type="html"><![CDATA[<p>安装webstorm首先应该配置环境安装 java的开源代码库,再下载安装包进行</p><p>WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就不用本步骤了</p><p>安装 Oracle JDK 的命令如下:</p><p></p><h3 id="1-sudo-add-apt-repository-ppa-webupd8team-java"><a href="#1-sudo-add-apt-repository-ppa-webupd8team-java" class="headerlink" title="1. sudo add-apt-repository ppa:webupd8team/java"></a>1. sudo add-apt-repository ppa:webupd8team/java</h3><p>add-apt-repository ppa:<ppa_name>  下载java开源代码库。</ppa_name></p><h3 id="2-sudo-apt-get-update"><a href="#2-sudo-apt-get-update" class="headerlink" title="2.sudo apt-get update"></a>2.sudo apt-get update</h3><p>获取到最新的软件包(apt-get update)</p><h3 id="3-sudo-apt-get-install-oracle-java7-installer"><a href="#3-sudo-apt-get-install-oracle-java7-installer" class="headerlink" title="3.sudo apt-get install oracle-java7-installer"></a>3.sudo apt-get install oracle-java7-installer</h3><p>下载并安装java开源代码库</p><h3 id="4-sudo-apt-get-install-oracle-java7-set-defaul"><a href="#4-sudo-apt-get-install-oracle-java7-set-defaul" class="headerlink" title="4.sudo apt-get install oracle-java7-set-defaul"></a>4.sudo apt-get install oracle-java7-set-defaul</h3><p>运行命令查看是否安装成功:</p><blockquote><p>java -version</p></blockquote><p>显示java开源代码的版本,如果显示则说明java开源代码安装成功.</p><p><strong>[WebStorm]安装</strong></p><p>首先需要下载WebStrom的Linux安装包,地址如下:</p><p><blockquote><p>s<a href="https://www.jetbrains.com/webstorm/download/" target="_blank" rel="noopener">https://www.jetbrains.com/webstorm/download/</a></p></blockquote></p><p>然后运行如下命令解压并安装并运行WebStorm:</p><blockquote><p>sudo tar xfz ~/Downloads/WebStorm-16.2.3.tar.gz</p></blockquote><p>这一步是先进行解压缩</p><blockquote><p>sudo mv ~/Downloads/WebStorm-162.2228.20 /home/wang/下载/</p></blockquote><p>mv移动命令</p><p>然后再把解压文件移动到 home/wang/下载/ 下</p><blockquote><p>cd /home/wang/下载/WebStorm-162.2228.20/<br>   cd bin/</p></blockquote><p>进入bin目录</p><blockquote><p>sudo sh webstorm.sh</p></blockquote><p>sh命令是shell命令语言解释器，执行命令从标准输入读取或从一个文件中读取启动webstorm</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 9月 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 大杂烩 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>重装系统后重新与github建立连接</title>
       <link href="/2019/09/07/2019-9-7-dddd/"/>
       <url>/2019/09/07/2019-9-7-dddd/</url>
@@ -546,6 +521,31 @@
         <tags>
             
             <tag> 日报 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>webstrom安装</title>
+      <link href="/2019/09/07/2019-9-7-wwebstorm/"/>
+      <url>/2019/09/07/2019-9-7-wwebstorm/</url>
+      
+        <content type="html"><![CDATA[<p>安装webstorm首先应该配置环境安装 java的开源代码库,再下载安装包进行</p><p>WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就不用本步骤了</p><p>安装 Oracle JDK 的命令如下:</p><p></p><h3 id="1-sudo-add-apt-repository-ppa-webupd8team-java"><a href="#1-sudo-add-apt-repository-ppa-webupd8team-java" class="headerlink" title="1. sudo add-apt-repository ppa:webupd8team/java"></a>1. sudo add-apt-repository ppa:webupd8team/java</h3><p>add-apt-repository ppa:<ppa_name>  下载java开源代码库。</ppa_name></p><h3 id="2-sudo-apt-get-update"><a href="#2-sudo-apt-get-update" class="headerlink" title="2.sudo apt-get update"></a>2.sudo apt-get update</h3><p>获取到最新的软件包(apt-get update)</p><h3 id="3-sudo-apt-get-install-oracle-java7-installer"><a href="#3-sudo-apt-get-install-oracle-java7-installer" class="headerlink" title="3.sudo apt-get install oracle-java7-installer"></a>3.sudo apt-get install oracle-java7-installer</h3><p>下载并安装java开源代码库</p><h3 id="4-sudo-apt-get-install-oracle-java7-set-defaul"><a href="#4-sudo-apt-get-install-oracle-java7-set-defaul" class="headerlink" title="4.sudo apt-get install oracle-java7-set-defaul"></a>4.sudo apt-get install oracle-java7-set-defaul</h3><p>运行命令查看是否安装成功:</p><blockquote><p>java -version</p></blockquote><p>显示java开源代码的版本,如果显示则说明java开源代码安装成功.</p><p><strong>[WebStorm]安装</strong></p><p>首先需要下载WebStrom的Linux安装包,地址如下:</p><p><blockquote><p>s<a href="https://www.jetbrains.com/webstorm/download/" target="_blank" rel="noopener">https://www.jetbrains.com/webstorm/download/</a></p></blockquote></p><p>然后运行如下命令解压并安装并运行WebStorm:</p><blockquote><p>sudo tar xfz ~/Downloads/WebStorm-16.2.3.tar.gz</p></blockquote><p>这一步是先进行解压缩</p><blockquote><p>sudo mv ~/Downloads/WebStorm-162.2228.20 /home/wang/下载/</p></blockquote><p>mv移动命令</p><p>然后再把解压文件移动到 home/wang/下载/ 下</p><blockquote><p>cd /home/wang/下载/WebStorm-162.2228.20/<br>   cd bin/</p></blockquote><p>进入bin目录</p><blockquote><p>sudo sh webstorm.sh</p></blockquote><p>sh命令是shell命令语言解释器，执行命令从标准输入读取或从一个文件中读取启动webstorm</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 9月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大杂烩 </tag>
             
         </tags>
       
