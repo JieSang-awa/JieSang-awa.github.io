@@ -4,13 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="6日日报, JieSangQAQ-兄弟会">
-    <meta name="description" content="今日日报今天也考核了
-考核前,感觉良好,因为看了好几天,总归是有点记忆的
-但是,航哥开口一瞬间,我感觉到了自己的不足(诧异),好像没学过似的
-但是我是不会努力的,杰宝come on
-Keep on going never give up
-">
+    <meta name="keywords" content="8日日报, JieSangQAQ-兄弟会">
+    <meta name="description" content="Redis 目的：利用Redis做数据缓存,缓存查询出来的对象数据。
+ NoSQL：Not Only SQL，非关系数据库。
+ 关系型数据库指的是表结构存储，典型Oracle、MySQL、DB2。
+
+key-value存储 : 典型Redi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@ Keep on going never give up
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>6日日报 | JieSangQAQ-兄弟会</title>
+    <title>8日日报 | JieSangQAQ-兄弟会</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -290,13 +289,13 @@ Keep on going never give up
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        6日日报
+                        8日日报
                     </div>
                 </div>
             </div>
@@ -419,8 +418,8 @@ Keep on going never give up
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/9月/" class="post-category" target="_blank">
-                                9月
+                            <a href="/categories/10月/" class="post-category" target="_blank">
+                                10月
                             </a>
                         
                     </div>
@@ -431,7 +430,7 @@ Keep on going never give up
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-06
+                    2019-10-08
                 </div>
 
                 
@@ -447,12 +446,204 @@ Keep on going never give up
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="今日日报"><a href="#今日日报" class="headerlink" title="今日日报"></a>今日日报</h3><p>今天也考核了</p>
-<p>考核前,感觉良好,因为看了好几天,总归是有点记忆的</p>
-<p>但是,航哥开口一瞬间,我感觉到了自己的不足(诧异),好像没学过似的</p>
-<p>但是我是不会努力的,杰宝come on</p>
-<p>Keep on going never give up</p>
+                <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p> 目的：利用Redis做数据缓存,缓存查询出来的对象数据。</p>
+<p> NoSQL：Not Only SQL，非关系数据库。</p>
+<p> 关系型数据库指的是表结构存储，典型Oracle、MySQL、DB2。</p>
+<ul>
+<li>key-value存储 : 典型Redis</li>
+<li>列存储 ： HBase</li>
+<li>文档存储 : MongoDB</li>
+<li>图形存户：Neo4j</li>
+</ul>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>Redis是基于内存的数据库，常用于缓存</li>
+<li>Redis是采用C语言编写</li>
+<li>Redis是采用Key-value结构存储</li>
+<li>Redis中value值支持存储类型为字符串、哈希、列表、集合、可排序集合</li>
+<li>Redis支持高速读写操作，效率高</li>
+<li>Redis支持持久化、按一定策略将内存数据异步保存到磁盘</li>
+<li>Redis支持事务控制、消息传递等功能</li>
+</ul>
+<h2 id="各种类型数据存储命令"><a href="#各种类型数据存储命令" class="headerlink" title="各种类型数据存储命令"></a>各种类型数据存储命令</h2><ol>
+<li><p>字符串操作（string）</p>
+<p> <img src="https://i.imgur.com/9sJtYCB.png" alt></p>
+<ul>
+<li>set key value  //存一组key value</li>
+<li>mset key value key value //存多组key value</li>
+<li>get key //获取value</li>
+<li>strlen key //获取value字符长度</li>
+<li>incr key //将value加1</li>
+<li>incrby key number //将value加number</li>
+<li>decr key //将value减1</li>
+<li>decrby key number //将value减number</li>
+<li>append key value1 //将value拼接value1</li>
+</ul>
+</li>
+<li><p>key操作</p>
+<ul>
+<li>keys *  //查看有哪些key</li>
+<li>del key //删除key</li>
+<li>expire key n  //设置key有效期为n秒</li>
+<li>rename key newkey //修改key名字</li>
+<li>type key //返回value值得类型</li>
+<li>exists key //判断key是否存在</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li><p>哈希操作 (hashmap)</p>
+<p> <img src="https://i.imgur.com/3ROwSOy.png" alt></p>
+<ul>
+<li>hset key 字段名 字段值  //设置一个字段名和字段值</li>
+<li>hmset key 字段名1 字段值1 字段名2 字段值2 //设置多个</li>
+<li>hget key 字段名 //获取一个字段值</li>
+<li>hmget key 字段名1 字段名2 //获取多个字段值</li>
+<li>hlen key  //获取字段数量</li>
+<li>hkeys key //获取字段名</li>
+<li>hdel key 字段名 //删除某个字段</li>
+</ul>
+</li>
+</ol>
+<ol start="4">
+<li><p>列表操作 (list)</p>
+<p> <img src="https://i.imgur.com/ZGLumMQ.png" alt></p>
+<ul>
+<li>lpush key value //在列表头部插入一个元素</li>
+<li>rpush key value //在列表尾部插入一个元素</li>
+<li>lrange key 0 -1 //获取列表所有元素</li>
+<li>llen key //获取列表元素数量</li>
+<li>lrem key count value //删除列表指定数量的元素</li>
+<li>lset key index value //更新某个索引位置的元素</li>
+<li>lindex key index //获取指定索引位置的元素</li>
+<li>lpop key //删除列表头部第一个元素</li>
+<li>rpop key //删除列表尾部最后一个元素</li>
+<li>linsert key BEFROE|AFTER value newvalue //在列表value元素前或后插入newvalue值</li>
+</ul>
+</li>
+<li><p>集合操作 (set)</p>
+<p> A = {1,3,5}</p>
+<p> B = {3,5,7,9}</p>
+<p> A交B = {3,5}</p>
+<p> A并B = {1,3,5,7,9}</p>
+<p> A差B = {1}</p>
+<p> B差A = {7,9}</p>
+<ul>
+<li>sadd key value value //向集合存数据</li>
+<li>smembers key //获取集合所有元素</li>
+<li>scard key //获取集合元素数量</li>
+<li>srem key value //删除value元素</li>
+<li>spop key //随机删除一个元素</li>
+<li>srandmember key n //随机返回n个元素</li>
+<li>sdiff key1 key2 //key1和key2集合的差集</li>
+<li>sinter key1 key2 //key1和key2集合交集</li>
+<li>sunion key1 key2 //key1和key2集合并集</li>
+<li>sdiffstore key key1 key2 //key1和key2集合的差集,结果存放到key集合中   </li>
+</ul>
+</li>
+</ol>
+<ol start="6">
+<li><p>有序集合操作</p>
+<p> 排序规则：给每个元素配一个double分值，按分值排序，默认由小到大排序。</p>
+<ul>
+<li>zadd key score value score value //添加元素</li>
+<li>zcard key //获取元素数量</li>
+<li>zrange key 0 n //获取指定索引范围的元素,0 -1表示所有元素(由小到大排序)。</li>
+<li>zrevrange key 0 n//根据score由大到小排序,获取指定索引的元素</li>
+<li>zrem key value //删除某个元素</li>
+<li>zscore key value //返回元素的分值</li>
+<li>zrank key value //获取元素索引位置(由小到大排序)</li>
+<li>zrevrank key value //获取元素索引位置（由大到小排序）</li>
+<li>zcount key min max //统计分值在min和max之间的元素数量</li>
+</ul>
+</li>
+</ol>
+<ol start="7">
+<li>其他</li>
+</ol>
+<h2 id="Java如何操作Redis存取数据"><a href="#Java如何操作Redis存取数据" class="headerlink" title="Java如何操作Redis存取数据"></a>Java如何操作Redis存取数据</h2><p>连接Redis</p>
+<pre><code>@Test//测试连接
+public void test1(){
+    Jedis jedis = new Jedis(&quot;localhost&quot;);
+    System.out.println(jedis.ping());
+}</code></pre><p>字符串写操作</p>
+<pre><code>public void test2_1(){
+    long i = 10000L;
+    Jedis jedis = new Jedis(&quot;localhost&quot;);
+    jedis.set(&quot;i&quot;, i+&quot;&quot;);
+    jedis.set(&quot;msg1&quot;, &quot;Hello Redis&quot;);
+    jedis.set(&quot;msg2&quot;.getBytes(), &quot;你好 Redis&quot;.getBytes());
+    jedis.close();
+}</code></pre><p>字符串读操作</p>
+<pre><code>public void test2_2(){
+    Jedis jedis = new Jedis(&quot;localhost&quot;);
+    String str = jedis.get(&quot;msg1&quot;);
+    byte[] bts = jedis.get(&quot;msg2&quot;.getBytes());
+    long i = Long.parseLong(jedis.get(&quot;i&quot;));
+    String str2 = new String(bts);
+    System.out.println(str);
+    System.out.println(str2);
+    jedis.close();
+}</code></pre><p><strong>其他类型存取操作请参考课上示例代码</strong></p>
+<h2 id="Java如何利用Redis做缓存"><a href="#Java如何利用Redis做缓存" class="headerlink" title="Java如何利用Redis做缓存"></a>Java如何利用Redis做缓存</h2><ol>
+<li><p>对象存取方案</p>
+<ul>
+<li>将Java对象转成json字符串然后写入redis，取值时将json串转成Java对象</li>
+</ul>
+</li>
+</ol>
+<pre><code>        @Test//写对象
+        public void test1(){
+            User user = new User();
+            user.setId(10);
+            user.setName(&quot;scott&quot;);
+            user.setPassword(&quot;123&quot;);
+            //写对象
+            Jedis jedis = new Jedis(&quot;localhost&quot;);
+            Gson gson = new Gson();
+            String s = gson.toJson(user);
+            jedis.set(&quot;user_&quot;+user.getId(), s);
+            jedis.close();
+        }
 
+        @Test//读对象
+        public void test2(){
+            int id = 10;
+            Jedis jedis = new Jedis(&quot;localhost&quot;);
+            String s = jedis.get(&quot;user_&quot;+id);
+            Gson gson = new Gson();
+            User user = gson.fromJson(s, User.class);
+            System.out.println(user.getId()+&quot; &quot;+user.getName());
+            jedis.close();
+        }
+
+
+- 将Java对象序列化成字节数组然后写入redis，取值时反序列化成Java对象
+
+        @Test//写对象
+        public void test3(){
+            User user = new User();
+            user.setId(10);
+            user.setName(&quot;scott&quot;);
+            user.setPassword(&quot;123&quot;);
+            //写对象
+            Jedis jedis = new Jedis(&quot;localhost&quot;);
+            //序列化
+            byte[] value = SerializableUtil.serialize(user);
+            jedis.set(&quot;user_10&quot;.getBytes(), value);
+            jedis.close();
+        }
+
+        @Test//读对象
+        public void test4(){
+            int id = 10;
+            String key = &quot;user_&quot;+id;
+            Jedis jedis = new Jedis(&quot;localhost&quot;);
+            byte[] value = jedis.get(key.getBytes());
+            //反序列化
+            User user = (User)SerializableUtil.unserialize(value);
+            System.out.println(user.getId()+&quot; &quot;+user.getName()+&quot; &quot;+user.getPassword());
+            jedis.close();
+        }</code></pre>
             </div>
             <hr/>
 
@@ -610,9 +801,9 @@ Keep on going never give up
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《6日日报》
+                    《8日日报》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/06/2019-9-6-ddddd/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/08/2019-10-8-ribao/" property="cc:attributionName"
                rel="cc:attributionURL">
                 JieSangQAQ
             </a> 采用
@@ -656,35 +847,37 @@ Keep on going never give up
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/07/2019-9-7-wwebstorm/">
+                <a href="/2019/10/09/2019-10-9-ribao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="webstrom安装">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="9日日报">
                         
-                        <span class="card-title">webstrom安装</span>
+                        <span class="card-title">9日日报</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            安装webstorm首先应该配置环境安装 java的开源代码库,再下载安装包进行
+                            MongoDB操作命令Mongo简介属于非关系型数据库，是分布式文档数据库。特点：扩展灵活、结构灵活、使用方便、支持查询、索引。不足：缺乏事务控制，无法保障数据完整性。
+oracle存储结构
 
-WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就不用本步骤了
-安装 Oracle JDK 的命令如下:
-1. 
+mongodb存储结构
+
+Mongo命令
+库命
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-07
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-09
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/9月/" class="post-category" target="_blank">
-                                    9月
+                            <a href="/categories/10月/" class="post-category" target="_blank">
+                                    10月
                                 </a>
                             
                             
@@ -694,8 +887,8 @@ WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/大杂烩/" target="_blank">
-                        <span class="chip bg-color">大杂烩</span>
+                    <a href="/tags/日报/" target="_blank">
+                        <span class="chip bg-color">日报</span>
                     </a>
                     
                 </div>
@@ -709,24 +902,27 @@ WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就�
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/05/2019-9-5-ddddd/">
+                <a href="/2019/09/28/2019-9-28-ribao-md/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="放大镜实现">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="28日日报">
                         
-                        <span class="card-title">放大镜实现</span>
+                        <span class="card-title">28日日报</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            放大镜的实现123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616
+                            今天搞了一天的博客和git，我的电脑出了问题，怎么也连不上git
+于是我想到了用hexo部署至git，还可以加一个可爱的看板娘
+说干就干，我尝试百度了好多，终于安装好了hexo及其需要的环境
+博客是搭好了，可是出了乱码，原因是我的.md文件
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-05
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-28
                             </span>
                         <span class="publish-author">
                             
@@ -743,8 +939,8 @@ WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/大杂烩/" target="_blank">
-                        <span class="chip bg-color">大杂烩</span>
+                    <a href="/tags/日报/" target="_blank">
+                        <span class="chip bg-color">日报</span>
                     </a>
                     
                 </div>

@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>9日日报</title>
+      <link href="/2019/10/09/2019-10-9-ribao/"/>
+      <url>/2019/10/09/2019-10-9-ribao/</url>
+      
+        <content type="html"><![CDATA[<h1 id="MongoDB操作命令"><a href="#MongoDB操作命令" class="headerlink" title="MongoDB操作命令"></a>MongoDB操作命令</h1><h2 id="Mongo简介"><a href="#Mongo简介" class="headerlink" title="Mongo简介"></a>Mongo简介</h2><p>属于非关系型数据库，是分布式文档数据库。<br>特点：扩展灵活、结构灵活、使用方便、支持查询、索引。<br>不足：缺乏事务控制，无法保障数据完整性。</p><p>oracle存储结构</p><p><img src="https://i.imgur.com/iGIiT2H.png" alt></p><p>mongodb存储结构</p><p><img src="https://i.imgur.com/03lOJQN.png" alt></p><h2 id="Mongo命令"><a href="#Mongo命令" class="headerlink" title="Mongo命令"></a>Mongo命令</h2><ol><li><p>库命令</p><ul><li><p>查看</p><pre><code>show dbs</code></pre></li><li><p>使用</p><pre><code>use 库名称</code></pre></li><li><p>创建</p><pre><code>use 库名称  //库存在就是使用；不存在就创建再使用</code></pre></li><li><p>删除</p><pre><code>db.dropDatabase() //删除当前use的库</code></pre></li></ul></li><li><p>集合</p><ul><li><p>查看</p><pre><code>show collections</code></pre></li><li><p>创建</p><pre><code>当使用&quot;db.集合名.insert()&quot;插入数据时，集合不存在时会自动创建</code></pre></li><li><p>删除</p><pre><code>db.集合名.drop()</code></pre></li></ul></li><li><p>数据操作</p><ul><li><p>插入</p><p>  插入单条记录</p><pre><code>db.dept.insert({&quot;no&quot;:1,&quot;dname&quot;:&quot;beijing&quot;})</code></pre><p>  插入多条记录</p><pre><code>var objs = [{&quot;no&quot;:3,&quot;dname&quot;:&quot;chengdu&quot;},{&quot;no&quot;:4,&quot;dname&quot;:&quot;shenyang&quot;}];db.dept.insert(objs)</code></pre><p>  或</p><pre><code>for(var i=1;i&lt;10;i++){ db.dept.insert({&quot;no&quot;:10+i,&quot;dname&quot;:&quot;bj&quot;+i});}</code></pre></li><li><p>删除</p><p>  删除单条记录</p><pre><code>db.dept.remove({&quot;no&quot;:1})</code></pre><p>  删除所有记录</p><pre><code>db.dept.remove({})</code></pre></li><li><p>修改</p><p>  全部更新覆盖</p><pre><code>db.dept.update({&quot;no&quot;:1},{&quot;dname&quot;:&quot;shanghai&quot;})</code></pre><p>  部分更新</p><pre><code>db.dept.update(条件json对象,{$set:要更新的json对象})//示例db.dept.update({&quot;no&quot;:1},{$set:{&quot;dname&quot;:&quot;chengdu&quot;}})</code></pre></li><li><p>查询</p><p>  $gt、$lt、$gte、$lte、$ne等</p><p>  查询所有记录</p><pre><code>db.dept.find()</code></pre><p>  查询某条记录，no=1的记录</p><pre><code>db.dept.find({&quot;no&quot;:1})</code></pre><p>  查询条件记录，no&gt;1的记录</p><pre><code>db.dept.find({&quot;no&quot;:{$gt:1}})db.dept.find({&quot;no&quot;:{$gte:1}})</code></pre><p>  排序</p><pre><code>db.dept.find().sort({&quot;no&quot;:1})</code></pre><p>  1表示升序、-1表示降序</p><p>  分页</p><pre><code>//跳过begin条，然后抓取记录db.dept.find().skip(begin).limit(记录数)</code></pre></li><li><p>统计</p><p>  统计所有记录数量</p><pre><code>db.dept.count()</code></pre><p>  统计满足条件记录数</p><pre><code>db.dept.count({&quot;no&quot;:11})db.dept.count({&quot;no&quot;:{$gt:10}})</code></pre></li></ul></li></ol><h1 id="Java访问MongoDB"><a href="#Java访问MongoDB" class="headerlink" title="Java访问MongoDB"></a>Java访问MongoDB</h1><pre><code>驱动包：mongo-java-driver-2.13.2.jar</code></pre><ol><li><p>原生方式</p><ul><li><p>引入mongo-java-driver-2.13.2.jar驱动包</p></li><li><p>建立连接</p><pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);//操作mongo.close();关闭连接</code></pre></li><li><p>获取库和集合信息</p><pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);List&lt;String&gt; dbs = mongo.getDatabaseNames();//show dbs 查看所有库名DB db = mongo.getDB(&quot;java11&quot;);//use java11 获取库对象//db.getCollectionNames();//show collections 查看集合名</code></pre></li><li><p>插入记录</p><pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);DB db = mongo.getDB(&quot;java11&quot;);DBCollection dept = db.getCollection(&quot;dept&quot;);DBObject arr = new BasicDBObject();arr.put(&quot;no&quot;, 10);arr.put(&quot;dname&quot;, &quot;beijing1&quot;);dept.insert(arr);//db.dept.insert({&quot;no&quot;:10,&quot;dname&quot;:&quot;beijing1&quot;})mongo.close();</code></pre></li><li><p>更新记录</p><pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);DB db = mongo.getDB(&quot;java11&quot;);DBCollection dept = db.getCollection(&quot;dept&quot;);DBObject q = new BasicDBObject();q.put(&quot;no&quot;, 10);DBObject o = new BasicDBObject();DBObject n = new BasicDBObject();n.put(&quot;dname&quot;, &quot;北京&quot;);o.put(&quot;$set&quot;, n);//db.dept.update({&quot;no&quot;:10},{$set:{&quot;dname&quot;:&quot;北京&quot;}})dept.update(q, o);mongo.close();</code></pre></li><li><p>查询记录</p><pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);DB db = mongo.getDB(&quot;java11&quot;);//use java11 获取库对象DBCollection dept = db.getCollection(&quot;dept&quot;);//获取dept集合对象DBCursor cursor = dept.find();//db.dept.find() 查询所有记录while(cursor.hasNext()){    DBObject obj = cursor.next();    Object no = obj.get(&quot;no&quot;);    Object dname = obj.get(&quot;dname&quot;);    System.out.println(&quot;no=&quot;+no+&quot; dname=&quot;+dname);}mongo.close();</code></pre></li></ul></li><li><p>spring-data-mongodb方式（Spring框架）</p><p> 利用MongoTemplate对象进行MongoDB操作。</p></li></ol><pre><code>- 导入下列jar包，注意版本匹配，容易产生冲突。    - mongo-java-driver-2.13.2.jar    - spring-data-mongodb-1.4.2.RELEASE.jar    - spring-data-commons-1.7.2.RELEASE.jar    - slf4j-api-1.5.8.jar    - slf4j-log4j12-1.5.8.jar    - log4j-1.2.12.jar- 追加Spring配置，创建MongoTemplate对象        &lt;!-- 追加mongo命名空间，定义Factory --&gt;        &lt;mongo:db-factory id=&quot;mongoFactory&quot;             host=&quot;localhost&quot; port=&quot;27017&quot; dbname=&quot;java11&quot;/&gt;        &lt;!-- 创建MongoTemplate --&gt;        &lt;bean id=&quot;mongoTemplate&quot;             class=&quot;org.springframework.data.mongodb.core.MongoTemplate&quot;&gt;            &lt;constructor-arg index=&quot;0&quot; ref=&quot;mongoFactory&quot;&gt;            &lt;/constructor-arg&gt;        &lt;/bean&gt;- 测试Template应用        @RunWith(SpringJUnit4ClassRunner.class)        @ContextConfiguration(locations={&quot;classpath:spring-mongo.xml&quot;})        public class TestMongoTemplate {            @Resource            private MongoTemplate mongoTemplate;            @Test//测试添加            public void test1(){                System.out.println(mongoTemplate);                User user = new User();                user.setId(20);                user.setName(&quot;tiger&quot;);                user.setPassword(&quot;123456&quot;);                mongoTemplate.save(user);//默认集合名user            }            @Test//测试查询所有记录            public void test2(){                List&lt;User&gt; list = mongoTemplate.findAll(User.class);//默认查user集合                for(User user:list){                    System.out.println(user.getId()+&quot; &quot;+user.getName()+&quot; &quot;+user.getPassword());                }            }            @Test//测试按条件查询记录            public void test3(){                Query query = new Query(Criteria.where(&quot;id&quot;).is(10));                User user = mongoTemplate.findOne(                    query,User.class);                System.out.println(user.getId()+&quot; &quot;+user.getName()+&quot; &quot;+user.getPassword());            }        }</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 10月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日报 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>8日日报</title>
+      <link href="/2019/10/08/2019-10-8-ribao/"/>
+      <url>/2019/10/08/2019-10-8-ribao/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p> 目的：利用Redis做数据缓存,缓存查询出来的对象数据。</p><p> NoSQL：Not Only SQL，非关系数据库。</p><p> 关系型数据库指的是表结构存储，典型Oracle、MySQL、DB2。</p><ul><li>key-value存储 : 典型Redis</li><li>列存储 ： HBase</li><li>文档存储 : MongoDB</li><li>图形存户：Neo4j</li></ul><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul><li>Redis是基于内存的数据库，常用于缓存</li><li>Redis是采用C语言编写</li><li>Redis是采用Key-value结构存储</li><li>Redis中value值支持存储类型为字符串、哈希、列表、集合、可排序集合</li><li>Redis支持高速读写操作，效率高</li><li>Redis支持持久化、按一定策略将内存数据异步保存到磁盘</li><li>Redis支持事务控制、消息传递等功能</li></ul><h2 id="各种类型数据存储命令"><a href="#各种类型数据存储命令" class="headerlink" title="各种类型数据存储命令"></a>各种类型数据存储命令</h2><ol><li><p>字符串操作（string）</p><p> <img src="https://i.imgur.com/9sJtYCB.png" alt></p><ul><li>set key value  //存一组key value</li><li>mset key value key value //存多组key value</li><li>get key //获取value</li><li>strlen key //获取value字符长度</li><li>incr key //将value加1</li><li>incrby key number //将value加number</li><li>decr key //将value减1</li><li>decrby key number //将value减number</li><li>append key value1 //将value拼接value1</li></ul></li><li><p>key操作</p><ul><li>keys *  //查看有哪些key</li><li>del key //删除key</li><li>expire key n  //设置key有效期为n秒</li><li>rename key newkey //修改key名字</li><li>type key //返回value值得类型</li><li>exists key //判断key是否存在</li></ul></li></ol><ol start="3"><li><p>哈希操作 (hashmap)</p><p> <img src="https://i.imgur.com/3ROwSOy.png" alt></p><ul><li>hset key 字段名 字段值  //设置一个字段名和字段值</li><li>hmset key 字段名1 字段值1 字段名2 字段值2 //设置多个</li><li>hget key 字段名 //获取一个字段值</li><li>hmget key 字段名1 字段名2 //获取多个字段值</li><li>hlen key  //获取字段数量</li><li>hkeys key //获取字段名</li><li>hdel key 字段名 //删除某个字段</li></ul></li></ol><ol start="4"><li><p>列表操作 (list)</p><p> <img src="https://i.imgur.com/ZGLumMQ.png" alt></p><ul><li>lpush key value //在列表头部插入一个元素</li><li>rpush key value //在列表尾部插入一个元素</li><li>lrange key 0 -1 //获取列表所有元素</li><li>llen key //获取列表元素数量</li><li>lrem key count value //删除列表指定数量的元素</li><li>lset key index value //更新某个索引位置的元素</li><li>lindex key index //获取指定索引位置的元素</li><li>lpop key //删除列表头部第一个元素</li><li>rpop key //删除列表尾部最后一个元素</li><li>linsert key BEFROE|AFTER value newvalue //在列表value元素前或后插入newvalue值</li></ul></li><li><p>集合操作 (set)</p><p> A = {1,3,5}</p><p> B = {3,5,7,9}</p><p> A交B = {3,5}</p><p> A并B = {1,3,5,7,9}</p><p> A差B = {1}</p><p> B差A = {7,9}</p><ul><li>sadd key value value //向集合存数据</li><li>smembers key //获取集合所有元素</li><li>scard key //获取集合元素数量</li><li>srem key value //删除value元素</li><li>spop key //随机删除一个元素</li><li>srandmember key n //随机返回n个元素</li><li>sdiff key1 key2 //key1和key2集合的差集</li><li>sinter key1 key2 //key1和key2集合交集</li><li>sunion key1 key2 //key1和key2集合并集</li><li>sdiffstore key key1 key2 //key1和key2集合的差集,结果存放到key集合中   </li></ul></li></ol><ol start="6"><li><p>有序集合操作</p><p> 排序规则：给每个元素配一个double分值，按分值排序，默认由小到大排序。</p><ul><li>zadd key score value score value //添加元素</li><li>zcard key //获取元素数量</li><li>zrange key 0 n //获取指定索引范围的元素,0 -1表示所有元素(由小到大排序)。</li><li>zrevrange key 0 n//根据score由大到小排序,获取指定索引的元素</li><li>zrem key value //删除某个元素</li><li>zscore key value //返回元素的分值</li><li>zrank key value //获取元素索引位置(由小到大排序)</li><li>zrevrank key value //获取元素索引位置（由大到小排序）</li><li>zcount key min max //统计分值在min和max之间的元素数量</li></ul></li></ol><ol start="7"><li>其他</li></ol><h2 id="Java如何操作Redis存取数据"><a href="#Java如何操作Redis存取数据" class="headerlink" title="Java如何操作Redis存取数据"></a>Java如何操作Redis存取数据</h2><p>连接Redis</p><pre><code>@Test//测试连接public void test1(){    Jedis jedis = new Jedis(&quot;localhost&quot;);    System.out.println(jedis.ping());}</code></pre><p>字符串写操作</p><pre><code>public void test2_1(){    long i = 10000L;    Jedis jedis = new Jedis(&quot;localhost&quot;);    jedis.set(&quot;i&quot;, i+&quot;&quot;);    jedis.set(&quot;msg1&quot;, &quot;Hello Redis&quot;);    jedis.set(&quot;msg2&quot;.getBytes(), &quot;你好 Redis&quot;.getBytes());    jedis.close();}</code></pre><p>字符串读操作</p><pre><code>public void test2_2(){    Jedis jedis = new Jedis(&quot;localhost&quot;);    String str = jedis.get(&quot;msg1&quot;);    byte[] bts = jedis.get(&quot;msg2&quot;.getBytes());    long i = Long.parseLong(jedis.get(&quot;i&quot;));    String str2 = new String(bts);    System.out.println(str);    System.out.println(str2);    jedis.close();}</code></pre><p><strong>其他类型存取操作请参考课上示例代码</strong></p><h2 id="Java如何利用Redis做缓存"><a href="#Java如何利用Redis做缓存" class="headerlink" title="Java如何利用Redis做缓存"></a>Java如何利用Redis做缓存</h2><ol><li><p>对象存取方案</p><ul><li>将Java对象转成json字符串然后写入redis，取值时将json串转成Java对象</li></ul></li></ol><pre><code>        @Test//写对象        public void test1(){            User user = new User();            user.setId(10);            user.setName(&quot;scott&quot;);            user.setPassword(&quot;123&quot;);            //写对象            Jedis jedis = new Jedis(&quot;localhost&quot;);            Gson gson = new Gson();            String s = gson.toJson(user);            jedis.set(&quot;user_&quot;+user.getId(), s);            jedis.close();        }        @Test//读对象        public void test2(){            int id = 10;            Jedis jedis = new Jedis(&quot;localhost&quot;);            String s = jedis.get(&quot;user_&quot;+id);            Gson gson = new Gson();            User user = gson.fromJson(s, User.class);            System.out.println(user.getId()+&quot; &quot;+user.getName());            jedis.close();        }- 将Java对象序列化成字节数组然后写入redis，取值时反序列化成Java对象        @Test//写对象        public void test3(){            User user = new User();            user.setId(10);            user.setName(&quot;scott&quot;);            user.setPassword(&quot;123&quot;);            //写对象            Jedis jedis = new Jedis(&quot;localhost&quot;);            //序列化            byte[] value = SerializableUtil.serialize(user);            jedis.set(&quot;user_10&quot;.getBytes(), value);            jedis.close();        }        @Test//读对象        public void test4(){            int id = 10;            String key = &quot;user_&quot;+id;            Jedis jedis = new Jedis(&quot;localhost&quot;);            byte[] value = jedis.get(key.getBytes());            //反序列化            User user = (User)SerializableUtil.unserialize(value);            System.out.println(user.getId()+&quot; &quot;+user.getName()+&quot; &quot;+user.getPassword());            jedis.close();        }</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 10月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日报 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>28日日报</title>
       <link href="/2019/09/28/2019-9-28-ribao-md/"/>
       <url>/2019/09/28/2019-9-28-ribao-md/</url>
@@ -279,31 +329,6 @@
     
     
     <entry>
-      <title>vue.js安装</title>
-      <link href="/2019/09/16/2019-9-16-dsaf-day/"/>
-      <url>/2019/09/16/2019-9-16-dsaf-day/</url>
-      
-        <content type="html"><![CDATA[<h3 id="1-独立版本"><a href="#1-独立版本" class="headerlink" title="1. 独立版本"></a>1. 独立版本<br></h3><p>我们可以在 Vue.js 的官网上直接下载 vue.min.js 并用 <code>&lt;script&gt;</code> 标签引入</p><h3 id="2-使用-CDN-方法"><a href="#2-使用-CDN-方法" class="headerlink" title="2. 使用 CDN 方法"></a>2. 使用 CDN 方法<br></h3><p>以下推荐国外比较稳定的两个 CDN，国内还没发现哪一家比较好，目前还是建议下载到本地。</p><blockquote><p>Staticfile CDN（国内） : <a href="https://cdn.staticfile.org/vue/2.2.2/vue.min.js" target="_blank" rel="noopener">https://cdn.staticfile.org/vue/2.2.2/vue.min.js</a></p></blockquote><blockquote><p>unpkg：<a href="https://unpkg.com/vue/dist/vue.js" target="_blank" rel="noopener">https://unpkg.com/vue/dist/vue.js</a>, 会保持和 npm 发布的最新的版本一致。</p></blockquote><blockquote><p>cdnjs : <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js" target="_blank" rel="noopener">https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js</a></p></blockquote><h3 id="3-NPM-方法"><a href="#3-NPM-方法" class="headerlink" title="3. NPM 方法"></a>3. NPM 方法</h3><p>npm 版本需要大于 3.0，如果低于此版本需要升级它</p><h4 id="升级npm"><a href="#升级npm" class="headerlink" title="升级npm"></a>升级npm</h4><blockquote><p>npm install npm -g</p></blockquote><h4 id="全局安装-vue-cli"><a href="#全局安装-vue-cli" class="headerlink" title="全局安装 vue-cli"></a>全局安装 vue-cli</h4><blockquote><p>$ cnpm install –global vue-cli</p></blockquote><h4 id="创建一个基于-webpack-模板的新项目"><a href="#创建一个基于-webpack-模板的新项目" class="headerlink" title="创建一个基于 webpack 模板的新项目"></a>创建一个基于 webpack 模板的新项目</h4><blockquote><p>$ vue init webpack my-project</p></blockquote><h4 id="这里需要进行一些配置，默认回车即可"><a href="#这里需要进行一些配置，默认回车即可" class="headerlink" title="这里需要进行一些配置，默认回车即可"></a>这里需要进行一些配置，默认回车即可</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">This will install Vue 2.x version of the template.</span><br><span class="line"></span><br><span class="line">For Vue 1.x use: vue init webpack#1.0 my-project</span><br><span class="line"></span><br><span class="line">? Project name my-project</span><br><span class="line">? Project description A Vue.js project</span><br><span class="line">? Author runoob &lt;test@runoob.com&gt;</span><br><span class="line">? Vue build standalone</span><br><span class="line">? Use ESLint to lint your code? Yes</span><br><span class="line">? Pick an ESLint preset Standard</span><br><span class="line">? Setup unit tests with Karma + Mocha? Yes</span><br><span class="line">? Setup e2e tests with Nightwatch? Yes</span><br></pre></td></tr></table></figure><h4 id="进入项目，安装并运行："><a href="#进入项目，安装并运行：" class="headerlink" title="进入项目，安装并运行："></a>进入项目，安装并运行：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd my-project </span><br><span class="line">$ cnpm install</span><br><span class="line">$ cnpm run dev</span><br><span class="line">DONE  Compiled successfully in 4388ms</span><br><span class="line">Listening at http://localhost:8080</span><br></pre></td></tr></table></figure><p>成功执行以上命令后访问 <a href="http://localhost:8080/，可得输出结果" target="_blank" rel="noopener">http://localhost:8080/，可得输出结果</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 9月 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 大杂烩 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>vue语法格式</title>
       <link href="/2019/09/16/2019-9-16-ribao/"/>
       <url>/2019/09/16/2019-9-16-ribao/</url>
@@ -321,6 +346,31 @@
         <tags>
             
             <tag> 日报 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue.js安装</title>
+      <link href="/2019/09/16/2019-9-16-dsaf-day/"/>
+      <url>/2019/09/16/2019-9-16-dsaf-day/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-独立版本"><a href="#1-独立版本" class="headerlink" title="1. 独立版本"></a>1. 独立版本<br></h3><p>我们可以在 Vue.js 的官网上直接下载 vue.min.js 并用 <code>&lt;script&gt;</code> 标签引入</p><h3 id="2-使用-CDN-方法"><a href="#2-使用-CDN-方法" class="headerlink" title="2. 使用 CDN 方法"></a>2. 使用 CDN 方法<br></h3><p>以下推荐国外比较稳定的两个 CDN，国内还没发现哪一家比较好，目前还是建议下载到本地。</p><blockquote><p>Staticfile CDN（国内） : <a href="https://cdn.staticfile.org/vue/2.2.2/vue.min.js" target="_blank" rel="noopener">https://cdn.staticfile.org/vue/2.2.2/vue.min.js</a></p></blockquote><blockquote><p>unpkg：<a href="https://unpkg.com/vue/dist/vue.js" target="_blank" rel="noopener">https://unpkg.com/vue/dist/vue.js</a>, 会保持和 npm 发布的最新的版本一致。</p></blockquote><blockquote><p>cdnjs : <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js" target="_blank" rel="noopener">https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js</a></p></blockquote><h3 id="3-NPM-方法"><a href="#3-NPM-方法" class="headerlink" title="3. NPM 方法"></a>3. NPM 方法</h3><p>npm 版本需要大于 3.0，如果低于此版本需要升级它</p><h4 id="升级npm"><a href="#升级npm" class="headerlink" title="升级npm"></a>升级npm</h4><blockquote><p>npm install npm -g</p></blockquote><h4 id="全局安装-vue-cli"><a href="#全局安装-vue-cli" class="headerlink" title="全局安装 vue-cli"></a>全局安装 vue-cli</h4><blockquote><p>$ cnpm install –global vue-cli</p></blockquote><h4 id="创建一个基于-webpack-模板的新项目"><a href="#创建一个基于-webpack-模板的新项目" class="headerlink" title="创建一个基于 webpack 模板的新项目"></a>创建一个基于 webpack 模板的新项目</h4><blockquote><p>$ vue init webpack my-project</p></blockquote><h4 id="这里需要进行一些配置，默认回车即可"><a href="#这里需要进行一些配置，默认回车即可" class="headerlink" title="这里需要进行一些配置，默认回车即可"></a>这里需要进行一些配置，默认回车即可</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">This will install Vue 2.x version of the template.</span><br><span class="line"></span><br><span class="line">For Vue 1.x use: vue init webpack#1.0 my-project</span><br><span class="line"></span><br><span class="line">? Project name my-project</span><br><span class="line">? Project description A Vue.js project</span><br><span class="line">? Author runoob &lt;test@runoob.com&gt;</span><br><span class="line">? Vue build standalone</span><br><span class="line">? Use ESLint to lint your code? Yes</span><br><span class="line">? Pick an ESLint preset Standard</span><br><span class="line">? Setup unit tests with Karma + Mocha? Yes</span><br><span class="line">? Setup e2e tests with Nightwatch? Yes</span><br></pre></td></tr></table></figure><h4 id="进入项目，安装并运行："><a href="#进入项目，安装并运行：" class="headerlink" title="进入项目，安装并运行："></a>进入项目，安装并运行：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd my-project </span><br><span class="line">$ cnpm install</span><br><span class="line">$ cnpm run dev</span><br><span class="line">DONE  Compiled successfully in 4388ms</span><br><span class="line">Listening at http://localhost:8080</span><br></pre></td></tr></table></figure><p>成功执行以上命令后访问 <a href="http://localhost:8080/，可得输出结果" target="_blank" rel="noopener">http://localhost:8080/，可得输出结果</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 9月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大杂烩 </tag>
             
         </tags>
       
@@ -454,31 +504,6 @@
     
     
     <entry>
-      <title>webstrom安装</title>
-      <link href="/2019/09/07/2019-9-7-wwebstorm/"/>
-      <url>/2019/09/07/2019-9-7-wwebstorm/</url>
-      
-        <content type="html"><![CDATA[<p>安装webstorm首先应该配置环境安装 java的开源代码库,再下载安装包进行</p><p>WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就不用本步骤了</p><p>安装 Oracle JDK 的命令如下:</p><p></p><h3 id="1-sudo-add-apt-repository-ppa-webupd8team-java"><a href="#1-sudo-add-apt-repository-ppa-webupd8team-java" class="headerlink" title="1. sudo add-apt-repository ppa:webupd8team/java"></a>1. sudo add-apt-repository ppa:webupd8team/java</h3><p>add-apt-repository ppa:<ppa_name>  下载java开源代码库。</ppa_name></p><h3 id="2-sudo-apt-get-update"><a href="#2-sudo-apt-get-update" class="headerlink" title="2.sudo apt-get update"></a>2.sudo apt-get update</h3><p>获取到最新的软件包(apt-get update)</p><h3 id="3-sudo-apt-get-install-oracle-java7-installer"><a href="#3-sudo-apt-get-install-oracle-java7-installer" class="headerlink" title="3.sudo apt-get install oracle-java7-installer"></a>3.sudo apt-get install oracle-java7-installer</h3><p>下载并安装java开源代码库</p><h3 id="4-sudo-apt-get-install-oracle-java7-set-defaul"><a href="#4-sudo-apt-get-install-oracle-java7-set-defaul" class="headerlink" title="4.sudo apt-get install oracle-java7-set-defaul"></a>4.sudo apt-get install oracle-java7-set-defaul</h3><p>运行命令查看是否安装成功:</p><blockquote><p>java -version</p></blockquote><p>显示java开源代码的版本,如果显示则说明java开源代码安装成功.</p><p><strong>[WebStorm]安装</strong></p><p>首先需要下载WebStrom的Linux安装包,地址如下:</p><p><blockquote><p>s<a href="https://www.jetbrains.com/webstorm/download/" target="_blank" rel="noopener">https://www.jetbrains.com/webstorm/download/</a></p></blockquote></p><p>然后运行如下命令解压并安装并运行WebStorm:</p><blockquote><p>sudo tar xfz ~/Downloads/WebStorm-16.2.3.tar.gz</p></blockquote><p>这一步是先进行解压缩</p><blockquote><p>sudo mv ~/Downloads/WebStorm-162.2228.20 /home/wang/下载/</p></blockquote><p>mv移动命令</p><p>然后再把解压文件移动到 home/wang/下载/ 下</p><blockquote><p>cd /home/wang/下载/WebStorm-162.2228.20/<br>   cd bin/</p></blockquote><p>进入bin目录</p><blockquote><p>sudo sh webstorm.sh</p></blockquote><p>sh命令是shell命令语言解释器，执行命令从标准输入读取或从一个文件中读取启动webstorm</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 9月 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 大杂烩 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>重装系统后重新与github建立连接</title>
       <link href="/2019/09/07/2019-9-7-dddd/"/>
       <url>/2019/09/07/2019-9-7-dddd/</url>
@@ -496,6 +521,31 @@
         <tags>
             
             <tag> 日报 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>webstrom安装</title>
+      <link href="/2019/09/07/2019-9-7-wwebstorm/"/>
+      <url>/2019/09/07/2019-9-7-wwebstorm/</url>
+      
+        <content type="html"><![CDATA[<p>安装webstorm首先应该配置环境安装 java的开源代码库,再下载安装包进行</p><p>WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就不用本步骤了</p><p>安装 Oracle JDK 的命令如下:</p><p></p><h3 id="1-sudo-add-apt-repository-ppa-webupd8team-java"><a href="#1-sudo-add-apt-repository-ppa-webupd8team-java" class="headerlink" title="1. sudo add-apt-repository ppa:webupd8team/java"></a>1. sudo add-apt-repository ppa:webupd8team/java</h3><p>add-apt-repository ppa:<ppa_name>  下载java开源代码库。</ppa_name></p><h3 id="2-sudo-apt-get-update"><a href="#2-sudo-apt-get-update" class="headerlink" title="2.sudo apt-get update"></a>2.sudo apt-get update</h3><p>获取到最新的软件包(apt-get update)</p><h3 id="3-sudo-apt-get-install-oracle-java7-installer"><a href="#3-sudo-apt-get-install-oracle-java7-installer" class="headerlink" title="3.sudo apt-get install oracle-java7-installer"></a>3.sudo apt-get install oracle-java7-installer</h3><p>下载并安装java开源代码库</p><h3 id="4-sudo-apt-get-install-oracle-java7-set-defaul"><a href="#4-sudo-apt-get-install-oracle-java7-set-defaul" class="headerlink" title="4.sudo apt-get install oracle-java7-set-defaul"></a>4.sudo apt-get install oracle-java7-set-defaul</h3><p>运行命令查看是否安装成功:</p><blockquote><p>java -version</p></blockquote><p>显示java开源代码的版本,如果显示则说明java开源代码安装成功.</p><p><strong>[WebStorm]安装</strong></p><p>首先需要下载WebStrom的Linux安装包,地址如下:</p><p><blockquote><p>s<a href="https://www.jetbrains.com/webstorm/download/" target="_blank" rel="noopener">https://www.jetbrains.com/webstorm/download/</a></p></blockquote></p><p>然后运行如下命令解压并安装并运行WebStorm:</p><blockquote><p>sudo tar xfz ~/Downloads/WebStorm-16.2.3.tar.gz</p></blockquote><p>这一步是先进行解压缩</p><blockquote><p>sudo mv ~/Downloads/WebStorm-162.2228.20 /home/wang/下载/</p></blockquote><p>mv移动命令</p><p>然后再把解压文件移动到 home/wang/下载/ 下</p><blockquote><p>cd /home/wang/下载/WebStorm-162.2228.20/<br>   cd bin/</p></blockquote><p>进入bin目录</p><blockquote><p>sudo sh webstorm.sh</p></blockquote><p>sh命令是shell命令语言解释器，执行命令从标准输入读取或从一个文件中读取启动webstorm</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 9月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大杂烩 </tag>
             
         </tags>
       

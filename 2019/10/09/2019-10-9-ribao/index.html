@@ -4,13 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="6日日报, JieSangQAQ-兄弟会">
-    <meta name="description" content="今日日报今天也考核了
-考核前,感觉良好,因为看了好几天,总归是有点记忆的
-但是,航哥开口一瞬间,我感觉到了自己的不足(诧异),好像没学过似的
-但是我是不会努力的,杰宝come on
-Keep on going never give up
-">
+    <meta name="keywords" content="9日日报, JieSangQAQ-兄弟会">
+    <meta name="description" content="MongoDB操作命令Mongo简介属于非关系型数据库，是分布式文档数据库。特点：扩展灵活、结构灵活、使用方便、支持查询、索引。不足：缺乏事务控制，无法保障数据完整性。
+oracle存储结构
+
+mongodb存储结构
+
+Mongo命令
+库命">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +19,7 @@ Keep on going never give up
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>6日日报 | JieSangQAQ-兄弟会</title>
+    <title>9日日报 | JieSangQAQ-兄弟会</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -290,13 +291,13 @@ Keep on going never give up
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        6日日报
+                        9日日报
                     </div>
                 </div>
             </div>
@@ -419,8 +420,8 @@ Keep on going never give up
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/9月/" class="post-category" target="_blank">
-                                9月
+                            <a href="/categories/10月/" class="post-category" target="_blank">
+                                10月
                             </a>
                         
                     </div>
@@ -431,7 +432,7 @@ Keep on going never give up
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-06
+                    2019-10-09
                 </div>
 
                 
@@ -447,12 +448,187 @@ Keep on going never give up
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="今日日报"><a href="#今日日报" class="headerlink" title="今日日报"></a>今日日报</h3><p>今天也考核了</p>
-<p>考核前,感觉良好,因为看了好几天,总归是有点记忆的</p>
-<p>但是,航哥开口一瞬间,我感觉到了自己的不足(诧异),好像没学过似的</p>
-<p>但是我是不会努力的,杰宝come on</p>
-<p>Keep on going never give up</p>
+                <h1 id="MongoDB操作命令"><a href="#MongoDB操作命令" class="headerlink" title="MongoDB操作命令"></a>MongoDB操作命令</h1><h2 id="Mongo简介"><a href="#Mongo简介" class="headerlink" title="Mongo简介"></a>Mongo简介</h2><p>属于非关系型数据库，是分布式文档数据库。<br>特点：扩展灵活、结构灵活、使用方便、支持查询、索引。<br>不足：缺乏事务控制，无法保障数据完整性。</p>
+<p>oracle存储结构</p>
+<p><img src="https://i.imgur.com/iGIiT2H.png" alt></p>
+<p>mongodb存储结构</p>
+<p><img src="https://i.imgur.com/03lOJQN.png" alt></p>
+<h2 id="Mongo命令"><a href="#Mongo命令" class="headerlink" title="Mongo命令"></a>Mongo命令</h2><ol>
+<li><p>库命令</p>
+<ul>
+<li><p>查看</p>
+<pre><code>show dbs</code></pre></li>
+<li><p>使用</p>
+<pre><code>use 库名称</code></pre></li>
+<li><p>创建</p>
+<pre><code>use 库名称  //库存在就是使用；不存在就创建再使用</code></pre></li>
+<li><p>删除</p>
+<pre><code>db.dropDatabase() //删除当前use的库</code></pre></li>
+</ul>
+</li>
+<li><p>集合</p>
+<ul>
+<li><p>查看</p>
+<pre><code>show collections</code></pre></li>
+<li><p>创建</p>
+<pre><code>当使用&quot;db.集合名.insert()&quot;插入数据时，集合不存在时会自动创建</code></pre></li>
+<li><p>删除</p>
+<pre><code>db.集合名.drop()</code></pre></li>
+</ul>
+</li>
+<li><p>数据操作</p>
+<ul>
+<li><p>插入</p>
+<p>  插入单条记录</p>
+<pre><code>db.dept.insert({&quot;no&quot;:1,&quot;dname&quot;:&quot;beijing&quot;})</code></pre><p>  插入多条记录</p>
+<pre><code>var objs = [{&quot;no&quot;:3,&quot;dname&quot;:&quot;chengdu&quot;},{&quot;no&quot;:4,&quot;dname&quot;:&quot;shenyang&quot;}];
+db.dept.insert(objs)</code></pre><p>  或</p>
+<pre><code>for(var i=1;i&lt;10;i++){
+ db.dept.insert({&quot;no&quot;:10+i,&quot;dname&quot;:&quot;bj&quot;+i});
+}</code></pre></li>
+<li><p>删除</p>
+<p>  删除单条记录</p>
+<pre><code>db.dept.remove({&quot;no&quot;:1})</code></pre><p>  删除所有记录</p>
+<pre><code>db.dept.remove({})</code></pre></li>
+<li><p>修改</p>
+<p>  全部更新覆盖</p>
+<pre><code>db.dept.update({&quot;no&quot;:1},{&quot;dname&quot;:&quot;shanghai&quot;})</code></pre><p>  部分更新</p>
+<pre><code>db.dept.update(条件json对象,{$set:要更新的json对象})
+//示例
+db.dept.update({&quot;no&quot;:1},{$set:{&quot;dname&quot;:&quot;chengdu&quot;}})</code></pre></li>
+<li><p>查询</p>
+<p>  $gt、$lt、$gte、$lte、$ne等</p>
+<p>  查询所有记录</p>
+<pre><code>db.dept.find()</code></pre><p>  查询某条记录，no=1的记录</p>
+<pre><code>db.dept.find({&quot;no&quot;:1})</code></pre><p>  查询条件记录，no&gt;1的记录</p>
+<pre><code>db.dept.find({&quot;no&quot;:{$gt:1}})
+db.dept.find({&quot;no&quot;:{$gte:1}})</code></pre><p>  排序</p>
+<pre><code>db.dept.find().sort({&quot;no&quot;:1})</code></pre><p>  1表示升序、-1表示降序</p>
+<p>  分页</p>
+<pre><code>//跳过begin条，然后抓取记录
+db.dept.find().skip(begin).limit(记录数)</code></pre></li>
+<li><p>统计</p>
+<p>  统计所有记录数量</p>
+<pre><code>db.dept.count()</code></pre><p>  统计满足条件记录数</p>
+<pre><code>db.dept.count({&quot;no&quot;:11})
+db.dept.count({&quot;no&quot;:{$gt:10}})</code></pre></li>
+</ul>
+</li>
+</ol>
+<h1 id="Java访问MongoDB"><a href="#Java访问MongoDB" class="headerlink" title="Java访问MongoDB"></a>Java访问MongoDB</h1><pre><code>驱动包：mongo-java-driver-2.13.2.jar</code></pre><ol>
+<li><p>原生方式</p>
+<ul>
+<li><p>引入mongo-java-driver-2.13.2.jar驱动包</p>
+</li>
+<li><p>建立连接</p>
+<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
+//操作
+mongo.close();关闭连接</code></pre></li>
+<li><p>获取库和集合信息</p>
+<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
+List&lt;String&gt; dbs = mongo.getDatabaseNames();//show dbs 查看所有库名
+DB db = mongo.getDB(&quot;java11&quot;);//use java11 获取库对象
+//db.getCollectionNames();//show collections 查看集合名</code></pre></li>
+<li><p>插入记录</p>
+<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
+DB db = mongo.getDB(&quot;java11&quot;);
+DBCollection dept = db.getCollection(&quot;dept&quot;);
+DBObject arr = new BasicDBObject();
+arr.put(&quot;no&quot;, 10);
+arr.put(&quot;dname&quot;, &quot;beijing1&quot;);
+dept.insert(arr);//db.dept.insert({&quot;no&quot;:10,&quot;dname&quot;:&quot;beijing1&quot;})
+mongo.close();</code></pre></li>
+<li><p>更新记录</p>
+<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
+DB db = mongo.getDB(&quot;java11&quot;);
+DBCollection dept = db.getCollection(&quot;dept&quot;);
+DBObject q = new BasicDBObject();
+q.put(&quot;no&quot;, 10);
 
+DBObject o = new BasicDBObject();
+DBObject n = new BasicDBObject();
+n.put(&quot;dname&quot;, &quot;北京&quot;);
+o.put(&quot;$set&quot;, n);
+//db.dept.update({&quot;no&quot;:10},{$set:{&quot;dname&quot;:&quot;北京&quot;}})
+dept.update(q, o);
+mongo.close();</code></pre></li>
+<li><p>查询记录</p>
+<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
+DB db = mongo.getDB(&quot;java11&quot;);//use java11 获取库对象
+DBCollection dept = db.getCollection(&quot;dept&quot;);//获取dept集合对象
+DBCursor cursor = dept.find();//db.dept.find() 查询所有记录
+while(cursor.hasNext()){
+    DBObject obj = cursor.next();
+    Object no = obj.get(&quot;no&quot;);
+    Object dname = obj.get(&quot;dname&quot;);
+    System.out.println(&quot;no=&quot;+no+&quot; dname=&quot;+dname);
+}
+mongo.close();</code></pre></li>
+</ul>
+</li>
+<li><p>spring-data-mongodb方式（Spring框架）</p>
+<p> 利用MongoTemplate对象进行MongoDB操作。</p>
+</li>
+</ol>
+<pre><code>- 导入下列jar包，注意版本匹配，容易产生冲突。
+
+    - mongo-java-driver-2.13.2.jar
+    - spring-data-mongodb-1.4.2.RELEASE.jar
+    - spring-data-commons-1.7.2.RELEASE.jar
+    - slf4j-api-1.5.8.jar
+    - slf4j-log4j12-1.5.8.jar
+    - log4j-1.2.12.jar
+
+- 追加Spring配置，创建MongoTemplate对象
+
+        &lt;!-- 追加mongo命名空间，定义Factory --&gt;
+        &lt;mongo:db-factory id=&quot;mongoFactory&quot; 
+            host=&quot;localhost&quot; port=&quot;27017&quot; dbname=&quot;java11&quot;/&gt;
+
+        &lt;!-- 创建MongoTemplate --&gt;
+        &lt;bean id=&quot;mongoTemplate&quot; 
+            class=&quot;org.springframework.data.mongodb.core.MongoTemplate&quot;&gt;
+            &lt;constructor-arg index=&quot;0&quot; ref=&quot;mongoFactory&quot;&gt;
+            &lt;/constructor-arg&gt;
+        &lt;/bean&gt;
+
+- 测试Template应用
+
+        @RunWith(SpringJUnit4ClassRunner.class)
+        @ContextConfiguration(locations={&quot;classpath:spring-mongo.xml&quot;})
+        public class TestMongoTemplate {
+
+            @Resource
+            private MongoTemplate mongoTemplate;
+
+            @Test//测试添加
+            public void test1(){
+                System.out.println(mongoTemplate);
+                User user = new User();
+                user.setId(20);
+                user.setName(&quot;tiger&quot;);
+                user.setPassword(&quot;123456&quot;);
+                mongoTemplate.save(user);//默认集合名user
+            }
+
+            @Test//测试查询所有记录
+            public void test2(){
+                List&lt;User&gt; list = mongoTemplate.findAll(User.class);//默认查user集合
+                for(User user:list){
+                    System.out.println(user.getId()+&quot; &quot;+user.getName()+&quot; &quot;+user.getPassword());
+                }
+            }
+
+            @Test//测试按条件查询记录
+            public void test3(){
+                Query query = new Query(Criteria.where(&quot;id&quot;).is(10));
+                User user = mongoTemplate.findOne(
+                    query,User.class);
+                System.out.println(user.getId()+&quot; &quot;+user.getName()+&quot; &quot;+user.getPassword());
+
+            }
+
+        }</code></pre>
             </div>
             <hr/>
 
@@ -610,9 +786,9 @@ Keep on going never give up
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《6日日报》
+                    《9日日报》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/06/2019-9-6-ddddd/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/09/2019-10-9-ribao/" property="cc:attributionName"
                rel="cc:attributionURL">
                 JieSangQAQ
             </a> 采用
@@ -652,50 +828,54 @@ Keep on going never give up
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/09/07/2019-9-7-wwebstorm/">
+                <a href="/2019/10/09/2019-10-9-ribao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="webstrom安装">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="9日日报">
                         
-                        <span class="card-title">webstrom安装</span>
+                        <span class="card-title">9日日报</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            安装webstorm首先应该配置环境安装 java的开源代码库,再下载安装包进行
+                            MongoDB操作命令Mongo简介属于非关系型数据库，是分布式文档数据库。特点：扩展灵活、结构灵活、使用方便、支持查询、索引。不足：缺乏事务控制，无法保障数据完整性。
+oracle存储结构
 
-WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就不用本步骤了
-安装 Oracle JDK 的命令如下:
-1. 
+mongodb存储结构
+
+Mongo命令
+库命
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/9月/" class="post-category" target="_blank">
-                                    9月
+                            <a href="/categories/10月/" class="post-category" target="_blank">
+                                    10月
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/大杂烩/" target="_blank">
-                        <span class="chip bg-color">大杂烩</span>
+                    <a href="/tags/日报/" target="_blank">
+                        <span class="chip bg-color">日报</span>
                     </a>
                     
                 </div>
@@ -709,31 +889,35 @@ WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就�
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/05/2019-9-5-ddddd/">
+                <a href="/2019/10/08/2019-10-8-ribao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="放大镜实现">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="8日日报">
                         
-                        <span class="card-title">放大镜实现</span>
+                        <span class="card-title">8日日报</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            放大镜的实现123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616
+                            Redis 目的：利用Redis做数据缓存,缓存查询出来的对象数据。
+ NoSQL：Not Only SQL，非关系数据库。
+ 关系型数据库指的是表结构存储，典型Oracle、MySQL、DB2。
+
+key-value存储 : 典型Redi
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-05
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/9月/" class="post-category" target="_blank">
-                                    9月
+                            <a href="/categories/10月/" class="post-category" target="_blank">
+                                    10月
                                 </a>
                             
                             
@@ -743,8 +927,8 @@ WebStorm是基于Java的,我们需要安装Oracle JDK的支持.   注:有jdk就�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/大杂烩/" target="_blank">
-                        <span class="chip bg-color">大杂烩</span>
+                    <a href="/tags/日报/" target="_blank">
+                        <span class="chip bg-color">日报</span>
                     </a>
                     
                 </div>
