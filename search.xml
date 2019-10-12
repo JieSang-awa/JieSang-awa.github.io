@@ -4,7 +4,82 @@
   
     
     <entry>
-      <title>9日日报</title>
+      <title>orcale,mysql,mongodb,redis对比</title>
+      <link href="/2019/10/12/2019-10-12-ribao/"/>
+      <url>/2019/10/12/2019-10-12-ribao/</url>
+      
+        <content type="html"><![CDATA[<p><strong>MySQL概述：</strong></p><blockquote><p>关系型数据库。无论数据还是索引都存放在硬盘中。到要使用的时候才交换到内存中。能够处理远超过内存总量的数据。</p></blockquote><blockquote><p>在不同的引擎上有不同 的存储方式。</p></blockquote><blockquote><p>查询语句是使用传统的 SQL 语句，拥有较为成熟的体系，成熟度很高。</p></blockquote><blockquote><p>开源数据库的份额在不断增加，MySQL 的份额页在持续增长。</p></blockquote><blockquote><p>缺点：在海量数据处理的时候效率会显著变慢。</p></blockquote><p><strong>MySQL特点：</strong></p><blockquote><ol><li>使用c和c++编写，并使用了多种编译器进行测试，保证源代码的可移植性</li></ol></blockquote><blockquote><ol start="2"><li>支持多种操作系统</li></ol></blockquote><blockquote><ol start="3"><li>为多种编程语言提供可API</li></ol></blockquote><blockquote><ol start="4"><li>支持多线程，充分利用CPU资源<br>优化的SQL查询算法，有效的提高查询速度</li></ol></blockquote><blockquote><ol start="5"><li>提供多语言支持，常见的编码如：GB2312、BIG5、UTF8</li></ol></blockquote><blockquote><ol start="6"><li>提供TCP/IP、ODBC和JDBC等多种数据库连接途径<br>提供用于管理、检查、优化数据库操作的管理工具</li></ol></blockquote><blockquote><ol start="7"><li>大型的数据库。可以处理拥有上千万条记录的大型数据库</li></ol></blockquote><blockquote><p>8.支持多种存储引擎</p></blockquote><blockquote><ol start="9"><li>MySQL软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是开放源码这一特点，一般中小型网站的开发都选择MySQL作为网站数据库</li></ol></blockquote><blockquote><ol start="10"><li>MySQL使用标准的SQL数据语言形式</li></ol></blockquote><blockquote><ol start="11"><li>Mysql是可以定制的，采用GPL协议，你可以修改源码来开发自己的MySQL系统</li></ol></blockquote><blockquote><ol start="12"><li>在线DDL更改功能</li></ol></blockquote><blockquote><ol start="13"><li>复制全局事务标识</li></ol></blockquote><blockquote><ol start="14"><li>复制无崩溃从机</li></ol></blockquote><blockquote><p>15.复制多线程从机</p></blockquote><p><strong>MongoDB概述：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">它是一个内存数据库，数据都是放在内存里面的。</span><br><span class="line"></span><br><span class="line">对数据的操作大部分都在内存中，但 MongoDB 并不是单纯的内存数据库。</span><br><span class="line"></span><br><span class="line">MongoDB 是由 C++ 语言编写的，是一个基于分布式文件存储的开源数据库系统。</span><br><span class="line"></span><br><span class="line">在高负载的情况下，添加更多的节点，可以保证服务器性能。</span><br><span class="line"></span><br><span class="line">MongoDB 旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。</span><br></pre></td></tr></table></figure><blockquote><p>缺点：占用的空间很大</p></blockquote><p><strong>MongoDB特点：</strong></p><blockquote><ol><li>模式自由：可以把不同结构的文档存储在同一个数据库里</li></ol></blockquote><blockquote><ol start="2"><li>面向集合的存储：适合存储JSON风格文件的形式</li></ol></blockquote><blockquote><ol start="3"><li>完整的索引支持，对任何属性可索引</li></ol></blockquote><blockquote><ol start="4"><li>复制和高可用性：支持服务器之间的数据复制，支持主-从模式及服务器之间的相互复制。复制的主要目的是提供冗余及自动故障转移</li></ol></blockquote><blockquote><ol start="5"><li>自动分片：支持水平的数据库集群，可动态添加额外的机器</li></ol></blockquote><blockquote><p>6.丰富的查询：支持丰富的查询表达方式，查询指令使用JSON形式额标记，可轻易查询文档中的内嵌的对象及数组</p></blockquote><blockquote><ol start="7"><li>快速就地更新：查询优化器会分析查询表达式，并生成一个高效的查询计划</li></ol></blockquote><blockquote><p>8.高效的传统存储方式：支持二进制数据及大型对象</p></blockquote><p><strong>Redis：</strong></p><blockquote><p>它就是一个不折不扣的内存数据库。</p></blockquote><blockquote><p>持久化方式：Redis 所有数据都是放在内存中的，持久化是使用 RDB 方式或者 aof 方式。</p></blockquote><p><strong>Redis特点：</strong></p><blockquote><ol><li>Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</li></ol></blockquote><blockquote><ol start="2"><li>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，在set，hash等数据结构的存储。</li></ol></blockquote><blockquote><ol start="3"><li>Redis支持数据的备份，即master-slave模式的数据备份</li></ol></blockquote><blockquote><ol start="4"><li>性能极高- Redis能读的速度是110000次/s，写的速度是81000次/s</li></ol></blockquote><blockquote><ol start="5"><li>丰富的数据类型-Redis支持二进制案例的Strings,Lists,Hashes,Setes及Ordered Sets数据类型操作。</li></ol></blockquote><blockquote><ol start="6"><li>原子 - Redis的所有操作都是原子性的，同时Redis还支持对几个操作全并后的原子性执行。</li></ol></blockquote><blockquote><ol start="7"><li>丰富的特性 - Redis还支持publish/subscribe,通知，key过期等等特性。</li></ol></blockquote><p><strong>数据量和性能的比较：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">当物理内存够用的时候，Redis &gt; MongoDB &gt; MySQL</span><br><span class="line"></span><br><span class="line">当物理内存不够用的时候，Redis 和 MongoDB 都会使用虚拟内存。</span><br><span class="line"></span><br><span class="line">实际上如果Redis要开始虚拟内存，那很明显要么加内存条，要么你就该换个数据库了。</span><br><span class="line"></span><br><span class="line">但是，MongoDB 不一样，只要，业务上能保证，冷热数据的读写比，使得热数据在物理内存中，mmap 的交换较少。</span><br><span class="line"></span><br><span class="line">MongoDB 还是能够保证性能。有人使用 MongoDB 存储了上T的数据。</span><br><span class="line"></span><br><span class="line">MySQL，MySQL根本就不需要担心数据量跟内存下的关系。不过，内存的量跟热数据的关系会极大地影响性能表现。</span><br><span class="line"></span><br><span class="line">当物理内存和虚拟内存都不够用的时候，估计除了 MySQL 你没什么好选择了。</span><br><span class="line"></span><br><span class="line">其实，从数据存储原理来看，我更倾向于将 MongoDB 归类为硬盘数据库，但是使用了 mmap 作为加速的手段而已。</span><br></pre></td></tr></table></figure><p><strong>使用场景的不同：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">1、MongoDB适用于：</span><br><span class="line"></span><br><span class="line">①网站数据：适合实时的插入，更新与查询，并具备网站实时数据存储所需对的复制及高度伸缩性；</span><br><span class="line"></span><br><span class="line">②缓存：由于性能很高，也适合作为信息基础设施的缓存层，在系统重启之后，搭建的持久化缓存可以避免下层的数据源过载；</span><br><span class="line"></span><br><span class="line">③大尺寸、低价值的数据也是MongoDB的最佳选择，使用传统的关系数据库存储一些数据时可能会比较贵，再次之前很多程序员往往会选择传统的文件进行存储</span><br><span class="line"></span><br><span class="line">④高伸缩的场景，非常是个由数十或者数百台服务器组成的数据库</span><br><span class="line"></span><br><span class="line">⑤用于对象及json数据的存储，MongoDB的bson数据格式非常适合文档格式化的存储及查询。</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">2、而mysql还是更加适用于：</span><br><span class="line"></span><br><span class="line">①高度事务性的系统。例如银行或者会计系统，传统的关系型数据库目前还是更实用于需要大量原子性复杂事务的应用程序</span><br><span class="line"></span><br><span class="line">②传统的商业智能应用，针对特定问题的BI数据库会对产生高度优化的查询方式，对于此类应用，数据仓库可能是更合适的选择</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">3、Redis应用场景：</span><br><span class="line"></span><br><span class="line">①用来做缓存-redis的所有数据时放在内存中的</span><br><span class="line"></span><br><span class="line">②可以在某些特定应用场景下替代传统数据库--比如社交类的应用</span><br><span class="line"></span><br><span class="line">③在一些大型系统中，巧妙的实现一些特定的功能：session共享、购物车</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 10月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>mysql碎片整理优化</title>
+      <link href="/2019/10/11/2019-10-11-ribao/"/>
+      <url>/2019/10/11/2019-10-11-ribao/</url>
+      
+        <content type="html"><![CDATA[<p><strong>MysqL碎片整理优化</strong></p><p>先来说一下什么是碎片，怎么知道碎片有多大！</p><blockquote><p>简单的说,删除数据必然会在数据文件中造成不连续的空白空间,而当插入数据时,这些空白空间则会被利用起来.于是造成了数据的存储位置不连续,以及物理存储顺序与理论上的排序顺序不同,这种是数据碎片.实际上数据碎片分为两种,一种是单行数据碎片,另一种是多行数据碎片.前者的意思就是一行数据,被分成N个片段,存储在N个位置.后者的就是多行数据并未按照逻辑上的顺序排列.当有大量的删除和插入操作时,必然会产生很多未使用的空白空间,这些空间就是多出来的额外空间.索引也是文件数据,所以也会产生索引碎片,理由同上,大概就是顺序紊乱的问题.Engine 不同,OPTIMIZE 的操作也不一样的,MyISAM 因为索引和数据是分开的,所以 OPTIMIZE 可以整理数据文件,并重排索引。这样不但会浪费空间，并且查询速度也更慢。</p></blockquote><blockquote><p>解决方案：（切记，一定要在夜里执行，表越大，越耗资源时间，不要频繁修复，可以几个月甚至一年修复一次，如果表频繁被更改，可以按周/月来整理。）</p></blockquote><p><strong>查看表碎片的方法</strong><br><code>select ROW_FORMAT,TABLE_ROWS,DATA_LENGTH,INDEX_LENGTH,MAX_DATA_LENGTH,DATA_FREE,ENGINE from TABLES where TABLE_SCHEMA=&#39;test_db&#39; and TABLE_NAME=&#39;table_name&#39; limit 1;</code></p><blockquote><p>通过<code>OPTIMIZE TABLE　table_name</code>后再查询一下</p></blockquote><blockquote><p>也可以观察Mysql的数据目录存储文件Data文件大小，如MYD</p></blockquote><p>一、Innodb存储引擎清理碎片方法</p><p><code>ALTER TABLE tablename ENGINE=InnoDB</code></p><p>二、Myisam存储引擎清理碎片方法</p><blockquote><p>OPTIMIZE 操作会暂时锁住表,而且数据量越大,耗费的时间也越长,它毕竟不是简单查询操作.所以把 Optimize 命令放在程序中是不妥当的,不管设置的命中率多低,当访问量增大的时候,整体命中率也会上升,这样肯定会对程序的运行效率造成很大影响.比较好的方式就是做个 Script,定期检查mysql中 information_schema.TABLES字段,查看 DATA_FREE 字段,大于0话,就表示有碎片.脚本多长时间运行一次,可以根据实际情况来定,比如每周跑一次.</p></blockquote><p><code>OPTIMIZE TABLE table_name</code> </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 10月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>mysql简单整理</title>
+      <link href="/2019/10/10/2019-10-10-ribao/"/>
+      <url>/2019/10/10/2019-10-10-ribao/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p>windows键+r启动小黑框，输入 <code>mysql -u用户名 p密码</code>，会出现WELCOME to MYSQL 等字眼</p></li><li><p>我们经常用小黑框查询以及测试数据是否正常：<br> 首先看看有没有数据库，或者创建数据库</p><p>查看数据库: <code>SHOW DATABASES</code>; </p></li></ol><p>2.或者如果没有你想选择的数据库，你可以创建一个数据库</p><p><code>CREATE DATABASE IF NOT EXISTS</code>数据库名;</p><p>记住数据库名后要写分号’;’</p><p>选取创建的数据库 ： USE 数据库名;</p><p>创建数据表：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> CREATE TABLE IF NOT EXISTS 表名(</span><br><span class="line"></span><br><span class="line">    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</span><br><span class="line"></span><br><span class="line">    name VARCHAR(255) UNIQUE, -- 如果你想让你的字段名的值是唯一值的话就加上UNIQUE，否则就去掉</span><br><span class="line"></span><br><span class="line">   age TINYINT UNSIGNED NOT NULL DEFAULT 1,  -- 默认值请为1， UNSIGNED 字段值不能有符号</span><br><span class="line"></span><br><span class="line">   sex TINYINNT UNSIGNED NOT NULL </span><br><span class="line"></span><br><span class="line">)ENGINE = InnoDB DEFAULT CHARSET = UTF8;</span><br></pre></td></tr></table></figure><p>增加数据:<code>INSERT INTO 表名(id,字段2，字段N。。) VALUES(NULL,&#39;张三&#39;,12,1);</code></p><p>查询数据: <code>SELECT id,nam,age,sex FROM 表名; ||  SELECT id,name,age,sex FROM WHERE id=N；</code></p><p>修改数据: <code>UPDATE 表名 SET 修改的字段名 WHERE  id=N；</code></p><p>删除数据：</p><p><strong>删除数据之前先添加一条数据免得表是空的</strong></p><p>  <code>INSERT INTO 表名(id,字段2，字段N。。) VALUES(NULL,&#39;张三&#39;,12,1);</code></p><p>ok,简单的增删改查就ok了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 10月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MongoDB</title>
       <link href="/2019/10/09/2019-10-9-ribao/"/>
       <url>/2019/10/09/2019-10-9-ribao/</url>
       
@@ -20,7 +95,7 @@
       
         <tags>
             
-            <tag> 日报 </tag>
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -29,7 +104,7 @@
     
     
     <entry>
-      <title>8日日报</title>
+      <title>Redis</title>
       <link href="/2019/10/08/2019-10-8-ribao/"/>
       <url>/2019/10/08/2019-10-8-ribao/</url>
       
@@ -45,7 +120,7 @@
       
         <tags>
             
-            <tag> 日报 </tag>
+            <tag> 数据库 </tag>
             
         </tags>
       
