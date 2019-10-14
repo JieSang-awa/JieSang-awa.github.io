@@ -1129,11 +1129,11 @@
     
     
     <entry>
-      <title>ubantu安装QQ</title>
-      <link href="/2019/08/20/2019-8-20-sixth-technology/"/>
-      <url>/2019/08/20/2019-8-20-sixth-technology/</url>
+      <title>git4中协议</title>
+      <link href="/2019/08/20/2019-8-20-sixth-day/"/>
+      <url>/2019/08/20/2019-8-20-sixth-day/</url>
       
-        <content type="html"><![CDATA[<p><strong>安装 wine</strong></p><p>git clone <a href="https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git" target="_blank" rel="noopener">https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git</a><br><br>cd deepin-wine-for-ubuntu<br><br>sudo sh install.sh<br><br><strong>安装QQ</strong></p><p>wget <a href="http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_8.9.19983deepin23_i386.deb" target="_blank" rel="noopener">http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_8.9.19983deepin23_i386.deb</a><br><br>sudo dpkg -i deepin.com.qq.im_8.9.19983deepin23_i386.deb<br><br>sudo apt-get install -f<br></p><p>卸载QQ请自行百度</p>]]></content>
+        <content type="html"><![CDATA[<p>Git 可以使用四种主要的协议来传输数据：本地传输，SSH 协议，Git 协议和 HTTP 协议。<br></p><p>最基本的就是<em>本地协议（Local protocol）</em>，所谓的远程仓库在该协议中的表示，就是硬盘上的另一个目录<br></p><p>SSH 也是唯一一个同时支持读写操作的网络协议。另外两个网络协议（HTTP 和Git）通常都是只读的<br></p><p>ssh-keygen -t rsa -C<br></p><p>Git 协议是一个包含在 Git 软件包中的特殊守护进程<br></p><p>HTTP 或 HTTPS 协议的优美之处在于架设的简便性。基本上，只需要把 Git 的裸仓库文件放在 HTTP 的根目录下，配置一个特定的 post-update挂钩（hook）就可以搞定</p>]]></content>
       
       
       <categories>
@@ -1154,11 +1154,11 @@
     
     
     <entry>
-      <title>git4中协议</title>
-      <link href="/2019/08/20/2019-8-20-sixth-day/"/>
-      <url>/2019/08/20/2019-8-20-sixth-day/</url>
+      <title>ubantu安装QQ</title>
+      <link href="/2019/08/20/2019-8-20-sixth-technology/"/>
+      <url>/2019/08/20/2019-8-20-sixth-technology/</url>
       
-        <content type="html"><![CDATA[<p>Git 可以使用四种主要的协议来传输数据：本地传输，SSH 协议，Git 协议和 HTTP 协议。<br></p><p>最基本的就是<em>本地协议（Local protocol）</em>，所谓的远程仓库在该协议中的表示，就是硬盘上的另一个目录<br></p><p>SSH 也是唯一一个同时支持读写操作的网络协议。另外两个网络协议（HTTP 和Git）通常都是只读的<br></p><p>ssh-keygen -t rsa -C<br></p><p>Git 协议是一个包含在 Git 软件包中的特殊守护进程<br></p><p>HTTP 或 HTTPS 协议的优美之处在于架设的简便性。基本上，只需要把 Git 的裸仓库文件放在 HTTP 的根目录下，配置一个特定的 post-update挂钩（hook）就可以搞定</p>]]></content>
+        <content type="html"><![CDATA[<p><strong>安装 wine</strong></p><p>git clone <a href="https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git" target="_blank" rel="noopener">https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git</a><br><br>cd deepin-wine-for-ubuntu<br><br>sudo sh install.sh<br><br><strong>安装QQ</strong></p><p>wget <a href="http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_8.9.19983deepin23_i386.deb" target="_blank" rel="noopener">http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_8.9.19983deepin23_i386.deb</a><br><br>sudo dpkg -i deepin.com.qq.im_8.9.19983deepin23_i386.deb<br><br>sudo apt-get install -f<br></p><p>卸载QQ请自行百度</p>]]></content>
       
       
       <categories>
