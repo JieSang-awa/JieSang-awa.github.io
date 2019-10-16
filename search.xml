@@ -429,31 +429,6 @@
     
     
     <entry>
-      <title>vue.js安装</title>
-      <link href="/2019/09/16/2019-9-16-dsaf-day/"/>
-      <url>/2019/09/16/2019-9-16-dsaf-day/</url>
-      
-        <content type="html"><![CDATA[<h3 id="1-独立版本"><a href="#1-独立版本" class="headerlink" title="1. 独立版本"></a>1. 独立版本<br></h3><p>我们可以在 Vue.js 的官网上直接下载 vue.min.js 并用 <code>&lt;script&gt;</code> 标签引入</p><h3 id="2-使用-CDN-方法"><a href="#2-使用-CDN-方法" class="headerlink" title="2. 使用 CDN 方法"></a>2. 使用 CDN 方法<br></h3><p>以下推荐国外比较稳定的两个 CDN，国内还没发现哪一家比较好，目前还是建议下载到本地。</p><blockquote><p>Staticfile CDN（国内） : <a href="https://cdn.staticfile.org/vue/2.2.2/vue.min.js" target="_blank" rel="noopener">https://cdn.staticfile.org/vue/2.2.2/vue.min.js</a></p></blockquote><blockquote><p>unpkg：<a href="https://unpkg.com/vue/dist/vue.js" target="_blank" rel="noopener">https://unpkg.com/vue/dist/vue.js</a>, 会保持和 npm 发布的最新的版本一致。</p></blockquote><blockquote><p>cdnjs : <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js" target="_blank" rel="noopener">https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js</a></p></blockquote><h3 id="3-NPM-方法"><a href="#3-NPM-方法" class="headerlink" title="3. NPM 方法"></a>3. NPM 方法</h3><p>npm 版本需要大于 3.0，如果低于此版本需要升级它</p><h4 id="升级npm"><a href="#升级npm" class="headerlink" title="升级npm"></a>升级npm</h4><blockquote><p>npm install npm -g</p></blockquote><h4 id="全局安装-vue-cli"><a href="#全局安装-vue-cli" class="headerlink" title="全局安装 vue-cli"></a>全局安装 vue-cli</h4><blockquote><p>$ cnpm install –global vue-cli</p></blockquote><h4 id="创建一个基于-webpack-模板的新项目"><a href="#创建一个基于-webpack-模板的新项目" class="headerlink" title="创建一个基于 webpack 模板的新项目"></a>创建一个基于 webpack 模板的新项目</h4><blockquote><p>$ vue init webpack my-project</p></blockquote><h4 id="这里需要进行一些配置，默认回车即可"><a href="#这里需要进行一些配置，默认回车即可" class="headerlink" title="这里需要进行一些配置，默认回车即可"></a>这里需要进行一些配置，默认回车即可</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">This will install Vue 2.x version of the template.</span><br><span class="line"></span><br><span class="line">For Vue 1.x use: vue init webpack#1.0 my-project</span><br><span class="line"></span><br><span class="line">? Project name my-project</span><br><span class="line">? Project description A Vue.js project</span><br><span class="line">? Author runoob &lt;test@runoob.com&gt;</span><br><span class="line">? Vue build standalone</span><br><span class="line">? Use ESLint to lint your code? Yes</span><br><span class="line">? Pick an ESLint preset Standard</span><br><span class="line">? Setup unit tests with Karma + Mocha? Yes</span><br><span class="line">? Setup e2e tests with Nightwatch? Yes</span><br></pre></td></tr></table></figure><h4 id="进入项目，安装并运行："><a href="#进入项目，安装并运行：" class="headerlink" title="进入项目，安装并运行："></a>进入项目，安装并运行：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd my-project </span><br><span class="line">$ cnpm install</span><br><span class="line">$ cnpm run dev</span><br><span class="line">DONE  Compiled successfully in 4388ms</span><br><span class="line">Listening at http://localhost:8080</span><br></pre></td></tr></table></figure><p>成功执行以上命令后访问 <a href="http://localhost:8080/，可得输出结果" target="_blank" rel="noopener">http://localhost:8080/，可得输出结果</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 9月 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 大杂烩 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>vue语法格式</title>
       <link href="/2019/09/16/2019-9-16-ribao/"/>
       <url>/2019/09/16/2019-9-16-ribao/</url>
@@ -471,6 +446,31 @@
         <tags>
             
             <tag> 日报 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue.js安装</title>
+      <link href="/2019/09/16/2019-9-16-dsaf-day/"/>
+      <url>/2019/09/16/2019-9-16-dsaf-day/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-独立版本"><a href="#1-独立版本" class="headerlink" title="1. 独立版本"></a>1. 独立版本<br></h3><p>我们可以在 Vue.js 的官网上直接下载 vue.min.js 并用 <code>&lt;script&gt;</code> 标签引入</p><h3 id="2-使用-CDN-方法"><a href="#2-使用-CDN-方法" class="headerlink" title="2. 使用 CDN 方法"></a>2. 使用 CDN 方法<br></h3><p>以下推荐国外比较稳定的两个 CDN，国内还没发现哪一家比较好，目前还是建议下载到本地。</p><blockquote><p>Staticfile CDN（国内） : <a href="https://cdn.staticfile.org/vue/2.2.2/vue.min.js" target="_blank" rel="noopener">https://cdn.staticfile.org/vue/2.2.2/vue.min.js</a></p></blockquote><blockquote><p>unpkg：<a href="https://unpkg.com/vue/dist/vue.js" target="_blank" rel="noopener">https://unpkg.com/vue/dist/vue.js</a>, 会保持和 npm 发布的最新的版本一致。</p></blockquote><blockquote><p>cdnjs : <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js" target="_blank" rel="noopener">https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js</a></p></blockquote><h3 id="3-NPM-方法"><a href="#3-NPM-方法" class="headerlink" title="3. NPM 方法"></a>3. NPM 方法</h3><p>npm 版本需要大于 3.0，如果低于此版本需要升级它</p><h4 id="升级npm"><a href="#升级npm" class="headerlink" title="升级npm"></a>升级npm</h4><blockquote><p>npm install npm -g</p></blockquote><h4 id="全局安装-vue-cli"><a href="#全局安装-vue-cli" class="headerlink" title="全局安装 vue-cli"></a>全局安装 vue-cli</h4><blockquote><p>$ cnpm install –global vue-cli</p></blockquote><h4 id="创建一个基于-webpack-模板的新项目"><a href="#创建一个基于-webpack-模板的新项目" class="headerlink" title="创建一个基于 webpack 模板的新项目"></a>创建一个基于 webpack 模板的新项目</h4><blockquote><p>$ vue init webpack my-project</p></blockquote><h4 id="这里需要进行一些配置，默认回车即可"><a href="#这里需要进行一些配置，默认回车即可" class="headerlink" title="这里需要进行一些配置，默认回车即可"></a>这里需要进行一些配置，默认回车即可</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">This will install Vue 2.x version of the template.</span><br><span class="line"></span><br><span class="line">For Vue 1.x use: vue init webpack#1.0 my-project</span><br><span class="line"></span><br><span class="line">? Project name my-project</span><br><span class="line">? Project description A Vue.js project</span><br><span class="line">? Author runoob &lt;test@runoob.com&gt;</span><br><span class="line">? Vue build standalone</span><br><span class="line">? Use ESLint to lint your code? Yes</span><br><span class="line">? Pick an ESLint preset Standard</span><br><span class="line">? Setup unit tests with Karma + Mocha? Yes</span><br><span class="line">? Setup e2e tests with Nightwatch? Yes</span><br></pre></td></tr></table></figure><h4 id="进入项目，安装并运行："><a href="#进入项目，安装并运行：" class="headerlink" title="进入项目，安装并运行："></a>进入项目，安装并运行：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd my-project </span><br><span class="line">$ cnpm install</span><br><span class="line">$ cnpm run dev</span><br><span class="line">DONE  Compiled successfully in 4388ms</span><br><span class="line">Listening at http://localhost:8080</span><br></pre></td></tr></table></figure><p>成功执行以上命令后访问 <a href="http://localhost:8080/，可得输出结果" target="_blank" rel="noopener">http://localhost:8080/，可得输出结果</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 9月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大杂烩 </tag>
             
         </tags>
       
@@ -604,31 +604,6 @@
     
     
     <entry>
-      <title>重装系统后重新与github建立连接</title>
-      <link href="/2019/09/07/2019-9-7-dddd/"/>
-      <url>/2019/09/07/2019-9-7-dddd/</url>
-      
-        <content type="html"><![CDATA[<p><strong>解决办法是，再次生成一个密钥，然后完成跟github远程仓库的认证即可建立连接。</strong></p><p>默认你已经安装好了git，如果没有安装，windows下安装gitbash自带git，linux系统的话sudo apt-get  install -g git就可以了</p><h3 id="生成SSH秘钥"><a href="#生成SSH秘钥" class="headerlink" title="生成SSH秘钥"></a>生成SSH秘钥</h3><p>第一步先生成ssh秘钥。在系统根目录下打开命令行终端，执行命令：ssh-keygen -t rsa -C "填写你的任意邮箱"，</p><p>执行完成后，会生成一个.ssh文件夹，里面的id_rsa.pub文件内容就是秘钥，那么我们就进入ssh文件夹打开该文件后复制它的内容。或者命令行快速打开cd ./.ssh && cat id_rsa.pub然后会有一大串字符打印在终端，这个是秘钥内容，全部复制下来。</p><h3 id="登录github新建SSH-Key"><a href="#登录github新建SSH-Key" class="headerlink" title="登录github新建SSH Key"></a>登录github新建SSH Key</h3><p>登录自己的github，在右上角头像框点击邮件选择Settings，然后在左边菜单选择SSH and GPG keys,在SSH keys一栏点击New SSH key的绿色按钮，title随便写，key那一个框框里把刚才复制的id_rsa.pub的内容粘贴到这里，确定复制的是完整的秘钥不要漏了。粘贴完后点下面Add的绿色按钮，这样就在github上生成了一个对应的SSH秘钥了。</p><h3 id="验证SSH"><a href="#验证SSH" class="headerlink" title="验证SSH"></a>验证SSH</h3><p>回到本地，随便找个空文件夹或者新建一个文件夹，在这个新文件夹下新建一个git本地仓库。终端在这个文件夹的路径下打开，路径一定要正确，然后执行</p><blockquote><p>git init</p></blockquote><p>再然后就是设置用户名和邮箱：</p><blockquote><p>git config –global user.name “你的用户名”</p></blockquote><blockquote><p>git config –global user.email “你的邮箱”</p></blockquote><p>设置完后，设置你想要建立对应连接的远程仓库地址：</p><blockquote><p>git remote add origin <a href="mailto:git@github.com">git@github.com</a>:XXXXXXX/xxxxxxx.git </p></blockquote><p>这里的地址填写你github仓库的SSH地址，注意是SSH的地址不是http的地址</p><p>设置完成后，把远程仓库的源代码拉取到本地：</p><blockquote><p>git pull origin master –allow-unrelated-histories  </p></blockquote><p><strong>这里的master是你远程仓库的分支名，如果你的分支名不是master你就改成你的分支名</strong></p><p>一般来讲没有改过的分支名肯定有一个是master，只不过不知道你想要的代码在不在master分支。</p><p>执行上述命令后会出现一堆信息，大概就是关于验证的，结束会有一个（yes/no），这里手打‘yes’再回车就可以完成验证了，直接打回车会验证错误，原贴在这里 [https://blog.csdn.net/u010193432/article/details/82877663](https://blog.csdn.net/u010193432/article/details/82877663)    验证通过后就会拉取远程master分支的代码到你的文件夹，并同时在本地创建一个master分支。接下来就是要建立本地分支和远程分支的追踪关系，方便以后push，执行如下命令：</p><blockquote><p>git branch –set-upstream-to=origin/master</p></blockquote><p>至此，本地仓库重新与github远程仓库建立了连接,再次执行git pull,出现up to date就没问题了</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 9月 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 日报 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>webstrom安装</title>
       <link href="/2019/09/07/2019-9-7-wwebstorm/"/>
       <url>/2019/09/07/2019-9-7-wwebstorm/</url>
@@ -646,6 +621,31 @@
         <tags>
             
             <tag> 大杂烩 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>重装系统后重新与github建立连接</title>
+      <link href="/2019/09/07/2019-9-7-dddd/"/>
+      <url>/2019/09/07/2019-9-7-dddd/</url>
+      
+        <content type="html"><![CDATA[<p><strong>解决办法是，再次生成一个密钥，然后完成跟github远程仓库的认证即可建立连接。</strong></p><p>默认你已经安装好了git，如果没有安装，windows下安装gitbash自带git，linux系统的话sudo apt-get  install -g git就可以了</p><h3 id="生成SSH秘钥"><a href="#生成SSH秘钥" class="headerlink" title="生成SSH秘钥"></a>生成SSH秘钥</h3><p>第一步先生成ssh秘钥。在系统根目录下打开命令行终端，执行命令：ssh-keygen -t rsa -C "填写你的任意邮箱"，</p><p>执行完成后，会生成一个.ssh文件夹，里面的id_rsa.pub文件内容就是秘钥，那么我们就进入ssh文件夹打开该文件后复制它的内容。或者命令行快速打开cd ./.ssh && cat id_rsa.pub然后会有一大串字符打印在终端，这个是秘钥内容，全部复制下来。</p><h3 id="登录github新建SSH-Key"><a href="#登录github新建SSH-Key" class="headerlink" title="登录github新建SSH Key"></a>登录github新建SSH Key</h3><p>登录自己的github，在右上角头像框点击邮件选择Settings，然后在左边菜单选择SSH and GPG keys,在SSH keys一栏点击New SSH key的绿色按钮，title随便写，key那一个框框里把刚才复制的id_rsa.pub的内容粘贴到这里，确定复制的是完整的秘钥不要漏了。粘贴完后点下面Add的绿色按钮，这样就在github上生成了一个对应的SSH秘钥了。</p><h3 id="验证SSH"><a href="#验证SSH" class="headerlink" title="验证SSH"></a>验证SSH</h3><p>回到本地，随便找个空文件夹或者新建一个文件夹，在这个新文件夹下新建一个git本地仓库。终端在这个文件夹的路径下打开，路径一定要正确，然后执行</p><blockquote><p>git init</p></blockquote><p>再然后就是设置用户名和邮箱：</p><blockquote><p>git config –global user.name “你的用户名”</p></blockquote><blockquote><p>git config –global user.email “你的邮箱”</p></blockquote><p>设置完后，设置你想要建立对应连接的远程仓库地址：</p><blockquote><p>git remote add origin <a href="mailto:git@github.com">git@github.com</a>:XXXXXXX/xxxxxxx.git </p></blockquote><p>这里的地址填写你github仓库的SSH地址，注意是SSH的地址不是http的地址</p><p>设置完成后，把远程仓库的源代码拉取到本地：</p><blockquote><p>git pull origin master –allow-unrelated-histories  </p></blockquote><p><strong>这里的master是你远程仓库的分支名，如果你的分支名不是master你就改成你的分支名</strong></p><p>一般来讲没有改过的分支名肯定有一个是master，只不过不知道你想要的代码在不在master分支。</p><p>执行上述命令后会出现一堆信息，大概就是关于验证的，结束会有一个（yes/no），这里手打‘yes’再回车就可以完成验证了，直接打回车会验证错误，原贴在这里 [https://blog.csdn.net/u010193432/article/details/82877663](https://blog.csdn.net/u010193432/article/details/82877663)    验证通过后就会拉取远程master分支的代码到你的文件夹，并同时在本地创建一个master分支。接下来就是要建立本地分支和远程分支的追踪关系，方便以后push，执行如下命令：</p><blockquote><p>git branch –set-upstream-to=origin/master</p></blockquote><p>至此，本地仓库重新与github远程仓库建立了连接,再次执行git pull,出现up to date就没问题了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 9月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日报 </tag>
             
         </tags>
       
