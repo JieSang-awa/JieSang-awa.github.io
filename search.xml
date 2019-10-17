@@ -4,7 +4,82 @@
   
     
     <entry>
-      <title>Object Oriented</title>
+      <title>String,StringBuffer,StringBuilder</title>
+      <link href="/2019/10/17/2019-10-17-String%20StringBuilder%20StringBuffer/"/>
+      <url>/2019/10/17/2019-10-17-String%20StringBuilder%20StringBuffer/</url>
+      
+        <content type="html"><![CDATA[<h2 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h2><p>String类用于描述字符串，Java程序中的所有字符串字面值都可以使用该类的实例/对象加以描述<br>String类描述的字符串内容是个常量，因此可以被共享<br>String类被<code>final</code>关键字修饰 表示不能被继承<br><strong>构造方法(常见的)</strong><br><code>String()</code>  使用无参方式构造对象得到空字符序列</p><p><code>String(byte[] bytes)</code>  使用bytes数组中的所有内容构造对象 </p><p><code>String(char[] value)</code>  使用value数组中的所有内容构造对象。</p><p><strong>成员方法(常见的)</strong></p><p><code>char charAt(int index)</code>  根据参数指定的下标返回对应的单个字符<br><code>boolean contains(CharSequence s)</code> 用于判断当前字符串是否包含参数指定的内容(参数传递接口类的引用，所以实参传递实现类的对象，<b>String类</b> 刚好实现了这个接口)<br><code>boolean endsWith(String suffix)</code>  判断当前字符串是否以参数指定的内容为结尾<br><code>boolean startsWith(String prefix)</code>判断当前字符串中是否以参数指定的内容为开头<br><code>String toLowerCase()</code> 用于将当前字符串中所有字符转换为小写<br><code>String toUpperCase()</code> 用于将当前字符串中所有字符转换为大写<br><code>String trim()</code> 用于去除当前字符串中两端的空白字符<br><code>boolean equals(Object anObject)</code> 用于比较字符串内容是否相等并返回；<br><code>String substring(int beginIndex)</code> 用于获取当前字符串中从beginIndex位置开始的子字符串并返回<br><code>String substring(int beginIndex, int endIndex)</code>  用于获取当前字符串中从beginIndex位置开始到endIndex结尾的子字符串并返回<br><code>int indexOf(int ch)</code> 用于返回当前字符串中参数ch指定的字符第一次出现的下标</p><h2 id="StringBuilder类-和-StringBuffer类"><a href="#StringBuilder类-和-StringBuffer类" class="headerlink" title="StringBuilder类 和 StringBuffer类"></a>StringBuilder类 和 StringBuffer类</h2><p>这俩个类方法一模一样，只不过StringBuilder单线程效率高，而StringBuffer多线程效率低<br>StringBuilder类 和 StringBuffer类的出现是为了弥补String类描述的字符串内容是个常量不可改变，所以 StringBuilder类 和 StringBuffer类可以直接修改字符串内容<br>String StringBuffer StringBuilder操作的数据类型相同，即字符串类型</p><p><strong>常用方法</strong>  </p><p><code>StringBuilder(String str)</code>  根据参数指定的字符串来构造对象<br><code>StringBuilder insert(int offset, String str)</code>用于将参数str代表的内容插入到当前字符串中下标为offset的位置上。</p><ul><li>返回当前对象的引用，也就是当前对象自己  </li></ul><p><code>StringBuilder append(String str)</code> 用于将参数str代表的内容追加到当前字符串的末尾<br><code>StringBuilder delete(int start, int end)</code>  用于将当前字符串中从start位置(含)开始到end位置(不含)结束之间的内容删除<br><code>StringBuilder deleteCharAt(int index)</code> 用于将当前字符串中下标为index位置的单个字符删除<br><code>StringBuilder replace(int start, int end, String str)</code>用于将当前字符串中从start位置到end位置之间的内容使用str替换掉<br><code>void setCharAt(int index, char ch)</code> 用于将当前字符串中下标为index位置的单个字符修改为参数ch的数值<br><code>int indexOf(String str)</code> 用于在当前字符串中查找参数str第一次出现的索引位置<br><code>StringBuilder reverse()</code> 用于实现字符串内容的反转</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 10月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>抽象类与接口</title>
+      <link href="/2019/10/16/2019-10-16-abstractClass/"/>
+      <url>/2019/10/16/2019-10-16-abstractClass/</url>
+      
+        <content type="html"><![CDATA[<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p>抽象类主要指不能具体实现的类，体现在该类不能实例化/构造对象并使用abstract修饰。  </p><p><strong>抽象方法</strong>  </p><p>抽象方法主要指不能具体实现的方法，体现在该方法没有方法体并使用abstract关键字修饰 </p><blockquote><p>public abstract void 方法名(); </p></blockquote><p><strong>注意事项</strong>  </p><ul><li>抽象类中可以有成员变量、成员方法以及构造方法。</li><li>抽象类中可以有抽象方法也可以没有。</li><li>拥有抽象方法的类必须是抽象类，因此严格来说，具有抽象方法并使用abstract<br>  关键字修饰的类才是真正意义上的抽象类  </li></ul><p><strong>意义</strong></p><p>抽象类的意义在于被继承而不是自身实例化对象，当一个类继承另一个类，必须重写抽象方法，否则自身也必须是抽象类，所以抽象类对子类具有规范性</p><h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>接口是一种比抽象类还抽象的类，因此也不能实例化对象 定义接口的关键字是<code>interface</code>,实现接口的关键字是<code>implements</code>  </p><p><strong>抽象类和接口之间的区别</strong>  </p><ul><li>定义抽象类的关键字是class，而定义接口的关键字是interface。</li><li>继承抽象类的关键字是extends，而实现接口的关键字是implements。</li><li>继承抽象类支持单继承，而实现接口支持多实现。</li><li>抽象类中可以有构造方法，而接口中不可以有。</li><li>抽象类中可以有成员变量，而接口中只可以有常量。</li><li>抽象类中可以有成员方法，而接口中只可以有抽象方法。</li><li>抽象类中增加方法通常不影响子类，而接口中增加方法通常影响子类。</li><li>从jdk1.8开始允许接口中有非抽象方法，但需要使用default关键字修饰。</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 10月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Object Oriebted</title>
+      <link href="/2019/10/15/2019-10-15-Object%20Oriented/"/>
+      <url>/2019/10/15/2019-10-15-Object%20Oriented/</url>
+      
+        <content type="html"><![CDATA[<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>为了防止给成员变量赋于一些合法但不合理的数值，对成员变量进行密封包装处理，来保证成员变量值的合理性，这种机制就叫封装</p><p>   <strong>封装的流程</strong></p><ul><li>私有化成员变量，使用private关键字修饰；</li><li>提供公有的get和set方法，在方法体中进行合理值的判断；</li><li>在构造方法中调用set方法进行合理值的判断；</li></ul><p><strong>封装好处</strong></p><ul><li>提高代码安全性（可维护性）</li><li>防止外部随意调用</li><li>降低了类于类之间的耦合度</li></ul><h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>当多个类中具有相同的特征和行为时，可以将共性的内容提取出来组成一个公共类，让多个类分别吸收公共类中已有的特征和行为，而在多个类的内部只需要编写自己独有特征和行为的机制就叫继承  <b>继承关键字extends</b></p><blockquote><p>注意: 其中被继承的类叫父类或者超类，或者基类<br> 继承的类叫子类或派生类<br> 一个父类可以有多个子类<br> 但是一个子类只能由一个父类</p></blockquote><p>其中可以继承的有 <em>父类中被public protected修饰的类成员</em><br>不能被继承的有 <em>父类的构造器和所有私有化的类成员</em><br>选择继承的有 <em>缺省修饰的类成员</em></p><h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>多态主要指同一种事物表现出来的多种形态。<br>语法格式:  父类类型 引用变量名 = new 子类类型();  </p><p><strong>多态效果</strong><br>当父类引用指向子类对象时，父类引用可以直接调用父类独有的成员方法<br>当父类引用指向子类对象时，父类引用可以直接调用子类独有的成员方法<br>对于父子类都有的非静态成员方法来说，编译阶段调用父类版本，运行阶段调用子类版本；<br>对于父子类都有的静态成员方法来说，编译和运行阶段都调用父类版本；<br>     (静态成员隶属于类层级，与指向哪个对象无关)</p><p><strong>多态效果</strong><br>多态的实际意义在于屏蔽不同子类的差异性实现通用的编程带来不同的结果。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 10月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>面向对象小知识</title>
       <link href="/2019/10/14/2019-10-14-object%20oriented/"/>
       <url>/2019/10/14/2019-10-14-object%20oriented/</url>
       
