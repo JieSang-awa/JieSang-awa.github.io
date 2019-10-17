@@ -13,7 +13,7 @@
     
     
     <title>Redis | JieSangQAQ-兄弟会</title>
-    <link href="”https://github.com/JieSangQAQ#" 网址“ rel="”prefetch”">
+    <link href="”https://github.com/JieSangQAQ“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
@@ -60,6 +60,24 @@
 </section>
     <!-- 欧尼酱功能, 谁用谁知道 -->
     
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://github.com/JieSangQAQ" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
     <header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
         <div class="navbar-header">
@@ -68,7 +86,7 @@
                     aria-expanded="false">
                 <span class="fa fa-lg fa-reorder"></span>
             </button>
-            <a href="https://github.com/JieSangQAQ# 网址">
+            <a href="https://github.com/JieSangQAQ">
                 
                 <style>
                     #gal-header .navbar-brand {
@@ -188,7 +206,7 @@
 <article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="https://github.com/JieSangQAQ# 网址">JieSangQAQ-兄弟会</a>
+        <a href="https://github.com/JieSangQAQ">JieSangQAQ-兄弟会</a>
         >
         <span>Redis</span>
     </div>
@@ -257,7 +275,7 @@
 </ul>
 <h2 id="各种类型数据存储命令"><a href="#各种类型数据存储命令" class="headerlink" title="各种类型数据存储命令"></a>各种类型数据存储命令</h2><ol>
 <li><p>字符串操作（string）</p>
-<p> <img src="https://i.imgur.com/9sJtYCB.png" alt></p>
+<p> <img src="https://i.imgur.com/9sJtYCB.png" alt=""></p>
 <ul>
 <li>set key value  //存一组key value</li>
 <li>mset key value key value //存多组key value</li>
@@ -283,7 +301,7 @@
 </ol>
 <ol start="3">
 <li><p>哈希操作 (hashmap)</p>
-<p> <img src="https://i.imgur.com/3ROwSOy.png" alt></p>
+<p> <img src="https://i.imgur.com/3ROwSOy.png" alt=""></p>
 <ul>
 <li>hset key 字段名 字段值  //设置一个字段名和字段值</li>
 <li>hmset key 字段名1 字段值1 字段名2 字段值2 //设置多个</li>
@@ -297,7 +315,7 @@
 </ol>
 <ol start="4">
 <li><p>列表操作 (list)</p>
-<p> <img src="https://i.imgur.com/ZGLumMQ.png" alt></p>
+<p> <img src="https://i.imgur.com/ZGLumMQ.png" alt=""></p>
 <ul>
 <li>lpush key value //在列表头部插入一个元素</li>
 <li>rpush key value //在列表尾部插入一个元素</li>
@@ -354,22 +372,22 @@
 <h2 id="Java如何操作Redis存取数据"><a href="#Java如何操作Redis存取数据" class="headerlink" title="Java如何操作Redis存取数据"></a>Java如何操作Redis存取数据</h2><p>连接Redis</p>
 <pre><code>@Test//测试连接
 public void test1(){
-    Jedis jedis = new Jedis(&quot;localhost&quot;);
+    Jedis jedis = new Jedis("localhost");
     System.out.println(jedis.ping());
 }</code></pre><p>字符串写操作</p>
 <pre><code>public void test2_1(){
     long i = 10000L;
-    Jedis jedis = new Jedis(&quot;localhost&quot;);
-    jedis.set(&quot;i&quot;, i+&quot;&quot;);
-    jedis.set(&quot;msg1&quot;, &quot;Hello Redis&quot;);
-    jedis.set(&quot;msg2&quot;.getBytes(), &quot;你好 Redis&quot;.getBytes());
+    Jedis jedis = new Jedis("localhost");
+    jedis.set("i", i+"");
+    jedis.set("msg1", "Hello Redis");
+    jedis.set("msg2".getBytes(), "你好 Redis".getBytes());
     jedis.close();
 }</code></pre><p>字符串读操作</p>
 <pre><code>public void test2_2(){
-    Jedis jedis = new Jedis(&quot;localhost&quot;);
-    String str = jedis.get(&quot;msg1&quot;);
-    byte[] bts = jedis.get(&quot;msg2&quot;.getBytes());
-    long i = Long.parseLong(jedis.get(&quot;i&quot;));
+    Jedis jedis = new Jedis("localhost");
+    String str = jedis.get("msg1");
+    byte[] bts = jedis.get("msg2".getBytes());
+    long i = Long.parseLong(jedis.get("i"));
     String str2 = new String(bts);
     System.out.println(str);
     System.out.println(str2);
@@ -386,24 +404,24 @@ public void test1(){
         public void test1(){
             User user = new User();
             user.setId(10);
-            user.setName(&quot;scott&quot;);
-            user.setPassword(&quot;123&quot;);
+            user.setName("scott");
+            user.setPassword("123");
             //写对象
-            Jedis jedis = new Jedis(&quot;localhost&quot;);
+            Jedis jedis = new Jedis("localhost");
             Gson gson = new Gson();
             String s = gson.toJson(user);
-            jedis.set(&quot;user_&quot;+user.getId(), s);
+            jedis.set("user_"+user.getId(), s);
             jedis.close();
         }
 
         @Test//读对象
         public void test2(){
             int id = 10;
-            Jedis jedis = new Jedis(&quot;localhost&quot;);
-            String s = jedis.get(&quot;user_&quot;+id);
+            Jedis jedis = new Jedis("localhost");
+            String s = jedis.get("user_"+id);
             Gson gson = new Gson();
             User user = gson.fromJson(s, User.class);
-            System.out.println(user.getId()+&quot; &quot;+user.getName());
+            System.out.println(user.getId()+" "+user.getName());
             jedis.close();
         }
 
@@ -414,27 +432,45 @@ public void test1(){
         public void test3(){
             User user = new User();
             user.setId(10);
-            user.setName(&quot;scott&quot;);
-            user.setPassword(&quot;123&quot;);
+            user.setName("scott");
+            user.setPassword("123");
             //写对象
-            Jedis jedis = new Jedis(&quot;localhost&quot;);
+            Jedis jedis = new Jedis("localhost");
             //序列化
             byte[] value = SerializableUtil.serialize(user);
-            jedis.set(&quot;user_10&quot;.getBytes(), value);
+            jedis.set("user_10".getBytes(), value);
             jedis.close();
         }
 
         @Test//读对象
         public void test4(){
             int id = 10;
-            String key = &quot;user_&quot;+id;
-            Jedis jedis = new Jedis(&quot;localhost&quot;);
+            String key = "user_"+id;
+            Jedis jedis = new Jedis("localhost");
             byte[] value = jedis.get(key.getBytes());
             //反序列化
             User user = (User)SerializableUtil.unserialize(value);
-            System.out.println(user.getId()+&quot; &quot;+user.getName()+&quot; &quot;+user.getPassword());
+            System.out.println(user.getId()+" "+user.getName()+" "+user.getPassword());
             jedis.close();
-        }</code></pre>
+        }</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     </div>
 </article>
 
@@ -466,18 +502,6 @@ public void test1(){
             <p class="author-description"><p>JieSangQAQ’s blog</p>
 </p>
         </div>
-    </div>
-</aside>
-    
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
     </div>
 </aside>
     
@@ -559,81 +583,6 @@ public void test1(){
 </aside>
     
     
-    <aside id="sidebar-rand_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            随机文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/19/2019-8-19-fifth-day/">git变基和标签操作</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/20/2019-8-20-sixth-technology/">ubantu安装QQ</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/26/2019-8-26-tenth-day/">Linux简单命令</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/30/2019-8-30--ththth-day/">30日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/12/2019-9-12-ribao/">12日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/17/2019-9-17-ribao/">17日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/24/2019-9-24-study_select/">数据库(2)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/25/2019-9-25-data/">数据库(3)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/27/2019-9-27-xinde/">建国70周年观后感</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/04/2019-9-4-ddddd/">4日日报</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
     
     <aside id="gal-sets">
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
@@ -659,17 +608,17 @@ public void test1(){
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/数据库/" style="font-size: 19.20302171377777px;" class="tag-cloud-link">数据库</a>
+    <a href="/tags/数据库/" style="font-size: 12.16860989677706px;" class="tag-cloud-link">数据库</a>
     
-    <a href="/tags/Java/" style="font-size: 12.2992941868883px;" class="tag-cloud-link">Java</a>
+    <a href="/tags/Java/" style="font-size: 11.785024304413554px;" class="tag-cloud-link">Java</a>
     
-    <a href="/tags/日报/" style="font-size: 12.990680988391926px;" class="tag-cloud-link">日报</a>
+    <a href="/tags/日报/" style="font-size: 11.314686355239523px;" class="tag-cloud-link">日报</a>
     
-    <a href="/tags/大杂烩/" style="font-size: 18.653766854840118px;" class="tag-cloud-link">大杂烩</a>
+    <a href="/tags/大杂烩/" style="font-size: 10.773244156275805px;" class="tag-cloud-link">大杂烩</a>
     
-    <a href="/tags/心得/" style="font-size: 17.204753831578113px;" class="tag-cloud-link">心得</a>
+    <a href="/tags/心得/" style="font-size: 12.716749807831299px;" class="tag-cloud-link">心得</a>
     
-    <a href="/tags/观后感/" style="font-size: 15.40983017370416px;" class="tag-cloud-link">观后感</a>
+    <a href="/tags/观后感/" style="font-size: 9.022481380395778px;" class="tag-cloud-link">观后感</a>
     
 </div>
                 
@@ -677,15 +626,15 @@ public void test1(){
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
     
     <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+        <a href="https://victorfengming.github.io" target="_blank">小明哥</a>
     </li>
     
     <li>
-        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+        <a href="https://zhengyupengzz.github.io" target="_blank">鹏哥</a>
     </li>
     
     <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+        <a href="https://1978413822.github.io" target="_blank">阳仔</a>
     </li>
     
 </div>
@@ -694,15 +643,15 @@ public void test1(){
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
     
     <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+        <a href="https://github.com/JieSangQAQ" target="_blank">Github</a>
     </li>
     
     <li>
-        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        <a href="813949958@qq.com" target="_blank">Email</a>
     </li>
     
     <li>
-        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+        <a href="https://www.zhihu.com/people/jie-sang-22/activities" target="_blank">知乎</a>
     </li>
     
 </div>
@@ -775,6 +724,8 @@ public void test1(){
 </script>
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
 
 
 

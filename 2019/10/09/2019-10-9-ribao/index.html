@@ -13,7 +13,7 @@
     
     
     <title>MongoDB | JieSangQAQ-兄弟会</title>
-    <link href="”https://github.com/JieSangQAQ#" 网址“ rel="”prefetch”">
+    <link href="”https://github.com/JieSangQAQ“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
@@ -60,6 +60,24 @@
 </section>
     <!-- 欧尼酱功能, 谁用谁知道 -->
     
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://github.com/JieSangQAQ" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
     <header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
         <div class="navbar-header">
@@ -68,7 +86,7 @@
                     aria-expanded="false">
                 <span class="fa fa-lg fa-reorder"></span>
             </button>
-            <a href="https://github.com/JieSangQAQ# 网址">
+            <a href="https://github.com/JieSangQAQ">
                 
                 <style>
                     #gal-header .navbar-brand {
@@ -188,7 +206,7 @@
 <article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="https://github.com/JieSangQAQ# 网址">JieSangQAQ-兄弟会</a>
+        <a href="https://github.com/JieSangQAQ">JieSangQAQ-兄弟会</a>
         >
         <span>MongoDB</span>
     </div>
@@ -239,9 +257,9 @@
     <div class="content-article">
         <h1 id="MongoDB操作命令"><a href="#MongoDB操作命令" class="headerlink" title="MongoDB操作命令"></a>MongoDB操作命令</h1><h2 id="Mongo简介"><a href="#Mongo简介" class="headerlink" title="Mongo简介"></a>Mongo简介</h2><p>属于非关系型数据库，是分布式文档数据库。<br>特点：扩展灵活、结构灵活、使用方便、支持查询、索引。<br>不足：缺乏事务控制，无法保障数据完整性。</p>
 <p>oracle存储结构</p>
-<p><img src="https://i.imgur.com/iGIiT2H.png" alt></p>
+<p><img src="https://i.imgur.com/iGIiT2H.png" alt=""></p>
 <p>mongodb存储结构</p>
-<p><img src="https://i.imgur.com/03lOJQN.png" alt></p>
+<p><img src="https://i.imgur.com/03lOJQN.png" alt=""></p>
 <h2 id="Mongo命令"><a href="#Mongo命令" class="headerlink" title="Mongo命令"></a>Mongo命令</h2><ol>
 <li><p>库命令</p>
 <ul>
@@ -260,7 +278,7 @@
 <li><p>查看</p>
 <pre><code>show collections</code></pre></li>
 <li><p>创建</p>
-<pre><code>当使用&quot;db.集合名.insert()&quot;插入数据时，集合不存在时会自动创建</code></pre></li>
+<pre><code>当使用"db.集合名.insert()"插入数据时，集合不存在时会自动创建</code></pre></li>
 <li><p>删除</p>
 <pre><code>db.集合名.drop()</code></pre></li>
 </ul>
@@ -269,38 +287,38 @@
 <ul>
 <li><p>插入</p>
 <p>  插入单条记录</p>
-<pre><code>db.dept.insert({&quot;no&quot;:1,&quot;dname&quot;:&quot;beijing&quot;})</code></pre><p>  插入多条记录</p>
-<pre><code>var objs = [{&quot;no&quot;:3,&quot;dname&quot;:&quot;chengdu&quot;},{&quot;no&quot;:4,&quot;dname&quot;:&quot;shenyang&quot;}];
+<pre><code>db.dept.insert({"no":1,"dname":"beijing"})</code></pre><p>  插入多条记录</p>
+<pre><code>var objs = [{"no":3,"dname":"chengdu"},{"no":4,"dname":"shenyang"}];
 db.dept.insert(objs)</code></pre><p>  或</p>
 <pre><code>for(var i=1;i&lt;10;i++){
- db.dept.insert({&quot;no&quot;:10+i,&quot;dname&quot;:&quot;bj&quot;+i});
+ db.dept.insert({"no":10+i,"dname":"bj"+i});
 }</code></pre></li>
 <li><p>删除</p>
 <p>  删除单条记录</p>
-<pre><code>db.dept.remove({&quot;no&quot;:1})</code></pre><p>  删除所有记录</p>
+<pre><code>db.dept.remove({"no":1})</code></pre><p>  删除所有记录</p>
 <pre><code>db.dept.remove({})</code></pre></li>
 <li><p>修改</p>
 <p>  全部更新覆盖</p>
-<pre><code>db.dept.update({&quot;no&quot;:1},{&quot;dname&quot;:&quot;shanghai&quot;})</code></pre><p>  部分更新</p>
+<pre><code>db.dept.update({"no":1},{"dname":"shanghai"})</code></pre><p>  部分更新</p>
 <pre><code>db.dept.update(条件json对象,{$set:要更新的json对象})
 //示例
-db.dept.update({&quot;no&quot;:1},{$set:{&quot;dname&quot;:&quot;chengdu&quot;}})</code></pre></li>
+db.dept.update({"no":1},{$set:{"dname":"chengdu"}})</code></pre></li>
 <li><p>查询</p>
 <p>  $gt、$lt、$gte、$lte、$ne等</p>
 <p>  查询所有记录</p>
 <pre><code>db.dept.find()</code></pre><p>  查询某条记录，no=1的记录</p>
-<pre><code>db.dept.find({&quot;no&quot;:1})</code></pre><p>  查询条件记录，no&gt;1的记录</p>
-<pre><code>db.dept.find({&quot;no&quot;:{$gt:1}})
-db.dept.find({&quot;no&quot;:{$gte:1}})</code></pre><p>  排序</p>
-<pre><code>db.dept.find().sort({&quot;no&quot;:1})</code></pre><p>  1表示升序、-1表示降序</p>
+<pre><code>db.dept.find({"no":1})</code></pre><p>  查询条件记录，no&gt;1的记录</p>
+<pre><code>db.dept.find({"no":{$gt:1}})
+db.dept.find({"no":{$gte:1}})</code></pre><p>  排序</p>
+<pre><code>db.dept.find().sort({"no":1})</code></pre><p>  1表示升序、-1表示降序</p>
 <p>  分页</p>
 <pre><code>//跳过begin条，然后抓取记录
 db.dept.find().skip(begin).limit(记录数)</code></pre></li>
 <li><p>统计</p>
 <p>  统计所有记录数量</p>
 <pre><code>db.dept.count()</code></pre><p>  统计满足条件记录数</p>
-<pre><code>db.dept.count({&quot;no&quot;:11})
-db.dept.count({&quot;no&quot;:{$gt:10}})</code></pre></li>
+<pre><code>db.dept.count({"no":11})
+db.dept.count({"no":{$gt:10}})</code></pre></li>
 </ul>
 </li>
 </ol>
@@ -310,47 +328,47 @@ db.dept.count({&quot;no&quot;:{$gt:10}})</code></pre></li>
 <li><p>引入mongo-java-driver-2.13.2.jar驱动包</p>
 </li>
 <li><p>建立连接</p>
-<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
+<pre><code>MongoClient mongo = new MongoClient("localhost");
 //操作
 mongo.close();关闭连接</code></pre></li>
 <li><p>获取库和集合信息</p>
-<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
+<pre><code>MongoClient mongo = new MongoClient("localhost");
 List&lt;String&gt; dbs = mongo.getDatabaseNames();//show dbs 查看所有库名
-DB db = mongo.getDB(&quot;java11&quot;);//use java11 获取库对象
+DB db = mongo.getDB("java11");//use java11 获取库对象
 //db.getCollectionNames();//show collections 查看集合名</code></pre></li>
 <li><p>插入记录</p>
-<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
-DB db = mongo.getDB(&quot;java11&quot;);
-DBCollection dept = db.getCollection(&quot;dept&quot;);
+<pre><code>MongoClient mongo = new MongoClient("localhost");
+DB db = mongo.getDB("java11");
+DBCollection dept = db.getCollection("dept");
 DBObject arr = new BasicDBObject();
-arr.put(&quot;no&quot;, 10);
-arr.put(&quot;dname&quot;, &quot;beijing1&quot;);
-dept.insert(arr);//db.dept.insert({&quot;no&quot;:10,&quot;dname&quot;:&quot;beijing1&quot;})
+arr.put("no", 10);
+arr.put("dname", "beijing1");
+dept.insert(arr);//db.dept.insert({"no":10,"dname":"beijing1"})
 mongo.close();</code></pre></li>
 <li><p>更新记录</p>
-<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
-DB db = mongo.getDB(&quot;java11&quot;);
-DBCollection dept = db.getCollection(&quot;dept&quot;);
+<pre><code>MongoClient mongo = new MongoClient("localhost");
+DB db = mongo.getDB("java11");
+DBCollection dept = db.getCollection("dept");
 DBObject q = new BasicDBObject();
-q.put(&quot;no&quot;, 10);
+q.put("no", 10);
 
 DBObject o = new BasicDBObject();
 DBObject n = new BasicDBObject();
-n.put(&quot;dname&quot;, &quot;北京&quot;);
-o.put(&quot;$set&quot;, n);
-//db.dept.update({&quot;no&quot;:10},{$set:{&quot;dname&quot;:&quot;北京&quot;}})
+n.put("dname", "北京");
+o.put("$set", n);
+//db.dept.update({"no":10},{$set:{"dname":"北京"}})
 dept.update(q, o);
 mongo.close();</code></pre></li>
 <li><p>查询记录</p>
-<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
-DB db = mongo.getDB(&quot;java11&quot;);//use java11 获取库对象
-DBCollection dept = db.getCollection(&quot;dept&quot;);//获取dept集合对象
+<pre><code>MongoClient mongo = new MongoClient("localhost");
+DB db = mongo.getDB("java11");//use java11 获取库对象
+DBCollection dept = db.getCollection("dept");//获取dept集合对象
 DBCursor cursor = dept.find();//db.dept.find() 查询所有记录
 while(cursor.hasNext()){
     DBObject obj = cursor.next();
-    Object no = obj.get(&quot;no&quot;);
-    Object dname = obj.get(&quot;dname&quot;);
-    System.out.println(&quot;no=&quot;+no+&quot; dname=&quot;+dname);
+    Object no = obj.get("no");
+    Object dname = obj.get("dname");
+    System.out.println("no="+no+" dname="+dname);
 }
 mongo.close();</code></pre></li>
 </ul>
@@ -371,20 +389,20 @@ mongo.close();</code></pre></li>
 - 追加Spring配置，创建MongoTemplate对象
 
         &lt;!-- 追加mongo命名空间，定义Factory --&gt;
-        &lt;mongo:db-factory id=&quot;mongoFactory&quot; 
-            host=&quot;localhost&quot; port=&quot;27017&quot; dbname=&quot;java11&quot;/&gt;
+        &lt;mongo:db-factory id="mongoFactory" 
+            host="localhost" port="27017" dbname="java11"/&gt;
 
         &lt;!-- 创建MongoTemplate --&gt;
-        &lt;bean id=&quot;mongoTemplate&quot; 
-            class=&quot;org.springframework.data.mongodb.core.MongoTemplate&quot;&gt;
-            &lt;constructor-arg index=&quot;0&quot; ref=&quot;mongoFactory&quot;&gt;
+        &lt;bean id="mongoTemplate" 
+            class="org.springframework.data.mongodb.core.MongoTemplate"&gt;
+            &lt;constructor-arg index="0" ref="mongoFactory"&gt;
             &lt;/constructor-arg&gt;
         &lt;/bean&gt;
 
 - 测试Template应用
 
         @RunWith(SpringJUnit4ClassRunner.class)
-        @ContextConfiguration(locations={&quot;classpath:spring-mongo.xml&quot;})
+        @ContextConfiguration(locations={"classpath:spring-mongo.xml"})
         public class TestMongoTemplate {
 
             @Resource
@@ -395,8 +413,8 @@ mongo.close();</code></pre></li>
                 System.out.println(mongoTemplate);
                 User user = new User();
                 user.setId(20);
-                user.setName(&quot;tiger&quot;);
-                user.setPassword(&quot;123456&quot;);
+                user.setName("tiger");
+                user.setPassword("123456");
                 mongoTemplate.save(user);//默认集合名user
             }
 
@@ -404,20 +422,38 @@ mongo.close();</code></pre></li>
             public void test2(){
                 List&lt;User&gt; list = mongoTemplate.findAll(User.class);//默认查user集合
                 for(User user:list){
-                    System.out.println(user.getId()+&quot; &quot;+user.getName()+&quot; &quot;+user.getPassword());
+                    System.out.println(user.getId()+" "+user.getName()+" "+user.getPassword());
                 }
             }
 
             @Test//测试按条件查询记录
             public void test3(){
-                Query query = new Query(Criteria.where(&quot;id&quot;).is(10));
+                Query query = new Query(Criteria.where("id").is(10));
                 User user = mongoTemplate.findOne(
                     query,User.class);
-                System.out.println(user.getId()+&quot; &quot;+user.getName()+&quot; &quot;+user.getPassword());
+                System.out.println(user.getId()+" "+user.getName()+" "+user.getPassword());
 
             }
 
-        }</code></pre>
+        }</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     </div>
 </article>
 
@@ -449,18 +485,6 @@ mongo.close();</code></pre></li>
             <p class="author-description"><p>JieSangQAQ’s blog</p>
 </p>
         </div>
-    </div>
-</aside>
-    
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
     </div>
 </aside>
     
@@ -542,81 +566,6 @@ mongo.close();</code></pre></li>
 </aside>
     
     
-    <aside id="sidebar-rand_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            随机文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/15/2019-8-15-first-day/">15日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/20/2019-8-20-sixth-day/">git4中协议</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/23/2019-8-23-ninth-day/">23日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/22/2019-8-22-eighth-day/">22日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/29/2019-8-29--ththth-day/">nodejs简单使用</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/30/2019-8-30-thth-day/">websocket和socketio的总结</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/10/2019-9-10-ribao/">10日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/16/2019-9-16-dsaf-day/">vue.js安装</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/24/2019-9-24-study_select/">数据库(2)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/07/2019-9-7-dddd/">重装系统后重新与github建立连接</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
     
     <aside id="gal-sets">
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
@@ -642,17 +591,17 @@ mongo.close();</code></pre></li>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/数据库/" style="font-size: 17.820350650281817px;" class="tag-cloud-link">数据库</a>
+    <a href="/tags/数据库/" style="font-size: 13.461998938858269px;" class="tag-cloud-link">数据库</a>
     
-    <a href="/tags/Java/" style="font-size: 9.135207497246634px;" class="tag-cloud-link">Java</a>
+    <a href="/tags/Java/" style="font-size: 18.57432502573916px;" class="tag-cloud-link">Java</a>
     
-    <a href="/tags/日报/" style="font-size: 18.542792551416376px;" class="tag-cloud-link">日报</a>
+    <a href="/tags/日报/" style="font-size: 11.989040971000389px;" class="tag-cloud-link">日报</a>
     
-    <a href="/tags/大杂烩/" style="font-size: 13.235318076483582px;" class="tag-cloud-link">大杂烩</a>
+    <a href="/tags/大杂烩/" style="font-size: 17.543650860442206px;" class="tag-cloud-link">大杂烩</a>
     
-    <a href="/tags/心得/" style="font-size: 8.84834282121778px;" class="tag-cloud-link">心得</a>
+    <a href="/tags/心得/" style="font-size: 9.409829858189514px;" class="tag-cloud-link">心得</a>
     
-    <a href="/tags/观后感/" style="font-size: 18.28429839848117px;" class="tag-cloud-link">观后感</a>
+    <a href="/tags/观后感/" style="font-size: 17.09254133208507px;" class="tag-cloud-link">观后感</a>
     
 </div>
                 
@@ -660,15 +609,15 @@ mongo.close();</code></pre></li>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
     
     <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+        <a href="https://victorfengming.github.io" target="_blank">小明哥</a>
     </li>
     
     <li>
-        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+        <a href="https://zhengyupengzz.github.io" target="_blank">鹏哥</a>
     </li>
     
     <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+        <a href="https://1978413822.github.io" target="_blank">阳仔</a>
     </li>
     
 </div>
@@ -677,15 +626,15 @@ mongo.close();</code></pre></li>
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
     
     <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+        <a href="https://github.com/JieSangQAQ" target="_blank">Github</a>
     </li>
     
     <li>
-        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        <a href="813949958@qq.com" target="_blank">Email</a>
     </li>
     
     <li>
-        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+        <a href="https://www.zhihu.com/people/jie-sang-22/activities" target="_blank">知乎</a>
     </li>
     
 </div>
@@ -758,6 +707,8 @@ mongo.close();</code></pre></li>
 </script>
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
 
 
 

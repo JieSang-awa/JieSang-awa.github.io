@@ -13,7 +13,7 @@
     
     
     <title>websocket和socketio的总结 | JieSangQAQ-兄弟会</title>
-    <link href="”https://github.com/JieSangQAQ#" 网址“ rel="”prefetch”">
+    <link href="”https://github.com/JieSangQAQ“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
@@ -60,6 +60,24 @@
 </section>
     <!-- 欧尼酱功能, 谁用谁知道 -->
     
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://github.com/JieSangQAQ" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
     <header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
         <div class="navbar-header">
@@ -68,7 +86,7 @@
                     aria-expanded="false">
                 <span class="fa fa-lg fa-reorder"></span>
             </button>
-            <a href="https://github.com/JieSangQAQ# 网址">
+            <a href="https://github.com/JieSangQAQ">
                 
                 <style>
                     #gal-header .navbar-brand {
@@ -188,7 +206,7 @@
 <article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="https://github.com/JieSangQAQ# 网址">JieSangQAQ-兄弟会</a>
+        <a href="https://github.com/JieSangQAQ">JieSangQAQ-兄弟会</a>
         >
         <span>websocket和socketio的总结</span>
     </div>
@@ -250,7 +268,25 @@
 <h4 id="WebSocket与HTTP、TCP的关系"><a href="#WebSocket与HTTP、TCP的关系" class="headerlink" title="WebSocket与HTTP、TCP的关系"></a>WebSocket与HTTP、TCP的关系</h4><p>WebSocket和HTTP都属于应用层协议，且都是基于TCP的，它们的send函数最终也是通过TCP系统接口来做数据传输。那么WebSocket和HTTP的关系呢？WebSocket在建立握手连接时，数据是通过HTTP协议传输的，但是在连接建立后，真正的数据传输阶段则不需要HTTP协议的参与</p>
 <h4 id="什么情况下使用WebSocket？"><a href="#什么情况下使用WebSocket？" class="headerlink" title="什么情况下使用WebSocket？"></a>什么情况下使用WebSocket？</h4><p>如果游戏需要同时支持手机端、Web端，那毫无疑问应该使用WebSocket，现在各个平台都提供了相应的WebSocket实现。如果游戏不需要支持Web端，且对实时性要求比较高，如多人射击、MMORPG之类，那么使用TCP/UDP结合的原生Socket会比较好。</p>
 <h4 id="SocketIO"><a href="#SocketIO" class="headerlink" title="SocketIO"></a>SocketIO</h4><p>WebSocket是HTML5最新提出的规范，虽然主流浏览器都已经支持，但仍然可能有不兼容的情况，为了兼容所有浏览器，给程序员提供一致的编程体验，SocketIO将WebSocket、AJAX和其它的通信方式全部封装成了统一的通信接口，也就是说，我们在使用SocketIO时，不用担心兼容问题，底层会自动选用最佳的通信方式。因此说，WebSocket是SocketIO的一个子集。</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     </div>
 </article>
 
@@ -282,18 +318,6 @@
             <p class="author-description"><p>JieSangQAQ’s blog</p>
 </p>
         </div>
-    </div>
-</aside>
-    
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
     </div>
 </aside>
     
@@ -375,81 +399,6 @@
 </aside>
     
     
-    <aside id="sidebar-rand_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            随机文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/10/10/2019-10-10-ribao/">mysql简单整理</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/20/2019-8-20-sixth-technology/">ubantu安装QQ</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/20/2019-8-20-sixth-day/">git4中协议</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/23/2019-8-23-ninth-techoolog/">iotop的安装</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/28/2019-8-28-thirteenth-day/">28日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/29/2019-8-29--ththth-da/">29日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/11/2019-9-11-ribao/">11日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/17/2019-9-17-dsb.md/">启动vue时报错</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/17/2019-9-17-ribao/">17日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/03/2019-9-2-dsad-day/">3日日报</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
     
     <aside id="gal-sets">
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
@@ -475,17 +424,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/数据库/" style="font-size: 15.951145014178001px;" class="tag-cloud-link">数据库</a>
+    <a href="/tags/数据库/" style="font-size: 8.694746608000376px;" class="tag-cloud-link">数据库</a>
     
-    <a href="/tags/Java/" style="font-size: 19.342439588287746px;" class="tag-cloud-link">Java</a>
+    <a href="/tags/Java/" style="font-size: 8.019145498134495px;" class="tag-cloud-link">Java</a>
     
-    <a href="/tags/日报/" style="font-size: 9.215092548412633px;" class="tag-cloud-link">日报</a>
+    <a href="/tags/日报/" style="font-size: 15.339134079428081px;" class="tag-cloud-link">日报</a>
     
-    <a href="/tags/大杂烩/" style="font-size: 9.125474840887122px;" class="tag-cloud-link">大杂烩</a>
+    <a href="/tags/大杂烩/" style="font-size: 16.952216815263316px;" class="tag-cloud-link">大杂烩</a>
     
-    <a href="/tags/心得/" style="font-size: 10.2722833543479px;" class="tag-cloud-link">心得</a>
+    <a href="/tags/心得/" style="font-size: 11.99086160558385px;" class="tag-cloud-link">心得</a>
     
-    <a href="/tags/观后感/" style="font-size: 10.815105075708821px;" class="tag-cloud-link">观后感</a>
+    <a href="/tags/观后感/" style="font-size: 14.6417094231115px;" class="tag-cloud-link">观后感</a>
     
 </div>
                 
@@ -493,15 +442,15 @@
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
     
     <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+        <a href="https://victorfengming.github.io" target="_blank">小明哥</a>
     </li>
     
     <li>
-        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+        <a href="https://zhengyupengzz.github.io" target="_blank">鹏哥</a>
     </li>
     
     <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+        <a href="https://1978413822.github.io" target="_blank">阳仔</a>
     </li>
     
 </div>
@@ -510,15 +459,15 @@
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
     
     <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+        <a href="https://github.com/JieSangQAQ" target="_blank">Github</a>
     </li>
     
     <li>
-        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        <a href="813949958@qq.com" target="_blank">Email</a>
     </li>
     
     <li>
-        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+        <a href="https://www.zhihu.com/people/jie-sang-22/activities" target="_blank">知乎</a>
     </li>
     
 </div>
@@ -591,6 +540,8 @@
 </script>
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
 
 
 

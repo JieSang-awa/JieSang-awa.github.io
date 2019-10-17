@@ -13,7 +13,7 @@
     
     
     <title>Object Oriented | JieSangQAQ-兄弟会</title>
-    <link href="”https://github.com/JieSangQAQ#" 网址“ rel="”prefetch”">
+    <link href="”https://github.com/JieSangQAQ“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
@@ -60,6 +60,24 @@
 </section>
     <!-- 欧尼酱功能, 谁用谁知道 -->
     
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://github.com/JieSangQAQ" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
     <header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
         <div class="navbar-header">
@@ -68,7 +86,7 @@
                     aria-expanded="false">
                 <span class="fa fa-lg fa-reorder"></span>
             </button>
-            <a href="https://github.com/JieSangQAQ# 网址">
+            <a href="https://github.com/JieSangQAQ">
                 
                 <style>
                     #gal-header .navbar-brand {
@@ -188,7 +206,7 @@
 <article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="https://github.com/JieSangQAQ# 网址">JieSangQAQ-兄弟会</a>
+        <a href="https://github.com/JieSangQAQ">JieSangQAQ-兄弟会</a>
         >
         <span>Object Oriented</span>
     </div>
@@ -239,7 +257,7 @@
     <div class="content-article">
         <p>周末午后，我正在愉快的打着王者荣耀，五杀在即之际。女朋友拿着一本我看过的《面向对象编程》过来找我。</p><p>
 
-<ul>
+</p><ul>
 <li>女朋友：什么是面向对象？是要面向我写代码吗？</li>
 <li>我： 不是啦，这个面向对象的对象不是你这个对象啦。</li>
 <li>此时，我突然感受到了一股莫名的杀气。</li>
@@ -273,7 +291,7 @@
 </ul>
 </li>
 </ul>
-</p><p>那么，有<strong>新的需求</strong>了怎么办？上面这种自己动手做饭的场景，就只能重新拼凑咯。</p>
+<p></p><p>那么，有<strong>新的需求</strong>了怎么办？上面这种自己动手做饭的场景，就只能重新拼凑咯。</p>
 <p>对于程序员来说，就需要通读代码，找出可以复用的方法，然后重新调用，不能复用的就重新写一个。时间久了，方法就会越来越多，系统维护越来越复杂。</p>
 
 <p>面向对象，其实就是我们通过点外卖的方式来“做饭”。我们知道我们需要一顿饭，我们只需要打开外卖软件，在里面选择我们需要的菜品然后下单就可以了。我们不关心饭店做饭的过程。想吃什么点什么，家里来人了就再下一个订单，不想吃米饭了，想吃馒头了，也可以给饭店打电话，让他们把米饭换成馒头。</p>
@@ -307,7 +325,7 @@
 </ul>
 <p>举一个不是很恰当，但是女朋友比较容易理解的例子。</p>
 
-<p>我们使用外卖软件点餐，当我们第二次去某一家店时，外卖软件会提示你上一次你在这家点了什么，你可以点击<再来一单>把上次的菜品直接加到购物车中，这就是「继承」。而在购物车中的物品你可以直接付款下单，也可以把增删和修改菜品。这就是「多态」。</再来一单>
+<p>我们使用外卖软件点餐，当我们第二次去某一家店时，外卖软件会提示你上一次你在这家点了什么，你可以点击&lt;再来一单&gt;把上次的菜品直接加到购物车中，这就是「继承」。而在购物车中的物品你可以直接付款下单，也可以把增删和修改菜品。这就是「多态」。<!--再来一单-->
 
 </p><p><strong>什么是继承？</strong></p>
 <blockquote>
@@ -339,7 +357,25 @@
 <li>我：吃你啊<p>画面不可描述中······</p> 
 </li>
 </ul>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     </div>
 </article>
 
@@ -371,18 +407,6 @@
             <p class="author-description"><p>JieSangQAQ’s blog</p>
 </p>
         </div>
-    </div>
-</aside>
-    
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
     </div>
 </aside>
     
@@ -464,81 +488,6 @@
 </aside>
     
     
-    <aside id="sidebar-rand_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            随机文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/16/2019-8-16-secend-day/">git部分用法</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/22/2019-8-22-eighth-day/">22日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/29/2019-8-29--ththtz-day/">轮播图</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/16/2019-9-16-dsaf-day/">vue.js安装</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/17/2019-9-17-ribao/">17日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/19/2019-9-19-ganwu/">兄弟会感悟</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/20/2019-9-20-jvm/">JVM</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/05/2019-9-5-ddddd/">放大镜实现</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/07/2019-9-7-wwebstorm/">webstrom安装</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/08/2019-9-8-singleton/">单例设计模式</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
     
     <aside id="gal-sets">
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
@@ -564,17 +513,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/数据库/" style="font-size: 16.89957759930998px;" class="tag-cloud-link">数据库</a>
+    <a href="/tags/数据库/" style="font-size: 11.51260843934524px;" class="tag-cloud-link">数据库</a>
     
-    <a href="/tags/Java/" style="font-size: 13.410346345187302px;" class="tag-cloud-link">Java</a>
+    <a href="/tags/Java/" style="font-size: 17.69969089805994px;" class="tag-cloud-link">Java</a>
     
-    <a href="/tags/日报/" style="font-size: 12.498794890675697px;" class="tag-cloud-link">日报</a>
+    <a href="/tags/日报/" style="font-size: 19.770446533875983px;" class="tag-cloud-link">日报</a>
     
-    <a href="/tags/大杂烩/" style="font-size: 14.128656883762202px;" class="tag-cloud-link">大杂烩</a>
+    <a href="/tags/大杂烩/" style="font-size: 15.119460534802304px;" class="tag-cloud-link">大杂烩</a>
     
-    <a href="/tags/心得/" style="font-size: 15.73095389642464px;" class="tag-cloud-link">心得</a>
+    <a href="/tags/心得/" style="font-size: 16.451544542144205px;" class="tag-cloud-link">心得</a>
     
-    <a href="/tags/观后感/" style="font-size: 15.929609146766582px;" class="tag-cloud-link">观后感</a>
+    <a href="/tags/观后感/" style="font-size: 16.323225837963847px;" class="tag-cloud-link">观后感</a>
     
 </div>
                 
@@ -582,15 +531,15 @@
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
     
     <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+        <a href="https://victorfengming.github.io" target="_blank">小明哥</a>
     </li>
     
     <li>
-        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+        <a href="https://zhengyupengzz.github.io" target="_blank">鹏哥</a>
     </li>
     
     <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+        <a href="https://1978413822.github.io" target="_blank">阳仔</a>
     </li>
     
 </div>
@@ -599,15 +548,15 @@
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
     
     <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+        <a href="https://github.com/JieSangQAQ" target="_blank">Github</a>
     </li>
     
     <li>
-        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        <a href="813949958@qq.com" target="_blank">Email</a>
     </li>
     
     <li>
-        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+        <a href="https://www.zhihu.com/people/jie-sang-22/activities" target="_blank">知乎</a>
     </li>
     
 </div>
@@ -680,6 +629,8 @@
 </script>
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
 
 
 

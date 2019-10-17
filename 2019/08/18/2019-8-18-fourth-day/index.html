@@ -13,7 +13,7 @@
     
     
     <title>查看提交信息 | JieSangQAQ-兄弟会</title>
-    <link href="”https://github.com/JieSangQAQ#" 网址“ rel="”prefetch”">
+    <link href="”https://github.com/JieSangQAQ“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
@@ -60,6 +60,24 @@
 </section>
     <!-- 欧尼酱功能, 谁用谁知道 -->
     
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://github.com/JieSangQAQ" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
     <header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
         <div class="navbar-header">
@@ -68,7 +86,7 @@
                     aria-expanded="false">
                 <span class="fa fa-lg fa-reorder"></span>
             </button>
-            <a href="https://github.com/JieSangQAQ# 网址">
+            <a href="https://github.com/JieSangQAQ">
                 
                 <style>
                     #gal-header .navbar-brand {
@@ -188,7 +206,7 @@
 <article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="https://github.com/JieSangQAQ# 网址">JieSangQAQ-兄弟会</a>
+        <a href="https://github.com/JieSangQAQ">JieSangQAQ-兄弟会</a>
         >
         <span>查看提交信息</span>
     </div>
@@ -276,7 +294,25 @@
 <p>git log –grep // 想过滤看到的内容   过滤日志</p>
 <p>git log -n // 查看近期提交的n条信息内容</p>
 <p>git log -p // 查看详细提交记录</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     </div>
 </article>
 
@@ -308,18 +344,6 @@
             <p class="author-description"><p>JieSangQAQ’s blog</p>
 </p>
         </div>
-    </div>
-</aside>
-    
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
     </div>
 </aside>
     
@@ -401,81 +425,6 @@
 </aside>
     
     
-    <aside id="sidebar-rand_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            随机文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/10/14/2019-10-14-object oriented/">Object Oriented</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/22/2019-8-22-eighth-day/">22日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/26/2019-8-26-dddd-day/">Linux简单命令</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/30/2019-8-30--ththth-day/">30日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/12/2019-9-12-ribao/">12日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/16/2019-9-16-ribao/">vue语法格式</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/17/2019-9-17-dsb.md/">启动vue时报错</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/03/2019-9-2-dsad-day/">3日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/24/2019-9-24-study_select/">数据库(2)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/07/2019-9-7-wwebstorm/">webstrom安装</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
     
     <aside id="gal-sets">
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
@@ -501,17 +450,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/数据库/" style="font-size: 19.087433952644854px;" class="tag-cloud-link">数据库</a>
+    <a href="/tags/数据库/" style="font-size: 19.07122418160909px;" class="tag-cloud-link">数据库</a>
     
-    <a href="/tags/Java/" style="font-size: 13.227589368431868px;" class="tag-cloud-link">Java</a>
+    <a href="/tags/Java/" style="font-size: 10.444173193962143px;" class="tag-cloud-link">Java</a>
     
-    <a href="/tags/日报/" style="font-size: 17.06559790533457px;" class="tag-cloud-link">日报</a>
+    <a href="/tags/日报/" style="font-size: 14.563032619858415px;" class="tag-cloud-link">日报</a>
     
-    <a href="/tags/大杂烩/" style="font-size: 16.079232707931034px;" class="tag-cloud-link">大杂烩</a>
+    <a href="/tags/大杂烩/" style="font-size: 19.61261793749831px;" class="tag-cloud-link">大杂烩</a>
     
-    <a href="/tags/心得/" style="font-size: 15.705568485188817px;" class="tag-cloud-link">心得</a>
+    <a href="/tags/心得/" style="font-size: 18.317301733285767px;" class="tag-cloud-link">心得</a>
     
-    <a href="/tags/观后感/" style="font-size: 15.519936548542342px;" class="tag-cloud-link">观后感</a>
+    <a href="/tags/观后感/" style="font-size: 14.315021051751792px;" class="tag-cloud-link">观后感</a>
     
 </div>
                 
@@ -519,15 +468,15 @@
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
     
     <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+        <a href="https://victorfengming.github.io" target="_blank">小明哥</a>
     </li>
     
     <li>
-        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+        <a href="https://zhengyupengzz.github.io" target="_blank">鹏哥</a>
     </li>
     
     <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+        <a href="https://1978413822.github.io" target="_blank">阳仔</a>
     </li>
     
 </div>
@@ -536,15 +485,15 @@
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
     
     <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+        <a href="https://github.com/JieSangQAQ" target="_blank">Github</a>
     </li>
     
     <li>
-        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        <a href="813949958@qq.com" target="_blank">Email</a>
     </li>
     
     <li>
-        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+        <a href="https://www.zhihu.com/people/jie-sang-22/activities" target="_blank">知乎</a>
     </li>
     
 </div>
@@ -617,6 +566,8 @@
 </script>
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
 
 
 

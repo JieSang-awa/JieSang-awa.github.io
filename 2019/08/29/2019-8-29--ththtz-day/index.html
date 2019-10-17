@@ -13,7 +13,7 @@
     
     
     <title>轮播图 | JieSangQAQ-兄弟会</title>
-    <link href="”https://github.com/JieSangQAQ#" 网址“ rel="”prefetch”">
+    <link href="”https://github.com/JieSangQAQ“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
@@ -60,6 +60,24 @@
 </section>
     <!-- 欧尼酱功能, 谁用谁知道 -->
     
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://github.com/JieSangQAQ" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
     <header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
         <div class="navbar-header">
@@ -68,7 +86,7 @@
                     aria-expanded="false">
                 <span class="fa fa-lg fa-reorder"></span>
             </button>
-            <a href="https://github.com/JieSangQAQ# 网址">
+            <a href="https://github.com/JieSangQAQ">
                 
                 <style>
                     #gal-header .navbar-brand {
@@ -188,7 +206,7 @@
 <article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="https://github.com/JieSangQAQ# 网址">JieSangQAQ-兄弟会</a>
+        <a href="https://github.com/JieSangQAQ">JieSangQAQ-兄弟会</a>
         >
         <span>轮播图</span>
     </div>
@@ -237,12 +255,30 @@
         </center>
     </div>
     <div class="content-article">
-        <h3 id="轮播图代码"><a href="#轮播图代码" class="headerlink" title="轮播图代码"></a>轮播图代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!DOCTYPE html&gt;</span><br><span class="line">  &lt;html lang=&quot;ch&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">	 &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	 &lt;title&gt;轮播演示&lt;/title&gt;</span><br><span class="line">	 &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">img&#123;</span><br><span class="line">	border: 1px solid pink;</span><br><span class="line">	height: 270px;</span><br><span class="line">&#125;</span><br><span class="line">body&#123;</span><br><span class="line">	background-color: purple;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line"> &lt;div &gt;</span><br><span class="line"> &lt;img src=&quot;/home/zhangjie/图片/ccc1.jpg&quot; id=&quot;iid&quot;&gt;</span><br><span class="line"> &lt;/div&gt;	</span><br><span class="line"> &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	 var index =1;</span><br><span class="line"> window.onload=function()&#123;setInterval(lunbo,1000);&#125;</span><br><span class="line"> function lunbo()&#123;</span><br><span class="line">	 var img = document.getElementById(&apos;iid&apos;);</span><br><span class="line">	 index++;</span><br><span class="line">	 img.src=&quot;/home/zhangjie/图片/ccc&quot;+index+&quot;.jpg&quot;;</span><br><span class="line"> 	 if(index===5)&#123;</span><br><span class="line">	 	index =1;</span><br><span class="line"> 	&#125;</span><br><span class="line"> &#125;</span><br><span class="line">&lt;/script&gt;	</span><br><span class="line"> &lt;/body&gt;</span><br><span class="line"> &lt;/html&gt;</span><br></pre></td></tr></table></figure>
+        <h3 id="轮播图代码"><a href="#轮播图代码" class="headerlink" title="轮播图代码"></a>轮播图代码</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!DOCTYPE html&gt;</span><br><span class="line">  &lt;html lang="ch"&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">	 &lt;meta charset="UTF-8"&gt;</span><br><span class="line">	 &lt;title&gt;轮播演示&lt;/title&gt;</span><br><span class="line">	 &lt;style type="text/css"&gt;</span><br><span class="line">img{</span><br><span class="line">	border: 1px solid pink;</span><br><span class="line">	height: 270px;</span><br><span class="line">}</span><br><span class="line">body{</span><br><span class="line">	background-color: purple;</span><br><span class="line">}</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line"> &lt;div &gt;</span><br><span class="line"> &lt;img src="/home/zhangjie/图片/ccc1.jpg" id="iid"&gt;</span><br><span class="line"> &lt;/div&gt;	</span><br><span class="line"> &lt;script type="text/javascript"&gt;</span><br><span class="line">	 var index =1;</span><br><span class="line"> window.onload=function(){setInterval(lunbo,1000);}</span><br><span class="line"> function lunbo(){</span><br><span class="line">	 var img = document.getElementById('iid');</span><br><span class="line">	 index++;</span><br><span class="line">	 img.src="/home/zhangjie/图片/ccc"+index+".jpg";</span><br><span class="line"> 	 if(index===5){</span><br><span class="line">	 	index =1;</span><br><span class="line"> 	}</span><br><span class="line"> }</span><br><span class="line">&lt;/script&gt;	</span><br><span class="line"> &lt;/body&gt;</span><br><span class="line"> &lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
 
 <ul>
 <li>如上代码可实现轮播,但是图片得自行调整</li>
 </ul>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     </div>
 </article>
 
@@ -274,18 +310,6 @@
             <p class="author-description"><p>JieSangQAQ’s blog</p>
 </p>
         </div>
-    </div>
-</aside>
-    
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
     </div>
 </aside>
     
@@ -367,81 +391,6 @@
 </aside>
     
     
-    <aside id="sidebar-rand_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            随机文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/10/11/2019-10-11-ribao/">mysql碎片整理优化</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/10/08/2019-10-8-ribao/">Redis</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/10/09/2019-10-9-ribao/">MongoDB</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/16/2019-8-16-secend-day/">git部分用法</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/22/2019-8-22-eighth-day/">22日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/27/2019-8-27-twelth-technolog/">nodejs安装</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/28/2019-8-28-thir-thirteenth-day/">css选择权简介</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/16/2019-9-16-dsaf-day/">vue.js安装</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/04/2019-9-4-ddddd/">4日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/09/2019-9-9-ddddribao/">9日日报</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
     
     <aside id="gal-sets">
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
@@ -467,17 +416,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/数据库/" style="font-size: 9.739920849838562px;" class="tag-cloud-link">数据库</a>
+    <a href="/tags/数据库/" style="font-size: 17.46289004582677px;" class="tag-cloud-link">数据库</a>
     
-    <a href="/tags/Java/" style="font-size: 15.753487182146365px;" class="tag-cloud-link">Java</a>
+    <a href="/tags/Java/" style="font-size: 10.60655126531405px;" class="tag-cloud-link">Java</a>
     
-    <a href="/tags/日报/" style="font-size: 11.113639485679553px;" class="tag-cloud-link">日报</a>
+    <a href="/tags/日报/" style="font-size: 16.214661099855086px;" class="tag-cloud-link">日报</a>
     
-    <a href="/tags/大杂烩/" style="font-size: 17.939076708893083px;" class="tag-cloud-link">大杂烩</a>
+    <a href="/tags/大杂烩/" style="font-size: 16.411519295559934px;" class="tag-cloud-link">大杂烩</a>
     
-    <a href="/tags/心得/" style="font-size: 15.72746591312277px;" class="tag-cloud-link">心得</a>
+    <a href="/tags/心得/" style="font-size: 12.4913014375508px;" class="tag-cloud-link">心得</a>
     
-    <a href="/tags/观后感/" style="font-size: 12.933344985859017px;" class="tag-cloud-link">观后感</a>
+    <a href="/tags/观后感/" style="font-size: 15.450330419407502px;" class="tag-cloud-link">观后感</a>
     
 </div>
                 
@@ -485,15 +434,15 @@
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
     
     <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+        <a href="https://victorfengming.github.io" target="_blank">小明哥</a>
     </li>
     
     <li>
-        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+        <a href="https://zhengyupengzz.github.io" target="_blank">鹏哥</a>
     </li>
     
     <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+        <a href="https://1978413822.github.io" target="_blank">阳仔</a>
     </li>
     
 </div>
@@ -502,15 +451,15 @@
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
     
     <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+        <a href="https://github.com/JieSangQAQ" target="_blank">Github</a>
     </li>
     
     <li>
-        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        <a href="813949958@qq.com" target="_blank">Email</a>
     </li>
     
     <li>
-        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+        <a href="https://www.zhihu.com/people/jie-sang-22/activities" target="_blank">知乎</a>
     </li>
     
 </div>
@@ -583,6 +532,8 @@
 </script>
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
 
 
 

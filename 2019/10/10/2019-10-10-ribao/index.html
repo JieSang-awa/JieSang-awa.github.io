@@ -13,7 +13,7 @@
     
     
     <title>mysql简单整理 | JieSangQAQ-兄弟会</title>
-    <link href="”https://github.com/JieSangQAQ#" 网址“ rel="”prefetch”">
+    <link href="”https://github.com/JieSangQAQ“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
@@ -60,6 +60,24 @@
 </section>
     <!-- 欧尼酱功能, 谁用谁知道 -->
     
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://github.com/JieSangQAQ" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
     <header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
         <div class="navbar-header">
@@ -68,7 +86,7 @@
                     aria-expanded="false">
                 <span class="fa fa-lg fa-reorder"></span>
             </button>
-            <a href="https://github.com/JieSangQAQ# 网址">
+            <a href="https://github.com/JieSangQAQ">
                 
                 <style>
                     #gal-header .navbar-brand {
@@ -188,7 +206,7 @@
 <article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="https://github.com/JieSangQAQ# 网址">JieSangQAQ-兄弟会</a>
+        <a href="https://github.com/JieSangQAQ">JieSangQAQ-兄弟会</a>
         >
         <span>mysql简单整理</span>
     </div>
@@ -249,16 +267,34 @@
 <p>记住数据库名后要写分号’;’</p>
 <p>选取创建的数据库 ： USE 数据库名;</p>
 <p>创建数据表：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> CREATE TABLE IF NOT EXISTS 表名(</span><br><span class="line"></span><br><span class="line">    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</span><br><span class="line"></span><br><span class="line">    name VARCHAR(255) UNIQUE, -- 如果你想让你的字段名的值是唯一值的话就加上UNIQUE，否则就去掉</span><br><span class="line"></span><br><span class="line">   age TINYINT UNSIGNED NOT NULL DEFAULT 1,  -- 默认值请为1， UNSIGNED 字段值不能有符号</span><br><span class="line"></span><br><span class="line">   sex TINYINNT UNSIGNED NOT NULL </span><br><span class="line"></span><br><span class="line">)ENGINE = InnoDB DEFAULT CHARSET = UTF8;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> CREATE TABLE IF NOT EXISTS 表名(</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp; name VARCHAR(255) UNIQUE, -- 如果你想让你的字段名的值是唯一值的话就加上UNIQUE，否则就去掉</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp;age TINYINT UNSIGNED NOT NULL DEFAULT 1,&nbsp; -- 默认值请为1， UNSIGNED 字段值不能有符号</span><br><span class="line"></span><br><span class="line">&nbsp; &nbsp;sex TINYINNT UNSIGNED NOT NULL&nbsp;</span><br><span class="line"></span><br><span class="line">)ENGINE = InnoDB DEFAULT CHARSET = UTF8;</span><br></pre></td></tr></tbody></table></figure>
 
-<p>增加数据:<code>INSERT INTO 表名(id,字段2，字段N。。) VALUES(NULL,&#39;张三&#39;,12,1);</code></p>
+<p>增加数据:<code>INSERT INTO 表名(id,字段2，字段N。。) VALUES(NULL,'张三',12,1);</code></p>
 <p>查询数据: <code>SELECT id,nam,age,sex FROM 表名; ||  SELECT id,name,age,sex FROM WHERE id=N；</code></p>
 <p>修改数据: <code>UPDATE 表名 SET 修改的字段名 WHERE  id=N；</code></p>
 <p>删除数据：</p>
 <p><strong>删除数据之前先添加一条数据免得表是空的</strong></p>
-<p>  <code>INSERT INTO 表名(id,字段2，字段N。。) VALUES(NULL,&#39;张三&#39;,12,1);</code></p>
+<p>  <code>INSERT INTO 表名(id,字段2，字段N。。) VALUES(NULL,'张三',12,1);</code></p>
 <p>ok,简单的增删改查就ok了</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     </div>
 </article>
 
@@ -290,18 +326,6 @@
             <p class="author-description"><p>JieSangQAQ’s blog</p>
 </p>
         </div>
-    </div>
-</aside>
-    
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
     </div>
 </aside>
     
@@ -383,81 +407,6 @@
 </aside>
     
     
-    <aside id="sidebar-rand_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            随机文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/15/2019-8-15-first-day/">15日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/21/2019-8-21-seventh-day/">21日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/22/2019-8-22-eighth-day/">22日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/29/2019-8-29--ththth-day/">nodejs简单使用</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/16/2019-9-16-dsaf-day/">vue.js安装</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/16/2019-9-16-ribao/">vue语法格式</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/03/2019-9-2-dsad-day/">3日日报</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/19/2019-9-19-ganwu/">兄弟会感悟</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/07/2019-9-7-dddd/">重装系统后重新与github建立连接</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/07/2019-9-7-wwebstorm/">webstrom安装</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
     
     <aside id="gal-sets">
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
@@ -483,17 +432,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/数据库/" style="font-size: 16.200711543859303px;" class="tag-cloud-link">数据库</a>
+    <a href="/tags/数据库/" style="font-size: 18.18869737180497px;" class="tag-cloud-link">数据库</a>
     
-    <a href="/tags/Java/" style="font-size: 16.375812401310107px;" class="tag-cloud-link">Java</a>
+    <a href="/tags/Java/" style="font-size: 14.395401164974032px;" class="tag-cloud-link">Java</a>
     
-    <a href="/tags/日报/" style="font-size: 16.02434785355001px;" class="tag-cloud-link">日报</a>
+    <a href="/tags/日报/" style="font-size: 15.289871871608852px;" class="tag-cloud-link">日报</a>
     
-    <a href="/tags/大杂烩/" style="font-size: 14.707139856647997px;" class="tag-cloud-link">大杂烩</a>
+    <a href="/tags/大杂烩/" style="font-size: 17.251237638566554px;" class="tag-cloud-link">大杂烩</a>
     
-    <a href="/tags/心得/" style="font-size: 11.801132856921575px;" class="tag-cloud-link">心得</a>
+    <a href="/tags/心得/" style="font-size: 19.0169306427585px;" class="tag-cloud-link">心得</a>
     
-    <a href="/tags/观后感/" style="font-size: 17.852283068969268px;" class="tag-cloud-link">观后感</a>
+    <a href="/tags/观后感/" style="font-size: 12.51819368202609px;" class="tag-cloud-link">观后感</a>
     
 </div>
                 
@@ -501,15 +450,15 @@
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
     
     <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+        <a href="https://victorfengming.github.io" target="_blank">小明哥</a>
     </li>
     
     <li>
-        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+        <a href="https://zhengyupengzz.github.io" target="_blank">鹏哥</a>
     </li>
     
     <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+        <a href="https://1978413822.github.io" target="_blank">阳仔</a>
     </li>
     
 </div>
@@ -518,15 +467,15 @@
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
     
     <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+        <a href="https://github.com/JieSangQAQ" target="_blank">Github</a>
     </li>
     
     <li>
-        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        <a href="813949958@qq.com" target="_blank">Email</a>
     </li>
     
     <li>
-        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+        <a href="https://www.zhihu.com/people/jie-sang-22/activities" target="_blank">知乎</a>
     </li>
     
 </div>
@@ -599,6 +548,8 @@
 </script>
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
 
 
 
