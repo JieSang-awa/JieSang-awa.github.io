@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>日期日历类</title>
+      <link href="/2019/10/18/2019-10-18-date/"/>
+      <url>/2019/10/18/2019-10-18-date/</url>
+      
+        <content type="html"><![CDATA[<h2 id="日期相关的类"><a href="#日期相关的类" class="headerlink" title="日期相关的类"></a>日期相关的类</h2><h2 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h2><p><strong>基本概念</strong><br>   <code>java.util.Date</code>类用于描述特征的瞬间，可以精确到毫秒数</p><p><strong>常用的方法</strong></p><p>   <code>Date()</code> 使用无参的方式构造对象，默认采用当前系统时间来初始化<br>   <code>Date(long date)</code>  根据参数指定的毫秒数来构造对象。</p><ul><li>其中参数为距离1970年1月1日0时0分0秒以来的毫秒数  </li><li>1秒 = 1000毫秒</li></ul><ul><li><p>可File类中的方法搭配使用。  </p><p><code>long getTime()</code><br>用于获取当前调用对象距离1970年1月1日0时0分0秒的毫秒数<br><code>void setTime(long time)</code><br>用于设置当前调用对象的时间为距离1970年1月1日0时0分0秒的毫秒数。</p></li></ul><h3 id="SimpleDateFormat类"><a href="#SimpleDateFormat类" class="headerlink" title="SimpleDateFormat类"></a>SimpleDateFormat类</h3><p><strong>基本概念</strong><br><code>java.text.SimpleDateFormat</code>类主要用于实现日期和文本之间的转换  </p><p><strong>常用的方法</strong><br>   <code>SimpleDateFormat(String pattern)</code>  根据参数指定的模式来构造对象</p><ul><li>常用的模式有：y-年  M-月  d-日  H-时  m-分  s-秒  </li></ul><p><code>public final String format(Date date)</code><br>  用于实现Date类型向String类型的转换<br>   <code>Date parse(String source)</code><br>        用于实现String类型向Date类型的转换。</p><h3 id="Calendar类"><a href="#Calendar类" class="headerlink" title="Calendar类"></a>Calendar类</h3><p><strong>基本概念</strong><br>   <code>java.util.Calendar</code>类用于描述特定的瞬间，来取代Date类中的过时方法<br>   <em>该类是个抽象类，因此该类不能构造对象。</em></p><p><strong>常用的方法</strong><br>   <code>static Calendar getInstance()</code><br>        用于获取Calendar类型的引用并返回<br>   <code>void set(int year, int month, int date, int hourOfDay, int minute, int second)</code><br>        用于设置年月日时分秒信息<br>   <code>Date getTime()</code><br>        用于将Calendar类型的时间转换为Date类型的对象并返回</p><pre><code>一个小案例: 提示用户按照指定的格式输入生日信息，计算距离1970年1月1日的天数并打印出来    //1.提示用户按照指定的格式输入生日信息并使用变量记录      System.out.println("请输入您的生日信息(xxxx年xx月xx日)：");      Scanner sc = new Scanner(System.in);      String str = sc.next();      //2.根据用户输入的生日信息转换为距离1970年1月1日的天数并记录      SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");      //实现字符串内容向Date类型的转换      Date d1 = sdf.parse(str);      System.out.println("根据用户输入的字符串转换的日期是：" + d1);      //获取距离1970年1月1日的毫秒数      long msec = d1.getTime();      System.out.println("距离1970年1月1日的毫秒数为：" + msec);      //转换为天数      long day = (msec/1000/3600+8)/24;      //3.打印最终的转换结果      System.out.println("距离1970年1月1日的天数为：" + day);</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 10月 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>String,StringBuffer,StringBuilder</title>
       <link href="/2019/10/17/2019-10-17-String%20StringBuilder%20StringBuffer/"/>
       <url>/2019/10/17/2019-10-17-String%20StringBuilder%20StringBuffer/</url>
