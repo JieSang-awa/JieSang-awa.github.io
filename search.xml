@@ -1,6 +1,301 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>设计原则与设计模式</title>
+    <url>/2019/10/30/2019-10-30-shejiyuanze/</url>
+    <content><![CDATA[<h2 id="常用的设计原则"><a href="#常用的设计原则" class="headerlink" title="常用的设计原则"></a>常用的设计原则</h2><h3 id="软件-项目开发的流程"><a href="#软件-项目开发的流程" class="headerlink" title="软件/项目开发的流程"></a>软件/项目开发的流程</h3><p>   需求分析文档 =&gt; 概要设计文档 =&gt; 详细设计文档 =&gt; 编码和测试 =&gt; 安装和调试<br>=&gt; 维护和升级</p>
+<h3 id="常用的设计原则-1"><a href="#常用的设计原则-1" class="headerlink" title="常用的设计原则"></a>常用的设计原则</h3><p>   <strong>开闭原则</strong> </p>
+<ul>
+<li>对扩展开放，对修改关闭<ul>
+<li>实现热插拔的效果，从而提高软件的可维护性</li>
+</ul>
+</li>
+</ul>
+<p>如：<br>  </p><figure class="highlight plain"><figcaption><span>class Person{</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">   </span><br><span class="line">    ... </span><br><span class="line">}</span><br><span class="line">public class SubPerson extends Person{</span><br><span class="line">    private boolean gender;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>   <strong>里氏代换原则</strong></p>
+<ul>
+<li>任何父类可以出现的地方，子类一定可以出现</li>
+<li>尽量多使用继承和多态的方式编程</li>
+</ul>
+<p>如：<br>   </p><figure class="highlight plain"><figcaption><span>static void draw(Shape s){</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line">       s.show();</span><br><span class="line">   }</span><br><span class="line">   draw(new Rect(1, 2, 3, 4));</span><br><span class="line">  </span><br><span class="line">   依赖倒转原则 - 尽量依赖于抽象类和接口，而不是具体实现类</span><br><span class="line">                - 抽象类对子类具有强制性和规范性</span><br><span class="line">如：</span><br><span class="line">   public abstract class Account{</span><br><span class="line">       public abstract double getLixi();</span><br><span class="line">   } </span><br><span class="line">   public class FixedAccount extends Account{</span><br><span class="line">       @Override</span><br><span class="line">       public double getLixi(){</span><br><span class="line">       }</span><br><span class="line">   }</span><br><span class="line">  ```        </span><br><span class="line">   **接口隔离原则** </span><br><span class="line">   - 尽量依赖于多个小接口而不是一个大接口  </span><br><span class="line"></span><br><span class="line">如：</span><br><span class="line">   ```public interface FlyAnimal{</span><br><span class="line">       public abstract void fly();</span><br><span class="line">   }</span><br><span class="line">   public interface RunAnimal{</span><br><span class="line">       public abstract void run();</span><br><span class="line">   }</span><br><span class="line">   public class Dog implements RunAnimal{</span><br><span class="line">       </span><br><span class="line">   }</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>   <strong>迪米特法则</strong></p>
+<ul>
+<li><p>一个实体应当尽量少与其它实体之间发生相互作用。</p>
+</li>
+<li><p>高内聚低耦合</p>
+</li>
+<li><p>所谓高内聚就是指一个实体应该将该实体拥有的所有功能内聚于该实体的内部。</p>
+</li>
+<li><p>所谓低耦合就是指一个实体应该尽量减少与其它实体的关联度。</p>
+<p> <strong>合成复用原则</strong> </p>
+</li>
+<li><p>应该尽量使用合成复用的方式而不是继承。</p>
+</li>
+</ul>
+<p>如：<br>  </p><figure class="highlight plain"><figcaption><span>class A{</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line">   public void show(){ ... }</span><br><span class="line">   ...</span><br><span class="line">}</span><br><span class="line">public class B{</span><br><span class="line">   private A a;</span><br><span class="line">   public B(A a){</span><br><span class="line">      this.a = a;</span><br><span class="line">   }</span><br><span class="line"></span><br><span class="line">   public void test(){</span><br><span class="line">       a.show(); </span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h2 id="常用的设计模式"><a href="#常用的设计模式" class="headerlink" title="常用的设计模式"></a>常用的设计模式</h2><p> <strong>基本概念</strong><br>   设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结  </p>
+<p><strong>基本分类</strong><br>   创建型模式 - 工厂方法模式、抽象工厂模式、单例设计模式(要求会写)<br>   结构型模式 - 装饰器模式、代理模式(要求看懂)<br>   行为型模式 - 模板方法模式、观察者模式(以后讲到)  </p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>10月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于UDP的编程模型</title>
+    <url>/2019/10/28/2019-10-28-udp/</url>
+    <content><![CDATA[<h3 id="基于udp协议的编程模型"><a href="#基于udp协议的编程模型" class="headerlink" title="基于udp协议的编程模型"></a>基于udp协议的编程模型</h3><p> <strong>编程模型</strong><br>接收方：<br>   (1)创建    DatagramSocket类型的对象并提供端口号；<br>   (2)创建DatagramPacket类型的对象用于接收数据并记录；<br>   (3)调用receive()方法接收数据内容；<br>   (4)关闭Socket；<br>发送方：<br>   (1)创建DatagramSocket类型的对象；<br>   (2)创建DatagramPacket类型的对象并提供接收方的通信地址和端口号；<br>   (3)调用send()方法发送数据内容；<br>   (4)关闭Socket；  </p>
+<h3 id="相关类和方法的解析"><a href="#相关类和方法的解析" class="headerlink" title="相关类和方法的解析"></a>相关类和方法的解析</h3><p><strong>DatagramSocket类</strong><br>  <code>java.net.DatagramSocket</code>类用于描述发送/接收数据的套接字(码头)<br>  <code>DatagramSocket()</code> - 使用无参方式构造对象<br> <code>DatagramSocket(int port)</code> - 根据参数指定端口构造对象<br>   <code>void receive(DatagramPacket p)</code> - 用于接收数据并记录到参数指定的数据报中<br>   <code>void send(DatagramPacket p)</code>- 用于发送参数指定的数据报内容<br> <code>void close()</code></p>
+<p><strong>DatagramPacket类</strong><br>   <code>java.net.DatagramPacket</code>类用于描述发送/接收的数据报(集装箱)<br>   <code>DatagramPacket(byte[] buf, int length)</code> - 用于接收数据报到参数中记录<br>  <code>DatagramPacket(byte[] buf, int length, InetAddress address, int port)</code><br>       - 用于将参数指定的内容发送到参数指定的位置<br>   <code>InetAddress getAddress()</code> - 用于获取发送方/接收方的通信地址<br>  <code>int getPort()</code> - 用于获取发送方/接收方的端口号<br>  <code>int getLength()</code> - 用于获取发送/接收到的数据长度  </p>
+<p><strong>InetAddress类</strong><br>   <code>java.net.InetAddress</code>类用于描述通信地址信息<br> <code>static InetAddress getLocalHost()</code> - 用于获取本地主机的通信地址<br>  <code>static InetAddress getByName(String host)</code> - 用于获取指定主机的通信地址</p>
+<h2 id="tcp协议和udp协议的比较"><a href="#tcp协议和udp协议的比较" class="headerlink" title="tcp协议和udp协议的比较"></a>tcp协议和udp协议的比较</h2><p><strong>tcp协议</strong></p>
+<ul>
+<li>传输控制协议，是一种面向连接的协议，类似于打电话</li>
+<li>建立连接 =&gt; 进行通信 =&gt; 断开连接</li>
+<li>在通信的整个过程中全程保持连接</li>
+<li>该协议保证了数据传输的可靠性和有序性</li>
+<li>是一种全双工的字节流通信方式</li>
+<li>服务器压力比较大，资源消耗比较多，并且发送数据的效率相对比较低</li>
+</ul>
+<p><strong>udp协议</strong></p>
+<ul>
+<li>用户数据报协议，是一种非面向连接的协议，类似于写信</li>
+<li>在通信的整个过程中不保持连接</li>
+<li>不保证数据传输的可靠性和有序性</li>
+<li>是一种全双工的数据报通信方式</li>
+<li>服务器压力比较小，资源消耗比较少，并且发送数据的效率相对比较高</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>10月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于TCP的编程模型</title>
+    <url>/2019/10/27/2019-10-27-tcp/</url>
+    <content><![CDATA[<h3 id="七层网络模型"><a href="#七层网络模型" class="headerlink" title="七层网络模型"></a>七层网络模型</h3><p>  为了保证数据传输的可靠和安全等，ISO将数据的传递从逻辑上划分为以下七层：<br>     <em>应用层、表示层、会话层、传输层、网络层、数据链路层、物理层</em><br>  当发送数据时，需要按照上述七层进行层层加包然后发送出去<br>  当接收数据时，需要按照上述七层相反的次序层层拆包再解析出来   </p>
+<p><strong>常用的协议</strong><br>   http - 超文本传输协议，用于浏览网页时使用<br>   ftp  - 文件传输协议，用于上传和下载文件时使用<br>   tcp  - 传输控制协议，用于网络通信时使用<br>   udp  - 用户数据报协议，用于网络通信时使用<br>   ip   - 互联网协议，是上述协议的底层协议  </p>
+<p>   协议 - 本质上就是一种规则，用于约定双方通信的机制 </p>
+<p> *<em>IP地址 *</em><br>如：<br>   192.168.1.1  - 是绝大多数路由器的登录地址，进行MAC地址的过滤  </p>
+<p>   IP地址是互联网中的唯一地址标识，本质上是由32位二进制组成的整数，叫做IPv4，当然也有128位二进制组成的整数，叫做IPv6，目前的主流是IPv4.<br>   日常生活中采用点分十进制表示法进行IP地址的描述，也就是让每个字节的二进制转换为一个十进制整数，不同的十进制整数之间采用小数点隔开<br>如：<br>   0x01 02 03 04(十六进制) =&gt; 1.2.3.4 </p>
+<p>查看IP地址的方式:<br>    windows系统：在dos窗口中使用ipconfig或者ipconfig/all命令查看<br>    linux系统：  在终端窗口中使用ifconfig或者/sbin/ifconfig命令查看  </p>
+<p><strong>端口号</strong><br>   IP地址 - 可以定位到具体某一台设备<br>   端口号 - 可以定位到具体某一个进程<br>   网络编程需要提供：IP地址 + 端口号  </p>
+<p>   端口号本质上是由16位二进制组成的整数，<br>范围是：<code>0 ~ 65535</code>，其中0 ~ 1024之间的端口号一般被系统占用，<br>因此编程从1025开始使用  </p>
+<p><strong>基于tcp协议的编程模型</strong><br><em>编程模型</em><br>服务器：<br>   (1)创建ServerSocket类型的对象并提供端口号；<br>   (2)等待客户端的连接请求，调用accept()方法；<br>   (3)使用输入输出流进行通信；//////////BufferedReader bu = new BufferedReader(new InputStreamReader  (so.getInputStream()));<br>   (4)关闭Socket；<br>客户端：<br>   (1)创建Socket类型的对象并提供服务器的IP地址和端口号；<br>   (2)使用输入输出流进行通信；<br>   (3)关闭Socket;  </p>
+<p><strong>相关类和方法的解析</strong></p>
+<h3 id="ServerSocket类"><a href="#ServerSocket类" class="headerlink" title="ServerSocket类"></a>ServerSocket类</h3><p>  <code>java.net.ServerSocket</code>类是用于描述服务器的套接字(大插排)<br>  <code>ServerSocket(int port)</code>- 根据参数指定的端口号构造对象<br>  <code>Socket accept()</code>- 侦听并接收到此套接字的连接请求<br> <code>void close()</code></p>
+<h3 id="Socket类"><a href="#Socket类" class="headerlink" title="Socket类"></a>Socket类</h3><p> <code>java.net.Socket</code>类用于描述客户端的套接字(小插排)，是两台设备间通信的端点<br>  <code>Socket(String host, int port)</code> - 根据参数指定的主机名和端口号构造对象<br>  <code>InputStream getInputStream()</code> - 用于获取该套接字的输入流<br>  <code>OutputStream getOutputStream()</code> - 用于获取该套接字的输出流<br> <code>void close()</code></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>10月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>反射机制</title>
+    <url>/2019/10/27/2019-10-29-fanshe/</url>
+    <content><![CDATA[<h2 id="反射机制"><a href="#反射机制" class="headerlink" title="反射机制"></a>反射机制</h2><p>如：<br>   Person p = new Person(); - 表示声明Person类型的引用指向Person类型的对象<br>   p.show();                - 表示调用show方法  </p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>   通常情况下编写的代码都是固定的，运行的结果也是固定的，若编写代码时不确定会创建什么类型的对象以及调用什么样的方法，由运行时传入的参数决定，这种技术就叫动态编程或反射机制。<br>   反射机制是目前主流框架的底层原理。</p>
+<h3 id="Class类"><a href="#Class类" class="headerlink" title="Class类"></a>Class类</h3><p><strong>基本概念</strong><br>   java.lang.Class类的实例用于表示正在运行Java程序中的类和接口，也就是用于代表一种数据类型<br>   该类没有公共构造方法，该类的实例由Java虚拟机和类加载器自动构造  </p>
+<p><strong>获取Class对象的方式</strong><br>   a.使用数据类型.class的方式获取对应类型的Class对象；<br>   b.使用对象.getClass()的方式获取对应类型的Class对象；<br>   c.使用包装类.TYPE的方式获取对应基本数据类型的Class对象；<br>   d.使用Class.forName()的方式获取对应类型的Class对象；  </p>
+<p><strong>常用的方法</strong><br>  <code>static Class&lt;?&gt; forName(String className)</code><br>       - 用于获取参数字符串指定类型的Class对象并返回<br> <code>T newInstance()</code></p>
+<ul>
+<li><p>用于创建此Class对象所表示类的新实例/对象  </p>
+</li>
+<li><p>若此Class对象代表String类，则调用该方法表示创建String类型的对象  </p>
+</li>
+<li><p>若此Class对象代表Person类，则调用该方法表示创建Person类型的对象  </p>
+<p><code>Constructor&lt;T&gt; getConstructor(Class&lt;?&gt;... parameterTypes)</code>   </p>
+<pre><code>- 用于获取此Class对象所表示类中参数指定的公共构造方法  </code></pre><p><code>Constructor&lt;?&gt;[] getConstructors()</code>  </p>
+<pre><code>- 用于获取此Class对象所表示类中所有的公共构造方法  </code></pre><p><code>Field getDeclaredField(String name)</code></p>
+<pre><code>- 用于获取此Class对象所表示类中参数指定的成员变量  </code></pre><p><code>Field[] getDeclaredFields()</code> </p>
+<pre><code>- 用于获取此Class对象所表示类中所有成员变量  </code></pre><p><code>Method getMethod(String name, Class&lt;?&gt;... parameterTypes)</code>  </p>
+<pre><code>- 用于获取此Class对象所表示类中指定的公共成员方法  </code></pre><p><code>Method[] getMethods()</code></p>
+<pre><code>- 用于获取此Class对象所表示类中所有的公共成员方法  </code></pre></li>
+</ul>
+<h3 id="Constructor类"><a href="#Constructor类" class="headerlink" title="Constructor类"></a>Constructor类</h3><p><strong>基本概念</strong><br>  <code>java.lang.reflect.Constructor</code>类用于描述获取到的单个构造方法的相关信息  </p>
+<p>(2)常用的方法<br>  <code>T newInstance(Object... initargs)</code><br>      - 使用此Constructor对象代表的构造方法来构造对象，参数用于初始化对象的成员变量  </p>
+<h3 id="Field类"><a href="#Field类" class="headerlink" title="Field类"></a>Field类</h3><p><strong>基本概念</strong><br> <code>java.lang.reflect.Field</code>类用于描述获取到的单个成员变量信息 </p>
+<p><strong>常用的方法</strong><br>  <code>Object get(Object obj)</code><br>       - 用于获取参数对象obj中此Field对象所描述成员变量的数值并返回<br>  <code>void set(Object obj, Object value)</code><br>       - 用于设置参数对象obj中此Field对象所描述成员变量的数值为value<br> <code>void setAccessible(boolean flag)</code><br>       - 用于设置是否取消Java语言的访问检查  </p>
+<h3 id="Method类"><a href="#Method类" class="headerlink" title="Method类"></a>Method类</h3><p><strong>基本概念</strong><br>  <code>java.lang.reflect.Method</code>类用于描述获取到的单个成员方法信息 </p>
+<p><strong>常用的方法</strong><br>  <code>Object invoke(Object obj, Object... args)</code><br>       - 使用参数对象obj来调用此Method对象所描述的成员方法，实参传递args </p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>10月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Thread类</title>
+    <url>/2019/10/26/2019-10-26-synchronized/</url>
+    <content><![CDATA[<h2 id="线程的状态和方法"><a href="#线程的状态和方法" class="headerlink" title="线程的状态和方法"></a>线程的状态和方法</h2><h3 id="线程的主要状态-了解、笔试题"><a href="#线程的主要状态-了解、笔试题" class="headerlink" title="线程的主要状态(了解、笔试题)"></a>线程的主要状态(了解、笔试题)</h3><p>   <strong>新建状态</strong> - 当线程对象使用new关键字创建完毕后进入的状态<br>            - 此时线程还没有开始执行<br>   <strong>就绪状态</strong> - 当线程对象调用start()方法后进入的状态<br>            - 此时线程依然没有开始执行<br>   <strong>运行状态</strong> - 当线程调度器调度就绪线程后进入的状态<br>            - 此时线程开始执行<br>            - 当时间片执行完毕后线程的任务没有完成时回到就绪状态<br>   <strong>消亡状态</strong> - 当时间执行完毕后线程的任务已经完成时进入的状态<br>            - 此时线程已经终止<br>   <strong>阻塞状态</strong> - 当线程执行的过程中发生了阻塞事件后进入的状态，如：sleep()方法<br>            - 当阻塞状态解除后回到就绪状态  </p>
+<h3 id="线程的常用方法"><a href="#线程的常用方法" class="headerlink" title="线程的常用方法"></a>线程的常用方法</h3><p>   <code>static void sleep(long millis)</code> - 用于使得调用线程休眠参数指定的毫秒数<br>   <code>int getPriority()</code>- 用于获取线程的优先级<br>  <code>void setPriority(int newPriority)</code> - 用于设置线程的优先级<br>      - 优先级高的线程不一定先执行，但是该线程获得CPU时间片的机会更多一些<br>  <code>void join()</code>- 用于等待调用线程终止<br> <code>void join(long millis)</code> - 用于等待线程的最长时间为参数指定的毫秒数<br>  <code>boolean isDaemon()</code> - 用于判断该线程是否为守护线程<br> <code>void setDaemon(boolean on)</code> - 用于设置该线程为守护线程  </p>
+<ul>
+<li>该方法必须在启动线程前调用  <ul>
+<li>当所有非守护线程结束后，则守护线程会随之结束，此时Java虚拟机退出  </li>
+</ul>
+</li>
+</ul>
+<h3 id="线程的同步机制"><a href="#线程的同步机制" class="headerlink" title="线程的同步机制"></a>线程的同步机制</h3><p><em>基本概念</em><br>   当多个线程同时访问同一种共享资源时可能会造成数据的不一致等问题，此时就需要对多个线程之间进行协调和通信，该机制就叫线程的同步机制<br>如：<br>    03年以前   开户   存折<br>    03年       开户   存折   银行卡   对应同一个账户</p>
+<p><em>解决方案</em><br>   引发问题：由程序可知，当两个线程同时对同一个账户进行取款时会导致账户余额不合理！<br>   引发原因：线程一还没有执行完毕取款操作时，线程二已经开始执行<br>   解决方案：让多个线程的并发操作修改为串行操作即可<br>   带来缺点：串行操作的范围应该越小越好，否则会影响多线程的执行效率<br>   <br><br><em>实现方式</em><br>   Java语言中提供了synchronized关键字来表示同步锁/对象锁，来保证线程操作的原子性，而具体使用方式如下：<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">     synchronized(对象的引用){</span><br><span class="line">         编写所有需要锁定的代码;</span><br><span class="line">     }</span><br><span class="line">   (2)使用同步方法的方式实现</span><br><span class="line">     使用synchronized关键字修饰整个方法，表示锁定该方法的所有代码；</span><br><span class="line">     该方式等价于：</span><br><span class="line">         synchronized(this){ 方法体的代码; }</span><br><span class="line">(e)</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p><strong>原理分析</strong><br>   当多个线程启动后会同时抢占共享资源，若其中一个线程抢到了同步锁则其它线程进入阻塞状态，直到该线程执行完毕所有锁定代码后自动释放同步锁，而阻塞的所有线程重新抢占同步锁，抢不到的线程继续阻塞  </p>
+<p><strong>死锁</strong></p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">    public void run(){</span><br><span class="line"></span><br><span class="line">        synchronized(a){  //持有对象锁a，等待对象锁b</span><br><span class="line">           synchronized(b){</span><br><span class="line">               ...</span><br><span class="line">           }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">线程二执行的代码：</span><br><span class="line">    public void run(){</span><br><span class="line"></span><br><span class="line">        synchronized(b){  //持有对象锁b，等待对象锁a</span><br><span class="line">           synchronized(a){</span><br><span class="line">               ...</span><br><span class="line">           }</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+
+<p><em>注意：</em><br>   在以后的开发中尽量不要使用同步语句块的嵌套结构    </p>
+<p><strong>Object类中的方法</strong><br>  <code>void wait()</code> - 用于使得当前线程进入等待状态，直到其它线程调用唤醒的方法为止<br>  <code>void wait(long timeout)</code><br>       - 用于使得当前线程进入等待状态，直到其它线程唤醒或参数指定的毫秒时间过去为止<br> <code>void notify()</code>- 用于唤醒等待的单个线程<br> <code>void notifyAll()</code> - 用于唤醒等待的所有线程  </p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>10月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Thread类</title>
+    <url>/2019/10/25/2019-10-25-throad/</url>
+    <content><![CDATA[<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>   <em>程序</em> - 数据结构 + 算法，主要指存放在硬盘上的可执行文件<br>   <em>进程</em> - 主要指运行在内存中的程序</p>
+<p>   目前主流的操作系统都支持多进程，是为了让操作系统可以同时执行多个任务，但进程是重量级的，新建进程对系统资源的消耗比较大，因此进程的数量比较局限<br>   线程是进程内部的程序流，也就是说操作系统支持多进程，而每个进程的内部又支持多线程，并且线程是轻量级的，会共享所在进程的资源，因此以后主流的开发都采用多线程技术<br>   多线程技术是采用时间片轮转法来保证并发执行的效果，所谓并发就是指宏观并行微观串行的机制。</p>
+<h3 id="线程的创建"><a href="#线程的创建" class="headerlink" title="线程的创建"></a>线程的创建</h3><p><strong>创建的方式</strong><br>   <code>java.lang.Thread</code>类用于描述线程，Java虚拟机允许运行多个执行线程，而线程的创建和启动方式如下:</p>
+<ol>
+<li>自定义类继承Thread类并重写run()方法，创建该类的对象调用start()方法  </li>
+<li>自定义类实现Runnable接口并重写run()方法，创建该类的对象作为实参来构造<br>  Thread类的对象，然后使用Thread类对象调用start()方法  </li>
+</ol>
+<p><strong>相关的方法</strong><br>   <code>Thread()</code> - 使用无参形式构造对象<br>   <code>Thread(String name)</code> - 根据参数指定的名称来构造对象<br>   <code>Thread(Runnable target)</code> - 根据参数指定的引用来构造对象<br>   <code>Thread(Runnable target, String name)</code> - 根据参数指定引用和名称来构造对象<br>   <code>void run()</code> - 若使用Runnable接口构造对象后调用该方法，则最终调用Runnable引用<br>        指向实现类中的run()方法，否则调用该方法则表示啥也不干<br>   <code>void start()</code> - 用于启动线程，Java虚拟机会自动调用该线程的run()方法  </p>
+<p><strong>原理分析</strong></p>
+<ol>
+<li>执行main()方法的线程叫做主线程，执行run()方法的线程叫做子/新线程  </li>
+<li>对于start()方法调用代码以及之前的代码来说，由主线程执行一次，当start()方法<br>  调用结束后，则线程的个数瞬间由1个变成了2个，其中新启动的线程去执行run()方法，<br>  原来的主线程继续向下执行，两个线程各自独立运行  </li>
+<li>当run()方法结束后则子线程结束，当main()方法结束后则主线程结束，两个线程的<br>  执行先后次序没有明确的规定，由系统调度算法来决定  </li>
+</ol>
+<p><strong><em>注意</em></strong>：<br>   继承方式创建和启动线程的代码相对简单，但Java语言中只支持单继承，若该类继承Thread类后则无法继承其它类，而实现接口的方式虽然代码复杂，但不影响该类继承其它类以及实现其它接口，因此以后的开发中推荐使用实现接口的方式<br><strong>线程的编号和名称</strong><br>   <code>long getId()</code> - 用于获取线程的标识符/编号<br>  <code>String getName()</code>- 用于获取线程的名称<br>   <code>void setName(String name)</code>- 用于更改线程的名称<br>   <code>static Thread currentThread()</code> - 用于获取当前正在执行线程的引用并返回  </p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>10月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>I/O流(二)</title>
     <url>/2019/10/24/2019-10-24-IoLiu/</url>
     <content><![CDATA[<h3 id="FileOutputStream类"><a href="#FileOutputStream类" class="headerlink" title="FileOutputStream类"></a>FileOutputStream类</h3><ol>
