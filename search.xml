@@ -1,6 +1,823 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Cookie与Session</title>
+    <url>/2019/11/08/2019-11-8-cookieandsession/</url>
+    <content><![CDATA[<h2 id="会话跟踪-状态管理"><a href="#会话跟踪-状态管理" class="headerlink" title="会话跟踪 ( 状态管理 )"></a>会话跟踪 ( 状态管理 )</h2><pre><code>HTTP协议是无状态的 , 我们的服务器在与客户端进行交互时, 没有记忆.
+
+两种方式来实现状态管理:
+
+    1.    Cookie技术:        将状态 , 存储到客户端中  
+    2.    Session技术:        将id存储在客户端中,  将状态存储在服务器中.</code></pre><h3 id="Cookie技术"><a href="#Cookie技术" class="headerlink" title="Cookie技术"></a>Cookie技术</h3><pre><code>技术实现步骤以及原理:
+
+    1.    当服务器向客户端响应时 , 可以向响应头部加入Cookie , 每一个Cookie表示一个键值对.
+    2.    浏览器在接收到响应后, 如果存在Cookie , 则会将Cookie存储在文本文件中 (.txt)
+        存储时, 会存储的信息有:    服务器的域 , 路径 , Cookie键 ,Cookie的值, 存储时长...
+    3.    当浏览器向客户端请求时, 会遍历 Cookie的文本文件, 将匹配新请求地址的Cookie 携带上, 放在请求头部, 发送给服务器 !
+        Cookie匹配的规则:    
+            当cookie存储的域相同时,  路径匹配时 才会将Cookie发送给服务器.</code></pre><h4 id="如何创建Cookie"><a href="#如何创建Cookie" class="headerlink" title="如何创建Cookie"></a>如何创建Cookie</h4><pre><code>Cookie在Java中的体现 就是一个表示键值对的 Java类, 类名为: Cookie .
+
+格式:
+    Cookie cookie = new Cookie(String name,String value);
+
+
+    Cookie cookie = new Cookie(String name,String value);
+    cookie.setMaxAge(Integer.MAX_VALUE);
+    cookie.setPath("/");
+    response.addCookie(cookie);</code></pre><h4 id="如何将Cookie添加到响应头部"><a href="#如何将Cookie添加到响应头部" class="headerlink" title="如何将Cookie添加到响应头部"></a>如何将Cookie添加到响应头部</h4><pre><code>通过响应对象, 将Cookie添加到响应头部
+
+格式:
+    response.addCookie(Cookie cookie);
+
+一次响应, 可以添加n个cookie  .
+如果浏览器中已经存储过与某个Cookie的name相同的Cookie , 再次存储时会覆盖value</code></pre><h4 id="如何从请求头部-得到之前存储的所有Cookie"><a href="#如何从请求头部-得到之前存储的所有Cookie" class="headerlink" title="如何从请求头部 得到之前存储的所有Cookie"></a>如何从请求头部 得到之前存储的所有Cookie</h4><pre><code>因为一个域 和 路径下, 可能存在多个Cookie  , 所以获取的不是单个Cookie , 而是一个数组:
+
+Cookie[] cookies = request.getCookies();
+
+//    如果从未存储过, 则返回的数组值是 null </code></pre><h4 id="得到Cookie后-如何取出其中的键和值"><a href="#得到Cookie后-如何取出其中的键和值" class="headerlink" title="得到Cookie后, 如何取出其中的键和值."></a>得到Cookie后, 如何取出其中的键和值.</h4><pre><code>获取Cookie的键:
+    String name = cookie.getName();
+
+获取Cookie的值:
+    String value = cookie.getValue();</code></pre><h4 id="如何调整Cookie存储时长"><a href="#如何调整Cookie存储时长" class="headerlink" title="如何调整Cookie存储时长."></a>如何调整Cookie存储时长.</h4><pre><code>cookie.setMaxAge(int 秒);
+
+    传入的值:
+        -    负数        :    默认-1 , 表示浏览会话结束时 删除.
+        -    正数        :    存活的秒数, 例如: 60*60*24*365*10 表示十年.
+        -    0        :    经常用于覆盖一个cookie时使用, 作用为0秒后删除 (立即删除)</code></pre><h4 id="Cookie存储时-路径问题的解决"><a href="#Cookie存储时-路径问题的解决" class="headerlink" title="Cookie存储时, 路径问题的解决."></a>Cookie存储时, 路径问题的解决.</h4><pre><code>路径匹配的规则:
+
+    -    Cookie的替换:    只能由相同域 , 相同路径的 完成替换.
+    -    Cookie的获取:    只能由相同域 , 相同路径或子路经 获取
+
+例如:
+    A地址:        localhost/x/a.do
+    B地址:        localhost/x/b.do
+    C地址:        localhost/c.do
+
+    A存储数据时:    a/b可以获取 ,a/b可以替换.   c不能获取 也不能替换.
+    C存储数据时: a/b/c可以获取 , c可以替换.
+
+
+Cookie的路径问题, 经常影响我们的开发 . 
+JavaWeb 给我们提供了一个Cookie的方法, 用于设置Cookie的路径.
+
+通常我们会将cookie的路径设置为/ (根路径)
+
+格式:    cookie.setPath("/");</code></pre><h3 id="Cookie的优缺点"><a href="#Cookie的优缺点" class="headerlink" title="Cookie的优缺点:"></a>Cookie的优缺点:</h3><pre><code>缺点:
+    1.    Cookie存储的数据类型有限制 , 只能是字符串
+    2.    数据存储的大小 ,有限制, 最大为4kb
+    3.    数据存储在用户的计算机上 , 不安全
+    4.    受限于用户的浏览器设置, 当浏览器禁止使用Cookie时 , cookie就无法再存储了.
+
+优点:
+    数据存储在客户端 , 分散了服务器的压力. </code></pre><h3 id="Session技术-会话"><a href="#Session技术-会话" class="headerlink" title="Session技术 (会话)"></a>Session技术 (会话)</h3><pre><code>基于Cookie实现的技术 ,  是Java中的一个键值对的容器.  就像我们常用的Map集合.
+
+技术原理:
+    1.    浏览器访问服务器时, 服务器可以选择创建Session对象.
+    2.    session对象在创建时, 会生成一个id , 我们称其为sessionid , sessionid是Session的密钥, 是唯一的 !
+    3.    session创建完毕后, 会自动将sessionid以cookie的形式 存储到用户的浏览器中.
+    4.    当浏览器再次访问服务器时, 会自动携带sessionid 发送给服务器.
+    5.    服务器得到sessionid后, 会去自动匹配找到对应的session对象, 供用户使用.</code></pre><h4 id="如何获取session对象"><a href="#如何获取session对象" class="headerlink" title="如何获取session对象"></a>如何获取session对象</h4><pre><code>在Java中, session是一个Java对象, 对象的类型为:  HttpSession
+
+获取Session对象的格式:
+
+    格式1.    无参方法:
+            HttpSession session = request.getSession();
+            内部调用了 一参方法, 且传入true
+
+    格式2.    一参方法
+            HttpSession session = request.getSession(boolean isNew);
+            用于获取session  参数:
+            true:    根据当前浏览器传入的sessionid ,寻找session对象并返回 . 如果不存在 , 则创建新的session并返回
+            false:    根据当前浏览器传入的sessionid ,寻找session对象并返回 . 如果不存在 , 则返回null;</code></pre><h4 id="session的常用方法"><a href="#session的常用方法" class="headerlink" title="session的常用方法"></a>session的常用方法</h4><pre><code>1.    存储数据
+    session.setAttribute(String key,Object value);
+2.    获取数据
+    Object value = session.getAttribute(String key);
+3.    删除数据
+    session.removeAttribute(String key);
+
+4.    销毁session (应用场景:    百分之99的情况是: 退出登录)
+    session.invalidate();</code></pre><h4 id="session的存活时长"><a href="#session的存活时长" class="headerlink" title="session的存活时长"></a>session的存活时长</h4><pre><code>session的默认时长为:    30分钟! 
+指的是:    举例用户的上一次访问大于30分钟后, session自动删除.
+
+设置Session时长:
+
+    方式1.    修改单个session的时长:
+            session.setMaxInactiveInterval(int 秒);
+
+    方式2.    修改tocmat下, 所有session的默认时长:
+            独立环境:    寻找到tomcat/conf/web.xml文件
+            开发环境:    寻找到Servers项目中的 web.xml
+
+            修改web.xml中  session-config节点
+                &lt;session-config&gt;
+                    &lt;session-timeout&gt;数值分钟&lt;/session-timeout&gt;
+                &lt;/session-config&gt;</code></pre><h4 id="session的优缺点"><a href="#session的优缺点" class="headerlink" title="session的优缺点"></a>session的优缺点</h4><pre><code>优点:
+    1.    数据存储在服务器中, 安全.
+    2.    session存储时的值类型为: Object , 可以存储任意类型数据.
+    3.    可存储的数据大小, 理论上是无上限的. 
+
+缺点:
+    数据在服务器的内存中存储, 内存通常是有限的, 会对服务器造成大量的压力. 很容易耗尽服务器资源.</code></pre><h3 id="Cookie结束-和-Session技术-不是互斥的"><a href="#Cookie结束-和-Session技术-不是互斥的" class="headerlink" title="Cookie结束 和 Session技术 不是互斥的"></a>Cookie结束 和 Session技术 不是互斥的</h3><pre><code>Cookie和session是结合使用的.
+    通常:
+        对于安全不敏感的数据 . 建议使用Cookie存储
+        对于安全敏感的数据, 建议使用session存储
+
+        对于安全敏感, 且较大的数据, 存储在数据库.</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>11月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>servlet请求与响应</title>
+    <url>/2019/11/07/2019-11-7-servlet/</url>
+    <content><![CDATA[<h3 id="HttpGET请求-与-HttpPOST请求的区别"><a href="#HttpGET请求-与-HttpPOST请求的区别" class="headerlink" title="HttpGET请求 与 HttpPOST请求的区别:"></a>HttpGET请求 与 HttpPOST请求的区别:</h3><pre><code>GET请求:
+    -    请求的参数 ,以键值对的形式    存储在网址中 ,在网址中, 编写在?后, 由1个或多个键值对组成, 键与值之间使用等号连接, 多个键值对之间使用&amp;分割.
+    -    只能传输字符串类型的参数.
+    -    网址的最大长度为4kb 通常支持的文字 2048 个文字
+    -    数据传输不安全
+
+    tomcat8+版本    :    GET请求不会乱码
+
+POST请求:
+    -    请求的数据, 以键值对的形式存储在请求体中, 
+    -    请求体是一个单独的数据包 , 较GET请求而言, 安全.
+    -    可以传输任意类型的数据
+    -    数据的大小 ,理论上是无上限的.
+
+    tomcat8+版本    :    Post请求默认编码为 ISO-8859-1 (不支持中文)</code></pre><h3 id="什么样的请求是GET"><a href="#什么样的请求是GET" class="headerlink" title="什么样的请求是GET"></a>什么样的请求是GET</h3><pre><code>以我们目前所学习的技术来说 , 除了表单提交时method="POST" ,其他的访问方式都是GET请求
+
+例如:
+    -    点击超链接 访问
+    -    通过js:    window.location.href='' 访问
+    -    浏览器中输入网址 + 回车
+    -    表单提交时 ,method="GET" 或 默认
+    -    ajax的get请求
+    -    Java代码的URL类的GET请求.</code></pre><h3 id="什么样的请求时PSOT"><a href="#什么样的请求时PSOT" class="headerlink" title="什么样的请求时PSOT"></a>什么样的请求时PSOT</h3><pre><code>1.    表单提交时method="POST"
+
+2.    ajax的post请求
+
+3.    Java代码的URL类的POST请求.</code></pre><h5 id="请求的乱码问题"><a href="#请求的乱码问题" class="headerlink" title="请求的乱码问题"></a>请求的乱码问题</h5><pre><code>解决乱码的两种格式:
+    格式1.
+        可用于tomcat8版本之前的GET请求乱码 以及 所有版本的POST请求乱码:
+        解决方案:    将乱码的文字, 按照乱码的编码ISO-8859-1转换为字节数组, 再按照正常的编码UTF-8组装为 文字;
+
+
+        案例:
+        //1.    接收用户传递的参数
+        String username = request.getParameter("username");
+        //解决乱码
+        {
+            //1.    将乱码的文字, 通过ISO-8859-1编码 打碎成字节数组
+            byte[] bytes = username.getBytes("ISO-8859-1");
+            //2.    通过UTF-8编码, 将字节数组 重新组装为 正常文字
+            username = new String(bytes, "UTF-8");
+
+        }
+
+    格式2.
+        格式1 解决乱码适用于参数较少的情况, 如果参数过多, 解决起来极其麻烦.
+        tomcat为我们提供了 设置请求体编码的方式:
+
+
+
+        格式:    request.setCharacterEncoding("UTF-8");
+
+        注意:    只有POST请求 ,才有请求体!
+                解决请求乱码的代码, 必须运行在获取参数之前    </code></pre><h5 id="响应的乱码问题"><a href="#响应的乱码问题" class="headerlink" title="响应的乱码问题"></a>响应的乱码问题</h5><pre><code>方式1.
+    设置网页的内容类型, 以及 网页的编码格式:
+    response.setContentType("text/html;charset=utf-8");
+
+方式2.
+    设置网页的编码格式 (因为没有设置网页内容类型为html , 所以浏览器解析时也是乱码)
+    response.setCharacterEncoding("UTF-8");
+
+    注意:
+        设置响应乱码的两种方式, 都必须写在 响应内容之前 !</code></pre><h3 id="线程安全问题"><a href="#线程安全问题" class="headerlink" title="线程安全问题 :"></a>线程安全问题 :</h3><pre><code>Servlet的service方法, 每次被请求时, 调用.
+
+这个调用很特殊 , 是在新的子线程中调用的 , 当service方法执行完毕, 子线程死亡了.
+
+可以简单的理解为: service方法每次执行都是一个新的线程.
+
+
+    @WebServlet("/s1.do")
+    public class Servlet1 extends HttpServlet {
+        //剩余票数
+        private int count = 10;
+        Object o = new Object();
+
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            synchronized (o) {
+                if(count&gt;0) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("恭喜你, 有票, 正在出票...");
+                    count--;
+                    System.out.println("出票完成, 剩余票数:"+count);
+                }else {
+                    System.out.println("很遗憾, 无票");
+                }
+            }
+        }
+
+
+    }</code></pre><h3 id="请求的-转发"><a href="#请求的-转发" class="headerlink" title="请求的 转发"></a>请求的 转发</h3><pre><code>概念:    一个web组件 将未处理完毕的请求, 通过tomcat转交给另一个web组件处理.
+
+步骤:
+    1.    获取请求转发器
+            RequestDispatcher rd  = request.getRequestDispatcher("转发的地址");
+    2.    通过转发器 发起转发
+            rd.forward(request,response);
+简写步骤:
+    request.getRequestDispatcher("转发的地址").forward(request,response);
+
+转发流程:
+    步骤1.    当浏览器访问服务器中tomcat时
+    步骤2.    tomcat将请求信息, 与响应工具进行封装, 传递给我们的Servlet的service方法进行处理
+    步骤3.    我们在service方法中, 得到请求转发器, 通过请求转发器 告知 tomcat , 请求转发的地址.
+    步骤4.    tomcat接收到请求转发需求, 会重新封装请求信息, 将请求对象 与 响应对象 传递给 转发地址的Servlet的service方法进行处理
+
+特点:
+    1.    转发过程中, 多个Servlet之间共享一份请求信息, 共享一个响应对象.
+    2.    转发只能发生在同一个服务器中. (转发无法实现跨域)
+    3.    无论转发发生多少次 ,对于浏览器来说! 只发起过一次请求 , 并且只接到了一次响应.
+    4.    相对于重定向来说, 效率更高.</code></pre><h3 id="请求的-重定向"><a href="#请求的-重定向" class="headerlink" title="请求的 重定向"></a>请求的 重定向</h3><pre><code>概念:    响应时 , 告知浏览器新的请求地址, 浏览器接收到 自动请求新的地址 !
+
+步骤:
+    response.sendRedirect("重定向地址");
+
+重定向流程:
+    步骤1.    当浏览器访问服务时, 服务器对浏览器响应一个302的状态码, 以及一个location的地址
+    步骤2.    HTTP协议约定 , 当浏览器接收到302状态码时 ,会自动寻找location地址, 并发起新的请求.
+    (相当于 控制用户浏览器 自动完成页面的跳转操作.)
+
+特点
+    1.    重定向会产生新的请求 和 新的响应. 
+    2.    使用重定向, 可以在多个服务器之间发生( 可以实现跨域操作 )
+    3.    浏览器地址栏的内容 会发生改变.
+    4.    相对于请求转发而言, 效率较低.</code></pre><h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><pre><code>1.    在一次用户的操作中, 可以无限制的进行转发和重定向, 但是记住: 一定要存在出口.    
+2.    当servlet中的请求已经被转发 / 重定向后,  在此servlet后续的代码中不能再进行响应 !</code></pre><h3 id="HttpServletRequest-类常用操作"><a href="#HttpServletRequest-类常用操作" class="headerlink" title="HttpServletRequest 类常用操作:"></a>HttpServletRequest 类常用操作:</h3><pre><code>1.    获取访问的客户端ip地址
+    String ip = request.getRemoteAddr();
+
+2.    获取客户端访问的地址 (有可能因为服务器映射了多个域名, 多个用户的访问地址 不同)
+    request.getRequestURI();
+
+3.    获取服务器的名称 (通常获取的是ip)
+    request.getServerName();
+
+4.    获取端口号
+    request.getServerPort();
+
+5.    获取请求的方式
+    String method = request.getMethod();
+
+6.    获取get请求的参数列表 (网址中?后面的部分)
+    String params = request.getQueryString();
+
+
+三个将请求对象 作为数据容器使用的方法:
+
+    1.    存储数据
+            request.setAttribute(String key,Object value);
+    2.    获取数据
+            Object value = request.getAttribute(String key);    
+    3.    删除数据
+            request.removeAttribute(String key);</code></pre><h3 id="ServletContext-上下文"><a href="#ServletContext-上下文" class="headerlink" title="ServletContext 上下文"></a>ServletContext 上下文</h3><pre><code>每一个Servlet都是一个独立的用于处理请求的 对象.
+为了便于多个Servlet之间的数据交流 . javaWeb提供了一个上下文对象ServletContext !
+我们在任何的Servlet代码中, 都可以获得这个ServletContext对象 , 且每一个Servlet获取的都是同一份ServletContext对象.
+上下文对象, 类似于我们SE所学习的MAP集合, 是一个键值对的容器.  
+
+作用: ServletContext是Servlet之间通信的桥梁, 用于多个Servlet之间信息的共享.</code></pre><h3 id="如何从Servlet中得到上下文对象"><a href="#如何从Servlet中得到上下文对象" class="headerlink" title="如何从Servlet中得到上下文对象"></a>如何从Servlet中得到上下文对象</h3><pre><code>格式:
+    ServletContext context = getServletContext();</code></pre><h3 id="ServletContext的常用方法"><a href="#ServletContext的常用方法" class="headerlink" title="ServletContext的常用方法"></a>ServletContext的常用方法</h3><pre><code>1.    存储数据
+    context.setAttribute(String key,Object value);
+2.    获取数据
+    Object value = context.getAttribute(String key);
+3.    删除数据
+    context.removeAttribute(String key);
+
+4.    获取项目运行时的 文件夹 绝对路径 
+    String path = context.getRealPath("/");
+
+//因为一个项目 只有一个ServletContext对象, 且在项目启动时创建了,项目销毁时销毁. 
+//所以我们在一次项目启动的过程中, 一个Servlet存储的数据, 任何Servlet都可以获取到.</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>11月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>servlet简介</title>
+    <url>/2019/11/06/2019-11-6-servlet/</url>
+    <content><![CDATA[<h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议:"></a>HTTP协议:</h3><pre><code>超文本传输协议 , 是一个应用层的网络传输协议 !
+
+特点:
+    1.    简单, 快速.
+    2.    无连接协议 , 每次连接服务器只处理一次客户端的请求 ,处理完毕, 立即断开.
+    3.    无状态协议 , 处理请求, 以及进行响应时 ,没有记忆能力 !
+    4.    支持多种不同的数据提交方式 ,GET/POST 等等
+    5.    数据传输很灵活, 支持任意数据类型 .</code></pre><h3 id="HTTP协议的组成部分"><a href="#HTTP协议的组成部分" class="headerlink" title="HTTP协议的组成部分"></a>HTTP协议的组成部分</h3><pre><code>1.    请求 
+        请求由四部分组成:
+            -    请求头
+                    请求头部的信息, 由一个个的键值对组成 , 描述的是有关客户端的信息.
+            -    请求体
+                    GET请求没有请求体. 当请求方式为POST时 ,存在请求体, 请求体是用于存储数据的数据容器 !
+            -    请求空行
+                    请求头部与请求体之间的一行空白
+            -    请求行
+                    由一个个的键值对组成, 描述的是:描述了请求的方式,远端服务器地址 ,以及所使用的协议版本等信息.
+
+2.    响应
+        响应由三部分组成:
+            -    响应头
+                    响应头部的信息, 由一个个的键值对组成, 描述的是有关服务器的信息.
+            -    响应体
+                    服务器给客户端回复的主体内容 .
+            -    响应行
+                    描述了响应的协议版本, 响应状态码, 以及响应成功或失败的相关解释.</code></pre><h4 id="开发环境下-代码部署到服务器后-访问的路径"><a href="#开发环境下-代码部署到服务器后-访问的路径" class="headerlink" title="开发环境下: 代码部署到服务器后, 访问的路径:"></a>开发环境下: 代码部署到服务器后, 访问的路径:</h4><pre><code>http://ip地址:端口号/项目名/文件名.后缀名</code></pre><h4 id="HttpServlet-类"><a href="#HttpServlet-类" class="headerlink" title="HttpServlet 类"></a>HttpServlet 类</h4><pre><code>简介:
+    是JavaWeb中的 三大组件之一 .
+    本质上:     就是一个运行在tomcat中的  java类
+
+作用:
+    用于处理客户端的请求, 以及对客户端进行响应 .
+
+步骤:
+    1.    编写一个类, 继承自HttpServlet
+    2.    重写父类的service(HttpServletRequest request,HttpServletResponse response)方法
+    3.    在service方法中 对用户进行响应.
+
+案例:
+    public class Servlet1 extends HttpServlet{
+        /**
+         * @param request :        请求对象 , 包含了请求相关的所有信息
+         * @param response :    响应对象 , tomcat提供的用于给客户端响应内容的 各种工具.
+         */
+        @Override
+        protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            //1.    设置响应的 编码格式 以及 响应的内容类型
+            response.setContentType("text/html;charset=utf-8");
+            //2.    获取用于打印响应体的 打印流
+            PrintWriter pw = response.getWriter();
+            //3.    打印一些准备响应的内容
+            pw.println("&lt;h1&gt;从前有座山 , 山上有座尼姑庵 ! 庵里有个老尼姑 ...&lt;/h1&gt;");
+            pw.flush();
+            //当service方法执行完毕后, tomcat会将我们准备好的响应体发送给浏览器
+        }
+    }</code></pre><h3 id="将编写好的servlet-映射到一个网址上"><a href="#将编写好的servlet-映射到一个网址上" class="headerlink" title="将编写好的servlet  映射到一个网址上:"></a>将编写好的servlet  映射到一个网址上:</h3><pre><code>web3.0之前版本:
+    修改项目中的配置文件 web.xml
+
+    在web.xml根节点中 加入:
+
+        1.    servlet节点 ,用于将serlvet类告知tomcat
+            &lt;servlet&gt;
+                &lt;servlet-name&gt;任意的标识符,给servlet起别名&lt;/servlet-name&gt;
+                &lt;servlet-class&gt;包名.类名&lt;servlet-class&gt;
+            &lt;/servlet&gt;
+        2.    servlet-mapping , 通过别名告知tomcat ,某servlet的映射网址
+            映射网址 ,通常以/开头 , 例如:        /demo1  , 访问网址: http://ip地址:端口号/项目名/demo1   
+            &lt;servlet-mapping&gt;
+                &lt;servlet-name&gt;要添加映射网址的别名&lt;/servlet-name&gt;
+                &lt;url-pattern&gt;/映射的网址&lt;/url-pattern&gt;
+            &lt;/servlet-mapping&gt;
+
+web3.0+    版本:
+    通过WebServlet注解:
+
+    案例:
+    @WebServlet("/hello2")
+    public class Servlet2 extends HttpServlet{
+        /**
+         * @param request :        请求对象 , 包含了请求相关的所有信息
+         * @param response :    响应对象 , tomcat提供的用于给客户端响应内容的 各种工具.
+         */
+        @Override
+        protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            //1.    设置响应的 编码格式 以及 响应的内容类型
+            response.setContentType("text/html;charset=utf-8");
+            //2.    获取用于打印响应体的 打印流
+            PrintWriter pw = response.getWriter();
+            //3.    打印一些准备响应的内容
+            pw.println("&lt;script&gt;alert('恭喜你, 获得奖品: 苹果笔记本电脑一台 , 现金1980 ,请输入银行卡密码领取')&lt;/script&gt;");
+            pw.println("&lt;input &gt;&lt;button onclick='alert(\"哈哈哈哈哈哈哈,你真信啊\")'&gt;提交&lt;/button&gt;");
+            pw.flush();
+            //当service方法执行完毕后, tomcat会将我们准备好的响应体发送给浏览器
+        }
+    }</code></pre><h3 id="Servlet的生命周期"><a href="#Servlet的生命周期" class="headerlink" title="Servlet的生命周期"></a>Servlet的生命周期</h3><pre><code>指的是 Servlet从创建 到 消亡的 周期!
+
+Servlet的创建时机:    默认情况 , 当用户第一次访问Servlet的映射地址时  . 对象创建.
+Servlet的销毁时机:    当tomcat关闭, 或 项目从tomcat删除时. Servlet被销毁.
+
+三个方法的体现:
+
+    1.    init方法        :    此方法在对象创建后, 执行.
+    2.    service方法    :    服务方法,当用户每一次访问时, 执行,  用于处理用户的请求, 以及对用户进行响应 .
+    3.    destroy方法    :    当tomcat关闭 或 项目从tomcat删除时 执行;    </code></pre><h3 id="ServletConfig对象"><a href="#ServletConfig对象" class="headerlink" title="ServletConfig对象"></a>ServletConfig对象</h3><pre><code>是Servlet的配置对象, 每一个Servlet都拥有一个ServletConfig .
+
+我们在web.xml中 进行Servlet配置时. 可以向一个Servlet中 添加初始化的参数. 
+这些参数以键值对的形式存储在ServletConfig中
+
+
+在web.xml中 , 向ServletConfig 存储数据的格式:
+    &lt;servlet&gt;
+        ...
+        &lt;!-- init-param标签可以存在多个, 每一个init-param都表示一个键值对 --&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;键&lt;/param-name&gt;
+            &lt;param-value&gt;值&lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;/servlet&gt;
+
+在Servlet中 得到ServletConfig对象的方式:     
+    方式1与方式2是互斥的.
+
+    方式1.
+        在Servlet中, 重写生命周期init(ServletConfig config)方法 , 使用方法参数中的config对象
+    方式2.
+        在Servlet的任意代码位置 , 通过getServletConfig();方法. 得到对象
+
+从ServletConfig 取出数据的格式:
+
+    String value = config对象.getInitParameter(String name);</code></pre><h3 id="调整-Servlet的创建时机"><a href="#调整-Servlet的创建时机" class="headerlink" title="调整 Servlet的创建时机"></a>调整 Servlet的创建时机</h3><pre><code>在web.xml中 . 配置servlet时.
+
+&lt;servlet&gt;
+    &lt;servlet-name...
+    &lt;servlet-class...
+    &lt;load-on-startup&gt;数字&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+
+load-on-startup: 
+    取值为数字: (默认值为-1)
+        当值为负数时:    懒汉模式, 第一次请求时加载 , 
+        当值≥0时 , 描述的是请求的顺序, 值越小越早加载.
+
+        如果多个servlet值相同:    按照web.xml中servlet的配置顺序 自上而下加载.</code></pre><h3 id="如何接收用户-表单-的参数"><a href="#如何接收用户-表单-的参数" class="headerlink" title="如何接收用户 表单 的参数"></a>如何接收用户 表单 的参数</h3><pre><code>1.    根据一个name , 接收单个参数 
+        String value = request.getParameter(String name);    
+
+2.    根据一个name , 接收一组参数
+        String[] values = request.getParameterValues(String name);</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>11月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>连接池</title>
+    <url>/2019/11/05/2019-11-5-jdbc/</url>
+    <content><![CDATA[<p><code>DBCP(DataBase connection pool)</code>,数据库连接池。是 apache 上的一个 java 连接池项目，也是 tomcat 使用的连接池组件。单独使用dbcp需要2个包：commons-dbcp.jar,commons-pool.jar,配置文件 db.properties 如下:  </p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">driverClassName=oracle.jdbc.OracleDriver</span><br><span class="line">url=jdbc:oracle:thin:@localhost:1521:xe</span><br><span class="line">username=system</span><br><span class="line">password=254615</span><br><span class="line">initialSize=10</span><br><span class="line">maxActive=50</span><br><span class="line">minIdle=5</span><br><span class="line">maxWait=60000</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Properties文件 是以键值对形式存放数据，一个键对应且只对应一个值，键与值都不能有空格<br><strong>DBCP连接池</strong>如下:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">mport java.io.IOException;</span><br><span class="line">import java.io.InputStream;</span><br><span class="line">import java.sql.Connection;</span><br><span class="line">import java.sql.ResultSet;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line">import java.sql.Statement;</span><br><span class="line">import java.util.Properties;</span><br><span class="line"></span><br><span class="line">import javax.sql.DataSource;</span><br><span class="line"></span><br><span class="line">import org.apache.commons.dbcp.BasicDataSourceFactory;</span><br><span class="line"></span><br><span class="line">public class DBCPUtil {</span><br><span class="line"></span><br><span class="line">	private static DataSource dataSource;</span><br><span class="line">	</span><br><span class="line">	static {</span><br><span class="line">		//在类加载时, 读取配置文件, 配置连接池</span><br><span class="line">		//1.	创建Properites对象</span><br><span class="line">		Properties ppt = new Properties();</span><br><span class="line">		//2.	读取配置文件, </span><br><span class="line">		InputStream is = DBCPUtil.class.getClassLoader().getResourceAsStream("dbcp.properties");</span><br><span class="line">		//3.	将配置文件 加载到Properties对象中</span><br><span class="line">		try {</span><br><span class="line">			ppt.load(is);</span><br><span class="line">		//4.	通过连接池工厂类, 创建连接池</span><br><span class="line">			dataSource = BasicDataSourceFactory.createDataSource(ppt);</span><br><span class="line">		} catch (Exception e) {</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	/**</span><br><span class="line">	 * 用于从连接池中 获取一个连接对象</span><br><span class="line">	 * @return 连接对象 , 如果获取失败返回null</span><br><span class="line">	 */</span><br><span class="line">	public static Connection getConnection() {</span><br><span class="line">		try {</span><br><span class="line">			return dataSource.getConnection();</span><br><span class="line">		} catch (Exception e) {</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			return null;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	/**</span><br><span class="line">	 * 用于释放资源</span><br><span class="line">	 * @param conn	连接对象</span><br><span class="line">	 * @param state 执行环境</span><br><span class="line">	 * @param result 结果集</span><br><span class="line">	 */</span><br><span class="line">	public static void close(Connection conn , Statement state ,ResultSet result) {</span><br><span class="line">		if(result!=null) {</span><br><span class="line">			try {</span><br><span class="line">				result.close();</span><br><span class="line">			} catch (SQLException e) {</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		if(state!=null) {</span><br><span class="line">			try {</span><br><span class="line">				state.close();</span><br><span class="line">			} catch (SQLException e) {</span><br><span class="line">				// TODO Auto-generated catch block</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		if(conn!=null) {</span><br><span class="line">			try {</span><br><span class="line">				conn.close();</span><br><span class="line">			} catch (SQLException e) {</span><br><span class="line">				// TODO Auto-generated catch block</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>Druid连接池</strong>如下:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">import com.alibaba.druid.pool.DruidDataSourceFactory;</span><br><span class="line">import javax.sql.DataSource;</span><br><span class="line">import java.io.InputStream;</span><br><span class="line">import java.sql.Connection;</span><br><span class="line">import java.sql.ResultSet;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line">import java.sql.Statement;</span><br><span class="line">import java.util.Properties;</span><br><span class="line"></span><br><span class="line">public class DruidUtil {</span><br><span class="line"></span><br><span class="line">    private static DataSource dataSource;</span><br><span class="line">    static {</span><br><span class="line">        InputStream is = DruidUtil.class.getClassLoader().getResourceAsStream("db.properties");</span><br><span class="line">        Properties pro = new Properties();</span><br><span class="line">        try {</span><br><span class="line">            pro.load(is);</span><br><span class="line">            dataSource = DruidDataSourceFactory.createDataSource(pro);</span><br><span class="line">        } catch (Exception e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public static Connection getConnection(){</span><br><span class="line"></span><br><span class="line">        try {</span><br><span class="line">            return dataSource.getConnection();</span><br><span class="line">        } catch (SQLException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            return null;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public static void sourceCloes(Connection conn, Statement st, ResultSet rs){</span><br><span class="line"></span><br><span class="line">        try {</span><br><span class="line">            if (conn!=null) {</span><br><span class="line">                conn.close();</span><br><span class="line">            }</span><br><span class="line">            if (st!=null) {</span><br><span class="line">                st.close();</span><br><span class="line">            }</span><br><span class="line">            if (rs!=null) {</span><br><span class="line">                rs.close();</span><br><span class="line">            }</span><br><span class="line">        } catch (SQLException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>建议使用Druid连接池，因为Druid是最大最好的连接池 而且它是阿里出品哦 - ( ゜- ゜)つロ</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>11月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JDBC访问数据库</title>
+    <url>/2019/11/04/2019-11-3-jdbc/</url>
+    <content><![CDATA[<h2 id="JDBC访问数据库的步骤"><a href="#JDBC访问数据库的步骤" class="headerlink" title="JDBC访问数据库的步骤"></a>JDBC访问数据库的步骤</h2><ol>
+<li>加载驱动<br>  Class.forName(“包名.驱动名”)  </li>
+<li>获取连接<br>  DriverManager.getConnection(url,username,password)  <pre><code>比如连接oracle 的url 是  jdbc:oracle:thin:@127.0.0.1:1521:xe</code></pre></li>
+<li>定义sql 并获取sql的执行环境 Statement (PrepareadStatement)<br>   conn.createStatement() 这里以后会使用 prepareadStatement   </li>
+<li>执行sql 处理sql 返回值<br> select  返回ResultSet  遍历       st.executeQuery<br> dml     返回int  代表影响的数据行数  st.executeUpdate  </li>
+<li>释放资源<br> Connection    Statement   ResultSet  等  close()</li>
+</ol>
+<p>使用PreparedStatement  替换  Statement    </p>
+<ul>
+<li>可以防止拼接的sql注入   原理就是你输入的数据不拼接 直接作为真实数据</li>
+<li>由于采用预编译  会提前生成sql的执行计划  提高执行效率</li>
+<li>拼接sql 每次sql是不同的  这会给数据库服务器的sql缓冲造成冲击  无法实现批处理 </li>
+<li>由于不拼接sql  程序员出错的概率会降低  提高编码质量和速度 </li>
+</ul>
+<h3 id="工具类的思想"><a href="#工具类的思想" class="headerlink" title="工具类的思想"></a>工具类的思想</h3><p> 负责获取数据库的连接    以及资源的释放   提高代码复用度 </p>
+<h3 id="配置文件的思想"><a href="#配置文件的思想" class="headerlink" title="配置文件的思想"></a>配置文件的思想</h3><p>  可以不修改源代码的情况下 修改参数数据 </p>
+<h3 id="DAO"><a href="#DAO" class="headerlink" title="DAO"></a>DAO</h3><p> 什么是DAO<br>  <code>Data Access  Object</code>   数据访问对象<br>     它是对数据访问过程 封装的对象<br> 如何编写DAO   </p>
+<ol>
+<li>根据需求编写DAO 对应的接口   </li>
+<li>使用DBUtil 工具类  结合JDBC编程的五步  实现接口中对应的方法  </li>
+</ol>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>11月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JDBC事务</title>
+    <url>/2019/11/04/2019-11-4-jdbc/</url>
+    <content><![CDATA[<h3 id="JDBC-事务"><a href="#JDBC-事务" class="headerlink" title="JDBC 事务"></a>JDBC 事务</h3><pre><code>在dos命令行操作oracle时 , 执行DML , 需要结束事务 (commit提交 或 rollback回退)
+在JDBC中, 事务是自动提交的, 每执行一条DML语句, 事务就自动提交一次. 
+
+我们可以通过JDBC的事务API , 开始事务的手动提交, 将多条DML语句看作一个整体, 要么一起成功, 要么一起失败.</code></pre><h4 id="JDBC事务操作格式"><a href="#JDBC事务操作格式" class="headerlink" title="JDBC事务操作格式:"></a>JDBC事务操作格式:</h4><pre><code>注意:    开启事务的手动提交 ,是通过连接对象完成的. 
+        某个数据连接对象的事务开启手动提交后, 这个连接对象的事务需要手动控制.  其他连接对象不受影响.
+
+操作方法:
+    1.    开始事务的手动提交:
+            conn.setAutoCommit(boolean flag);
+            参数含义:    true表示自动提交 . false表示手动提交.
+
+    2.    提交事务:
+            conn.commit();
+
+    3.    回退事务:
+            rollback();</code></pre><h4 id="事务案例"><a href="#事务案例" class="headerlink" title="事务案例:"></a>事务案例:</h4><pre><code>    public class Demo {
+    public static void main(String[] args) throws Exception {
+        //1.    加载数据库的驱动
+        Class.forName("oracle.jdbc.OracleDriver");
+        //2.    获取数据库连接对象
+        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "123");
+        //2.1    设置连接对象的事务 为 手动提交
+        conn.setAutoCommit(false);
+        //3.    开始描述逻辑
+        System.out.println("金刚: 转账中...");
+        //3.1    减少金刚账户的余额 500 | 3.1.1    预编译SQL执行环境
+        PreparedStatement state = conn.prepareStatement("update user33 set money=500 where id=2");
+        //3.1.2    执行SQL语句
+        boolean success = state.executeUpdate()&gt;0?true:false;
+        if(success) {
+            System.out.println("后台逻辑: 金刚余额减少完毕.");
+            if(1==2) {
+                conn.rollback();
+                throw new RuntimeException("后台服务器... 停电了");
+            }
+            //3.2    增加豪杰账户的余额 500 
+            //3.2.1    预编译SQL执行环境
+            PreparedStatement state2 = conn.prepareStatement("update user33 set money=600 where id=1");
+            //3.2.2    执行SQ语句
+            boolean success2 = state2.executeUpdate()&gt;0?true:false;
+            if(success2) {
+                System.out.println("后台逻辑: 豪杰余额增加完毕");
+                conn.commit();
+            }
+            state2.close();
+        }
+        state.close();
+    }
+}</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>11月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>冒泡排序快速排序简单代码实现</title>
+    <url>/2019/11/02/2019-11-2-suanfa/</url>
+    <content><![CDATA[<figure class="highlight plain"><figcaption><span>java.util.Arrays;</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">public class TestSort {</span><br><span class="line"></span><br><span class="line">	//冒泡排序算法将参数指定的数组元素进行排序</span><br><span class="line">	public static void bubble(int[] arr){</span><br><span class="line">		//1.使用外层for循环来控制比较的轮数</span><br><span class="line">		for(int i = 1; i &lt; arr.length; i++){</span><br><span class="line">			//声明boolean类型的变量作为标志位</span><br><span class="line">			boolean flag = true;</span><br><span class="line">			//2.使用内层for循环来控制针对当前轮比较的次数</span><br><span class="line">			for(int j = 0; j &lt; arr.length-i; j++){</span><br><span class="line">				//3.若第一个元素比第二个元素大，则交换两个元素的位置</span><br><span class="line">				if(arr[j] &gt; arr[j+1]){</span><br><span class="line">					int temp = arr[j];</span><br><span class="line">					arr[j] = arr[j+1];</span><br><span class="line">					arr[j+1] = temp;</span><br><span class="line">					flag = false;</span><br><span class="line">				}</span><br><span class="line">			}</span><br><span class="line">			//若该位置flag的数值还是true，则证明本轮比较中没有发生任何的交换</span><br><span class="line">			if(flag) break;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	//快速排序算法</span><br><span class="line">	public static void quick(int[] arr, int left, int right){</span><br><span class="line">		//1.计算中间元素的下标并使用该元素作为基准值单独保存</span><br><span class="line">		int p = (left+right)/2;</span><br><span class="line">		int pivot = arr[p];</span><br><span class="line">		//2.分别使用左右两边的元素依次与基准值比较大小，将所有小于基准值的元素放在左边,</span><br><span class="line">		//  将所有大于等于基准值的元素放在右边</span><br><span class="line">		int i = left;</span><br><span class="line">		int j = right;</span><br><span class="line">		for( ; i &lt; j; ){</span><br><span class="line">			//若左边有元素并且左边元素小于基准值时，则使用下一个元素与基准值比较</span><br><span class="line">			while(i &lt; p &amp;&amp; arr[i] &lt; pivot){</span><br><span class="line">				i++;</span><br><span class="line">			}</span><br><span class="line">			//直到左边有元素但左边元素不再小于基准值时，则将该元素放到p指向的位置</span><br><span class="line">			//p指向该元素原来的位置</span><br><span class="line">			if(i &lt; p){</span><br><span class="line">				arr[p] = arr[i];</span><br><span class="line">				p = i;</span><br><span class="line">			}</span><br><span class="line">			//若右边有元素并且右边元素大于等于基准值时，则使用下一个元素比较</span><br><span class="line">			while(j &gt; p &amp;&amp; arr[j] &gt;= pivot){</span><br><span class="line">				j--;</span><br><span class="line">			}</span><br><span class="line">			//直到右边有元素但右边元素不再大于等于基准值时，则将该元素放到p指向的位置</span><br><span class="line">			//p指向该元素原来的位置</span><br><span class="line">			if(j &gt; p){</span><br><span class="line">				arr[p] = arr[j];</span><br><span class="line">				p = j;</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		//3.直到左右两边元素的下标重合时，将基准值放到重合的位置</span><br><span class="line">		arr[p] = pivot;</span><br><span class="line">		//4.使用递归的思想分别对左右两边的分组进行再次分组</span><br><span class="line">		if(p - left &gt; 1){</span><br><span class="line">			quick(arr, left, p-1);</span><br><span class="line">		}</span><br><span class="line">		if(right - p &gt; 1){</span><br><span class="line">			quick(arr, p+1, right);</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) {</span><br><span class="line">		</span><br><span class="line">		int[] arr = {20, 10, 25, 5, 15, 30, 8, 20, 3};</span><br><span class="line">		//调用排序算法实现排序</span><br><span class="line">		//TestSort.bubble(arr);</span><br><span class="line">		//TestSort.quick(arr, 0, arr.length-1);</span><br><span class="line">		Arrays.sort(arr);</span><br><span class="line">		//打印排序后数组中的所有元素</span><br><span class="line">		System.out.print("排序后的结果是：");</span><br><span class="line">		for(int i = 0; i &lt; arr.length; i++){</span><br><span class="line">			System.out.print(arr[i] + " ");</span><br><span class="line">		}</span><br><span class="line">		System.out.println();</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>11月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>线性查找与二分查找简单代码实现</title>
+    <url>/2019/11/01/2019-11-1-suanfa/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">public class TestFind {</span><br><span class="line"></span><br><span class="line">	//线性查找算法</span><br><span class="line">	//要求从参数指定的数组中查找参数指定的元素并返回下标</span><br><span class="line">	public static int find(int[] arr, int data){</span><br><span class="line">		for(int i = 0; i &lt; arr.length; i++){</span><br><span class="line">			if(arr[i] == data){</span><br><span class="line">				return i; //表示查找成功</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		return -1; //表示查找失败</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	//二分查找算法</span><br><span class="line">	//要求从参数指定的数组中查找参数指定的元素并返回下标</span><br><span class="line">	public static int findBinary(int[] arr, int left, int right, int data){</span><br><span class="line">		/*</span><br><span class="line">		if(left &lt;= right){</span><br><span class="line">			//1.计算中间元素的下标并单独记录</span><br><span class="line">			int p = (left + right)/2;</span><br><span class="line">			//2.使用目标元素与中间元素比较大小，若相等则查找成功</span><br><span class="line">			if(data == arr[p]){</span><br><span class="line">				return p;</span><br><span class="line">			}</span><br><span class="line">			//3.若目标元素小于中间元素，则在中间元素的左边进行查找，使用递归的方式</span><br><span class="line">			if(data &lt; arr[p]){</span><br><span class="line">				return findBinary(arr, left, p-1, data);</span><br><span class="line">			}</span><br><span class="line">			//4.若目标元素大于中间元素，则在中间元素的右边进行查找，使用递归的方式</span><br><span class="line">			return findBinary(arr, p+1, right, data);</span><br><span class="line">		}</span><br><span class="line">		return -1; //表示查找失败</span><br><span class="line">		*/</span><br><span class="line">		//练习：使用while循环实现二分查找算法</span><br><span class="line">		while(left &lt;= right){</span><br><span class="line">			//1.计算中间元素的下标并单独记录</span><br><span class="line">			int p = (left + right)/2;</span><br><span class="line">			//2.使用目标元素与中间元素比较大小，若相等则查找成功</span><br><span class="line">			if(data == arr[p]){</span><br><span class="line">				return p;</span><br><span class="line">			}</span><br><span class="line">			//3.若目标元素小于中间元素，则在中间元素的左边进行查找，使用递归的方式</span><br><span class="line">			if(data &lt; arr[p]){</span><br><span class="line">				right = p-1;</span><br><span class="line">			}</span><br><span class="line">			//4.若目标元素大于中间元素，则在中间元素的右边进行查找，使用递归的方式</span><br><span class="line">			if(data &gt; arr[p]){</span><br><span class="line">				left = p+1;</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		return -1; //表示查找失败</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) {</span><br><span class="line">		</span><br><span class="line">		int[] arr = {10, 20, 30, 40, 50};</span><br><span class="line">		int num = 30;</span><br><span class="line">		//int pos = TestFind.find(arr, num);</span><br><span class="line">		int pos = TestFind.findBinary(arr, 0, 4, num);</span><br><span class="line">		if(-1 == pos){</span><br><span class="line">			System.out.println("元素" + num + "不存在！");</span><br><span class="line">		}else{</span><br><span class="line">			System.out.println("元素" + num + "所在的下标是：" + pos);</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>11月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基本查找算法和排序算法</title>
+    <url>/2019/10/31/2019-10-31-suanfa/</url>
+    <content><![CDATA[<h2 id="常用的查找算法"><a href="#常用的查找算法" class="headerlink" title="常用的查找算法"></a>常用的查找算法</h2><h3 id="线性-顺序查找算法"><a href="#线性-顺序查找算法" class="headerlink" title="线性/顺序查找算法"></a>线性/顺序查找算法</h3><p><strong>算法流程</strong>  </p>
+<ol>
+<li>使用目标元素与样本数列中的元素从前向后依次比较大小；  </li>
+<li>若找到与目标元素相等的元素，则表示查找成功；  </li>
+<li>若所有元素与目标元素比较完毕也没有相等的元素，则表示查找失败；  </li>
+</ol>
+<h3 id="二分-折半查找算法"><a href="#二分-折半查找算法" class="headerlink" title="二分/折半查找算法"></a>二分/折半查找算法</h3><p><strong>算法流程</strong>  </p>
+<ol>
+<li>假定样本数列中的所有元素从小到大有序排列；  </li>
+<li>使用目标元素与样本数列中的中间元素比较大小，若相等则查找成功；  </li>
+<li>若目标元素小于中间元素，则应该去中间元素的左边进行查找；  </li>
+<li>若目标元素大于中间元素，则应该去中间元素的右边进行查找；  </li>
+<li>直到处理完毕所有元素也没有相等的元素，则表示查找失败；  </li>
+</ol>
+<h2 id="常见的排序算法"><a href="#常见的排序算法" class="headerlink" title="常见的排序算法"></a>常见的排序算法</h2><h3 id="冒泡排序算法"><a href="#冒泡排序算法" class="headerlink" title="冒泡排序算法"></a>冒泡排序算法</h3><p><strong>算法流程</strong>  </p>
+<ol>
+<li>比较相邻位置两个元素的大小，若第一个元素比第二个大则交换两个元素的位置；  </li>
+<li>从开始的第一对一直比较到结尾的最后的一对，经过这一步，最后的元素将是这组<br>  元素的最大值；  </li>
+<li>重复步骤b持续对越来越少的元素进行比较，直到处理完毕所有元素为止；<br>  (任何相邻位置的两个元素都不再需要交换为止)</li>
+</ol>
+<h3 id="插入排序算法"><a href="#插入排序算法" class="headerlink" title="插入排序算法"></a>插入排序算法</h3><p><strong>算法流程</strong></p>
+<ol>
+<li>取出第一个元素，可以认定该元素已经有序；</li>
+<li>取出下一个元素，让取出的元素与左边的有序数列从右向左依次比较大小；</li>
+<li>若取出的元素小于左边的元素，则将左边的元素右移也就是赋值到下一个元素的位置；</li>
+<li>若取出的元素大于等于左边的元素，则将取出的元素插入到左边元素的右边；</li>
+<li>重复步骤b，直到处理完毕所有元素为止；</li>
+</ol>
+<h3 id="选择排序算法"><a href="#选择排序算法" class="headerlink" title="选择排序算法"></a>选择排序算法</h3><p><strong>算法流程</strong>  </p>
+<ol>
+<li>取出第一个元素并假定该元素是这组元素中的最小值使用min记录下标；  </li>
+<li>使用min记录的最小值与后续元素依次比较大小；  </li>
+<li>若后续元素中出现比min记录的最小值还小的元素，则使用min记录该元素的下标；  </li>
+<li>直到min记录的最小值与后续所有元素比较完毕后，交换min记录的最小值和最开始<br>  假定最小值的元素位置；</li>
+<li>经过这一步，最起始的元素将是这组元素中的最小值，取出下一个元素重复步骤a，<br>  直到处理完毕所有元素为止；</li>
+</ol>
+<h3 id="快速排序算法"><a href="#快速排序算法" class="headerlink" title="快速排序算法"></a>快速排序算法</h3><p><strong>算法流程</strong></p>
+<ol>
+<li>选择中间元素作为基准值并单独保存起来；  </li>
+<li>分别使用左右两边的元素依次与基准值比较大小，将所有小于基准值的元素放在左边，<br>  将所有大于等于基准值的元素放在右边，这个过程叫做分组；</li>
+<li>分别对左右两边的分组进行再次分组，使用递归的思想；</li>
+</ol>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>10月</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>设计原则与设计模式</title>
     <url>/2019/10/30/2019-10-30-shejiyuanze/</url>
     <content><![CDATA[<h2 id="常用的设计原则"><a href="#常用的设计原则" class="headerlink" title="常用的设计原则"></a>常用的设计原则</h2><h3 id="软件-项目开发的流程"><a href="#软件-项目开发的流程" class="headerlink" title="软件/项目开发的流程"></a>软件/项目开发的流程</h3><p>   需求分析文档 =&gt; 概要设计文档 =&gt; 详细设计文档 =&gt; 编码和测试 =&gt; 安装和调试<br>=&gt; 维护和升级</p>
