@@ -12,7 +12,7 @@
     
     
     
-    <title>线性查找与二分查找简单代码实现 | JieSangQAQ-兄弟会</title>
+    <title>基本查找算法和排序算法 | JieSangQAQ-兄弟会</title>
     <link href="”https://github.com/JieSangQAQ“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -212,13 +212,13 @@
         <i class="fa fa-home"></i>
         <a href="https://github.com/JieSangQAQ">JieSangQAQ-兄弟会</a>
         >
-        <span>线性查找与二分查找简单代码实现</span>
+        <span>基本查找算法和排序算法</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/11/01/2019-11-1-suanfa/">线性查找与二分查找简单代码实现</a>
+                <a href="/2019/11/01/2019-11-1-suanfa/">基本查找算法和排序算法</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -241,7 +241,7 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/11/01/2019-11-1-suanfa/">线性查找与二分查找简单代码实现</a>
+                    <a href="/2019/11/01/2019-11-1-suanfa/">基本查找算法和排序算法</a>
                 </h4>
             </div>
             <p>
@@ -259,7 +259,49 @@
         </center>
     </div>
     <div class="content-article">
-        <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">public class TestFind {</span><br><span class="line"></span><br><span class="line">	//线性查找算法</span><br><span class="line">	//要求从参数指定的数组中查找参数指定的元素并返回下标</span><br><span class="line">	public static int find(int[] arr, int data){</span><br><span class="line">		for(int i = 0; i &lt; arr.length; i++){</span><br><span class="line">			if(arr[i] == data){</span><br><span class="line">				return i; //表示查找成功</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		return -1; //表示查找失败</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	//二分查找算法</span><br><span class="line">	//要求从参数指定的数组中查找参数指定的元素并返回下标</span><br><span class="line">	public static int findBinary(int[] arr, int left, int right, int data){</span><br><span class="line">		/*</span><br><span class="line">		if(left &lt;= right){</span><br><span class="line">			//1.计算中间元素的下标并单独记录</span><br><span class="line">			int p = (left + right)/2;</span><br><span class="line">			//2.使用目标元素与中间元素比较大小，若相等则查找成功</span><br><span class="line">			if(data == arr[p]){</span><br><span class="line">				return p;</span><br><span class="line">			}</span><br><span class="line">			//3.若目标元素小于中间元素，则在中间元素的左边进行查找，使用递归的方式</span><br><span class="line">			if(data &lt; arr[p]){</span><br><span class="line">				return findBinary(arr, left, p-1, data);</span><br><span class="line">			}</span><br><span class="line">			//4.若目标元素大于中间元素，则在中间元素的右边进行查找，使用递归的方式</span><br><span class="line">			return findBinary(arr, p+1, right, data);</span><br><span class="line">		}</span><br><span class="line">		return -1; //表示查找失败</span><br><span class="line">		*/</span><br><span class="line">		//练习：使用while循环实现二分查找算法</span><br><span class="line">		while(left &lt;= right){</span><br><span class="line">			//1.计算中间元素的下标并单独记录</span><br><span class="line">			int p = (left + right)/2;</span><br><span class="line">			//2.使用目标元素与中间元素比较大小，若相等则查找成功</span><br><span class="line">			if(data == arr[p]){</span><br><span class="line">				return p;</span><br><span class="line">			}</span><br><span class="line">			//3.若目标元素小于中间元素，则在中间元素的左边进行查找，使用递归的方式</span><br><span class="line">			if(data &lt; arr[p]){</span><br><span class="line">				right = p-1;</span><br><span class="line">			}</span><br><span class="line">			//4.若目标元素大于中间元素，则在中间元素的右边进行查找，使用递归的方式</span><br><span class="line">			if(data &gt; arr[p]){</span><br><span class="line">				left = p+1;</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		return -1; //表示查找失败</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) {</span><br><span class="line">		</span><br><span class="line">		int[] arr = {10, 20, 30, 40, 50};</span><br><span class="line">		int num = 30;</span><br><span class="line">		//int pos = TestFind.find(arr, num);</span><br><span class="line">		int pos = TestFind.findBinary(arr, 0, 4, num);</span><br><span class="line">		if(-1 == pos){</span><br><span class="line">			System.out.println("元素" + num + "不存在！");</span><br><span class="line">		}else{</span><br><span class="line">			System.out.println("元素" + num + "所在的下标是：" + pos);</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
+        <h2 id="常用的查找算法"><a href="#常用的查找算法" class="headerlink" title="常用的查找算法"></a>常用的查找算法</h2><h3 id="线性-顺序查找算法"><a href="#线性-顺序查找算法" class="headerlink" title="线性/顺序查找算法"></a>线性/顺序查找算法</h3><p><strong>算法流程</strong>  </p>
+<ol>
+<li>使用目标元素与样本数列中的元素从前向后依次比较大小；  </li>
+<li>若找到与目标元素相等的元素，则表示查找成功；  </li>
+<li>若所有元素与目标元素比较完毕也没有相等的元素，则表示查找失败；  </li>
+</ol>
+<h3 id="二分-折半查找算法"><a href="#二分-折半查找算法" class="headerlink" title="二分/折半查找算法"></a>二分/折半查找算法</h3><p><strong>算法流程</strong>  </p>
+<ol>
+<li>假定样本数列中的所有元素从小到大有序排列；  </li>
+<li>使用目标元素与样本数列中的中间元素比较大小，若相等则查找成功；  </li>
+<li>若目标元素小于中间元素，则应该去中间元素的左边进行查找；  </li>
+<li>若目标元素大于中间元素，则应该去中间元素的右边进行查找；  </li>
+<li>直到处理完毕所有元素也没有相等的元素，则表示查找失败；  </li>
+</ol>
+<h2 id="常见的排序算法"><a href="#常见的排序算法" class="headerlink" title="常见的排序算法"></a>常见的排序算法</h2><h3 id="冒泡排序算法"><a href="#冒泡排序算法" class="headerlink" title="冒泡排序算法"></a>冒泡排序算法</h3><p><strong>算法流程</strong>  </p>
+<ol>
+<li>比较相邻位置两个元素的大小，若第一个元素比第二个大则交换两个元素的位置；  </li>
+<li>从开始的第一对一直比较到结尾的最后的一对，经过这一步，最后的元素将是这组<br>  元素的最大值；  </li>
+<li>重复步骤b持续对越来越少的元素进行比较，直到处理完毕所有元素为止；<br>  (任何相邻位置的两个元素都不再需要交换为止)</li>
+</ol>
+<h3 id="插入排序算法"><a href="#插入排序算法" class="headerlink" title="插入排序算法"></a>插入排序算法</h3><p><strong>算法流程</strong></p>
+<ol>
+<li>取出第一个元素，可以认定该元素已经有序；</li>
+<li>取出下一个元素，让取出的元素与左边的有序数列从右向左依次比较大小；</li>
+<li>若取出的元素小于左边的元素，则将左边的元素右移也就是赋值到下一个元素的位置；</li>
+<li>若取出的元素大于等于左边的元素，则将取出的元素插入到左边元素的右边；</li>
+<li>重复步骤b，直到处理完毕所有元素为止；</li>
+</ol>
+<h3 id="选择排序算法"><a href="#选择排序算法" class="headerlink" title="选择排序算法"></a>选择排序算法</h3><p><strong>算法流程</strong>  </p>
+<ol>
+<li>取出第一个元素并假定该元素是这组元素中的最小值使用min记录下标；  </li>
+<li>使用min记录的最小值与后续元素依次比较大小；  </li>
+<li>若后续元素中出现比min记录的最小值还小的元素，则使用min记录该元素的下标；  </li>
+<li>直到min记录的最小值与后续所有元素比较完毕后，交换min记录的最小值和最开始<br>  假定最小值的元素位置；</li>
+<li>经过这一步，最起始的元素将是这组元素中的最小值，取出下一个元素重复步骤a，<br>  直到处理完毕所有元素为止；</li>
+</ol>
+<h3 id="快速排序算法"><a href="#快速排序算法" class="headerlink" title="快速排序算法"></a>快速排序算法</h3><p><strong>算法流程</strong></p>
+<ol>
+<li>选择中间元素作为基准值并单独保存起来；  </li>
+<li>分别使用左右两边的元素依次与基准值比较大小，将所有小于基准值的元素放在左边，<br>  将所有大于等于基准值的元素放在右边，这个过程叫做分组；</li>
+<li>分别对左右两边的分组进行再次分组，使用递归的思想；</li>
+</ol>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -327,61 +369,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/08/2019-11-8-cookieandsession/">Cookie与Session</a>
+                    <a href="/2019/11/11/2019-11-11-cookieandsession/">Cookie与Session</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/07/2019-11-7-servlet/">servlet请求与响应</a>
+                    <a href="/2019/11/10/2019-11-10-servlet/">servlet请求与响应</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/06/2019-11-6-servlet/">servlet简介</a>
+                    <a href="/2019/11/09/2019-11-9-servlet/">servlet简介</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/05/2019-11-5-jdbc/">连接池</a>
+                    <a href="/2019/11/08/2019-11-8-jdbc/">连接池</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/04/2019-11-3-jdbc/">JDBC访问数据库</a>
+                    <a href="/2019/11/07/2019-11-7-jdbc/">JDBC事务</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/04/2019-11-4-jdbc/">JDBC事务</a>
+                    <a href="/2019/11/06/2019-11-6-jdbc/">JDBC访问数据库</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/02/2019-11-2-suanfa/">冒泡排序快速排序简单代码实现</a>
+                    <a href="/2019/11/05/2019-11-5-suanfa/">冒泡排序快速排序简单代码实现</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/01/2019-11-1-suanfa/">线性查找与二分查找简单代码实现</a>
+                    <a href="/2019/11/04/2019-11-4-shejiyuanze/">设计原则与设计模式</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/31/2019-10-31-suanfa/">基本查找算法和排序算法</a>
+                    <a href="/2019/11/02/2019-11-2-suanfa/">线性查找与二分查找简单代码实现</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/30/2019-10-30-shejiyuanze/">设计原则与设计模式</a>
+                    <a href="/2019/11/01/2019-11-1-suanfa/">基本查找算法和排序算法</a>
                 </span>
             </li>
             
@@ -415,17 +457,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/数据库/" style="font-size: 8.329159186110214px;" class="tag-cloud-link">数据库</a>
+    <a href="/tags/数据库/" style="font-size: 14.965775447923422px;" class="tag-cloud-link">数据库</a>
     
-    <a href="/tags/Java/" style="font-size: 8.802524835674827px;" class="tag-cloud-link">Java</a>
+    <a href="/tags/Java/" style="font-size: 19.8122442052491px;" class="tag-cloud-link">Java</a>
     
-    <a href="/tags/日报/" style="font-size: 8.087804927133941px;" class="tag-cloud-link">日报</a>
+    <a href="/tags/日报/" style="font-size: 13.373224424756536px;" class="tag-cloud-link">日报</a>
     
-    <a href="/tags/大杂烩/" style="font-size: 17.205469842843137px;" class="tag-cloud-link">大杂烩</a>
+    <a href="/tags/大杂烩/" style="font-size: 9.944209040081622px;" class="tag-cloud-link">大杂烩</a>
     
-    <a href="/tags/心得/" style="font-size: 19.963025897068782px;" class="tag-cloud-link">心得</a>
+    <a href="/tags/心得/" style="font-size: 18.854736426564546px;" class="tag-cloud-link">心得</a>
     
-    <a href="/tags/观后感/" style="font-size: 19.343406379212738px;" class="tag-cloud-link">观后感</a>
+    <a href="/tags/观后感/" style="font-size: 16.31227516981348px;" class="tag-cloud-link">观后感</a>
     
 </div>
                 

@@ -12,7 +12,7 @@
     
     
     
-    <title>I/O流(二) | JieSangQAQ-兄弟会</title>
+    <title>I/O流(一) | JieSangQAQ-兄弟会</title>
     <link href="”https://github.com/JieSangQAQ“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -212,13 +212,13 @@
         <i class="fa fa-home"></i>
         <a href="https://github.com/JieSangQAQ">JieSangQAQ-兄弟会</a>
         >
-        <span>I/O流(二)</span>
+        <span>I/O流(一)</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/10/24/2019-10-24-IoLiu/">I/O流(二)</a>
+                <a href="/2019/10/24/2019-10-24-IoLiu/">I/O流(一)</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -241,7 +241,7 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/10/24/2019-10-24-IoLiu/">I/O流(二)</a>
+                    <a href="/2019/10/24/2019-10-24-IoLiu/">I/O流(一)</a>
                 </h4>
             </div>
             <p>
@@ -259,62 +259,40 @@
         </center>
     </div>
     <div class="content-article">
-        <h3 id="FileOutputStream类"><a href="#FileOutputStream类" class="headerlink" title="FileOutputStream类"></a>FileOutputStream类</h3><ol>
-<li><p>基本概念<br>java.io.FileOutputStream类主要用于写入图像数据之类的原始字节流到输出流中。</p>
+        <h2 id="I-O流"><a href="#I-O流" class="headerlink" title="I/O流"></a>I/O流</h2><ol>
+<li><p>基本概念<br>I/O就是Input/Output的简写，也就是输入/输出的含义<br>I/O流就是指像流水一样不间断地进行读写数据的状态  </p>
 </li>
-<li><p>常用的方法<br><code>FileOutputStream(String name)</code> - 根据参数指定的文件名来构造对象<br><code>FileOutputStream(String name, boolean append)</code> </p>
-<pre><code>以追加的方式根据文件名构造对象  </code></pre><p><code>void write(int b)</code></p>
-<pre><code>用于将参数指定的单个字节写入输出流  </code></pre><p><code>void write(byte[] b, int off, int len)</code></p>
-<pre><code>用于将数组b中下标从off开始的len个字节写入输出流  </code></pre><p><code>void write(byte[] b)</code></p>
-<pre><code>用于将数组b中所有字节写入输出流    //  String转换字节数组："Hello".getBytes()  </code></pre><p><code>void close()</code></p>
-<pre><code>用于关闭流并释放有关的资源  </code></pre></li>
+<li><p>基本分类<br>按照数据读写的单位不同分为：字节流 和 字符流<br>其中字节流主要指以字节为单位进行读写的过程，可以读写任意类型的文件<br>其中字符流主要指以字符(2个字节)为单位进行读写的过程，只能读写文本文件  </p>
+<p>按照数据流动的方向不同分为：输入流 和 输出流(站在程序的角度)<br>其中输入流主要指从文件中读取数据内容输入到程序中<br>其中输出流主要指将程序中的数据内容输出到文件中，也就是写入文件  </p>
+</li>
+<li><p>基本框架<br>字节流的顶层父类：InputStream类 和 OutputStream类<br> InputStream类的常用子类：  </p>
+<pre><code>FileInputStream类、DataInputStream类、ObjectInputStream类    </code></pre><p> OutputStream类的常用子类：  </p>
+<pre><code>FileOutputStream类、  DataOutputStream类、  ObjectOutputStream类`</code></pre><p>字符流的顶层父类：Reader类  和  Writer类<br>Reader类的常用子类：  </p>
+<pre><code>BufferedReader类、InputStreamReader类   </code></pre><p>Writer类的常用子类：  </p>
+<pre><code>BufferedWriter类、  OutputStreamWriter类   </code></pre></li>
 </ol>
-<h3 id="FileInputStream类"><a href="#FileInputStream类" class="headerlink" title="FileInputStream类"></a>FileInputStream类</h3><ol>
-<li><p>基本概念<br>java.io.FileInputStream类主要用于从输入流中读取图像数据之类的字节流 </p>
+<h3 id="部分常用方法"><a href="#部分常用方法" class="headerlink" title="部分常用方法"></a>部分常用方法</h3><p><strong>BufferedReader类</strong></p>
+<ol>
+<li><p>基本概念<br>java.io.BufferedReader类主要用于从输入流中读取单个字符、字符数组以及一行字符串</p>
 </li>
-<li><p>常用的方法<br><code>FileInputStream(String name)</code>  根据参数指定的文件名来构造对象<br><code>int read()</code>   用于读取单个字节   </p>
-<pre><code>若读取到文件末尾则返回-1，否则返回实际读到的数据内容  </code></pre><p><code>int read(byte[] b, int off, int len)</code> 数组转字符串 用于从输入流中读取len个字节的数据放入数组b中下标从off开始的位置   </p>
-<pre><code>若读取到文件末尾则返回-1，否则返回实际读到的字节个数   </code></pre><p><code>int read(byte[] b)</code></p>
-<pre><code>用于从输入流中读取b.length个字节的数据放入数组b中   </code></pre><p><code>int available()</code></p>
-<pre><code>用于获取该输入流所关联文件的大小   </code></pre><p><code>void close()</code></p>
-</li>
-</ol>
-<h3 id="DataOutputStream类"><a href="#DataOutputStream类" class="headerlink" title="DataOutputStream类"></a>DataOutputStream类</h3><ol>
-<li><p>基本概念<br>java.io.DataOutputStream类用于将Java基本数据类型的变量写入输出流中。</p>
-</li>
-<li><p>常用的方法<br>DataOutputStream(OutputStream out) - 根据参数指定的引用构造对象。</p>
-<pre><code>- 其中OutputStream类是个抽象类，实参需要传递子类的对象。
-            例；；；；；；；； DataOutputStream da=new DataOutputStream(
-                                                                                                 new FileOutputStream(地址))；</code></pre><p>void writeInt(int v) </p>
-<pre><code>- 用于将参数指定的整数以4字节的方式写入输出流中，先写入高字节。
-- 127: 0000 0000   0000 0000   0000 0000   0111 1111
-          高               =&gt;                 低</code></pre><p>void close()</p>
-<h3 id="DataInputStream类"><a href="#DataInputStream类" class="headerlink" title="DataInputStream类"></a>DataInputStream类</h3></li>
-<li><p>基本概念<br>java.io.DataInputStream类用于从输入流中读取Java基本数据类型的内容 </p>
-</li>
-<li><p>常用的方法<br>DataInputStream(InputStream in)  根据参数指定的引用来构造对象 </p>
-<pre><code>其中InputStream类是个抽象类，实参需要传递子类的对象  </code></pre><p>int readInt() </p>
-<pre><code>用于读取4个字节的整数数据并返回  </code></pre><p>void close() </p>
+<li><p>常用的方法<br><code>BufferedReader(Reader in)</code>   根据参数指定的引用构造对象 </p>
+<pre><code>其中Reader类是个抽象类，实参需要传递子类的对象  </code></pre><p><code>int read()</code>   用于从输入流中读取单个字符    若读取到文件末尾则返回-1，否则返回实 际读取到的数据内容对应的整数值<br><code>int read(char[] cbuf, int off, int len)</code> </p>
+<pre><code>用于从输入流中读取len个字符放入数组cbuf中下标从off开始的位置   
+ 若读取到文件末尾则返回-1，否则返回实际读取到的字符数  </code></pre><p><code>int read(char[] cbuf)</code></p>
+<pre><code>用于从输入流中读取cbuf.length个字符到数组cbuf中    </code></pre><p><code>String readLine()</code></p>
+<pre><code>用于从输入流中读取一行字符串内容。
+若读取到文件末尾则返回null        </code></pre><p><code>void close()</code>                       </p>
 </li>
 </ol>
-<h3 id="ObjectOutputStream类"><a href="#ObjectOutputStream类" class="headerlink" title="ObjectOutputStream类"></a>ObjectOutputStream类</h3><ol>
-<li><p>基本概念<br>java.io.ObjectOutputStream类主要用于将Java语言的对象整体写入输出流中<br>只能将支持 java.io.Serializable 接口的对象写入流中<br>类通过实现 java.io.Serializable 接口以启用其序列化功能<br>所谓序列化将一个对象所依赖的相关信息有效组织成字节序列的转化过程 </p>
+<p><strong>PrintStream类</strong></p>
+<ol>
+<li><p>基本概念<br>java.io.PrintStream类主要用于实现各种数据的打印并自动刷新 </p>
 </li>
-<li><p>常用的方法<br>ObjectOutputStream(OutputStream out)   根据参数指定的引用来构造对象</p>
-<pre><code>其中OutputStream类是个抽象类，实参需要传递子类的对象  </code></pre><p>void writeObject(Object obj) </p>
-<pre><code>用于将参数指定的对象整体写入输出流中  </code></pre><p>void close()</p>
-</li>
-</ol>
-<h3 id="ObjectInputStream类"><a href="#ObjectInputStream类" class="headerlink" title="ObjectInputStream类"></a>ObjectInputStream类</h3><ol>
-<li><p>基本概念<br>java.io.ObjectInputStream类主要用于从输入流中读取一个对象整体  </p>
-</li>
-<li><p>常用的方法<br>ObjectInputStream(InputStream in)   根据参数指定的引用来构造对象  </p>
-<pre><code>其中InputStream类是抽象类，实参需要传递子类的对象  </code></pre><p>Object readObject()   </p>
-<pre><code>用于从输入流中读取一个对象并返回  
-无法通过返回值来判断是否读取到文件的末尾  </code></pre><p>void close()  </p>
+<li><p>常用的方法<br><code>PrintStream(OutputStream out)</code>   根据参数指定的引用构造对象  </p>
+<pre><code>- 其中OutputStream类是个抽象类，实参需要传递子类的对象   </code></pre><p><code>void print(String s)</code><br>用于打印参数指定的字符串内容<br><code>void println(String x)</code></p>
+<pre><code>用于打印参数字符串后终止该行 </code></pre><p><code>void close()</code></p>
 </li>
 </ol>
-<p><strong>当需要将多个对象写入文件时，通常建议先将多个对象放入一个集合中，然后将该集合整体看做一个对象写入文件中，此时只需要从文件中读取一次就可以读出所有内容</strong>  </p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -383,61 +361,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/08/2019-11-8-cookieandsession/">Cookie与Session</a>
+                    <a href="/2019/11/11/2019-11-11-cookieandsession/">Cookie与Session</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/07/2019-11-7-servlet/">servlet请求与响应</a>
+                    <a href="/2019/11/10/2019-11-10-servlet/">servlet请求与响应</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/06/2019-11-6-servlet/">servlet简介</a>
+                    <a href="/2019/11/09/2019-11-9-servlet/">servlet简介</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/05/2019-11-5-jdbc/">连接池</a>
+                    <a href="/2019/11/08/2019-11-8-jdbc/">连接池</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/04/2019-11-3-jdbc/">JDBC访问数据库</a>
+                    <a href="/2019/11/07/2019-11-7-jdbc/">JDBC事务</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/04/2019-11-4-jdbc/">JDBC事务</a>
+                    <a href="/2019/11/06/2019-11-6-jdbc/">JDBC访问数据库</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/02/2019-11-2-suanfa/">冒泡排序快速排序简单代码实现</a>
+                    <a href="/2019/11/05/2019-11-5-suanfa/">冒泡排序快速排序简单代码实现</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/01/2019-11-1-suanfa/">线性查找与二分查找简单代码实现</a>
+                    <a href="/2019/11/04/2019-11-4-shejiyuanze/">设计原则与设计模式</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/31/2019-10-31-suanfa/">基本查找算法和排序算法</a>
+                    <a href="/2019/11/02/2019-11-2-suanfa/">线性查找与二分查找简单代码实现</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/30/2019-10-30-shejiyuanze/">设计原则与设计模式</a>
+                    <a href="/2019/11/01/2019-11-1-suanfa/">基本查找算法和排序算法</a>
                 </span>
             </li>
             
@@ -471,17 +449,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/数据库/" style="font-size: 17.070580574387428px;" class="tag-cloud-link">数据库</a>
+    <a href="/tags/数据库/" style="font-size: 19.649019380759995px;" class="tag-cloud-link">数据库</a>
     
-    <a href="/tags/Java/" style="font-size: 18.187516577430937px;" class="tag-cloud-link">Java</a>
+    <a href="/tags/Java/" style="font-size: 12.412599294642671px;" class="tag-cloud-link">Java</a>
     
-    <a href="/tags/日报/" style="font-size: 12.970580266044488px;" class="tag-cloud-link">日报</a>
+    <a href="/tags/日报/" style="font-size: 18.982720804930864px;" class="tag-cloud-link">日报</a>
     
-    <a href="/tags/大杂烩/" style="font-size: 18.067534060804327px;" class="tag-cloud-link">大杂烩</a>
+    <a href="/tags/大杂烩/" style="font-size: 18.329168902019546px;" class="tag-cloud-link">大杂烩</a>
     
-    <a href="/tags/心得/" style="font-size: 12.755725169912392px;" class="tag-cloud-link">心得</a>
+    <a href="/tags/心得/" style="font-size: 16.17035998601161px;" class="tag-cloud-link">心得</a>
     
-    <a href="/tags/观后感/" style="font-size: 8.85572571652801px;" class="tag-cloud-link">观后感</a>
+    <a href="/tags/观后感/" style="font-size: 14.80297310957647px;" class="tag-cloud-link">观后感</a>
     
 </div>
                 
