@@ -1,269 +1,168 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="JieSangQAQ">
-    
-    <meta name="description" content="JieSangQAQ&#39;s blog">
-    
-    
-    
-    
-    
-    
-    <title>MongoDB | JieSangQAQ-兄弟会</title>
-    <link href="”https://github.com/JieSangQAQ“" rel="”prefetch”">
+<html lang="zh-CN">
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/aos.css">
-<link rel="stylesheet" href="/css/style.css">
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aos.js"></script>
-    <script src="/js/highslide/highslide-full.min.js"></script>
-    <link rel="stylesheet" href="/js/highslide/highslide.css">
-    <style type="text/css">
-        @media (max-width: 768px) {
-            body {
-                background-color: #f0f0f0;
-                background: url('/imgs/xsbg.gif');
-                background-attachment: fixed;
-            }
-        }
-    </style>
-    
-    <!--<script type="text/javascript">
-      if (document.images) {
-        var avatar = new Image();
-        avatar.src = '/imgs/avatar.jpg'
-        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg'.split(',')
-        var previewsPreLoad = []
-        for(var i = 0; i < length; i++) {
-          previewsPreLoad.push(new Image())
-          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
-        }
-      }
-    </script>-->
-</head></html>
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="JieSangQAQ&#39;s blog">
+  <meta name="author" content="JieSangQAQ">
+  <meta name="keywords" content>
+  <title>MongoDB ~ JieSangQAQ-兄弟会</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
+
+
+</head>
+
+
 <body>
-    <!-- 背景轮播图功能 -->
-    <section class="hidden-xs">
-    <ul class="cb-slideshow">
-        <li><span>天若</span></li>
-        <li><span>有情</span></li>
-        <li><span>天亦老</span></li>
-        <li><span>我为</span></li>
-        <li><span>长者</span></li>
-        <li><span>续一秒</span></li>
-    </ul>
-</section>
-    <!-- 欧尼酱功能, 谁用谁知道 -->
-    
-    <div class="gal-menu gal-dropdown">
-    <div class="circle" id="gal">
-        <div class="ring">
-            <a href="https://github.com/JieSangQAQ" class="menuItem" style="left: 50%; top: 15%;">首页</a>
-            
-            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
-            
-            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
-            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
-            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
-            
-            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
-            
-        </div>
-        <audio id="audio" src="/imgs/oni.mp3"></audio>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JieSangQAQ-兄弟会</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
-    
-    <header class="navbar navbar-inverse" id="gal-header">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed"
-                    data-toggle="collapse" data-target=".bs-navbar-collapse"
-                    aria-expanded="false">
-                <span class="fa fa-lg fa-reorder"></span>
-            </button>
-            <a href="https://github.com/JieSangQAQ">
-                
-                <style>
-                    #gal-header .navbar-brand {
-                        height: 54px;
-                        line-height: 24px;
-                        font-size: 28px;
-                        opacity: 1;
-                        background-color: rgba(0,0,0,0);
-                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
-                    }
-                </style>
-                <!-- 这里使用文字(navbar_text or config.title) -->
-                <div class="navbar-brand">JieSangQAQ-兄弟会</div>
-                
-            </a>
-        </div>
-        <div class="collapse navbar-collapse bs-navbar-collapse">
-            <ul class="nav navbar-nav" id="menu-gal">
-                
-                
-                <li class="">
-                    <a href="/">
-                        <i class="fa fa-home"></i>首页
-                    </a>
-                </li>
-                
-                
-                
-                <li class="">
-                    <a href="/archives">
-                        <i class="fa fa-archive"></i>归档
-                    </a>
-                </li>
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-list"></i>分类
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/categories/10月/">10月</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/11月/">11月</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/8月/">8月</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/categories">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-tags"></i>标签
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/tags/数据库/">数据库</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/Java/">Java</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/日报/">日报</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/tags">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                <li class="">
-                    <a href="/about">
-                        <i class="fa fa-user"></i>关于我
-                    </a>
-                </li>
-                
-                
-            </ul>
-        </div>
-    </div>
-</header>
-    <div id="gal-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 gal-right" id="mainstay">
-                    
-<article class="article well article-body" id="article">
-    <div class="breadcrumb">
-        <i class="fa fa-home"></i>
-        <a href="https://github.com/JieSangQAQ">JieSangQAQ-兄弟会</a>
-        >
-        <span>MongoDB</span>
-    </div>
-    <!-- 大型设备详细文章 -->
-    <div class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2019/10/09/2019-10-9-ribao/">MongoDB</a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/数据库/">数据库</a>
-                
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
             </span>
+
             
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-10-09
-            </span>
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期三, 十月 9日 2019, 9:13 上午
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    1.1k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      5 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
+          </div>
+
+          
         </div>
+      </div>
     </div>
-    <!-- 小型设备详细文章 -->
-    <div class="visible-xs">
-        <center>
-            <div class="title-article">
-                <h4>
-                    <a href="/2019/10/09/2019-10-9-ribao/">MongoDB</a>
-                </h4>
-            </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2019-10-09
-            </p>
-            <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/数据库/">数据库</a>
-                
-                
-                
-            </p>
-        </center>
-    </div>
-    <div class="content-article">
-        <h1 id="MongoDB操作命令"><a href="#MongoDB操作命令" class="headerlink" title="MongoDB操作命令"></a>MongoDB操作命令</h1><h2 id="Mongo简介"><a href="#Mongo简介" class="headerlink" title="Mongo简介"></a>Mongo简介</h2><p>属于非关系型数据库，是分布式文档数据库。<br>特点：扩展灵活、结构灵活、使用方便、支持查询、索引。<br>不足：缺乏事务控制，无法保障数据完整性。</p>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h1 id="MongoDB操作命令"><a href="#MongoDB操作命令" class="headerlink" title="MongoDB操作命令"></a>MongoDB操作命令</h1><h2 id="Mongo简介"><a href="#Mongo简介" class="headerlink" title="Mongo简介"></a>Mongo简介</h2><p>属于非关系型数据库，是分布式文档数据库。<br>特点：扩展灵活、结构灵活、使用方便、支持查询、索引。<br>不足：缺乏事务控制，无法保障数据完整性。</p>
 <p>oracle存储结构</p>
-<p><img src="https://i.imgur.com/iGIiT2H.png" alt=""></p>
+<p><img src="https://i.imgur.com/iGIiT2H.png" srcset="undefined" alt></p>
 <p>mongodb存储结构</p>
-<p><img src="https://i.imgur.com/03lOJQN.png" alt=""></p>
+<p><img src="https://i.imgur.com/03lOJQN.png" srcset="undefined" alt></p>
 <h2 id="Mongo命令"><a href="#Mongo命令" class="headerlink" title="Mongo命令"></a>Mongo命令</h2><ol>
 <li><p>库命令</p>
 <ul>
@@ -282,7 +181,7 @@
 <li><p>查看</p>
 <pre><code>show collections</code></pre></li>
 <li><p>创建</p>
-<pre><code>当使用"db.集合名.insert()"插入数据时，集合不存在时会自动创建</code></pre></li>
+<pre><code>当使用&quot;db.集合名.insert()&quot;插入数据时，集合不存在时会自动创建</code></pre></li>
 <li><p>删除</p>
 <pre><code>db.集合名.drop()</code></pre></li>
 </ul>
@@ -291,38 +190,38 @@
 <ul>
 <li><p>插入</p>
 <p>  插入单条记录</p>
-<pre><code>db.dept.insert({"no":1,"dname":"beijing"})</code></pre><p>  插入多条记录</p>
-<pre><code>var objs = [{"no":3,"dname":"chengdu"},{"no":4,"dname":"shenyang"}];
+<pre><code>db.dept.insert({&quot;no&quot;:1,&quot;dname&quot;:&quot;beijing&quot;})</code></pre><p>  插入多条记录</p>
+<pre><code>var objs = [{&quot;no&quot;:3,&quot;dname&quot;:&quot;chengdu&quot;},{&quot;no&quot;:4,&quot;dname&quot;:&quot;shenyang&quot;}];
 db.dept.insert(objs)</code></pre><p>  或</p>
 <pre><code>for(var i=1;i&lt;10;i++){
- db.dept.insert({"no":10+i,"dname":"bj"+i});
+ db.dept.insert({&quot;no&quot;:10+i,&quot;dname&quot;:&quot;bj&quot;+i});
 }</code></pre></li>
 <li><p>删除</p>
 <p>  删除单条记录</p>
-<pre><code>db.dept.remove({"no":1})</code></pre><p>  删除所有记录</p>
+<pre><code>db.dept.remove({&quot;no&quot;:1})</code></pre><p>  删除所有记录</p>
 <pre><code>db.dept.remove({})</code></pre></li>
 <li><p>修改</p>
 <p>  全部更新覆盖</p>
-<pre><code>db.dept.update({"no":1},{"dname":"shanghai"})</code></pre><p>  部分更新</p>
+<pre><code>db.dept.update({&quot;no&quot;:1},{&quot;dname&quot;:&quot;shanghai&quot;})</code></pre><p>  部分更新</p>
 <pre><code>db.dept.update(条件json对象,{$set:要更新的json对象})
 //示例
-db.dept.update({"no":1},{$set:{"dname":"chengdu"}})</code></pre></li>
+db.dept.update({&quot;no&quot;:1},{$set:{&quot;dname&quot;:&quot;chengdu&quot;}})</code></pre></li>
 <li><p>查询</p>
 <p>  $gt、$lt、$gte、$lte、$ne等</p>
 <p>  查询所有记录</p>
 <pre><code>db.dept.find()</code></pre><p>  查询某条记录，no=1的记录</p>
-<pre><code>db.dept.find({"no":1})</code></pre><p>  查询条件记录，no&gt;1的记录</p>
-<pre><code>db.dept.find({"no":{$gt:1}})
-db.dept.find({"no":{$gte:1}})</code></pre><p>  排序</p>
-<pre><code>db.dept.find().sort({"no":1})</code></pre><p>  1表示升序、-1表示降序</p>
+<pre><code>db.dept.find({&quot;no&quot;:1})</code></pre><p>  查询条件记录，no&gt;1的记录</p>
+<pre><code>db.dept.find({&quot;no&quot;:{$gt:1}})
+db.dept.find({&quot;no&quot;:{$gte:1}})</code></pre><p>  排序</p>
+<pre><code>db.dept.find().sort({&quot;no&quot;:1})</code></pre><p>  1表示升序、-1表示降序</p>
 <p>  分页</p>
 <pre><code>//跳过begin条，然后抓取记录
 db.dept.find().skip(begin).limit(记录数)</code></pre></li>
 <li><p>统计</p>
 <p>  统计所有记录数量</p>
 <pre><code>db.dept.count()</code></pre><p>  统计满足条件记录数</p>
-<pre><code>db.dept.count({"no":11})
-db.dept.count({"no":{$gt:10}})</code></pre></li>
+<pre><code>db.dept.count({&quot;no&quot;:11})
+db.dept.count({&quot;no&quot;:{$gt:10}})</code></pre></li>
 </ul>
 </li>
 </ol>
@@ -332,47 +231,47 @@ db.dept.count({"no":{$gt:10}})</code></pre></li>
 <li><p>引入mongo-java-driver-2.13.2.jar驱动包</p>
 </li>
 <li><p>建立连接</p>
-<pre><code>MongoClient mongo = new MongoClient("localhost");
+<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
 //操作
 mongo.close();关闭连接</code></pre></li>
 <li><p>获取库和集合信息</p>
-<pre><code>MongoClient mongo = new MongoClient("localhost");
+<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
 List&lt;String&gt; dbs = mongo.getDatabaseNames();//show dbs 查看所有库名
-DB db = mongo.getDB("java11");//use java11 获取库对象
+DB db = mongo.getDB(&quot;java11&quot;);//use java11 获取库对象
 //db.getCollectionNames();//show collections 查看集合名</code></pre></li>
 <li><p>插入记录</p>
-<pre><code>MongoClient mongo = new MongoClient("localhost");
-DB db = mongo.getDB("java11");
-DBCollection dept = db.getCollection("dept");
+<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
+DB db = mongo.getDB(&quot;java11&quot;);
+DBCollection dept = db.getCollection(&quot;dept&quot;);
 DBObject arr = new BasicDBObject();
-arr.put("no", 10);
-arr.put("dname", "beijing1");
-dept.insert(arr);//db.dept.insert({"no":10,"dname":"beijing1"})
+arr.put(&quot;no&quot;, 10);
+arr.put(&quot;dname&quot;, &quot;beijing1&quot;);
+dept.insert(arr);//db.dept.insert({&quot;no&quot;:10,&quot;dname&quot;:&quot;beijing1&quot;})
 mongo.close();</code></pre></li>
 <li><p>更新记录</p>
-<pre><code>MongoClient mongo = new MongoClient("localhost");
-DB db = mongo.getDB("java11");
-DBCollection dept = db.getCollection("dept");
+<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
+DB db = mongo.getDB(&quot;java11&quot;);
+DBCollection dept = db.getCollection(&quot;dept&quot;);
 DBObject q = new BasicDBObject();
-q.put("no", 10);
+q.put(&quot;no&quot;, 10);
 
 DBObject o = new BasicDBObject();
 DBObject n = new BasicDBObject();
-n.put("dname", "北京");
-o.put("$set", n);
-//db.dept.update({"no":10},{$set:{"dname":"北京"}})
+n.put(&quot;dname&quot;, &quot;北京&quot;);
+o.put(&quot;$set&quot;, n);
+//db.dept.update({&quot;no&quot;:10},{$set:{&quot;dname&quot;:&quot;北京&quot;}})
 dept.update(q, o);
 mongo.close();</code></pre></li>
 <li><p>查询记录</p>
-<pre><code>MongoClient mongo = new MongoClient("localhost");
-DB db = mongo.getDB("java11");//use java11 获取库对象
-DBCollection dept = db.getCollection("dept");//获取dept集合对象
+<pre><code>MongoClient mongo = new MongoClient(&quot;localhost&quot;);
+DB db = mongo.getDB(&quot;java11&quot;);//use java11 获取库对象
+DBCollection dept = db.getCollection(&quot;dept&quot;);//获取dept集合对象
 DBCursor cursor = dept.find();//db.dept.find() 查询所有记录
 while(cursor.hasNext()){
     DBObject obj = cursor.next();
-    Object no = obj.get("no");
-    Object dname = obj.get("dname");
-    System.out.println("no="+no+" dname="+dname);
+    Object no = obj.get(&quot;no&quot;);
+    Object dname = obj.get(&quot;dname&quot;);
+    System.out.println(&quot;no=&quot;+no+&quot; dname=&quot;+dname);
 }
 mongo.close();</code></pre></li>
 </ul>
@@ -393,20 +292,20 @@ mongo.close();</code></pre></li>
 - 追加Spring配置，创建MongoTemplate对象
 
         &lt;!-- 追加mongo命名空间，定义Factory --&gt;
-        &lt;mongo:db-factory id="mongoFactory" 
-            host="localhost" port="27017" dbname="java11"/&gt;
+        &lt;mongo:db-factory id=&quot;mongoFactory&quot; 
+            host=&quot;localhost&quot; port=&quot;27017&quot; dbname=&quot;java11&quot;/&gt;
 
         &lt;!-- 创建MongoTemplate --&gt;
-        &lt;bean id="mongoTemplate" 
-            class="org.springframework.data.mongodb.core.MongoTemplate"&gt;
-            &lt;constructor-arg index="0" ref="mongoFactory"&gt;
+        &lt;bean id=&quot;mongoTemplate&quot; 
+            class=&quot;org.springframework.data.mongodb.core.MongoTemplate&quot;&gt;
+            &lt;constructor-arg index=&quot;0&quot; ref=&quot;mongoFactory&quot;&gt;
             &lt;/constructor-arg&gt;
         &lt;/bean&gt;
 
 - 测试Template应用
 
         @RunWith(SpringJUnit4ClassRunner.class)
-        @ContextConfiguration(locations={"classpath:spring-mongo.xml"})
+        @ContextConfiguration(locations={&quot;classpath:spring-mongo.xml&quot;})
         public class TestMongoTemplate {
 
             @Resource
@@ -417,8 +316,8 @@ mongo.close();</code></pre></li>
                 System.out.println(mongoTemplate);
                 User user = new User();
                 user.setId(20);
-                user.setName("tiger");
-                user.setPassword("123456");
+                user.setName(&quot;tiger&quot;);
+                user.setPassword(&quot;123456&quot;);
                 mongoTemplate.save(user);//默认集合名user
             }
 
@@ -426,298 +325,256 @@ mongo.close();</code></pre></li>
             public void test2(){
                 List&lt;User&gt; list = mongoTemplate.findAll(User.class);//默认查user集合
                 for(User user:list){
-                    System.out.println(user.getId()+" "+user.getName()+" "+user.getPassword());
+                    System.out.println(user.getId()+&quot; &quot;+user.getName()+&quot; &quot;+user.getPassword());
                 }
             }
 
             @Test//测试按条件查询记录
             public void test3(){
-                Query query = new Query(Criteria.where("id").is(10));
+                Query query = new Query(Criteria.where(&quot;id&quot;).is(10));
                 User user = mongoTemplate.findOne(
                     query,User.class);
-                System.out.println(user.getId()+" "+user.getName()+" "+user.getPassword());
+                System.out.println(user.getId()+&quot; &quot;+user.getName()+&quot; &quot;+user.getPassword());
 
             }
 
-        }</code></pre><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+        }</code></pre>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/10%E6%9C%88">10月</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
     </div>
-</article>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
 
 
-                </div>
-                <aside class="col-md-4 gal-left" id="sidebar">
-    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
-<aside id="sidebar-search">
-    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <form class="form-inline clearfix" id="search-form" method="get"
-              action="/search/index.html">
-            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
-            <button class="btn btn-danger btn-gal" type="submit">
-                <i class="fa fa-search"></i>
-            </button>
-        </form>
-    </div>
-</aside>
-    <aside id="sidebar-author">
-    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
-        <div class="panel-heading" style="text-align: center">
-            <i class="fa fa-quote-left"></i>
-            JieSangQAQ
-            <i class="fa fa-quote-right"></i>
-        </div>
-        <div class="author-panel text-center">
-            <img src="/imgs/avatar.jpg" width="140" height="140"
-                 alt="个人头像" class="author-image">
-            <p class="author-description"><p>JieSangQAQ’s blog</p>
-</p>
-        </div>
-    </div>
-</aside>
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
     
-    <!-- 要配置好leancloud才能开启此小工具 -->
-    
-    
-    <aside id="sidebar-recent_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            近期文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/13/2019-11-13-jspneizhiduixiang/">Cookie与Session</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/12/2019-11-12-jspjichu/">Cookie与Session</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/11/2019-11-11-cookieandsession/">Cookie与Session</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/10/2019-11-10-servlet/">servlet请求与响应</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/09/2019-11-9-servlet/">servlet简介</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/08/2019-11-8-jdbc/">连接池</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/07/2019-11-7-jdbc/">JDBC事务</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/06/2019-11-6-jdbc/">JDBC访问数据库</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/05/2019-11-5-suanfa/">冒泡排序快速排序简单代码实现</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/04/2019-11-4-shejiyuanze/">设计原则与设计模式</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
-    
-    
-    <aside id="gal-sets">
-        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-            <ul class="nav nav-pills pills-gal">
+      <br><br>
+      
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'https://github.com/JieSangQAQ/2019/10/09/2019-10-9-ribao/';
+        this.page.identifier = '/2019/10/09/2019-10-9-ribao/';
+      };
+      var oldLoad = window.onload;
+      window.onload = function () {
+        var d = document, s = d.createElement('script');
+        s.type = 'text/javascript';
+        s.src = '//' + 'Fluid-dev' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">comments
+        powered by Disqus.</a></noscript>
+  </div>
 
-                
-                <li>
-                    <a href="/2019/10/09/2019-10-9-ribao/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
-                </li>
-                
-                
-                <li>
-                    <a href="/2019/10/09/2019-10-9-ribao/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
-                </li>
-                
-                
-                <li>
-                    <a href="/2019/10/09/2019-10-9-ribao/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
-                </li>
-                
-            </ul>
-            <div class="tab-content">
-                
-                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+
     
-    <a href="/tags/数据库/" style="font-size: 10.37129471235459px;" class="tag-cloud-link">数据库</a>
-    
-    <a href="/tags/Java/" style="font-size: 10.006573354907067px;" class="tag-cloud-link">Java</a>
-    
-    <a href="/tags/日报/" style="font-size: 9.367770702341474px;" class="tag-cloud-link">日报</a>
-    
-    <a href="/tags/大杂烩/" style="font-size: 14.796688536829576px;" class="tag-cloud-link">大杂烩</a>
-    
-    <a href="/tags/心得/" style="font-size: 16.97644262019275px;" class="tag-cloud-link">心得</a>
-    
-    <a href="/tags/观后感/" style="font-size: 15.180111475346592px;" class="tag-cloud-link">观后感</a>
-    
+  </div>
 </div>
-                
-                
-                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+
     
-    <li>
-        <a href="https://victorfengming.github.io" target="_blank">小明哥</a>
-    </li>
-    
-    <li>
-        <a href="https://zhengyupengzz.github.io" target="_blank">鹏哥</a>
-    </li>
-    
-    <li>
-        <a href="https://1978413822.github.io" target="_blank">阳仔</a>
-    </li>
-    
-    <li>
-        <a href="https://llzanz.github.io" target="_blank">赞赞</a>
-    </li>
-    
-</div>
-                
-                
-                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
-    
-    <li>
-        <a href="https://github.com/JieSangQAQ" target="_blank">Github</a>
-    </li>
-    
-    <li>
-        <a href="https://813949958@qq.com" target="_blank">Email</a>
-    </li>
-    
-    <li>
-        <a href="https://www.zhihu.com/people/jie-sang-22/activities" target="_blank">知乎</a>
-    </li>
-    
-</div>
-                
-            </div>
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
         </div>
-    </aside>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
     
-</aside>
-            </div>
-        </div>
-    </div>
-    <footer id="gal-footer">
-    <div class="container">
-        Copyright © 2019 JieSangQAQ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
-    </div>
+  
+  
+  <br>
+
+
+
+    
+
+  </div>
 </footer>
 
-<!-- 回到顶端 -->
-<div id="gal-gotop">
-    <i class="fa fa-angle-up"></i>
-</div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":210,"height":390},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
-<script src="/js/activate-power-mode.js"></script>
-<script>
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
 
-    // 配置highslide
-	hs.graphicsDir = '/js/highslide/graphics/'
-    hs.outlineType = "rounded-white";
-    hs.dimmingOpacity = 0.8;
-    hs.outlineWhileAnimating = true;
-    hs.showCredits = false;
-    hs.captionEval = "this.thumb.alt";
-    hs.numberPosition = "caption";
-    hs.align = "center";
-    hs.transitions = ["expand", "crossfade"];
-    hs.lang.number = '共%2张图, 当前是第%1张';
-    hs.addSlideshow({
-      interval: 5000,
-      repeat: true,
-      useControls: true,
-      fixedControls: "fit",
-      overlayOptions: {
-        opacity: 0.75,
-        position: "bottom center",
-        hideOnMouseOut: true
-      }
-    })
 
-    // 初始化aos
-    AOS.init({
-      duration: 1000,
-      delay: 0,
-      easing: 'ease-out-back'
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "MongoDB&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
     });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
 
-</script>
-<script>
-	POWERMODE.colorful = 'true';    // make power mode colorful
-	POWERMODE.shake = 'true';       // turn off shake
-	// TODO 这里根据具体情况修改
-	document.body.addEventListener('input', POWERMODE);
-</script>
-<script>
-    window.slideConfig = {
-      prefix: '/imgs/slide/background',
-      ext: 'jpg',
-      maxCount: '6'
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
     }
-</script>
-<script src="/js/hs.js"></script>
-<script src="/js/blog.js"></script>
-
-<script src="/js/oni.js"></script>
+    anchors.add(res.join(", "))
+  </script>
 
 
 
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
 </html>

@@ -1,545 +1,402 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
+
+
+
+
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="JieSangQAQ">
-    
-    <meta name="description" content="JieSangQAQ&#39;s blog">
-    
-    
-    
-    
-    
-    
-    <title>放大镜实现 | JieSangQAQ-兄弟会</title>
-    <link href="”https://github.com/JieSangQAQ“" rel="”prefetch”">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="JieSangQAQ&#39;s blog">
+  <meta name="author" content="JieSangQAQ">
+  <meta name="keywords" content>
+  <title>放大镜实现 ~ JieSangQAQ-兄弟会</title>
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/aos.css">
-<link rel="stylesheet" href="/css/style.css">
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aos.js"></script>
-    <script src="/js/highslide/highslide-full.min.js"></script>
-    <link rel="stylesheet" href="/js/highslide/highslide.css">
-    <style type="text/css">
-        @media (max-width: 768px) {
-            body {
-                background-color: #f0f0f0;
-                background: url('/imgs/xsbg.gif');
-                background-attachment: fixed;
-            }
-        }
-    </style>
-    
-    <!--<script type="text/javascript">
-      if (document.images) {
-        var avatar = new Image();
-        avatar.src = '/imgs/avatar.jpg'
-        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg'.split(',')
-        var previewsPreLoad = []
-        for(var i = 0; i < length; i++) {
-          previewsPreLoad.push(new Image())
-          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
-        }
-      }
-    </script>-->
-</head></html>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
+
+
+</head>
+
+
 <body>
-    <!-- 背景轮播图功能 -->
-    <section class="hidden-xs">
-    <ul class="cb-slideshow">
-        <li><span>天若</span></li>
-        <li><span>有情</span></li>
-        <li><span>天亦老</span></li>
-        <li><span>我为</span></li>
-        <li><span>长者</span></li>
-        <li><span>续一秒</span></li>
-    </ul>
-</section>
-    <!-- 欧尼酱功能, 谁用谁知道 -->
-    
-    <div class="gal-menu gal-dropdown">
-    <div class="circle" id="gal">
-        <div class="ring">
-            <a href="https://github.com/JieSangQAQ" class="menuItem" style="left: 50%; top: 15%;">首页</a>
-            
-            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
-            
-            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
-            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
-            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
-            
-            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
-            
-        </div>
-        <audio id="audio" src="/imgs/oni.mp3"></audio>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JieSangQAQ-兄弟会</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
-    
-    <header class="navbar navbar-inverse" id="gal-header">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed"
-                    data-toggle="collapse" data-target=".bs-navbar-collapse"
-                    aria-expanded="false">
-                <span class="fa fa-lg fa-reorder"></span>
-            </button>
-            <a href="https://github.com/JieSangQAQ">
-                
-                <style>
-                    #gal-header .navbar-brand {
-                        height: 54px;
-                        line-height: 24px;
-                        font-size: 28px;
-                        opacity: 1;
-                        background-color: rgba(0,0,0,0);
-                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
-                    }
-                </style>
-                <!-- 这里使用文字(navbar_text or config.title) -->
-                <div class="navbar-brand">JieSangQAQ-兄弟会</div>
-                
-            </a>
-        </div>
-        <div class="collapse navbar-collapse bs-navbar-collapse">
-            <ul class="nav navbar-nav" id="menu-gal">
-                
-                
-                <li class="">
-                    <a href="/">
-                        <i class="fa fa-home"></i>首页
-                    </a>
-                </li>
-                
-                
-                
-                <li class="">
-                    <a href="/archives">
-                        <i class="fa fa-archive"></i>归档
-                    </a>
-                </li>
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-list"></i>分类
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/categories/10月/">10月</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/11月/">11月</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/8月/">8月</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/categories">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-tags"></i>标签
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/tags/数据库/">数据库</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/Java/">Java</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/日报/">日报</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/tags">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                <li class="">
-                    <a href="/about">
-                        <i class="fa fa-user"></i>关于我
-                    </a>
-                </li>
-                
-                
-            </ul>
-        </div>
-    </div>
-</header>
-    <div id="gal-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 gal-right" id="mainstay">
-                    
-<article class="article well article-body" id="article">
-    <div class="breadcrumb">
-        <i class="fa fa-home"></i>
-        <a href="https://github.com/JieSangQAQ">JieSangQAQ-兄弟会</a>
-        >
-        <span>放大镜实现</span>
-    </div>
-    <!-- 大型设备详细文章 -->
-    <div class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2019/09/05/2019-9-5-ddddd/">放大镜实现</a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/大杂烩/">大杂烩</a>
-                
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
             </span>
+
             
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-09-05
-            </span>
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期四, 九月 5日 2019, 7:22 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    499 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      2 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
+          </div>
+
+          
         </div>
+      </div>
     </div>
-    <!-- 小型设备详细文章 -->
-    <div class="visible-xs">
-        <center>
-            <div class="title-article">
-                <h4>
-                    <a href="/2019/09/05/2019-9-5-ddddd/">放大镜实现</a>
-                </h4>
-            </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h4 id="放大镜的实现"><a href="#放大镜的实现" class="headerlink" title="放大镜的实现"></a>放大镜的实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;zh&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">	&lt;script src=&quot;https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;    </span><br><span class="line">	*&#123;margin:0px;</span><br><span class="line">		padding:0px;&#125;</span><br><span class="line">	.img&#123;</span><br><span class="line">		width: 350px;</span><br><span class="line">		height: 350px;</span><br><span class="line">		border: 1px solid #ccc;</span><br><span class="line">		margin: 0px;</span><br><span class="line">		position: absolute;</span><br><span class="line">		cursor:move;</span><br><span class="line">		left: 500px;</span><br><span class="line">	&#125;    </span><br><span class="line">	.bimg&#123;</span><br><span class="line">		position: absolute;</span><br><span class="line">		top: -1px;</span><br><span class="line">		left: 360px;         </span><br><span class="line">		border: 1px solid #ccc;</span><br><span class="line">		width: 350px;</span><br><span class="line">		height: 350px;         </span><br><span class="line">		overflow: hidden;</span><br><span class="line">		display: none;</span><br><span class="line">	&#125;  </span><br><span class="line">	#move&#123;</span><br><span class="line">	  	position: absolute;</span><br><span class="line">	  	width: 100px;</span><br><span class="line">	  	height: 100px;        </span><br><span class="line">	  	background-color: rgba(8,152,202,0.2);</span><br><span class="line">	  	top: 0px;        </span><br><span class="line">	  	left: 0px;</span><br><span class="line">	  	display: none;</span><br><span class="line">	  &#125;   </span><br><span class="line">	.simg&#123;</span><br><span class="line">		width: 350px;</span><br><span class="line">		height: 350px;</span><br><span class="line">	&#125;</span><br><span class="line">	.bimg&gt;img&#123;</span><br><span class="line">	   	position: absolute;</span><br><span class="line">	   	left: 0px;</span><br><span class="line">	   	top: 0px;</span><br><span class="line">	   &#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;img&quot;&gt;   </span><br><span class="line">		&lt;div class=&quot;simg&quot;&gt;&lt;!--小图片--&gt;     </span><br><span class="line">	    	&lt;img src=&quot;/home/zhangjie/图片/miojk(复件).jpg&quot; style=&quot;width:350px;height:350px;&quot; /&gt;     </span><br><span class="line">	    	&lt;div id=&quot;move&quot;&gt;&lt;/div&gt;&lt;!--放大区域--&gt;  </span><br><span class="line">	 	&lt;/div&gt;  </span><br><span class="line">	    &lt;div class=&quot;bimg&quot;&gt;&lt;!--大图片--&gt;    </span><br><span class="line">	    	&lt;img src=&quot;/home/zhangjie/图片/miojk.jpg&quot; style=&quot;width:1225px ;height: 1225px;&quot; /&gt;  </span><br><span class="line">	    &lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	&lt;script&gt;</span><br><span class="line">	$(document).ready(function()&#123;</span><br><span class="line"></span><br><span class="line">		//鼠标移动到图片显示，移除隐藏     </span><br><span class="line">		$(&quot;.img&quot;).hover(function()&#123;           </span><br><span class="line">		   	$(&quot;.bimg&quot;).css(&quot;display&quot;,&quot;block&quot;);          </span><br><span class="line">		    $(&quot;#move&quot;).css(&quot;display&quot;,&quot;block&quot;);       </span><br><span class="line">		&#125;,function()&#123;       </span><br><span class="line">	  		$(&quot;.bimg&quot;).css(&quot;display&quot;,&quot;none&quot;);         </span><br><span class="line">	  		$(&quot;#move&quot;).css(&quot;display&quot;,&quot;none&quot;);       </span><br><span class="line">	  	&#125;);</span><br><span class="line">		//放大区域移动，大图片移动</span><br><span class="line">		$(&quot;.img&quot;).mousemove(function(event)&#123;</span><br><span class="line">		    var x = event.pageX;          </span><br><span class="line">		    var y = event.pageY;                   </span><br><span class="line">		    var nx = x - $(&quot;.img&quot;).offset().left-$(&quot;#move&quot;).width()/2;            </span><br><span class="line">		    var ny = y - $(&quot;.img&quot;).offset().top-$(&quot;#move&quot;).height()/2;           </span><br><span class="line">		    if(nx &lt; 0)&#123; </span><br><span class="line">		        nx = 0;</span><br><span class="line">		    &#125;            </span><br><span class="line">		    if(nx &gt; $(&quot;.img&quot;).width()-$(&quot;#move&quot;).width())&#123;        </span><br><span class="line">		        nx = $(&quot;.img&quot;).width()-$(&quot;#move&quot;).width();         </span><br><span class="line">		    &#125;            </span><br><span class="line">		    if(ny &lt; 0)&#123;       </span><br><span class="line">		        ny = 0;            </span><br><span class="line">		    &#125;            </span><br><span class="line">		    if(ny &gt; $(&quot;.img&quot;).height()-$(&quot;#move&quot;).height())&#123;       </span><br><span class="line">		        ny = $(&quot;.img&quot;).height()-$(&quot;#move&quot;).height();     </span><br><span class="line">		    &#125;                </span><br><span class="line">		    $(&quot;#move&quot;).css(&#123;           </span><br><span class="line">		        left:nx+&quot;px&quot;,           </span><br><span class="line">		        top:ny+&quot;px&quot;       </span><br><span class="line">		    &#125;);           </span><br><span class="line">		    $(&quot;.bimg&gt;img&quot;).css(&#123;         </span><br><span class="line">		        left:-nx*$(&quot;.bimg&quot;).width()/$(&quot;#move&quot;).width()+&quot;px&quot;,   </span><br><span class="line">		        top:-ny*$(&quot;.bimg&quot;).height()/$(&quot;#move&quot;).height()+&quot;px&quot;      </span><br><span class="line">		    &#125;);</span><br><span class="line">		&#125;)</span><br><span class="line">		                                              </span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+            <hr>
+          </div>
+          <br>
+          <div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-09-05
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/9%E6%9C%88">9月</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/%E5%85%B6%E4%BB%96">其他</a>
+                
+              </span>
+            
             </p>
-            <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/大杂烩/">大杂烩</a>
-                
-                
-                
-            </p>
-        </center>
-    </div>
-    <div class="content-article">
-        <h4 id="放大镜的实现"><a href="#放大镜的实现" class="headerlink" title="放大镜的实现"></a>放大镜的实现</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang="zh"&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset="UTF-8"&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">	&lt;script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;</span><br><span class="line">	&lt;style type="text/css"&gt;    </span><br><span class="line">	*{margin:0px;</span><br><span class="line">		padding:0px;}</span><br><span class="line">	.img{</span><br><span class="line">		width: 350px;</span><br><span class="line">		height: 350px;</span><br><span class="line">		border: 1px solid #ccc;</span><br><span class="line">		margin: 0px;</span><br><span class="line">		position: absolute;</span><br><span class="line">		cursor:move;</span><br><span class="line">		left: 500px;</span><br><span class="line">	}    </span><br><span class="line">	.bimg{</span><br><span class="line">		position: absolute;</span><br><span class="line">		top: -1px;</span><br><span class="line">		left: 360px;         </span><br><span class="line">		border: 1px solid #ccc;</span><br><span class="line">		width: 350px;</span><br><span class="line">		height: 350px;         </span><br><span class="line">		overflow: hidden;</span><br><span class="line">		display: none;</span><br><span class="line">	}  </span><br><span class="line">	#move{</span><br><span class="line">	  	position: absolute;</span><br><span class="line">	  	width: 100px;</span><br><span class="line">	  	height: 100px;        </span><br><span class="line">	  	background-color: rgba(8,152,202,0.2);</span><br><span class="line">	  	top: 0px;        </span><br><span class="line">	  	left: 0px;</span><br><span class="line">	  	display: none;</span><br><span class="line">	  }   </span><br><span class="line">	.simg{</span><br><span class="line">		width: 350px;</span><br><span class="line">		height: 350px;</span><br><span class="line">	}</span><br><span class="line">	.bimg&gt;img{</span><br><span class="line">	   	position: absolute;</span><br><span class="line">	   	left: 0px;</span><br><span class="line">	   	top: 0px;</span><br><span class="line">	   }</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class="img"&gt;   </span><br><span class="line">		&lt;div class="simg"&gt;&lt;!--小图片--&gt;     </span><br><span class="line">	    	&lt;img src="/home/zhangjie/图片/miojk(复件).jpg" style="width:350px;height:350px;" /&gt;     </span><br><span class="line">	    	&lt;div id="move"&gt;&lt;/div&gt;&lt;!--放大区域--&gt;  </span><br><span class="line">	 	&lt;/div&gt;  </span><br><span class="line">	    &lt;div class="bimg"&gt;&lt;!--大图片--&gt;    </span><br><span class="line">	    	&lt;img src="/home/zhangjie/图片/miojk.jpg" style="width:1225px ;height: 1225px;" /&gt;  </span><br><span class="line">	    &lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	&lt;script&gt;</span><br><span class="line">	$(document).ready(function(){</span><br><span class="line"></span><br><span class="line">		//鼠标移动到图片显示，移除隐藏     </span><br><span class="line">		$(".img").hover(function(){           </span><br><span class="line">		   	$(".bimg").css("display","block");          </span><br><span class="line">		    $("#move").css("display","block");       </span><br><span class="line">		},function(){       </span><br><span class="line">	  		$(".bimg").css("display","none");         </span><br><span class="line">	  		$("#move").css("display","none");       </span><br><span class="line">	  	});</span><br><span class="line">		//放大区域移动，大图片移动</span><br><span class="line">		$(".img").mousemove(function(event){</span><br><span class="line">		    var x = event.pageX;          </span><br><span class="line">		    var y = event.pageY;                   </span><br><span class="line">		    var nx = x - $(".img").offset().left-$("#move").width()/2;            </span><br><span class="line">		    var ny = y - $(".img").offset().top-$("#move").height()/2;           </span><br><span class="line">		    if(nx &lt; 0){ </span><br><span class="line">		        nx = 0;</span><br><span class="line">		    }            </span><br><span class="line">		    if(nx &gt; $(".img").width()-$("#move").width()){        </span><br><span class="line">		        nx = $(".img").width()-$("#move").width();         </span><br><span class="line">		    }            </span><br><span class="line">		    if(ny &lt; 0){       </span><br><span class="line">		        ny = 0;            </span><br><span class="line">		    }            </span><br><span class="line">		    if(ny &gt; $(".img").height()-$("#move").height()){       </span><br><span class="line">		        ny = $(".img").height()-$("#move").height();     </span><br><span class="line">		    }                </span><br><span class="line">		    $("#move").css({           </span><br><span class="line">		        left:nx+"px",           </span><br><span class="line">		        top:ny+"px"       </span><br><span class="line">		    });           </span><br><span class="line">		    $(".bimg&gt;img").css({         </span><br><span class="line">		        left:-nx*$(".bimg").width()/$("#move").width()+"px",   </span><br><span class="line">		        top:-ny*$(".bimg").height()/$("#move").height()+"px"      </span><br><span class="line">		    });</span><br><span class="line">		})</span><br><span class="line">		                                              </span><br><span class="line">	});</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    </div>
-</article>
-
-
-                </div>
-                <aside class="col-md-4 gal-left" id="sidebar">
-    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
-<aside id="sidebar-search">
-    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <form class="form-inline clearfix" id="search-form" method="get"
-              action="/search/index.html">
-            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
-            <button class="btn btn-danger btn-gal" type="submit">
-                <i class="fa fa-search"></i>
-            </button>
-        </form>
-    </div>
-</aside>
-    <aside id="sidebar-author">
-    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
-        <div class="panel-heading" style="text-align: center">
-            <i class="fa fa-quote-left"></i>
-            JieSangQAQ
-            <i class="fa fa-quote-right"></i>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
         </div>
-        <div class="author-panel text-center">
-            <img src="/imgs/avatar.jpg" width="140" height="140"
-                 alt="个人头像" class="author-image">
-            <p class="author-description"><p>JieSangQAQ’s blog</p>
-</p>
-        </div>
+      </div>
     </div>
-</aside>
-    
-    <!-- 要配置好leancloud才能开启此小工具 -->
-    
-    
-    <aside id="sidebar-recent_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            近期文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/13/2019-11-13-jspneizhiduixiang/">Cookie与Session</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/12/2019-11-12-jspjichu/">Cookie与Session</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/11/2019-11-11-cookieandsession/">Cookie与Session</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/10/2019-11-10-servlet/">servlet请求与响应</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/09/2019-11-9-servlet/">servlet简介</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/08/2019-11-8-jdbc/">连接池</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/07/2019-11-7-jdbc/">JDBC事务</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/06/2019-11-6-jdbc/">JDBC访问数据库</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/05/2019-11-5-suanfa/">冒泡排序快速排序简单代码实现</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/04/2019-11-4-shejiyuanze/">设计原则与设计模式</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
-    
-    
-    <aside id="gal-sets">
-        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-            <ul class="nav nav-pills pills-gal">
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
 
-                
-                <li>
-                    <a href="/2019/09/05/2019-9-5-ddddd/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
-                </li>
-                
-                
-                <li>
-                    <a href="/2019/09/05/2019-9-5-ddddd/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
-                </li>
-                
-                
-                <li>
-                    <a href="/2019/09/05/2019-9-5-ddddd/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
-                </li>
-                
-            </ul>
-            <div class="tab-content">
-                
-                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
-    
-    <a href="/tags/数据库/" style="font-size: 18.98224110028596px;" class="tag-cloud-link">数据库</a>
-    
-    <a href="/tags/Java/" style="font-size: 13.257754788004277px;" class="tag-cloud-link">Java</a>
-    
-    <a href="/tags/日报/" style="font-size: 19.391040437199813px;" class="tag-cloud-link">日报</a>
-    
-    <a href="/tags/大杂烩/" style="font-size: 15.930589910766185px;" class="tag-cloud-link">大杂烩</a>
-    
-    <a href="/tags/心得/" style="font-size: 17.905288510909884px;" class="tag-cloud-link">心得</a>
-    
-    <a href="/tags/观后感/" style="font-size: 14.594315954420974px;" class="tag-cloud-link">观后感</a>
-    
+    </div>
+  </div>
 </div>
-                
-                
-                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
     
-    <li>
-        <a href="https://victorfengming.github.io" target="_blank">小明哥</a>
-    </li>
+      <br><br>
+      
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'https://github.com/JieSangQAQ/2019/09/05/2019-9-5-ddddd/';
+        this.page.identifier = '/2019/09/05/2019-9-5-ddddd/';
+      };
+      var oldLoad = window.onload;
+      window.onload = function () {
+        var d = document, s = d.createElement('script');
+        s.type = 'text/javascript';
+        s.src = '//' + 'Fluid-dev' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">comments
+        powered by Disqus.</a></noscript>
+  </div>
+
+
     
-    <li>
-        <a href="https://zhengyupengzz.github.io" target="_blank">鹏哥</a>
-    </li>
-    
-    <li>
-        <a href="https://1978413822.github.io" target="_blank">阳仔</a>
-    </li>
-    
-    <li>
-        <a href="https://llzanz.github.io" target="_blank">赞赞</a>
-    </li>
-    
+  </div>
 </div>
-                
-                
-                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+
     
-    <li>
-        <a href="https://github.com/JieSangQAQ" target="_blank">Github</a>
-    </li>
-    
-    <li>
-        <a href="https://813949958@qq.com" target="_blank">Email</a>
-    </li>
-    
-    <li>
-        <a href="https://www.zhihu.com/people/jie-sang-22/activities" target="_blank">知乎</a>
-    </li>
-    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
 </div>
-                
-            </div>
-        </div>
-    </aside>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
     
-</aside>
-            </div>
-        </div>
-    </div>
-    <footer id="gal-footer">
-    <div class="container">
-        Copyright © 2019 JieSangQAQ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
-    </div>
+  
+  
+  <br>
+
+
+
+    
+
+  </div>
 </footer>
 
-<!-- 回到顶端 -->
-<div id="gal-gotop">
-    <i class="fa fa-angle-up"></i>
-</div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":210,"height":390},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
-<script src="/js/activate-power-mode.js"></script>
-<script>
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
 
-    // 配置highslide
-	hs.graphicsDir = '/js/highslide/graphics/'
-    hs.outlineType = "rounded-white";
-    hs.dimmingOpacity = 0.8;
-    hs.outlineWhileAnimating = true;
-    hs.showCredits = false;
-    hs.captionEval = "this.thumb.alt";
-    hs.numberPosition = "caption";
-    hs.align = "center";
-    hs.transitions = ["expand", "crossfade"];
-    hs.lang.number = '共%2张图, 当前是第%1张';
-    hs.addSlideshow({
-      interval: 5000,
-      repeat: true,
-      useControls: true,
-      fixedControls: "fit",
-      overlayOptions: {
-        opacity: 0.75,
-        position: "bottom center",
-        hideOnMouseOut: true
-      }
-    })
 
-    // 初始化aos
-    AOS.init({
-      duration: 1000,
-      delay: 0,
-      easing: 'ease-out-back'
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "放大镜实现&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
     });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
 
-</script>
-<script>
-	POWERMODE.colorful = 'true';    // make power mode colorful
-	POWERMODE.shake = 'true';       // turn off shake
-	// TODO 这里根据具体情况修改
-	document.body.addEventListener('input', POWERMODE);
-</script>
-<script>
-    window.slideConfig = {
-      prefix: '/imgs/slide/background',
-      ext: 'jpg',
-      maxCount: '6'
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
     }
-</script>
-<script src="/js/hs.js"></script>
-<script src="/js/blog.js"></script>
-
-<script src="/js/oni.js"></script>
+    anchors.add(res.join(", "))
+  </script>
 
 
 
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
 </html>

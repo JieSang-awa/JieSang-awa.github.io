@@ -1,502 +1,315 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
+
+
+
+
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="JieSangQAQ">
-    
-    <meta name="description" content="JieSangQAQ&#39;s blog">
-    
-    
-    
-    
-    
-    
-    <title>tags: Java | JieSangQAQ-兄弟会</title>
-    <link href="”https://github.com/JieSangQAQ“" rel="”prefetch”">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="JieSangQAQ&#39;s blog">
+  <meta name="author" content="JieSangQAQ">
+  <meta name="keywords" content>
+  <title>标签 - Java ~ JieSangQAQ-兄弟会</title>
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/aos.css">
-<link rel="stylesheet" href="/css/style.css">
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aos.js"></script>
-    <script src="/js/highslide/highslide-full.min.js"></script>
-    <link rel="stylesheet" href="/js/highslide/highslide.css">
-    <style type="text/css">
-        @media (max-width: 768px) {
-            body {
-                background-color: #f0f0f0;
-                background: url('/imgs/xsbg.gif');
-                background-attachment: fixed;
-            }
-        }
-    </style>
-    
-    <!--<script type="text/javascript">
-      if (document.images) {
-        var avatar = new Image();
-        avatar.src = '/imgs/avatar.jpg'
-        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg'.split(',')
-        var previewsPreLoad = []
-        for(var i = 0; i < length; i++) {
-          previewsPreLoad.push(new Image())
-          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
-        }
-      }
-    </script>-->
-</head></html>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
+
+
+</head>
+
+
 <body>
-    <!-- 背景轮播图功能 -->
-    <section class="hidden-xs">
-    <ul class="cb-slideshow">
-        <li><span>天若</span></li>
-        <li><span>有情</span></li>
-        <li><span>天亦老</span></li>
-        <li><span>我为</span></li>
-        <li><span>长者</span></li>
-        <li><span>续一秒</span></li>
-    </ul>
-</section>
-    <!-- 欧尼酱功能, 谁用谁知道 -->
-    
-    <div class="gal-menu gal-dropdown">
-    <div class="circle" id="gal">
-        <div class="ring">
-            <a href="https://github.com/JieSangQAQ" class="menuItem" style="left: 50%; top: 15%;">首页</a>
-            
-            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
-            
-            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
-            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
-            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
-            
-            <a href="/tags/Java/page/3/" class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
-            
-        </div>
-        <audio id="audio" src="/imgs/oni.mp3"></audio>
-    </div>
-</div>
-    
-    <header class="navbar navbar-inverse" id="gal-header">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed"
-                    data-toggle="collapse" data-target=".bs-navbar-collapse"
-                    aria-expanded="false">
-                <span class="fa fa-lg fa-reorder"></span>
-            </button>
-            <a href="https://github.com/JieSangQAQ">
-                
-                <style>
-                    #gal-header .navbar-brand {
-                        height: 54px;
-                        line-height: 24px;
-                        font-size: 28px;
-                        opacity: 1;
-                        background-color: rgba(0,0,0,0);
-                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
-                    }
-                </style>
-                <!-- 这里使用文字(navbar_text or config.title) -->
-                <div class="navbar-brand">JieSangQAQ-兄弟会</div>
-                
-            </a>
-        </div>
-        <div class="collapse navbar-collapse bs-navbar-collapse">
-            <ul class="nav navbar-nav" id="menu-gal">
-                
-                
-                <li class="">
-                    <a href="/">
-                        <i class="fa fa-home"></i>首页
-                    </a>
-                </li>
-                
-                
-                
-                <li class="">
-                    <a href="/archives">
-                        <i class="fa fa-archive"></i>归档
-                    </a>
-                </li>
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-list"></i>分类
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/categories/10月/">10月</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/11月/">11月</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/8月/">8月</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/categories">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-tags"></i>标签
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/tags/数据库/">数据库</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/Java/">Java</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/日报/">日报</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/tags">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                <li class="">
-                    <a href="/about">
-                        <i class="fa fa-user"></i>关于我
-                    </a>
-                </li>
-                
-                
-            </ul>
-        </div>
-    </div>
-</header>
-    <div id="gal-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
-    <div class="breadcrumb">
-        <i class="fa fa-home"></i>
-        <a href="https://github.com/JieSangQAQ">JieSangQAQ-兄弟会</a>
-        >
-        <span>标签</span>
-    </div>
-    <!-- 大型设备详细文章 -->
-    <div class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/tags/Java/page/4/index.html">Java</a>
-            </h1>
-        </div>
-    </div>
-    <!-- 小型设备详细文章 -->
-    <div class="visible-xs">
-        <center>
-            <div class="title-article">
-                <h4>
-                    <a href="/tags/Java/page/4/index.html">Java</a>
-                </h4>
-            </div>
-        </center>
-    </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2019/10/14/2019-10-14-object oriented/">面向对象小知识</a>
-            <br>
-            
-            
-        </div>
-    </div>
-</article>
-                </div>
-                <aside class="col-md-4 gal-left" id="sidebar">
-    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
-<aside id="sidebar-search">
-    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <form class="form-inline clearfix" id="search-form" method="get"
-              action="/search/index.html">
-            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
-            <button class="btn btn-danger btn-gal" type="submit">
-                <i class="fa fa-search"></i>
-            </button>
-        </form>
-    </div>
-</aside>
-    <aside id="sidebar-author">
-    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
-        <div class="panel-heading" style="text-align: center">
-            <i class="fa fa-quote-left"></i>
-            JieSangQAQ
-            <i class="fa fa-quote-right"></i>
-        </div>
-        <div class="author-panel text-center">
-            <img src="/imgs/avatar.jpg" width="140" height="140"
-                 alt="个人头像" class="author-image">
-            <p class="author-description"><p>JieSangQAQ’s blog</p>
-</p>
-        </div>
-    </div>
-</aside>
-    
-    <!-- 要配置好leancloud才能开启此小工具 -->
-    
-    
-    <aside id="sidebar-recent_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            近期文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/13/2019-11-13-jspneizhiduixiang/">Cookie与Session</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/12/2019-11-12-jspjichu/">Cookie与Session</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/11/2019-11-11-cookieandsession/">Cookie与Session</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/10/2019-11-10-servlet/">servlet请求与响应</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/09/2019-11-9-servlet/">servlet简介</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/08/2019-11-8-jdbc/">连接池</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/07/2019-11-7-jdbc/">JDBC事务</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/06/2019-11-6-jdbc/">JDBC访问数据库</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/05/2019-11-5-suanfa/">冒泡排序快速排序简单代码实现</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/04/2019-11-4-shejiyuanze/">设计原则与设计模式</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
-    
-    
-    <aside id="gal-sets">
-        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-            <ul class="nav nav-pills pills-gal">
+  <header style="height: 80vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JieSangQAQ-兄弟会</strong>&nbsp;</a>
 
-                
-                <li>
-                    <a href="/tags/Java/page/4/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
-                </li>
-                
-                
-                <li>
-                    <a href="/tags/Java/page/4/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
-                </li>
-                
-                
-                <li>
-                    <a href="/tags/Java/page/4/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
-                </li>
-                
-            </ul>
-            <div class="tab-content">
-                
-                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
-    
-    <a href="/tags/数据库/" style="font-size: 18.73059870352272px;" class="tag-cloud-link">数据库</a>
-    
-    <a href="/tags/Java/" style="font-size: 17.198304342506706px;" class="tag-cloud-link">Java</a>
-    
-    <a href="/tags/日报/" style="font-size: 18.51763070014318px;" class="tag-cloud-link">日报</a>
-    
-    <a href="/tags/大杂烩/" style="font-size: 16.427585971945618px;" class="tag-cloud-link">大杂烩</a>
-    
-    <a href="/tags/心得/" style="font-size: 9.289872572826631px;" class="tag-cloud-link">心得</a>
-    
-    <a href="/tags/观后感/" style="font-size: 10.517951417599473px;" class="tag-cloud-link">观后感</a>
-    
-</div>
-                
-                
-                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
-    
-    <li>
-        <a href="https://victorfengming.github.io" target="_blank">小明哥</a>
-    </li>
-    
-    <li>
-        <a href="https://zhengyupengzz.github.io" target="_blank">鹏哥</a>
-    </li>
-    
-    <li>
-        <a href="https://1978413822.github.io" target="_blank">阳仔</a>
-    </li>
-    
-    <li>
-        <a href="https://llzanz.github.io" target="_blank">赞赞</a>
-    </li>
-    
-</div>
-                
-                
-                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
-    
-    <li>
-        <a href="https://github.com/JieSangQAQ" target="_blank">Github</a>
-    </li>
-    
-    <li>
-        <a href="https://813949958@qq.com" target="_blank">Email</a>
-    </li>
-    
-    <li>
-        <a href="https://www.zhihu.com/people/jie-sang-22/activities" target="_blank">知乎</a>
-    </li>
-    
-</div>
-                
-            </div>
-        </div>
-    </aside>
-    
-</aside>
-            </div>
-        </div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-    <footer id="gal-footer">
-    <div class="container">
-        Copyright © 2019 JieSangQAQ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
     </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5 z-depth-3" id="board">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="list-group">
+  <p class="h4">共计 3 篇文章</p>
+  <hr>
+  
+    
+      
+      <p class="h5">2019</p>
+    
+    <a href="/2019/10/14/2019-10-14-object oriented/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">面向对象小知识</span>
+      <span style="float: right;">10-14</span>
+    </a>
+  
+    
+    <a href="/2019/09/20/2019-9-20-jvm/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">JVM</span>
+      <span style="float: right;">09-20</span>
+    </a>
+  
+    
+    <a href="/2019/09/08/2019-9-8-singleton/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">单例设计模式</span>
+      <span style="float: right;">09-08</span>
+    </a>
+  
+</div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+  
+  <br>
+
+
+
+    
+
+  </div>
 </footer>
 
-<!-- 回到顶端 -->
-<div id="gal-gotop">
-    <i class="fa fa-angle-up"></i>
-</div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":210,"height":390},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
-<script src="/js/activate-power-mode.js"></script>
-<script>
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
 
-    // 配置highslide
-	hs.graphicsDir = '/js/highslide/graphics/'
-    hs.outlineType = "rounded-white";
-    hs.dimmingOpacity = 0.8;
-    hs.outlineWhileAnimating = true;
-    hs.showCredits = false;
-    hs.captionEval = "this.thumb.alt";
-    hs.numberPosition = "caption";
-    hs.align = "center";
-    hs.transitions = ["expand", "crossfade"];
-    hs.lang.number = '共%2张图, 当前是第%1张';
-    hs.addSlideshow({
-      interval: 5000,
-      repeat: true,
-      useControls: true,
-      fixedControls: "fit",
-      overlayOptions: {
-        opacity: 0.75,
-        position: "bottom center",
-        hideOnMouseOut: true
-      }
-    })
 
-    // 初始化aos
-    AOS.init({
-      duration: 1000,
-      delay: 0,
-      easing: 'ease-out-back'
+  <script src="/js/lazyload.js" ></script>
+
+
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "标签 - Java&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
     });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
 
-</script>
-<script>
-	POWERMODE.colorful = 'true';    // make power mode colorful
-	POWERMODE.shake = 'true';       // turn off shake
-	// TODO 这里根据具体情况修改
-	document.body.addEventListener('input', POWERMODE);
-</script>
-<script>
-    window.slideConfig = {
-      prefix: '/imgs/slide/background',
-      ext: 'jpg',
-      maxCount: '6'
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
     }
-</script>
-<script src="/js/hs.js"></script>
-<script src="/js/blog.js"></script>
-
-<script src="/js/oni.js"></script>
+    anchors.add(res.join(", "))
+  </script>
 
 
 
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
 </html>
