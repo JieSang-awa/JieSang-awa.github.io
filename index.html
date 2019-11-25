@@ -131,27 +131,54 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/13/2019-11-13-jspneizhiduixiang/">
-        <p class="h4 index-header">JSP内置对象</p>
+      <a href="/2019/11/25/2019-11-2-jspneizhiduixiang/">
+        <p class="h4 index-header"></p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">include 指令用于将一个JSP 或 HTML文件 引入到另一个JSP中.
-
-格式:
-    &lt;%@ include file=&quot;引入的路径&quot; %&gt;include 动作用于将一个 JSP 或 HTML文件 引入到另一个JSP中.
-
-格式:
-    &lt;jsp:include page=&quot;引入的路径&quot; flush=&quot;true&quot;/&gt;include 指令 与 include动作得到区别include指令:        在JSP程序的转换时期, 将被引入的JSP文件嵌入到include指令的位置, 然后统一编译执行 (最终生成了一个.java文件)
-include动作:        在JSP程序的转换时期, 被引入的文件不会嵌入到include动作的位置, 而是等客户端请求时, 再临时将被引入的文件以额外的servlet的方式加载到响应中, (最终生成的是多个.java文件)JSP的内置对象 (隐含对象)内置对象指的是:    JSP引擎在转换JSP文件时, 帮我们的代码在执行之前 创建的一些 供我们使用</div>
+          <div class="index-text mb-1"></div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-13&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-25&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/25/2019-11-25-SpringMVC/">
+        <p class="h4 index-header">SpringMVC</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">MVC的五大核心组件DispatcherServlet       请求入口
+HandlerMapping          请求的转发 让请求和控制器建立一一对应的关系
+Controller              真正处理请求的组件
+ModelAndView            封装数据信息和视图信息的对象
+ViewResolver            视图处理器Spring MVC编写步骤
+建立项目  导入jar包(ico mvc) 斌拷贝配置文件到src下  在WEB-INF下建立一个jsp页面
+在WEB-INF下 的web.xml中 配置DispatcherServlet 并使用初始化参数 关联Spring 的配置文件contextConfigLocation
+在Spring配置文件中 配置HandlerMapping的实现类SimpleUrlHandlerMapping  并且配置请求和控制器的对应关系
+编写一个控制器的实现类  实现Controller接口 在接口方法中 返回ModelAndView 同时在容器中创建控制器对象
+在Spring 配置文件中 配置 Vi</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-25&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -173,188 +200,59 @@ include动作:        在JSP程序的转换时期, 被引入的文件不会嵌�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/12/2019-11-12-jspjichu/">
-        <p class="h4 index-header">JSP引擎</p>
+      <a href="/2019/11/23/2019-11-23-ribao/">
+        <p class="h4 index-header">日报哦</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">简介Java Server Pages  是Java的动态网页技术 JSP引擎引擎原理: 
-    JSP引擎用于将JSP文件, 转换为Servlet
-
-    1.    在服务器启动时 , JSP引擎读取.jsp文件.
-    2.    将文件转换为Servlet的代码 , 并给servlet添加映射地址为 jsp的文件名称.
-    3.    当用户浏览器访问 jsp文件名称时,  其实请求的不是jsp文件, 而是生成的servlet
-    4.    servlet负责给浏览器进行响应.
-
-
-例如: 
-    demo4.jsp文件:
-
-        &lt;body&gt;
-            &lt;h3&gt;我们的第一个JSP文件&lt;/h3&gt;
-            &lt;%
-                for(int i=0;i&lt;100;i++){
-                    %&gt;
-                    &lt;div&gt;从前有座山&lt;/div&gt;
-                   </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/11/2019-11-11-cookieandsession/">
-        <p class="h4 index-header">Cookie与Session</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">会话跟踪 ( 状态管理 )HTTP协议是无状态的 , 我们的服务器在与客户端进行交互时, 没有记忆.
-
-两种方式来实现状态管理:
-
-    1.    Cookie技术:        将状态 , 存储到客户端中  
-    2.    Session技术:        将id存储在客户端中,  将状态存储在服务器中.Cookie技术技术实现步骤以及原理:
-
-    1.    当服务器向客户端响应时 , 可以向响应头部加入Cookie , 每一个Cookie表示一个键值对.
-    2.    浏览器在接收到响应后, 如果存在Cookie , 则会将Cookie存储在文本文件中 (.txt)
-        存储时, 会存储的信息有:    服务器的域 , 路径 , Cookie键 ,Cookie的值, 存储时长...
-    3.    当浏览器向客户端请求时, 会遍历 Cookie的文本文件, 将匹配新请求地址的Cookie 携带上, 放在请求头部, 发送给服务器 !
-        Cookie匹配的规则:    
-            当cookie存储的域相同时,  路</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-11&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/10/2019-11-10-servlet/">
-        <p class="h4 index-header">Servlet请求与响应</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">HttpGET请求 与 HttpPOST请求的区别:GET请求:
-    -    请求的参数 ,以键值对的形式    存储在网址中 ,在网址中, 编写在?后, 由1个或多个键值对组成, 键与值之间使用等号连接, 多个键值对之间使用&amp;分割.
-    -    只能传输字符串类型的参数.
-    -    网址的最大长度为4kb 通常支持的文字 2048 个文字
-    -    数据传输不安全
-
-    tomcat8+版本    :    GET请求不会乱码
-
-POST请求:
-    -    请求的数据, 以键值对的形式存储在请求体中, 
-    -    请求体是一个单独的数据包 , 较GET请求而言, 安全.
-    -    可以传输任意类型的数据
-    -    数据的大小 ,理论上是无上限的.
-
-    tomcat8+版本    :    Post请求默认编码为 ISO-8859-1 (不支持中文)什么样的请求是GET以我们目前所学习的技术来说 , 除了表单提交时method=&quot;POST&quot; ,其他的访问方式都是GET请求
-
-例如:
-    </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/09/2019-11-9-servlet/">
-        <p class="h4 index-header">Servlet简介</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">HTTP协议:超文本传输协议 , 是一个应用层的网络传输协议 !
-
-特点:
-    1.    简单, 快速.
-    2.    无连接协议 , 每次连接服务器只处理一次客户端的请求 ,处理完毕, 立即断开.
-    3.    无状态协议 , 处理请求, 以及进行响应时 ,没有记忆能力 !
-    4.    支持多种不同的数据提交方式 ,GET/POST 等等
-    5.    数据传输很灵活, 支持任意数据类型 .HTTP协议的组成部分1.    请求 
-        请求由四部分组成:
-            -    请求头
-                    请求头部的信息, 由一个个的键值对组成 , 描述的是有关客户端的信息.
-            -    请求体
-                    GET请求没有请求体. 当请求方式为POST时 ,存在请求体, 请求体是用于存储数据的数据容器 !
-            -    请求空行
-                    请求头部与请求体之间的一行空白
-            -    请求行
+          <div class="index-text mb-1">最近学习状况良好教室学习气氛也良好真是不可多得的学习好日子欢乐时光就要开始了  
 </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-09&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-23&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%97%A5%E6%8A%A5">日报</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/22/2019-11-22-DIImplements/">
+        <p class="h4 index-header">DI实现</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">什么是DIDependence  Injection   依赖注入(依赖注射)
+把一个组件的值  设置给另外一个组件的过程 叫依赖注入  DI解决的问题就是组件的装配问题 
+DI的三种实现方式
+setter 注入参考类型对应的set方法    来进行值的设置在bean 标记中 出现如下配置  name1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950	这是设置值 所以参考的是 set方法去掉set 然后首字母小写 	如果要赋值复杂的值 则需要使用 ref, value 能赋值的类型有  八种基本类型 和 封装类   String  枚举  2. 构造器注入   	参考的是构造方法的参数   只要构造方法的参数能匹配上 则直接调用对应的带参构造  	在bean 标记中 出现如下配置   把上面的    property 标记 换成   constructor-arg 	注意我们可以使用 index  替换 name,index 代表参数的编号   编号0开始</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-22&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -376,24 +274,23 @@ POST请求:
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/08/2019-11-8-jdbc/">
-        <p class="h4 index-header">连接池</p>
+      <a href="/2019/11/21/2019-11-21-Spring/">
+        <p class="h4 index-header">DI(Dependence Injection)</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">DBCP(DataBase connection pool),数据库连接池。是 apache 上的一个 java 连接池项目，也是 tomcat 使用的连接池组件。单独使用dbcp需要2个包：commons-dbcp.jar,commons-pool.jar,配置文件 db.properties 如下:  
-12345678driverClassName=oracle.jdbc.OracleDriverurl=jdbc:oracle:thin:@localhost:1521:xeusername=systempassword=254615initialSize=10maxActive=50minIdle=5maxWait=60000
-
-Properties文件 是以键值对形式存放数据，一个键对应且只对应一个值，键与值都不能有空格DBCP连接池如下:
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646</div>
+          <div class="index-text mb-1">bean 对象的延迟实例化在Spring 容器中  对象默认的作用域是单例的    Spring容器对单例对象 默认是容器
+启动时创建  可以通过bean 标记的 lazy-init=&quot;true&quot;  让其使用到的时候创建容器启动时不创建。什么是DIDependence  Injection   依赖注入(依赖注射)
+把一个组件的值  设置给另外一个组件的过程 叫依赖注入DI的三种实现方式setter注入构造器注入自动化注入  
+</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-08&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-21&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -415,35 +312,31 @@ Properties文件 是以键值对形式存放数据，一个键对应且只对应
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/07/2019-11-7-jdbc/">
-        <p class="h4 index-header">JDBC事务</p>
+      <a href="/2019/11/20/2019-11-20-Spring/">
+        <p class="h4 index-header">Spring</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">JDBC 事务在dos命令行操作oracle时 , 执行DML , 需要结束事务 (commit提交 或 rollback回退)
-在JDBC中, 事务是自动提交的, 每执行一条DML语句, 事务就自动提交一次. 
-
-我们可以通过JDBC的事务API , 开始事务的手动提交, 将多条DML语句看作一个整体, 要么一起成功, 要么一起失败.JDBC事务操作格式:注意:    开启事务的手动提交 ,是通过连接对象完成的. 
-        某个数据连接对象的事务开启手动提交后, 这个连接对象的事务需要手动控制.  其他连接对象不受影响.
-
-操作方法:
-    1.    开始事务的手动提交:
-            conn.setAutoCommit(boolean flag);
-            参数含义:    true表示自动提交 . false表示手动提交.
-
-    2.    提交事务:
-            conn.commit();
-
-    3.    回退事务:
-            rollback();事务案例:    public class Demo</div>
+          <div class="index-text mb-1">Spring 框架的构成IOC   控制反转      它是Spring框架的核心 
+DAO   数据访问对象模块   它是对JDBC的封装和简化
+WebMVC  它是Spring 对 java web的支持 以及  MVC设计模式的支持
+AOP    面向切面编程    它是对面向对象的扩展 
+ORM    对象关系映射(是以面向对象的思想访问数据库)  Mybatis什么是IOC?  Inverstion   Of  Control  控制反转   
+程序中需要某个对象时  由原来的new的方式  改成了由容器来进行 创建 和 
+管理  以及维护组件关系。 
+这样做的好处是 可以大大降低组件之间的耦合度。 Spring 容器任何的java 类  都可以在Spring容器中创建对象  并由容器进行管理 
+以及维护组件关系
+Spring容器实现了 IOC 和 AOP 机制
+Spring 容器的类型  BeanFactory 或者是 ApplicationContext类型使用Spring容器 完成IOC的步骤建立一个项目  导入jar包(ioc相关jar包)   拷贝Spring配置
+</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-20&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -465,29 +358,85 @@ Properties文件 是以键值对形式存放数据，一个键对应且只对应
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/06/2019-11-6-jdbc/">
-        <p class="h4 index-header">JDBC访问数据库</p>
+      <a href="/2019/11/19/2019-11-19-ribao/">
+        <p class="h4 index-header">久违的日报</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">JDBC访问数据库的步骤
-加载驱动  Class.forName(“包名.驱动名”)  
-获取连接  DriverManager.getConnection(url,username,password)  比如连接oracle 的url 是  jdbc:oracle:thin:@127.0.0.1:1521:xe
-定义sql 并获取sql的执行环境 Statement (PrepareadStatement)   conn.createStatement() 这里以后会使用 prepareadStatement   
-执行sql 处理sql 返回值 select  返回ResultSet  遍历       st.executeQuery dml     返回int  代表影响的数据行数  st.executeUpdate  
-释放资源 Connection    Statement   ResultSet  等  close()
+          <div class="index-text mb-1">当然了 点开也是日报
+因为没有什么可写的  
+因为太久没写了
+所以只好凑凑数
+所以今天学了Spring的三种创建Bean对象的方式,分别是:
+构造器方式实例化 
+静态工厂方法实例化 
+实例工厂方法实例化  
 
-使用PreparedStatement  替换  Statement    
 
-可以防止拼接的sql注入   原理就是你输入的数据不拼接 直接作为真实数据</div>
+
+而且可以熟练使用，ok 总结完毕
+</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-06&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-19&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%97%A5%E6%8A%A5">日报</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/18/2019-11-18-ListenerAndFilter/">
+        <p class="h4 index-header">Fileter &amp; Listener</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">#Fileter &amp; Listener
+###web 三大组件
+Servlet是web的三大组件之一 .
+
+1.    Servlet
+2.    Fileter     过滤器
+3.    Listener 监听器Filter 过滤器过滤的是请求 . 
+
+面向切面编程思想 .  
+
+使用步骤:
+    1.    编写一个类 , 实现Filter接口
+    2.    通过web.xml 或 注解的方式, 配置过滤器的过滤地址.doFilter中的请求与响应对象 为什么不是http的 ?过滤器在早期设计时, 不只是针对HTTP请求. 针对所有协议的请求都可以进行过滤.
+因为我们现在都是使用HTTP协议, 所以很感觉怪异
+想要操作Http相关的请求对象 与 响应对象 怎么办?   
+只需要将请求对象强制转换为 HttpServletRequest  将响应对象 强制转换为 HttpServletResponse 即可案例Java代码public class UserFilter implements Filter {
+    /**
+     * 当过滤器即将销毁时
+    </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-18&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -509,20 +458,33 @@ Properties文件 是以键值对形式存放数据，一个键对应且只对应
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/05/2019-11-5-suanfa/">
-        <p class="h4 index-header">冒泡排序快速排序简单代码实现</p>
+      <a href="/2019/11/16/2019-11-16-Ajax/">
+        <p class="h4 index-header">Ajax</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">冒泡排序123456789101112131415161718192021222324import java.util.Arrays;public class TestSort &#123;	//冒泡排序算法将参数指定的数组元素进行排序	public static void bubble(int[] arr)&#123;		//1.使用外层for循环来控制比较的轮数		for(int i = 1; i &lt; arr.length; i++)&#123;			//声明boolean类型的变量作为标志位			boolean flag = true;			//2.使用内层for循环来控制针对当前轮比较的次数			for(int j = 0; j &lt; arr.length-i; j++)&#123;				//3.若第一个元素比第二个元素大，则交换两个元素的位置				if(arr[j] &gt; arr[j+1])&#123;					int temp = arr[j];					arr[j] = arr[j+1];					arr[j+1] = temp;					flag = </div>
+          <div class="index-text mb-1">Ajax简介一种用于网页 异步 请求的技术.作用:用于与服务器进行异步交互  以及 局部页面的刷新.Ajax的GET使用步骤1.    创建一个 异步请求的对象 
+    var xhr = new XMLHttpRequest();
+
+2.    设置请求的方式, 以及 请求的地址
+    xhr.open(&quot;GET&quot;,&quot;请求地址&quot;);
+
+3.    设置请求结果产生时 的 事件处理函数 (当请求状态发生改变时, 执行的函数)
+    xhr.onreadystatechange = function(){
+        //此方法在一次ajax中, 会执行五次. 分别表示五种状态
+        //每次的状态值, 从xhr.readyState属性中得到.
+        //状态值:
+        //0.    请求初始化中 , 它的触发, 在new对象时, 此方法不会执行
+        //1.    请求正在发送, 它的触发在open函数执行时, 此方法如果在open前指定, 则状态发生时 方法执行
+        //2. </div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-05&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-16&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -544,7 +506,7 @@ Properties文件 是以键值对形式存放数据，一个键对应且只对应
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

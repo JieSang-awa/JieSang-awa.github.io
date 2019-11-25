@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="JieSangQAQ&#39;s blog">
+  <meta name="author" content="JieSangQAQ">
+  <meta name="keywords" content>
+  <title>Cookie与Session ~ JieSangQAQ-兄弟会</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JieSangQAQ-兄弟会</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期二 十一月 12
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    1.5k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      5 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h2 id="会话跟踪-状态管理"><a href="#会话跟踪-状态管理" class="headerlink" title="会话跟踪 ( 状态管理 )"></a>会话跟踪 ( 状态管理 )</h2><pre><code>HTTP协议是无状态的 , 我们的服务器在与客户端进行交互时, 没有记忆.
+
+两种方式来实现状态管理:
+
+    1.    Cookie技术:        将状态 , 存储到客户端中  
+    2.    Session技术:        将id存储在客户端中,  将状态存储在服务器中.</code></pre><h3 id="Cookie技术"><a href="#Cookie技术" class="headerlink" title="Cookie技术"></a>Cookie技术</h3><pre><code>技术实现步骤以及原理:
+
+    1.    当服务器向客户端响应时 , 可以向响应头部加入Cookie , 每一个Cookie表示一个键值对.
+    2.    浏览器在接收到响应后, 如果存在Cookie , 则会将Cookie存储在文本文件中 (.txt)
+        存储时, 会存储的信息有:    服务器的域 , 路径 , Cookie键 ,Cookie的值, 存储时长...
+    3.    当浏览器向客户端请求时, 会遍历 Cookie的文本文件, 将匹配新请求地址的Cookie 携带上, 放在请求头部, 发送给服务器 !
+        Cookie匹配的规则:    
+            当cookie存储的域相同时,  路径匹配时 才会将Cookie发送给服务器.</code></pre><h4 id="如何创建Cookie"><a href="#如何创建Cookie" class="headerlink" title="如何创建Cookie"></a>如何创建Cookie</h4><pre><code>Cookie在Java中的体现 就是一个表示键值对的 Java类, 类名为: Cookie .
+
+格式:
+    Cookie cookie = new Cookie(String name,String value);
+
+
+    Cookie cookie = new Cookie(String name,String value);
+    cookie.setMaxAge(Integer.MAX_VALUE);
+    cookie.setPath(&quot;/&quot;);
+    response.addCookie(cookie);</code></pre><h4 id="如何将Cookie添加到响应头部"><a href="#如何将Cookie添加到响应头部" class="headerlink" title="如何将Cookie添加到响应头部"></a>如何将Cookie添加到响应头部</h4><pre><code>通过响应对象, 将Cookie添加到响应头部
+
+格式:
+    response.addCookie(Cookie cookie);
+
+一次响应, 可以添加n个cookie  .
+如果浏览器中已经存储过与某个Cookie的name相同的Cookie , 再次存储时会覆盖value</code></pre><h4 id="如何从请求头部-得到之前存储的所有Cookie"><a href="#如何从请求头部-得到之前存储的所有Cookie" class="headerlink" title="如何从请求头部 得到之前存储的所有Cookie"></a>如何从请求头部 得到之前存储的所有Cookie</h4><pre><code>因为一个域 和 路径下, 可能存在多个Cookie  , 所以获取的不是单个Cookie , 而是一个数组:
+
+Cookie[] cookies = request.getCookies();
+
+//    如果从未存储过, 则返回的数组值是 null </code></pre><h4 id="得到Cookie后-如何取出其中的键和值"><a href="#得到Cookie后-如何取出其中的键和值" class="headerlink" title="得到Cookie后, 如何取出其中的键和值."></a>得到Cookie后, 如何取出其中的键和值.</h4><pre><code>获取Cookie的键:
+    String name = cookie.getName();
+
+获取Cookie的值:
+    String value = cookie.getValue();</code></pre><h4 id="如何调整Cookie存储时长"><a href="#如何调整Cookie存储时长" class="headerlink" title="如何调整Cookie存储时长."></a>如何调整Cookie存储时长.</h4><pre><code>cookie.setMaxAge(int 秒);
+
+    传入的值:
+        -    负数        :    默认-1 , 表示浏览会话结束时 删除.
+        -    正数        :    存活的秒数, 例如: 60*60*24*365*10 表示十年.
+        -    0        :    经常用于覆盖一个cookie时使用, 作用为0秒后删除 (立即删除)</code></pre><h4 id="Cookie存储时-路径问题的解决"><a href="#Cookie存储时-路径问题的解决" class="headerlink" title="Cookie存储时, 路径问题的解决."></a>Cookie存储时, 路径问题的解决.</h4><pre><code>路径匹配的规则:
+
+    -    Cookie的替换:    只能由相同域 , 相同路径的 完成替换.
+    -    Cookie的获取:    只能由相同域 , 相同路径或子路经 获取
+
+例如:
+    A地址:        localhost/x/a.do
+    B地址:        localhost/x/b.do
+    C地址:        localhost/c.do
+
+    A存储数据时:    a/b可以获取 ,a/b可以替换.   c不能获取 也不能替换.
+    C存储数据时: a/b/c可以获取 , c可以替换.
+
+
+Cookie的路径问题, 经常影响我们的开发 . 
+JavaWeb 给我们提供了一个Cookie的方法, 用于设置Cookie的路径.
+
+通常我们会将cookie的路径设置为/ (根路径)
+
+格式:    cookie.setPath(&quot;/&quot;);</code></pre><h3 id="Cookie的优缺点"><a href="#Cookie的优缺点" class="headerlink" title="Cookie的优缺点:"></a>Cookie的优缺点:</h3><pre><code>缺点:
+    1.    Cookie存储的数据类型有限制 , 只能是字符串
+    2.    数据存储的大小 ,有限制, 最大为4kb
+    3.    数据存储在用户的计算机上 , 不安全
+    4.    受限于用户的浏览器设置, 当浏览器禁止使用Cookie时 , cookie就无法再存储了.
+
+优点:
+    数据存储在客户端 , 分散了服务器的压力. </code></pre><h3 id="Session技术-会话"><a href="#Session技术-会话" class="headerlink" title="Session技术 (会话)"></a>Session技术 (会话)</h3><pre><code>基于Cookie实现的技术 ,  是Java中的一个键值对的容器.  就像我们常用的Map集合.
+
+技术原理:
+    1.    浏览器访问服务器时, 服务器可以选择创建Session对象.
+    2.    session对象在创建时, 会生成一个id , 我们称其为sessionid , sessionid是Session的密钥, 是唯一的 !
+    3.    session创建完毕后, 会自动将sessionid以cookie的形式 存储到用户的浏览器中.
+    4.    当浏览器再次访问服务器时, 会自动携带sessionid 发送给服务器.
+    5.    服务器得到sessionid后, 会去自动匹配找到对应的session对象, 供用户使用.</code></pre><h4 id="如何获取session对象"><a href="#如何获取session对象" class="headerlink" title="如何获取session对象"></a>如何获取session对象</h4><pre><code>在Java中, session是一个Java对象, 对象的类型为:  HttpSession
+
+获取Session对象的格式:
+
+    格式1.    无参方法:
+            HttpSession session = request.getSession();
+            内部调用了 一参方法, 且传入true
+
+    格式2.    一参方法
+            HttpSession session = request.getSession(boolean isNew);
+            用于获取session  参数:
+            true:    根据当前浏览器传入的sessionid ,寻找session对象并返回 . 如果不存在 , 则创建新的session并返回
+            false:    根据当前浏览器传入的sessionid ,寻找session对象并返回 . 如果不存在 , 则返回null;</code></pre><h4 id="session的常用方法"><a href="#session的常用方法" class="headerlink" title="session的常用方法"></a>session的常用方法</h4><pre><code>1.    存储数据
+    session.setAttribute(String key,Object value);
+2.    获取数据
+    Object value = session.getAttribute(String key);
+3.    删除数据
+    session.removeAttribute(String key);
+
+4.    销毁session (应用场景:    百分之99的情况是: 退出登录)
+    session.invalidate();</code></pre><h4 id="session的存活时长"><a href="#session的存活时长" class="headerlink" title="session的存活时长"></a>session的存活时长</h4><pre><code>session的默认时长为:    30分钟! 
+指的是:    举例用户的上一次访问大于30分钟后, session自动删除.
+
+设置Session时长:
+
+    方式1.    修改单个session的时长:
+            session.setMaxInactiveInterval(int 秒);
+
+    方式2.    修改tocmat下, 所有session的默认时长:
+            独立环境:    寻找到tomcat/conf/web.xml文件
+            开发环境:    寻找到Servers项目中的 web.xml
+
+            修改web.xml中  session-config节点
+                &lt;session-config&gt;
+                    &lt;session-timeout&gt;数值分钟&lt;/session-timeout&gt;
+                &lt;/session-config&gt;</code></pre><h4 id="session的优缺点"><a href="#session的优缺点" class="headerlink" title="session的优缺点"></a>session的优缺点</h4><pre><code>优点:
+    1.    数据存储在服务器中, 安全.
+    2.    session存储时的值类型为: Object , 可以存储任意类型数据.
+    3.    可存储的数据大小, 理论上是无上限的. 
+
+缺点:
+    数据在服务器的内存中存储, 内存通常是有限的, 会对服务器造成大量的压力. 很容易耗尽服务器资源.</code></pre><h3 id="Cookie结束-和-Session技术-不是互斥的"><a href="#Cookie结束-和-Session技术-不是互斥的" class="headerlink" title="Cookie结束 和 Session技术 不是互斥的"></a>Cookie结束 和 Session技术 不是互斥的</h3><pre><code>Cookie和session是结合使用的.
+    通常:
+        对于安全不敏感的数据 . 建议使用Cookie存储
+        对于安全敏感的数据, 建议使用session存储
+
+        对于安全敏感, 且较大的数据, 存储在数据库.</code></pre>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/11%E6%9C%88">11月</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Java">Java</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'https://github.com/JieSangQAQ/2019/11/12/2019-11-12-cookieandsession/';
+        this.page.identifier = '/2019/11/12/2019-11-12-cookieandsession/';
+      };
+      var oldLoad = window.onload;
+      window.onload = function () {
+        var d = document, s = d.createElement('script');
+        s.type = 'text/javascript';
+        s.src = '//' + 'Fluid-dev' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">comments
+        powered by Disqus.</a></noscript>
+  </div>
+
+
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+  
+  <br>
+
+
+
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Cookie与Session&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

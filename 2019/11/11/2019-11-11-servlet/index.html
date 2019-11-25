@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="JieSangQAQ&#39;s blog">
+  <meta name="author" content="JieSangQAQ">
+  <meta name="keywords" content>
+  <title>Servlet请求与响应 ~ JieSangQAQ-兄弟会</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JieSangQAQ-兄弟会</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期一 十一月 11
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    1.9k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      7 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h3 id="HttpGET请求-与-HttpPOST请求的区别"><a href="#HttpGET请求-与-HttpPOST请求的区别" class="headerlink" title="HttpGET请求 与 HttpPOST请求的区别:"></a>HttpGET请求 与 HttpPOST请求的区别:</h3><pre><code>GET请求:
+    -    请求的参数 ,以键值对的形式    存储在网址中 ,在网址中, 编写在?后, 由1个或多个键值对组成, 键与值之间使用等号连接, 多个键值对之间使用&amp;分割.
+    -    只能传输字符串类型的参数.
+    -    网址的最大长度为4kb 通常支持的文字 2048 个文字
+    -    数据传输不安全
+
+    tomcat8+版本    :    GET请求不会乱码
+
+POST请求:
+    -    请求的数据, 以键值对的形式存储在请求体中, 
+    -    请求体是一个单独的数据包 , 较GET请求而言, 安全.
+    -    可以传输任意类型的数据
+    -    数据的大小 ,理论上是无上限的.
+
+    tomcat8+版本    :    Post请求默认编码为 ISO-8859-1 (不支持中文)</code></pre><h3 id="什么样的请求是GET"><a href="#什么样的请求是GET" class="headerlink" title="什么样的请求是GET"></a>什么样的请求是GET</h3><pre><code>以我们目前所学习的技术来说 , 除了表单提交时method=&quot;POST&quot; ,其他的访问方式都是GET请求
+
+例如:
+    -    点击超链接 访问
+    -    通过js:    window.location.href=&apos;&apos; 访问
+    -    浏览器中输入网址 + 回车
+    -    表单提交时 ,method=&quot;GET&quot; 或 默认
+    -    ajax的get请求
+    -    Java代码的URL类的GET请求.</code></pre><h3 id="什么样的请求时PSOT"><a href="#什么样的请求时PSOT" class="headerlink" title="什么样的请求时PSOT"></a>什么样的请求时PSOT</h3><pre><code>1.    表单提交时method=&quot;POST&quot;
+
+2.    ajax的post请求
+
+3.    Java代码的URL类的POST请求.</code></pre><h5 id="请求的乱码问题"><a href="#请求的乱码问题" class="headerlink" title="请求的乱码问题"></a>请求的乱码问题</h5><pre><code>解决乱码的两种格式:
+    格式1.
+        可用于tomcat8版本之前的GET请求乱码 以及 所有版本的POST请求乱码:
+        解决方案:    将乱码的文字, 按照乱码的编码ISO-8859-1转换为字节数组, 再按照正常的编码UTF-8组装为 文字;
+
+
+        案例:
+        //1.    接收用户传递的参数
+        String username = request.getParameter(&quot;username&quot;);
+        //解决乱码
+        {
+            //1.    将乱码的文字, 通过ISO-8859-1编码 打碎成字节数组
+            byte[] bytes = username.getBytes(&quot;ISO-8859-1&quot;);
+            //2.    通过UTF-8编码, 将字节数组 重新组装为 正常文字
+            username = new String(bytes, &quot;UTF-8&quot;);
+
+        }
+
+    格式2.
+        格式1 解决乱码适用于参数较少的情况, 如果参数过多, 解决起来极其麻烦.
+        tomcat为我们提供了 设置请求体编码的方式:
+
+
+
+        格式:    request.setCharacterEncoding(&quot;UTF-8&quot;);
+
+        注意:    只有POST请求 ,才有请求体!
+                解决请求乱码的代码, 必须运行在获取参数之前    </code></pre><h5 id="响应的乱码问题"><a href="#响应的乱码问题" class="headerlink" title="响应的乱码问题"></a>响应的乱码问题</h5><pre><code>方式1.
+    设置网页的内容类型, 以及 网页的编码格式:
+    response.setContentType(&quot;text/html;charset=utf-8&quot;);
+
+方式2.
+    设置网页的编码格式 (因为没有设置网页内容类型为html , 所以浏览器解析时也是乱码)
+    response.setCharacterEncoding(&quot;UTF-8&quot;);
+
+    注意:
+        设置响应乱码的两种方式, 都必须写在 响应内容之前 !</code></pre><h3 id="线程安全问题"><a href="#线程安全问题" class="headerlink" title="线程安全问题 :"></a>线程安全问题 :</h3><pre><code>Servlet的service方法, 每次被请求时, 调用.
+
+这个调用很特殊 , 是在新的子线程中调用的 , 当service方法执行完毕, 子线程死亡了.
+
+可以简单的理解为: service方法每次执行都是一个新的线程.
+
+
+    @WebServlet(&quot;/s1.do&quot;)
+    public class Servlet1 extends HttpServlet {
+        //剩余票数
+        private int count = 10;
+        Object o = new Object();
+
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            synchronized (o) {
+                if(count&gt;0) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(&quot;恭喜你, 有票, 正在出票...&quot;);
+                    count--;
+                    System.out.println(&quot;出票完成, 剩余票数:&quot;+count);
+                }else {
+                    System.out.println(&quot;很遗憾, 无票&quot;);
+                }
+            }
+        }
+
+
+    }</code></pre><h3 id="请求的-转发"><a href="#请求的-转发" class="headerlink" title="请求的 转发"></a>请求的 转发</h3><pre><code>概念:    一个web组件 将未处理完毕的请求, 通过tomcat转交给另一个web组件处理.
+
+步骤:
+    1.    获取请求转发器
+            RequestDispatcher rd  = request.getRequestDispatcher(&quot;转发的地址&quot;);
+    2.    通过转发器 发起转发
+            rd.forward(request,response);
+简写步骤:
+    request.getRequestDispatcher(&quot;转发的地址&quot;).forward(request,response);
+
+转发流程:
+    步骤1.    当浏览器访问服务器中tomcat时
+    步骤2.    tomcat将请求信息, 与响应工具进行封装, 传递给我们的Servlet的service方法进行处理
+    步骤3.    我们在service方法中, 得到请求转发器, 通过请求转发器 告知 tomcat , 请求转发的地址.
+    步骤4.    tomcat接收到请求转发需求, 会重新封装请求信息, 将请求对象 与 响应对象 传递给 转发地址的Servlet的service方法进行处理
+
+特点:
+    1.    转发过程中, 多个Servlet之间共享一份请求信息, 共享一个响应对象.
+    2.    转发只能发生在同一个服务器中. (转发无法实现跨域)
+    3.    无论转发发生多少次 ,对于浏览器来说! 只发起过一次请求 , 并且只接到了一次响应.
+    4.    相对于重定向来说, 效率更高.</code></pre><h3 id="请求的-重定向"><a href="#请求的-重定向" class="headerlink" title="请求的 重定向"></a>请求的 重定向</h3><pre><code>概念:    响应时 , 告知浏览器新的请求地址, 浏览器接收到 自动请求新的地址 !
+
+步骤:
+    response.sendRedirect(&quot;重定向地址&quot;);
+
+重定向流程:
+    步骤1.    当浏览器访问服务时, 服务器对浏览器响应一个302的状态码, 以及一个location的地址
+    步骤2.    HTTP协议约定 , 当浏览器接收到302状态码时 ,会自动寻找location地址, 并发起新的请求.
+    (相当于 控制用户浏览器 自动完成页面的跳转操作.)
+
+特点
+    1.    重定向会产生新的请求 和 新的响应. 
+    2.    使用重定向, 可以在多个服务器之间发生( 可以实现跨域操作 )
+    3.    浏览器地址栏的内容 会发生改变.
+    4.    相对于请求转发而言, 效率较低.</code></pre><h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><pre><code>1.    在一次用户的操作中, 可以无限制的进行转发和重定向, 但是记住: 一定要存在出口.    
+2.    当servlet中的请求已经被转发 / 重定向后,  在此servlet后续的代码中不能再进行响应 !</code></pre><h3 id="HttpServletRequest-类常用操作"><a href="#HttpServletRequest-类常用操作" class="headerlink" title="HttpServletRequest 类常用操作:"></a>HttpServletRequest 类常用操作:</h3><pre><code>1.    获取访问的客户端ip地址
+    String ip = request.getRemoteAddr();
+
+2.    获取客户端访问的地址 (有可能因为服务器映射了多个域名, 多个用户的访问地址 不同)
+    request.getRequestURI();
+
+3.    获取服务器的名称 (通常获取的是ip)
+    request.getServerName();
+
+4.    获取端口号
+    request.getServerPort();
+
+5.    获取请求的方式
+    String method = request.getMethod();
+
+6.    获取get请求的参数列表 (网址中?后面的部分)
+    String params = request.getQueryString();
+
+
+三个将请求对象 作为数据容器使用的方法:
+
+    1.    存储数据
+            request.setAttribute(String key,Object value);
+    2.    获取数据
+            Object value = request.getAttribute(String key);    
+    3.    删除数据
+            request.removeAttribute(String key);</code></pre><h3 id="ServletContext-上下文"><a href="#ServletContext-上下文" class="headerlink" title="ServletContext 上下文"></a>ServletContext 上下文</h3><pre><code>每一个Servlet都是一个独立的用于处理请求的 对象.
+为了便于多个Servlet之间的数据交流 . javaWeb提供了一个上下文对象ServletContext !
+我们在任何的Servlet代码中, 都可以获得这个ServletContext对象 , 且每一个Servlet获取的都是同一份ServletContext对象.
+上下文对象, 类似于我们SE所学习的MAP集合, 是一个键值对的容器.  
+
+作用: ServletContext是Servlet之间通信的桥梁, 用于多个Servlet之间信息的共享.</code></pre><h3 id="如何从Servlet中得到上下文对象"><a href="#如何从Servlet中得到上下文对象" class="headerlink" title="如何从Servlet中得到上下文对象"></a>如何从Servlet中得到上下文对象</h3><pre><code>格式:
+    ServletContext context = getServletContext();</code></pre><h3 id="ServletContext的常用方法"><a href="#ServletContext的常用方法" class="headerlink" title="ServletContext的常用方法"></a>ServletContext的常用方法</h3><pre><code>1.    存储数据
+    context.setAttribute(String key,Object value);
+2.    获取数据
+    Object value = context.getAttribute(String key);
+3.    删除数据
+    context.removeAttribute(String key);
+
+4.    获取项目运行时的 文件夹 绝对路径 
+    String path = context.getRealPath(&quot;/&quot;);
+
+//因为一个项目 只有一个ServletContext对象, 且在项目启动时创建了,项目销毁时销毁. 
+//所以我们在一次项目启动的过程中, 一个Servlet存储的数据, 任何Servlet都可以获取到.</code></pre>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/11%E6%9C%88">11月</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Java">Java</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'https://github.com/JieSangQAQ/2019/11/11/2019-11-11-servlet/';
+        this.page.identifier = '/2019/11/11/2019-11-11-servlet/';
+      };
+      var oldLoad = window.onload;
+      window.onload = function () {
+        var d = document, s = d.createElement('script');
+        s.type = 'text/javascript';
+        s.src = '//' + 'Fluid-dev' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">comments
+        powered by Disqus.</a></noscript>
+  </div>
+
+
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+  
+  <br>
+
+
+
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Servlet请求与响应&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

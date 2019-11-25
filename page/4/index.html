@@ -131,45 +131,33 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/14/2019-10-14-object oriented/">
-        <p class="h4 index-header">面向对象小知识</p>
+      <a href="/2019/10/25/2019-10-25-IoLiu/">
+        <p class="h4 index-header">I/O流(二)</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">周末午后，我正在愉快的打着王者荣耀，五杀在即之际。女朋友拿着一本我看过的《面向对象编程》过来找我。
+          <div class="index-text mb-1">FileOutputStream类
+基本概念java.io.FileOutputStream类主要用于写入图像数据之类的原始字节流到输出流中。
 
+常用的方法FileOutputStream(String name) - 根据参数指定的文件名来构造对象FileOutputStream(String name, boolean append) 
+以追加的方式根据文件名构造对象  void write(int b)
+用于将参数指定的单个字节写入输出流  void write(byte[] b, int off, int len)
+用于将数组b中下标从off开始的len个字节写入输出流  void write(byte[] b)
+用于将数组b中所有字节写入输出流    //  String转换字节数组：&quot;Hello&quot;.getBytes()  void close()
+用于关闭流并释放有关的资源  
 
-女朋友：什么是面向对象？是要面向我写代码吗？
-我： 不是啦，这个面向对象的对象不是你这个对象啦。
-此时，我突然感受到了一股莫名的杀气。
-我：什么？你还有其他对象吗？有我好看吗？有我瘦吗？不对。你不能有其他对象。
-什么是面向对象？
+FileInputStream类
+基本概念java.io.FileInputStream类主要用于从输入流中读取图像数据之类的字节流 
 
-
-面向对象，英文名字叫Object Oriented，是一种软件开发方法。是和面向过程相对应的。
-
-
-女朋友：别给我拽英文。给我详细说说，说不明白今天就没完。
-
-我：我有点饿了，要不然你给我做点饭，我慢慢的详细给你讲吧。
-
-女朋友：我现在就想听你给我讲，咱们直接点外卖吧，别自己动手做饭了。
-其实，对于吃饭这件事儿，就可以分为面向过程吃饭和面向对象吃饭。自己亲自下厨就是面向过程，点外卖就是面向对象。
-在面向过程的吃饭中，我们想要填饱肚子，需要自己亲自下厨把这顿饭做出来，那么，我们就需要先想好吃什么、然后去买菜、洗菜、洗米、蒸饭、炒菜等等一系列的事情。
-
-我：那么，你说和点外卖相比，自己做饭有哪些缺点啊？
-
-女朋友：那还用说，麻烦呗。
-
-的确，面向过程编程也一</div>
+常用的方法FileInputStrea</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-14&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-25&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -191,77 +179,28 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/12/2019-10-12-ribao/">
-        <p class="h4 index-header">orcale,mysql,mongodb,redis对比</p>
+      <a href="/2019/10/24/2019-10-24-IoLiu/">
+        <p class="h4 index-header">I/O流(一)</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">MySQL概述：
+          <div class="index-text mb-1">I/O流
+基本概念I/O就是Input/Output的简写，也就是输入/输出的含义I/O流就是指像流水一样不间断地进行读写数据的状态  
 
-关系型数据库。无论数据还是索引都存放在硬盘中。到要使用的时候才交换到内存中。能够处理远超过内存总量的数据。
+基本分类按照数据读写的单位不同分为：字节流 和 字符流其中字节流主要指以字节为单位进行读写的过程，可以读写任意类型的文件其中字符流主要指以字符(2个字节)为单位进行读写的过程，只能读写文本文件  
+按照数据流动的方向不同分为：输入流 和 输出流(站在程序的角度)其中输入流主要指从文件中读取数据内容输入到程序中其中输出流主要指将程序中的数据内容输出到文件中，也就是写入文件  
 
-
-在不同的引擎上有不同 的存储方式。
-
-
-查询语句是使用传统的 SQL 语句，拥有较为成熟的体系，成熟度很高。
-
-
-开源数据库的份额在不断增加，MySQL 的份额页在持续增长。
-
-
-缺点：在海量数据处理的时候效率会显著变慢。
-
-MySQL特点：
-
-
-使用c和c++编写，并使用了多种编译器进行测试，保证源代码的可移植性
-
-
-
-
-支持多种操作系统
-
-
-
-
-为多种编程语言提供可API
-
-
-
-
-支持多线程，充分利用CPU资源优化的SQL查询算法，有效的提高查询速度
-
-
-
-
-提供多语言支持，常见的编码如：GB2312、BIG5、UTF8
-
-
-
-
-提供TCP/IP、ODBC和JDBC等多种数据库连接途径提供用于管理、检查、优化数据库操作的管理工具
-
-
-
-
-大型的数据库。可以处理拥有上千万条记录的大型数据库
-
-
-
-8.支持多种存储引擎
-
-
-
-MySQL软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是开放源码这一特点，一般中小型网站的开</div>
+基本框架字节流的顶层父类：InputStream类 和 OutputStream类 InputStream类的常用子类：  
+FileInputStream类、DataInputStream类、ObjectInputStream类     OutputStream类的常用子类：  
+FileOutputStream类、  DataOutputStream类、  ObjectOutputStream类`字符流的顶层父类：Reader类  和  Writer类Reader类的常用</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-12&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-24&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -272,7 +211,7 @@ MySQL软件采用了双授权政策，分为社区版和商业版，由于其体
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
         
       </div>
@@ -283,28 +222,29 @@ MySQL软件采用了双授权政策，分为社区版和商业版，由于其体
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/11/2019-10-11-ribao/">
-        <p class="h4 index-header">mysql碎片整理优化</p>
+      <a href="/2019/10/23/2019-10-23-Exception/">
+        <p class="h4 index-header">Java中的异常机制</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">MysqL碎片整理优化
-先来说一下什么是碎片，怎么知道碎片有多大！
+          <div class="index-text mb-1">异常机制基本概念   异常就是”不正常”的含义，在Java语言中主要指运行阶段发生的错误,Java中错误有俩种：   Error类主要描述比较严重通常无法编码解决的错误   Exception类主要描述轻微可以编码解决的错误，如：0作为除数  
+异常的分类   java.lang.Exception类是所有异常的超类，具体分类如下：       RuntimeException异常 - 运行时异常，也叫做非检测性异常       IOException和其它异常 - 其他异常，也叫做检测性异常             所谓检测性异常就是在编译阶段能够被编译器检测出来并给出提示的异常   RuntimeException异常的主要子类：
 
-简单的说,删除数据必然会在数据文件中造成不连续的空白空间,而当插入数据时,这些空白空间则会被利用起来.于是造成了数据的存储位置不连续,以及物理存储顺序与理论上的排序顺序不同,这种是数据碎片.实际上数据碎片分为两种,一种是单行数据碎片,另一种是多行数据碎片.前者的意思就是一行数据,被分成N个片段,存储在N个位置.后者的就是多行数据并未按照逻辑上的顺序排列.当有大量的删除和插入操作时,必然会产生很多未使用的空白空间,这些空间就是多出来的额外空间.索引也是文件数据,所以也会产生索引碎片,理由同上,大概就是顺序紊乱的问题.Engine 不同,OPTIMIZE 的操作也不一样的,MyISAM 因为索引和数据是分开的,所以 OPTIMIZE 可以整理数据文件,并重排索引。这样不但会浪费空间，并且查询速度也更慢。
+ArithmeticException - 算术异常
+ArrayIndexOutOfBoundsException - 数组下标越界异常
+NullPointerException - 空指针异常
+ClassCastException - 类型转换异常
+NumberFormatException - 数字格式异常
 
-
-解决方案：（切记，一定要在夜里执行，表越大，越耗资源时间，不要频繁修复，可以几个月甚至一年修复一次，如果表频繁被更改，可以按周/月来整理。）
-
-查看表碎片的方法select ROW_FORMAT,TABLE_ROWS</div>
+注意：   当程序执行过程中发生异常又</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-11&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-23&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -315,7 +255,7 @@ MySQL软件采用了双授权政策，分为社区版和商业版，由于其体
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
         
       </div>
@@ -326,32 +266,35 @@ MySQL软件采用了双授权政策，分为社区版和商业版，由于其体
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/10/2019-10-10-ribao/">
-        <p class="h4 index-header">mysql简单整理</p>
+      <a href="/2019/10/22/2019-10-22-Map-collection/">
+        <p class="h4 index-header">Map集合简介</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">
-windows键+r启动小黑框，输入 mysql -u用户名 p密码，会出现WELCOME to MYSQL 等字眼
+          <div class="index-text mb-1">Map集合基本概念   java.util.Map&lt;K,V&gt;接口中存放元素的基本单位是：单对元素 (键值对) 
 
-我们经常用小黑框查询以及测试数据是否正常： 首先看看有没有数据库，或者创建数据库
-查看数据库: SHOW DATABASES; 
+K - 用于描述键(Key)的类型
+
+V - 用于描述值(Value)的类型
+该接口的主要实现类：HashMap类 和 TreeMap类该接口中key(键)不允许重复，而且每个key(键)能且只能对应一个Value(值)  
 
 
-2.或者如果没有你想选择的数据库，你可以创建一个数据库
-CREATE DATABASE IF NOT EXISTS数据库名;
-记住数据库名后要写分号’;’
-选取创建的数据库 ： USE 数据库名;
-创建数据表：
-1234567891011 CREATE TABLE IF NOT EXISTS 表名(    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,    name VARCHAR(255) UNIQUE, -- 如果你想让你的字段名的值是唯一值的话就加上UNIQUE，否则就去掉   age TINYINT UNSIGNED NOT NULL DEFAULT 1,  -- 默认值请为1， UNSIGNED 字段值不能有符号   sex TINYINNT UNSIGNED NOT NULL )E</div>
+常用方法V put(K key, V value)   用于将key和value组成一对放入当前集合中  
+
+若实现增加功能则返回null；若实现修改功能则返回原来的value.    
+boolean containsKey(Object key)
+用于判断当前集合中是否存在参数指定的key  boolean containsValue(Object value) 
+用于判断当前集合中是否存在参数指定的value   V get(Object key)
+用于根据参数指定的key返回对应的value，若key不存在则返回null  V remove(Object key)
+用于根据参数指定的key来删除键值对，返回该key对应的valu</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-10&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-22&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -362,7 +305,7 @@ CREATE DATABASE IF NOT EXISTS数据库名;
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
         
       </div>
@@ -373,53 +316,27 @@ CREATE DATABASE IF NOT EXISTS数据库名;
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/09/2019-10-9-ribao/">
-        <p class="h4 index-header">MongoDB</p>
+      <a href="/2019/10/21/2019-10-21-Set-Collection/">
+        <p class="h4 index-header">Set集合简介</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">MongoDB操作命令Mongo简介属于非关系型数据库，是分布式文档数据库。特点：扩展灵活、结构灵活、使用方便、支持查询、索引。不足：缺乏事务控制，无法保障数据完整性。
-oracle存储结构
+          <div class="index-text mb-1">Set集合基本概念   java.util.Set接口是Collection接口的子接口，与List接口是平级关系   该接口与List接口相比元素没有先后次序，并且不允许有重复的元素。无序且唯一   该接口的主要实现类：HashSet类 和 TreeSet类   其中HashSet类的底层是采用哈希表进行数据管理的   其中TreeSet类的底层是采用有序二叉树进行数据管理的  
+常用的方法   其实Set集合好多方法都是从Collection中继承过来的，所以常用方法参照Collection集合 
+   Iterator&lt;E&gt; iterator()  获取当前集合中的迭代器对象，用于迭代/遍历集合中所有元素   其中Iterator是个接口，常用方法如下：       boolean hasNext() 用于判断是否拥有可以访问的元素      E next()  用于取出一个元素并指向下一个位置      void remove()   用于将刚刚取出的元素删除  
+小知识—forEach循环
 
-mongodb存储结构
-
-Mongo命令
-库命令
-
-查看
-show dbs
-使用
-use 库名称
-创建
-use 库名称  //库存在就是使用；不存在就创建再使用
-删除
-db.dropDatabase() //删除当前use的库
-
-
-集合
-
-查看
-show collections
-创建
-当使用&quot;db.集合名.insert()&quot;插入数据时，集合不存在时会自动创建
-删除
-db.集合名.drop()
-
-
-数据操作
-
-插入
-  插入单条记录
-db.dept.insert({&quot;no&quot;:1,&quot;dname&quot;:&quot;beijing&quot;})  插入多条记录
-var objs = [{&quot;no&quot;:3,&quot;dname&quot;:&quot;chengdu&quot;},{&quot;no&quot;:4,&quot;d</div>
+语法格式for(
+ 元素类型 变量名 : 集合/数组的名称){
+  循环</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-09&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-21&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -430,7 +347,7 @@ var objs = [{&quot;no&quot;:3,&quot;dname&quot;:&quot;chengdu&quot;},{&quot;no&q
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
         
       </div>
@@ -441,47 +358,23 @@ var objs = [{&quot;no&quot;:3,&quot;dname&quot;:&quot;chengdu&quot;},{&quot;no&q
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/08/2019-10-8-ribao/">
-        <p class="h4 index-header">Redis</p>
+      <a href="/2019/10/19/2019-10-19-List-Collection/">
+        <p class="h4 index-header">List集合简介</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">Redis 目的：利用Redis做数据缓存,缓存查询出来的对象数据。
- NoSQL：Not Only SQL，非关系数据库。
- 关系型数据库指的是表结构存储，典型Oracle、MySQL、DB2。
+          <div class="index-text mb-1">Collection 集合在Java中 集合框架的顶层接口就是java.util.Collection 和 java.util.Map 其中Collection接口中存放元素的基本单位是：单个元素 而Map接口中存放元素的基本单位是：单对元素  
+ 而我们今天学习的是List集合，它是Collection接口的子接口 ，其实我们开发中很少直接使用Collection接口，而是更多的使用该接口的子接口：List接口、Queue接口以及Set接口
 
-key-value存储 : 典型Redis
-列存储 ： HBase
-文档存储 : MongoDB
-图形存户：Neo4j
-
-简介
-Redis是基于内存的数据库，常用于缓存
-Redis是采用C语言编写
-Redis是采用Key-value结构存储
-Redis中value值支持存储类型为字符串、哈希、列表、集合、可排序集合
-Redis支持高速读写操作，效率高
-Redis支持持久化、按一定策略将内存数据异步保存到磁盘
-Redis支持事务控制、消息传递等功能
-
-各种类型数据存储命令
-字符串操作（string）
- 
-
-set key value  //存一组key value
-mset key value key value //存多组key value
-get key //获取value
-strlen key //获取value字符长度
-incr key //将value加1
-incrby key n</div>
+常用方法 boolean add(E e) 用于将参数指定的元素e放入当前集合中  boolean addAll(Collection&lt;? extends E&gt; c)        用于将参数集合c中的所有元素放入当前集合中   boolean contains(Object o)用于判断当前集合是否包含参数指定的单个元素  boolean containsAll(Collection&lt;?&gt; c)   用于判断是否包含参数c中的所有元素   boolean remove(Object o)  用于将参数指定的单个元素从当</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-08&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-19&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -492,7 +385,7 @@ incrby key n</div>
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
         
       </div>
@@ -503,35 +396,48 @@ incrby key n</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/28/2019-9-28-ribao-md/">
-        <p class="h4 index-header">28日日报</p>
+      <a href="/2019/10/18/2019-10-18-date/">
+        <p class="h4 index-header">日期日历类</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">今天搞了一天的博客和git，我的电脑出了问题，怎么也连不上git
-于是我想到了用hexo部署至git，还可以加一个可爱的看板娘
-说干就干，我尝试百度了好多，终于安装好了hexo及其需要的环境
-博客是搭好了，可是出了乱码，原因是我的.md文件编码不是utf-8，于是乎我 关闭虚拟机，在win10上进行操作,最终干掉了疑难
-OK!</div>
+          <div class="index-text mb-1">日期相关的类Date类基本概念   java.util.Date类用于描述特征的瞬间，可以精确到毫秒数
+常用的方法
+   Date() 使用无参的方式构造对象，默认采用当前系统时间来初始化   Date(long date)  根据参数指定的毫秒数来构造对象。
+
+其中参数为距离1970年1月1日0时0分0秒以来的毫秒数  
+1秒 = 1000毫秒
+
+
+可File类中的方法搭配使用。  
+long getTime()用于获取当前调用对象距离1970年1月1日0时0分0秒的毫秒数void setTime(long time)用于设置当前调用对象的时间为距离1970年1月1日0时0分0秒的毫秒数。
+
+
+SimpleDateFormat类基本概念java.text.SimpleDateFormat类主要用于实现日期和文本之间的转换  
+常用的方法   SimpleDateFormat(String pattern)  根据参数指定的模式来构造对象
+
+常用的模式有：y-年  M-月  d-日  H-时  m-分  s-秒  
+
+public final String format(Date da</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-28&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-18&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E6%97%A5%E6%8A%A5">日报</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
         
       </div>
@@ -542,40 +448,35 @@ OK!</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/27/2019-9-27-xinde/">
-        <p class="h4 index-header">建国70周年观后感</p>
+      <a href="/2019/10/17/2019-10-17-String StringBuilder StringBuffer/">
+        <p class="h4 index-header">String,StringBuffer,StringBuilder</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">在这个蓝色的、富有生命的星球中，在世界这片广阔的地域里，有一只雄鸡它巍然屹立在亚洲的海陆之中，它——就是中国!
-
-中国历史古老而又文明，中国文化更是源远流长,是信念，也是希望
-
-我很高兴我是中国人，我的祖先被万代国人传诵。中国人民坚强刚毅，无论在任何困难面前都不会退缩，他们会坚持下去，克服眼前的所有困难
-
-我们是跨世纪的一代新人，我们的今天就是祖国的明天，我们肩负着振兴国家，是国家更加繁荣富强的重任，所以我们更要努力的学习
-，学习真知识，掌握真本领，我们心中，伟大的祖国时时刻刻在激励着我们，给我们以勇气，给我们以力量
-
-望着祖国日新月异、日渐富强的景象，我骄傲，因为我有一颗中国心;望着国外那一台台印着“中国制造”字样的电视、电脑，我骄傲，因为我有一颗中国心;</div>
+          <div class="index-text mb-1">String类String类用于描述字符串，Java程序中的所有字符串字面值都可以使用该类的实例/对象加以描述String类描述的字符串内容是个常量，因此可以被共享String类被final关键字修饰 表示不能被继承构造方法(常见的)String()  使用无参方式构造对象得到空字符序列
+String(byte[] bytes)  使用bytes数组中的所有内容构造对象 
+String(char[] value)  使用value数组中的所有内容构造对象。
+成员方法(常见的)
+char charAt(int index)  根据参数指定的下标返回对应的单个字符boolean contains(CharSequence s) 用于判断当前字符串是否包含参数指定的内容(参数传递接口类的引用，所以实参传递实现类的对象，String类 刚好实现了这个接口)boolean endsWith(String suffix)  判断当前字符串是否以参数指定的内容为结尾boolean startsWith(String prefix)判断当前字符串中是否以参数指定的内容为开头String toLower</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-27&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-17&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E5%85%B6%E4%BB%96">其他</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
         
       </div>
@@ -586,38 +487,50 @@ OK!</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/26/2019-9-26-datebasekey/">
-        <p class="h4 index-header">数据库(4)</p>
+      <a href="/2019/10/16/2019-10-16-abstractClass/">
+        <p class="h4 index-header">抽象类与接口</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">约束   constraint 
-   概念 
-  当数据进入 数据库表中时,数据库管理系统 可以通过加在字段上 约束 限制来对数据进行    检查 符合检查条件的数据才能进入数据库的表。
-  约束的种类 
-   主键约束       primary  key      pk       如果对一个字段加了主键约束 则 这个字段的取值 必须不能为空 并且 值 不能        重复。一张表只能有一个主键。    唯一性约束    unique           uk        如果对一个字段加了唯一性约束 则这个字段的值 不能重复    非空约束       not  null        nn        字段的值不能为空     检查约束     check             ck         字段的值必须符合检查条件     外键约束     foreign  key      fk            references   
-  约束的实现方式 
-   列级约束实现 : 在定义表的某一列时 直接在这一列后面加约束限制  
-   表级约束实现: 在定义</div>
+          <div class="index-text mb-1">抽象类抽象类主要指不能具体实现的类，体现在该类不能实例化/构造对象并使用abstract修饰。  
+抽象方法  
+抽象方法主要指不能具体实现的方法，体现在该方法没有方法体并使用abstract关键字修饰 
+
+public abstract void 方法名(); 
+
+注意事项  
+
+抽象类中可以有成员变量、成员方法以及构造方法。
+抽象类中可以有抽象方法也可以没有。
+拥有抽象方法的类必须是抽象类，因此严格来说，具有抽象方法并使用abstract  关键字修饰的类才是真正意义上的抽象类  
+
+意义
+抽象类的意义在于被继承而不是自身实例化对象，当一个类继承另一个类，必须重写抽象方法，否则自身也必须是抽象类，所以抽象类对子类具有规范性
+接口接口是一种比抽象类还抽象的类，因此也不能实例化对象 定义接口的关键字是interface,实现接口的关键字是implements  
+抽象类和接口之间的区别  
+
+定义抽象类的关键字是class，而定义接口的关键字是interface。
+继承抽象类的关键字是extends，而实现接口的关键字是implements。
+继承抽象类支持单继承，而实现接口支持多实现</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-26&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-16&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
         
       </div>
@@ -628,7 +541,7 @@ OK!</div>
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/3/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/3/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

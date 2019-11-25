@@ -131,215 +131,46 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/25/2019-9-25-data/">
-        <p class="h4 index-header">数据库(3)</p>
+      <a href="/2019/10/15/2019-10-15-Object Oriented/">
+        <p class="h4 index-header">Object Oriebted</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">** 日期类型 **
-1.日期类型的默认表现&gt; dd-MON-yy   
-   select  id,start_date from  s_emp; 按照入职日期排序 显示  id  first_name start_date
-    > select  id,first_name,start_date from s_emp order by start_date;
+          <div class="index-text mb-1">封装为了防止给成员变量赋于一些合法但不合理的数值，对成员变量进行密封包装处理，来保证成员变量值的合理性，这种机制就叫封装
 
-2.使用 to_char 来改变显示的格式&lt;p&gt;新的日期格式:&lt;/p&gt;    yyyy     四位年
-    mm       两位月
-    dd       天
-    hh       12小时制 
-    hh24     24小时制 
-    mi       分钟 
-    ss       秒  
-    day      星期几 
-    MON      英文月的缩写 
-    month    英文月的全写 
-    pm       上午 显示成 am  下午显示成pm
+   封装的流程
+
+私有化成员变量，使用private关键字修饰；
+提供公有的get和set方法，在方法体中进行合理值的判断；
+在构造方法中调用set方法进行合理值的判断；
+
+封装好处
+
+提高代码安全性（可维护性）
+防止外部随意调用
+降低了类于类之间的耦合度
+
+继承当多个类中具有相同的特征和行为时，可以将共性的内容提取出来组成一个公共类，让多个类分别吸收公共类中已有的特征和行为，而在多个类的内部只需要编写自己独有特征和行为的机制就叫继承  继承关键字extends
 
 
-select  id,first_name,to_char(start_date,’yyyy-</div>
+注意: 其中被继承的类叫父类或者超类，或者基类 继承的类叫子类或派生类 一个父类可以有多个子类 但是一个子类只能由一个父类
+
+其中可以继承的有 父类中被public protected修饰的类成员不能被继承的有 父类的构造器和所有私有化的类成员选择继承的有 缺省修饰的类成员
+多态多态主要指同一种事物表现出来的多种形态。语法格式:  父类类型 引用变量名 = new 子类类型();  
+多态效果当父类</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-25&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-15&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/24/2019-9-24-study_select/">
-        <p class="h4 index-header">数据库(2)</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1"> 表连接
-内连接 
-        等值连接     员工和部门       部门和地区        
-        非等值连接   员工的工资 和 对应的工资级别
-        自连接          谁是领导?
- 外连接
-        等值连接     员工和部门 (找出没有部门的员工)      部门和地区 (没有地区编号的部门)        
-        非等值连接   员工的工资 和 对应的工资级别  (超出统计范围的工资)
-        自连接          谁是普通员工?
-
-  外连接的结果集 等于 内连接的结果集  加上匹配不上的记录 
-        如何实现的?
-  (+)   (+)的意思所在字段的对面的表的数据全部被匹配出来
-         本质上 底层是通过 NULL 记录进行的匹配   SQL99 内外连接
-内连接标准 
- from  a表  join b表  on 连接条件  where 过滤条件;
- from  a表  inner join b表  on 连接条件  where 过滤条件;
-       显示 每个部门的名字 和 </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-24&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/23/2019-9-23-stuey-select/">
-        <p class="h4 index-header">数据库(1)</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">** 内连接 **      内连接的特点就是 符合连接条件的数据 被选中  不符合连接条件的数据被过滤掉。      上面的  等值连接    非等值连接   自连接 都是内连接。** 外连接 **   外连接的结果集 等于 内连接的结果集  加上 匹配不上的记录(一个也不能少)  
-  (+)  (+) 所在的表的字段 对面的表的数据全部被匹配出来
-               底层通过 NULL 记录匹配出来的  
-  >select distinct m.id,m.first_name from  s_emp  e,s_emp m  where e.manager_id(+) = m.id and  e.manager_id is null;
-
-1234567891011121314151617181920212223242526272829303132333435363738练习   s_emp   s_dept      显示每个员工的id, first_name  和 对应的 部门名(name)    select  e.id,first_name,name       </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-23&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/22/2019-9-22-windows/">
-        <p class="h4 index-header">22日日报</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">终于我还是败给了deepin
-今天又安回了win10系统,因为我Linux下安装数据库安装了好长时间
-于是我自闭了，安回了win10。看见熟悉的画面，emmm.... 还是windows看着舒服
-今天安装各种软件安装了好长时间,所以学习时间就少了好多
-但是这并不是我不努力的理由,所以只有更努力的学习了嘛
-you can</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%97%A5%E6%8A%A5">日报</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/20/2019-9-20-jvm/">
-        <p class="h4 index-header">JVM</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">JVM是Java Virtual Machine（Java虚拟机）的缩写，JVM是一种用于计算设备的规范，它是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的。
-Java虚拟机有自己完善的硬件架构，如处理器、堆栈等，还具有相应的指令系统。
-   Java虚拟机本质是就是一个程序，当它在命令行上启动的时候，就开始执行保存在某字节码文件中的指令。Java语言的可移植性正是建立在Java虚拟机的基础上。任何平台只要装有针对于该平台的Java虚拟机，字节码文件（.class）就可以在该平台上运行。这就是“一次编译，多次运行”。
-   Java虚拟机不仅是一种跨平台的语言，而且是一种新的网络计算平台。该平台包括许多相关的技术，如符合开放接口标准的各种API、优化技术等。Java技术使同一种应用可以运行在不同的平台上。Java平台可分为两部分，即Java虚拟机（Java virtual machine，JVM）和Java API类库。
-   Java虚拟机主要分为五大模块：类装载器子系统、运行时数据区、执行引擎、本地方法接口和垃圾收集模块
-   Java虚拟机不是真实的物</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-20&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
           &nbsp;
         
         
@@ -356,38 +187,56 @@ Java虚拟机有自己完善的硬件架构，如处理器、堆栈等，还具�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/19/2019-9-19-ganwu/">
-        <p class="h4 index-header">兄弟会感悟</p>
+      <a href="/2019/10/14/2019-10-14-object oriented/">
+        <p class="h4 index-header">面向对象小知识</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">时间如白马过隙，悄然而逝，但是自从我来到兄弟会，不仅学到了好多东西，而且认识了这么多可以帮得到我的兄弟萌，有辛苦，有欢乐
-当然，我们兄弟会成立之初，我们也有过迷茫，我们也想过兄弟会是否能给我们以进步(emmm...),但是小明告诉我，我们其实学到了很多，比如自己的
-学习能力，解决问题的能力，知识覆盖面，尤其是我们很少主动问别人问题了(当然不能不会还憋着不问)
-到现在，教练们的辛苦负责，组长们的热情多助，学员们的心得分享，已让我的生活变得充实，每天都有自己能学到的东西。迷茫，彷徨自然就随风而散了。
-每天的充实生活已让我陶醉，每天的学习也让我进步
-所以呀，考虑一千次，不如去做一次；犹豫一万次，不如实践一次；华丽的跌倒，胜过无谓的彷徨，将来的你，一定会感谢现在奋斗的你
-小明说:所有成功的背后，都是苦苦堆积的坚持；所有人前的风光，都是背后傻傻的不放弃，那么我们也要紧追他的步伐
-so,加油啊少年</div>
+          <div class="index-text mb-1">周末午后，我正在愉快的打着王者荣耀，五杀在即之际。女朋友拿着一本我看过的《面向对象编程》过来找我。
+
+
+女朋友：什么是面向对象？是要面向我写代码吗？
+我： 不是啦，这个面向对象的对象不是你这个对象啦。
+此时，我突然感受到了一股莫名的杀气。
+我：什么？你还有其他对象吗？有我好看吗？有我瘦吗？不对。你不能有其他对象。
+什么是面向对象？
+
+
+面向对象，英文名字叫Object Oriented，是一种软件开发方法。是和面向过程相对应的。
+
+
+女朋友：别给我拽英文。给我详细说说，说不明白今天就没完。
+
+我：我有点饿了，要不然你给我做点饭，我慢慢的详细给你讲吧。
+
+女朋友：我现在就想听你给我讲，咱们直接点外卖吧，别自己动手做饭了。
+其实，对于吃饭这件事儿，就可以分为面向过程吃饭和面向对象吃饭。自己亲自下厨就是面向过程，点外卖就是面向对象。
+在面向过程的吃饭中，我们想要填饱肚子，需要自己亲自下厨把这顿饭做出来，那么，我们就需要先想好吃什么、然后去买菜、洗菜、洗米、蒸饭、炒菜等等一系列的事情。
+
+我：那么，你说和点外卖相比，自己做饭有哪些缺点啊？
+
+女朋友：那还用说，麻烦呗。
+
+的确，面向过程编程也一</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-19&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-14&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E5%BF%83%E5%BE%97">心得</a>&nbsp;
+            <a href="/tags/Java">Java</a>&nbsp;
           
         
       </div>
@@ -398,38 +247,88 @@ so,加油啊少年</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/17/2019-9-17-dsb.md/">
-        <p class="h4 index-header">启动vue时报错</p>
+      <a href="/2019/10/12/2019-10-12-ribao/">
+        <p class="h4 index-header">orcale,mysql,mongodb,redis对比</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">✘ 1 problem (1 error, 0 warnings)
-Errors:  1  http://eslint.org/docs/rules/no-trailing-spaces
-  ✘  http://eslint.org/docs/rules/no-trailing-spaces  Trailing spaces not allowed  src/components/HelloWorld.vue:6:1
-   ^
-  ✘  http://eslint.org/docs/rules/eol-last            Newline required at end of file but not found  src/components/HelloWorld.vue:16:10  
-✘ 2 problems (2 errors, 0 warnings)
-Errors:  1  http://eslint.org/docs/rules/eol-last  1  http://eslint.org/docs/rules/no-trailing-spaces
-You may</div>
+          <div class="index-text mb-1">MySQL概述：
+
+关系型数据库。无论数据还是索引都存放在硬盘中。到要使用的时候才交换到内存中。能够处理远超过内存总量的数据。
+
+
+在不同的引擎上有不同 的存储方式。
+
+
+查询语句是使用传统的 SQL 语句，拥有较为成熟的体系，成熟度很高。
+
+
+开源数据库的份额在不断增加，MySQL 的份额页在持续增长。
+
+
+缺点：在海量数据处理的时候效率会显著变慢。
+
+MySQL特点：
+
+
+使用c和c++编写，并使用了多种编译器进行测试，保证源代码的可移植性
+
+
+
+
+支持多种操作系统
+
+
+
+
+为多种编程语言提供可API
+
+
+
+
+支持多线程，充分利用CPU资源优化的SQL查询算法，有效的提高查询速度
+
+
+
+
+提供多语言支持，常见的编码如：GB2312、BIG5、UTF8
+
+
+
+
+提供TCP/IP、ODBC和JDBC等多种数据库连接途径提供用于管理、检查、优化数据库操作的管理工具
+
+
+
+
+大型的数据库。可以处理拥有上千万条记录的大型数据库
+
+
+
+8.支持多种存储引擎
+
+
+
+MySQL软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是开放源码这一特点，一般中小型网站的开</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-17&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-12&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Vue">Vue</a>&nbsp;
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
           
         
       </div>
@@ -440,28 +339,244 @@ You may</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/17/2019-9-17-ribao/">
-        <p class="h4 index-header">17日日报</p>
+      <a href="/2019/10/11/2019-10-11-ribao/">
+        <p class="h4 index-header">mysql碎片整理优化</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">MysqL碎片整理优化
+先来说一下什么是碎片，怎么知道碎片有多大！
+
+简单的说,删除数据必然会在数据文件中造成不连续的空白空间,而当插入数据时,这些空白空间则会被利用起来.于是造成了数据的存储位置不连续,以及物理存储顺序与理论上的排序顺序不同,这种是数据碎片.实际上数据碎片分为两种,一种是单行数据碎片,另一种是多行数据碎片.前者的意思就是一行数据,被分成N个片段,存储在N个位置.后者的就是多行数据并未按照逻辑上的顺序排列.当有大量的删除和插入操作时,必然会产生很多未使用的空白空间,这些空间就是多出来的额外空间.索引也是文件数据,所以也会产生索引碎片,理由同上,大概就是顺序紊乱的问题.Engine 不同,OPTIMIZE 的操作也不一样的,MyISAM 因为索引和数据是分开的,所以 OPTIMIZE 可以整理数据文件,并重排索引。这样不但会浪费空间，并且查询速度也更慢。
+
+
+解决方案：（切记，一定要在夜里执行，表越大，越耗资源时间，不要频繁修复，可以几个月甚至一年修复一次，如果表频繁被更改，可以按周/月来整理。）
+
+查看表碎片的方法select ROW_FORMAT,TABLE_ROWS</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-11&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/10/2019-10-10-ribao/">
+        <p class="h4 index-header">mysql简单整理</p>
         
         
           
         
         <div class="index-excerpt" >
           <div class="index-text mb-1">
+windows键+r启动小黑框，输入 mysql -u用户名 p密码，会出现WELCOME to MYSQL 等字眼
 
-今天又是学习Vue的一天
-有在很努力学习vue的呢
-emmm... 今天还进行了3个js的学习
-但是我只学会了一个(手动狗头)
-不是井里没有水，而是你挖的不够深。不是成功来得慢，而是你努力的不够多
-10年后的你肯定会感谢现在努力的自己
-you can</div>
+我们经常用小黑框查询以及测试数据是否正常： 首先看看有没有数据库，或者创建数据库
+查看数据库: SHOW DATABASES; 
+
+
+2.或者如果没有你想选择的数据库，你可以创建一个数据库
+CREATE DATABASE IF NOT EXISTS数据库名;
+记住数据库名后要写分号’;’
+选取创建的数据库 ： USE 数据库名;
+创建数据表：
+1234567891011 CREATE TABLE IF NOT EXISTS 表名(    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,    name VARCHAR(255) UNIQUE, -- 如果你想让你的字段名的值是唯一值的话就加上UNIQUE，否则就去掉   age TINYINT UNSIGNED NOT NULL DEFAULT 1,  -- 默认值请为1， UNSIGNED 字段值不能有符号   sex TINYINNT UNSIGNED NOT NULL )E</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-17&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/09/2019-10-9-ribao/">
+        <p class="h4 index-header">MongoDB</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">MongoDB操作命令Mongo简介属于非关系型数据库，是分布式文档数据库。特点：扩展灵活、结构灵活、使用方便、支持查询、索引。不足：缺乏事务控制，无法保障数据完整性。
+oracle存储结构
+
+mongodb存储结构
+
+Mongo命令
+库命令
+
+查看
+show dbs
+使用
+use 库名称
+创建
+use 库名称  //库存在就是使用；不存在就创建再使用
+删除
+db.dropDatabase() //删除当前use的库
+
+
+集合
+
+查看
+show collections
+创建
+当使用&quot;db.集合名.insert()&quot;插入数据时，集合不存在时会自动创建
+删除
+db.集合名.drop()
+
+
+数据操作
+
+插入
+  插入单条记录
+db.dept.insert({&quot;no&quot;:1,&quot;dname&quot;:&quot;beijing&quot;})  插入多条记录
+var objs = [{&quot;no&quot;:3,&quot;dname&quot;:&quot;chengdu&quot;},{&quot;no&quot;:4,&quot;d</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-09&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/08/2019-10-8-ribao/">
+        <p class="h4 index-header">Redis</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Redis 目的：利用Redis做数据缓存,缓存查询出来的对象数据。
+ NoSQL：Not Only SQL，非关系数据库。
+ 关系型数据库指的是表结构存储，典型Oracle、MySQL、DB2。
+
+key-value存储 : 典型Redis
+列存储 ： HBase
+文档存储 : MongoDB
+图形存户：Neo4j
+
+简介
+Redis是基于内存的数据库，常用于缓存
+Redis是采用C语言编写
+Redis是采用Key-value结构存储
+Redis中value值支持存储类型为字符串、哈希、列表、集合、可排序集合
+Redis支持高速读写操作，效率高
+Redis支持持久化、按一定策略将内存数据异步保存到磁盘
+Redis支持事务控制、消息传递等功能
+
+各种类型数据存储命令
+字符串操作（string）
+ 
+
+set key value  //存一组key value
+mset key value key value //存多组key value
+get key //获取value
+strlen key //获取value字符长度
+incr key //将value加1
+incrby key n</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-08&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/28/2019-9-28-ribao-md/">
+        <p class="h4 index-header">28日日报</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">今天搞了一天的博客和git，我的电脑出了问题，怎么也连不上git
+于是我想到了用hexo部署至git，还可以加一个可爱的看板娘
+说干就干，我尝试百度了好多，终于安装好了hexo及其需要的环境
+博客是搭好了，可是出了乱码，原因是我的.md文件编码不是utf-8，于是乎我 关闭虚拟机，在win10上进行操作,最终干掉了疑难
+OK!</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-28&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -483,41 +598,29 @@ you can</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/16/2019-9-16-dsaf-day/">
-        <p class="h4 index-header">vue.js安装</p>
+      <a href="/2019/09/27/2019-9-27-xinde/">
+        <p class="h4 index-header">建国70周年观后感</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">1. 独立版本我们可以在 Vue.js 的官网上直接下载 vue.min.js 并用 &lt;script&gt; 标签引入
-2. 使用 CDN 方法以下推荐国外比较稳定的两个 CDN，国内还没发现哪一家比较好，目前还是建议下载到本地。
+          <div class="index-text mb-1">在这个蓝色的、富有生命的星球中，在世界这片广阔的地域里，有一只雄鸡它巍然屹立在亚洲的海陆之中，它——就是中国!
 
-Staticfile CDN（国内） : https://cdn.staticfile.org/vue/2.2.2/vue.min.js
+中国历史古老而又文明，中国文化更是源远流长,是信念，也是希望
 
+我很高兴我是中国人，我的祖先被万代国人传诵。中国人民坚强刚毅，无论在任何困难面前都不会退缩，他们会坚持下去，克服眼前的所有困难
 
-unpkg：https://unpkg.com/vue/dist/vue.js, 会保持和 npm 发布的最新的版本一致。
+我们是跨世纪的一代新人，我们的今天就是祖国的明天，我们肩负着振兴国家，是国家更加繁荣富强的重任，所以我们更要努力的学习
+，学习真知识，掌握真本领，我们心中，伟大的祖国时时刻刻在激励着我们，给我们以勇气，给我们以力量
 
-
-cdnjs : https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js
-
-3. NPM 方法npm 版本需要大于 3.0，如果低于此版本需要升级它
-升级npm
-npm install npm -g
-
-全局安装 vue-cli
-$ cnpm install –global vue-cli
-
-创建一个基于 webpack 模板的新项目
-$ vue init webpack my-project
-
-这里需要进行一些配置，默认回车</div>
+望着祖国日新月异、日渐富强的景象，我骄傲，因为我有一颗中国心;望着国外那一台台印着“中国制造”字样的电视、电脑，我骄傲，因为我有一颗中国心;</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-16&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-27&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -528,7 +631,7 @@ $ vue init webpack my-project
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Vue">Vue</a>&nbsp;
+            <a href="/tags/%E5%85%B6%E4%BB%96">其他</a>&nbsp;
           
         
       </div>
@@ -539,7 +642,7 @@ $ vue init webpack my-project
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/6/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
