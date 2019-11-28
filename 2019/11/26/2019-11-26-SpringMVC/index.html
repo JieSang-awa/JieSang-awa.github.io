@@ -14,7 +14,7 @@
   <meta name="description" content="JieSangQAQ&#39;s blog">
   <meta name="author" content="JieSangQAQ">
   <meta name="keywords" content>
-  <title>DI实现 ~ JieSangQAQ-兄弟会</title>
+  <title>SpringMVC ~ JieSangQAQ-兄弟会</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
@@ -108,7 +108,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期五 十一月 22
+                  星期二 十一月 26
                 </p>
               
 
@@ -117,7 +117,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    638 字
+                    683 字
                   </span>&nbsp;
                 
 
@@ -125,7 +125,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      2 分钟
+                      3 分钟
                   </span>&nbsp;
                 
 
@@ -158,54 +158,25 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="什么是DI"><a href="#什么是DI" class="headerlink" title="什么是DI"></a>什么是DI</h2><blockquote>
-<p>Dependence  Injection   依赖注入<br>把一个组件的值  设置给另外一个组件的过程 叫依赖注入<br>  <code>DI</code>  解决的问题就是组件的装配问题 </p>
-</blockquote>
-<h2 id="DI的三种实现方式"><a href="#DI的三种实现方式" class="headerlink" title="DI的三种实现方式"></a>DI的三种实现方式</h2><ol>
-<li><p>setter 注入<br>参考类型对应的set方法    来进行值的设置<br>在bean 标记中 出现如下配置  <property name="属性名" value="值"> </property>属性名<br>这是设置值 所以参考的是 set方法去掉set 然后首字母小写<br>如果要赋值复杂的值 则需要使用 ref, value 能赋值的类型有  八种基本类型 和 封装类   String  枚举</p>
-</li>
-<li><p>构造器注入<br>参考的是构造方法的参数   只要构造方法的参数能匹配上 则直接调用对应的带参构造<br>在bean 标记中 出现如下配置   把上面的    property 标记 换成   constructor-arg<br>注意我们可以使用 index  替换 name,index 代表参数的编号   编号0开始 </p>
-</li>
-<li><p>自动化注入<br>主要解决复杂值的注入问题<br>只要在bean 标记中 使用  autowire 属性 指定自动化注入的方式即可<br>autowire   的取值有  byName  byType   constructor<br>byName  参考的是属性名<br>byType  参考的是成员变量的类型<br>constructor  参考的是构造方法</p>
-</li>
+            <h2 id="MVC的五大核心组件"><a href="#MVC的五大核心组件" class="headerlink" title="MVC的五大核心组件"></a>MVC的五大核心组件</h2><pre><code>DispatcherServlet       请求入口
+HandlerMapping          请求的转发 让请求和控制器建立一一对应的关系
+Controller              真正处理请求的组件
+ModelAndView            封装数据信息和视图信息的对象
+ViewResolver            视图处理器</code></pre><h2 id="Spring-MVC编写步骤"><a href="#Spring-MVC编写步骤" class="headerlink" title="Spring MVC编写步骤"></a>Spring MVC编写步骤</h2><ol>
+<li>建立项目  导入jar包(ico mvc) 斌拷贝配置文件到src下  在WEB-INF下建立一个jsp页面</li>
+<li>在WEB-INF下 的web.xml中 配置DispatcherServlet 并使用初始化参数 关联Spring 的配置文件contextConfigLocation</li>
+<li>在Spring配置文件中 配置HandlerMapping的实现类SimpleUrlHandlerMapping  并且配置请求和控制器的对应关系</li>
+<li>编写一个控制器的实现类  实现Controller接口 在接口方法中 返回ModelAndView 同时在容器中创建控制器对象</li>
+<li>在Spring 配置文件中 配置 ViewResolver 的实现类 InternalResourceViewResolver 需要配置前缀和后缀</li>
 </ol>
-<h2 id="参数的注入"><a href="#参数的注入" class="headerlink" title="参数的注入"></a>参数的注入</h2><blockquote>
-<p>简单值的注入   </p>
-</blockquote>
-<p>  简单值包括 八种基本类型  和 对应的封装类   String   枚举<br>  使用连接池的jar包 创建 dataSource 对象     使用容器获取数据源对象(连接池对象)  并通过这个对象<br>  获取数据库连接  </p>
-<blockquote>
-<p>复杂值的注入</p>
-</blockquote>
-<p>  把set注入  或者构造器注入中的 value  改成 ref<br>  或者自动化注入 </p>
-<blockquote>
-<p>集合参数的注入 </p>
-</blockquote>
-<p>  java 中有 <code>List</code>  <code>Map</code>  <code>Set</code>  <code>Properties</code>   可以在Spring 配置文件中 配置对应的标记让其创建出对应的对象</p>
-<pre><code>List 
-    &lt;list&gt; 
-        &lt;value&gt; 值 &lt;/value&gt;
-    &lt;/list&gt;
-
-Set  
-    &lt;set&gt;
-        &lt;value&gt; 值 &lt;/value&gt;
-    &lt;/set&gt;
-
-Map 
-    &lt;map&gt;
-        &lt;entry  key=&quot;&quot;   value=&quot;&quot; /&gt; 
-    &lt;/map&gt; 
-Properties 
-    &lt;props&gt;
-        &lt;prop key=&quot;15966667777&quot;&gt;小泽&lt;/prop&gt; 
-        &lt;prop key=&quot;15966667778&quot;&gt;伟杰&lt;/prop&gt; 
-        &lt;prop key=&quot;15966667779&quot;&gt;小马&lt;/prop&gt; 
-    &lt;/props&gt;</code></pre><h2 id="集合参数的单独定义"><a href="#集合参数的单独定义" class="headerlink" title="集合参数的单独定义"></a>集合参数的单独定义</h2><p>   一个集合参数可以被单独定义出来 然后让其他对象的属性 进行引用   </p>
-<pre><code>&lt;util:list  id=&quot;&quot;    
-&lt;util:set   id=&quot;&quot;    
-&lt;util:map   id=&quot;&quot;    
-&lt;util:properties  id=&quot;&quot;      </code></pre><h2 id="Spring-的EL表达式"><a href="#Spring-的EL表达式" class="headerlink" title="Spring 的EL表达式"></a>Spring 的EL表达式</h2><p>  和之前的区别是 从Spring 容器中取值  语法是 把之前的 <code>$</code> 换成 <code>#</code>   </p>
-
+<h2 id="使用Spring-MVC-访问WEB-INF-下的jsp"><a href="#使用Spring-MVC-访问WEB-INF-下的jsp" class="headerlink" title="使用Spring MVC 访问WEB-INF 下的jsp"></a>使用Spring MVC 访问WEB-INF 下的jsp</h2><h2 id="基于标注的Spring-MVC"><a href="#基于标注的Spring-MVC" class="headerlink" title="基于标注的Spring MVC"></a>基于标注的Spring MVC</h2><ol>
+<li>建立一个项目 导入jar包 (ioc aop mvc) 拷贝配置文件到src下 并在WEB-INF下建立jsp文件</li>
+<li>在web.xml中配置 DispatcherServlet 并通过初始化参数 contextConfigLocation 关联Spring 配置文件</li>
+<li>开启组件扫描 和 标注形式的mvc<br>&lt;context:component-san base-package=”” /&gt;<br>&lt;mvc:annotation-driven /&gt;<br>底层创建了一个 RequestMappingHandlerMapping 的组件</li>
+<li>写一个java类 不用实现Controller接口<br>@RequestMapping(“/请求路径”);<br>控制器方法的返回值可以是 String 也可以是 ModelAndView 方法名随意 参数随意<br>在类上加上对于的标注 @Controller 可以把普通类 变成Controller对象</li>
+<li>配置视图处理器</li>
+</ol>
+<h3 id="applicationContext-配置如下"><a href="#applicationContext-配置如下" class="headerlink" title="applicationContext 配置如下:"></a>applicationContext 配置如下:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</span><br><span class="line">       xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;</span><br><span class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 配置HandlerMapping的实现类--&gt;</span><br><span class="line">    &lt;bean id=&quot;handerMapping&quot; class=&quot;org.springframework.web.servlet.handler.SimpleUrlHandlerMapping&quot;&gt;</span><br><span class="line">        &lt;!-- 让请求和控制器建立一一对应关系 --&gt;</span><br><span class="line">        &lt;property name=&quot;mappings&quot;&gt;</span><br><span class="line">            &lt;props&gt;</span><br><span class="line">                &lt;prop key=&quot;toHello.do&quot; &gt;testController&lt;/prop&gt;</span><br><span class="line">            &lt;/props&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 开启组件扫描--&gt;</span><br><span class="line">    &lt;context:component-scan base-package=&quot;com.xdl&quot;&gt;&lt;/context:component-scan&gt;</span><br><span class="line">    &lt;!-- 开启标注形式的mvc--&gt;</span><br><span class="line">    &lt;mvc:annotation-driven /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--配置视图处理器--&gt;</span><br><span class="line">    &lt;bean id=&quot;viewResolver&quot; class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/&quot;&gt;&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;&gt;&lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
             <hr>
           </div>
           <br>
@@ -261,8 +232,8 @@ Properties
     <div id="disqus_thread"></div>
     <script>
       var disqus_config = function () {
-        this.page.url = 'https://github.com/JieSangQAQ/2019/11/22/2019-11-22-DIImplements/';
-        this.page.identifier = '/2019/11/22/2019-11-22-DIImplements/';
+        this.page.url = 'https://github.com/JieSangQAQ/2019/11/26/2019-11-26-SpringMVC/';
+        this.page.identifier = '/2019/11/26/2019-11-26-SpringMVC/';
       };
       var oldLoad = window.onload;
       window.onload = function () {
@@ -381,7 +352,7 @@ Properties
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "DI实现&nbsp;",
+        "SpringMVC&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

@@ -108,7 +108,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期一 十一月 25
+                  星期三 十一月 27
                 </p>
               
 
@@ -117,7 +117,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    683 字
+                    387 字
                   </span>&nbsp;
                 
 
@@ -125,7 +125,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      3 分钟
+                      1 分钟
                   </span>&nbsp;
                 
 
@@ -158,25 +158,34 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="MVC的五大核心组件"><a href="#MVC的五大核心组件" class="headerlink" title="MVC的五大核心组件"></a>MVC的五大核心组件</h2><pre><code>DispatcherServlet       请求入口
-HandlerMapping          请求的转发 让请求和控制器建立一一对应的关系
-Controller              真正处理请求的组件
-ModelAndView            封装数据信息和视图信息的对象
-ViewResolver            视图处理器</code></pre><h2 id="Spring-MVC编写步骤"><a href="#Spring-MVC编写步骤" class="headerlink" title="Spring MVC编写步骤"></a>Spring MVC编写步骤</h2><ol>
-<li>建立项目  导入jar包(ico mvc) 斌拷贝配置文件到src下  在WEB-INF下建立一个jsp页面</li>
-<li>在WEB-INF下 的web.xml中 配置DispatcherServlet 并使用初始化参数 关联Spring 的配置文件contextConfigLocation</li>
-<li>在Spring配置文件中 配置HandlerMapping的实现类SimpleUrlHandlerMapping  并且配置请求和控制器的对应关系</li>
-<li>编写一个控制器的实现类  实现Controller接口 在接口方法中 返回ModelAndView 同时在容器中创建控制器对象</li>
-<li>在Spring 配置文件中 配置 ViewResolver 的实现类 InternalResourceViewResolver 需要配置前缀和后缀</li>
+            <p>##Spring  MVC 控制器中接收页面请求参数</p>
+<ol>
+<li>在控制器方法上定义 HttpServletRequest 参数 然后使用 request 获取 </li>
+<li>直接定义和页面参数相同的控制器参数  参数名相同则容器自动获取 </li>
+<li>当页面参数  和 控制器参数不一致  如何解决?<br><code>@RequestParam(&quot;参数名&quot;)</code>  可以让请求参数  和 控制器参数对应 </li>
+<li>定义对象类型的参数 —  请求参数名 和 set方法保持对应 </li>
 </ol>
-<h2 id="使用Spring-MVC-访问WEB-INF-下的jsp"><a href="#使用Spring-MVC-访问WEB-INF-下的jsp" class="headerlink" title="使用Spring MVC 访问WEB-INF 下的jsp"></a>使用Spring MVC 访问WEB-INF 下的jsp</h2><h2 id="基于标注的Spring-MVC"><a href="#基于标注的Spring-MVC" class="headerlink" title="基于标注的Spring MVC"></a>基于标注的Spring MVC</h2><ol>
-<li>建立一个项目 导入jar包 (ioc aop mvc) 拷贝配置文件到src下 并在WEB-INF下建立jsp文件</li>
-<li>在web.xml中配置 DispatcherServlet 并通过初始化参数 contextConfigLocation 关联Spring 配置文件</li>
-<li>开启组件扫描 和 标注形式的mvc<br>&lt;context:component-san base-package=”” /&gt;<br>&lt;mvc:annotation-driven /&gt;<br>底层创建了一个 RequestMappingHandlerMapping 的组件</li>
-<li>写一个java类 不用实现Controller接口<br>@RequestMapping(“/请求路径”);<br>控制器方法的返回值可以是 String 也可以是 ModelAndView 方法名随意 参数随意<br>在类上加上对于的标注 @Controller 可以把普通类 变成Controller对象</li>
-<li>配置视图处理器</li>
+<p>##Spring 控制器中 如何将数据传递给页面 </p>
+<ol>
+<li>使用域对象 向页面传输<br><code>request</code>   <code>session</code>   <code>ServletContext</code><br><code>setAttribute(&quot;key&quot;,value)</code></li>
+<li>使用 ModelAndView  进行数据传递<br><code>getModel().put(key,value)</code><br><code>getModelMap().addAttribute(key,value)</code></li>
+<li>使用 Model  进行数据传输<br><code>addAttribute(&quot;key&quot;,value)</code></li>
+<li>使用ModelMap 传递数据<br><code>addAttribute(key,value)</code><br><code>put(key,value)</code></li>
+<li>使用默认的传输机制<br>当定义复杂的自定义控制器参数时  则控制器会自动把这个类型的数据放入<code>request</code>中<br>默认是类名首字母小写  可以使用 <code>@ModelAttribute(&quot;名字&quot;)</code>  改变默认规范  </li>
 </ol>
-<h3 id="applicationContext-配置如下"><a href="#applicationContext-配置如下" class="headerlink" title="applicationContext 配置如下:"></a>applicationContext 配置如下:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</span><br><span class="line">       xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;</span><br><span class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 配置HandlerMapping的实现类--&gt;</span><br><span class="line">    &lt;bean id=&quot;handerMapping&quot; class=&quot;org.springframework.web.servlet.handler.SimpleUrlHandlerMapping&quot;&gt;</span><br><span class="line">        &lt;!-- 让请求和控制器建立一一对应关系 --&gt;</span><br><span class="line">        &lt;property name=&quot;mappings&quot;&gt;</span><br><span class="line">            &lt;props&gt;</span><br><span class="line">                &lt;prop key=&quot;toHello.do&quot; &gt;testController&lt;/prop&gt;</span><br><span class="line">            &lt;/props&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 开启组件扫描--&gt;</span><br><span class="line">    &lt;context:component-scan base-package=&quot;com.xdl&quot;&gt;&lt;/context:component-scan&gt;</span><br><span class="line">    &lt;!-- 开启标注形式的mvc--&gt;</span><br><span class="line">    &lt;mvc:annotation-driven /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--配置视图处理器--&gt;</span><br><span class="line">    &lt;bean id=&quot;viewResolver&quot; class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/&quot;&gt;&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;&gt;&lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+<p>##Spring 控制器中如何实现重定向?</p>
+<ol>
+<li>当控制器方法返回 String 类型时<br>在请求路径前  加 redirect:</li>
+<li>当控制器方法返回ModelAndView 时<br><code>RedirectView</code>  结合请求来完成     </li>
+</ol>
+<h2 id="中文乱码的处理"><a href="#中文乱码的处理" class="headerlink" title="中文乱码的处理"></a>中文乱码的处理</h2><p>  tomcat8 中  get 请求没有乱码问题<br>  tomcat8 中  post 请求 乱码的处理  </p>
+<blockquote>
+<p>原来的方式依然可用  但是必须完全遵守之前的方式<br>    request.setCharacterEncoding(“utf-8”);<br>    request.getParameter(“acc_no”)</p>
+</blockquote>
+<blockquote>
+<p>使用编码过滤器   Spring 框架提供的 </p>
+</blockquote>
+
             <hr>
           </div>
           <br>
@@ -232,8 +241,8 @@ ViewResolver            视图处理器</code></pre><h2 id="Spring-MVC编写步�
     <div id="disqus_thread"></div>
     <script>
       var disqus_config = function () {
-        this.page.url = 'https://github.com/JieSangQAQ/2019/11/25/2019-11-25-SpringMVC/';
-        this.page.identifier = '/2019/11/25/2019-11-25-SpringMVC/';
+        this.page.url = 'https://github.com/JieSangQAQ/2019/11/27/2019-11-27-SpringMVC/';
+        this.page.identifier = '/2019/11/27/2019-11-27-SpringMVC/';
       };
       var oldLoad = window.onload;
       window.onload = function () {

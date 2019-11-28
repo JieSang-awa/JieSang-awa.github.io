@@ -131,6 +131,200 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/20/2019-11-20-Spring/">
+        <p class="h4 index-header">Spring</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Spring 框架的构成IOC   控制反转      它是Spring框架的核心 
+DAO   数据访问对象模块   它是对JDBC的封装和简化
+WebMVC  它是Spring 对 java web的支持 以及  MVC设计模式的支持
+AOP    面向切面编程    它是对面向对象的扩展 
+ORM    对象关系映射(是以面向对象的思想访问数据库)  Mybatis什么是IOC?  Inverstion   Of  Control  控制反转   
+程序中需要某个对象时  由原来的new的方式  改成了由容器来进行 创建 和 
+管理  以及维护组件关系。 
+这样做的好处是 可以大大降低组件之间的耦合度。 Spring 容器任何的java 类  都可以在Spring容器中创建对象  并由容器进行管理 
+以及维护组件关系
+Spring容器实现了 IOC 和 AOP 机制
+Spring 容器的类型  BeanFactory 或者是 ApplicationContext类型使用Spring容器 完成IOC的步骤建立一个项目  导入jar包(ioc相关jar包)   拷贝Spring配置
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-20&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/19/2019-11-19-ribao/">
+        <p class="h4 index-header">久违的日报</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">当然了 点开也是日报
+因为没有什么可写的  
+因为太久没写了
+所以只好凑凑数
+所以今天学了Spring的三种创建Bean对象的方式,分别是:
+构造器方式实例化 
+静态工厂方法实例化 
+实例工厂方法实例化  
+
+
+
+而且可以熟练使用，ok 总结完毕
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-19&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%97%A5%E6%8A%A5">日报</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/18/2019-11-18-ListenerAndFilter/">
+        <p class="h4 index-header">Fileter &amp; Listener</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">#Fileter &amp; Listener
+###web 三大组件
+Servlet是web的三大组件之一 .
+
+1.    Servlet
+2.    Fileter     过滤器
+3.    Listener 监听器Filter 过滤器过滤的是请求 . 
+
+面向切面编程思想 .  
+
+使用步骤:
+    1.    编写一个类 , 实现Filter接口
+    2.    通过web.xml 或 注解的方式, 配置过滤器的过滤地址.doFilter中的请求与响应对象 为什么不是http的 ?过滤器在早期设计时, 不只是针对HTTP请求. 针对所有协议的请求都可以进行过滤.
+因为我们现在都是使用HTTP协议, 所以很感觉怪异
+想要操作Http相关的请求对象 与 响应对象 怎么办?   
+只需要将请求对象强制转换为 HttpServletRequest  将响应对象 强制转换为 HttpServletResponse 即可案例Java代码public class UserFilter implements Filter {
+    /**
+     * 当过滤器即将销毁时
+    </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/16/2019-11-16-Ajax/">
+        <p class="h4 index-header">Ajax</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Ajax简介一种用于网页 异步 请求的技术.作用:用于与服务器进行异步交互  以及 局部页面的刷新.Ajax的GET使用步骤1.    创建一个 异步请求的对象 
+    var xhr = new XMLHttpRequest();
+
+2.    设置请求的方式, 以及 请求的地址
+    xhr.open(&quot;GET&quot;,&quot;请求地址&quot;);
+
+3.    设置请求结果产生时 的 事件处理函数 (当请求状态发生改变时, 执行的函数)
+    xhr.onreadystatechange = function(){
+        //此方法在一次ajax中, 会执行五次. 分别表示五种状态
+        //每次的状态值, 从xhr.readyState属性中得到.
+        //状态值:
+        //0.    请求初始化中 , 它的触发, 在new对象时, 此方法不会执行
+        //1.    请求正在发送, 它的触发在open函数执行时, 此方法如果在open前指定, 则状态发生时 方法执行
+        //2. </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-16&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/11/15/2019-11-15-JSTL/">
         <p class="h4 index-header">JSTL</p>
         
@@ -360,190 +554,6 @@ POST请求:
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-11&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/09/2019-11-9-servlet/">
-        <p class="h4 index-header">Servlet简介</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">HTTP协议:超文本传输协议 , 是一个应用层的网络传输协议 !
-
-特点:
-    1.    简单, 快速.
-    2.    无连接协议 , 每次连接服务器只处理一次客户端的请求 ,处理完毕, 立即断开.
-    3.    无状态协议 , 处理请求, 以及进行响应时 ,没有记忆能力 !
-    4.    支持多种不同的数据提交方式 ,GET/POST 等等
-    5.    数据传输很灵活, 支持任意数据类型 .HTTP协议的组成部分1.    请求 
-        请求由四部分组成:
-            -    请求头
-                    请求头部的信息, 由一个个的键值对组成 , 描述的是有关客户端的信息.
-            -    请求体
-                    GET请求没有请求体. 当请求方式为POST时 ,存在请求体, 请求体是用于存储数据的数据容器 !
-            -    请求空行
-                    请求头部与请求体之间的一行空白
-            -    请求行
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-09&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/08/2019-11-8-jdbc/">
-        <p class="h4 index-header">连接池</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">DBCP(DataBase connection pool),数据库连接池。是 apache 上的一个 java 连接池项目，也是 tomcat 使用的连接池组件。单独使用dbcp需要2个包：commons-dbcp.jar,commons-pool.jar,配置文件 db.properties 如下:  
-12345678driverClassName=oracle.jdbc.OracleDriverurl=jdbc:oracle:thin:@localhost:1521:xeusername=systempassword=254615initialSize=10maxActive=50minIdle=5maxWait=60000
-
-Properties文件 是以键值对形式存放数据，一个键对应且只对应一个值，键与值都不能有空格DBCP连接池如下:
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-08&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/07/2019-11-7-jdbc/">
-        <p class="h4 index-header">JDBC事务</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">JDBC 事务在dos命令行操作oracle时 , 执行DML , 需要结束事务 (commit提交 或 rollback回退)
-在JDBC中, 事务是自动提交的, 每执行一条DML语句, 事务就自动提交一次. 
-
-我们可以通过JDBC的事务API , 开始事务的手动提交, 将多条DML语句看作一个整体, 要么一起成功, 要么一起失败.JDBC事务操作格式:注意:    开启事务的手动提交 ,是通过连接对象完成的. 
-        某个数据连接对象的事务开启手动提交后, 这个连接对象的事务需要手动控制.  其他连接对象不受影响.
-
-操作方法:
-    1.    开始事务的手动提交:
-            conn.setAutoCommit(boolean flag);
-            参数含义:    true表示自动提交 . false表示手动提交.
-
-    2.    提交事务:
-            conn.commit();
-
-    3.    回退事务:
-            rollback();事务案例:    public class Demo</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/06/2019-11-6-jdbc/">
-        <p class="h4 index-header">JDBC访问数据库</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">JDBC访问数据库的步骤
-加载驱动  Class.forName(“包名.驱动名”)  
-获取连接  DriverManager.getConnection(url,username,password)  比如连接oracle 的url 是  jdbc:oracle:thin:@127.0.0.1:1521:xe
-定义sql 并获取sql的执行环境 Statement (PrepareadStatement)   conn.createStatement() 这里以后会使用 prepareadStatement   
-执行sql 处理sql 返回值 select  返回ResultSet  遍历       st.executeQuery dml     返回int  代表影响的数据行数  st.executeUpdate  
-释放资源 Connection    Statement   ResultSet  等  close()
-
-使用PreparedStatement  替换  Statement    
-
-可以防止拼接的sql注入   原理就是你输入的数据不拼接 直接作为真实数据</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-06&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>

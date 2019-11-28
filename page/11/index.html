@@ -131,6 +131,215 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/08/18/2019-8-18-fourth-day/">
+        <p class="h4 index-header">查看提交信息</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+查看提交内容
+
+git hi -5 // 查看前5条内容
+git hi –grep hello // 过滤提交信息里有hello字眼的内容
+
+修改文件名以及移动
+
+git mv a b // 把a文件名字改成b 并且直接放入git add后的暂存区
+git mv b ./demos/ // 把b文件移动到demos文件夹下
+
+对比工作区，暂存区，仓库的差异
+
+git diff // 查看变更 工作区与暂存区的差异比对
+git diff –cached // 暂存区与提交版本的差异
+git diff HEAD // 工作区与仓库中最后一次提交版本的差别
+git diff 版本哈希值 版本哈希值 // 查看这2个版本哈希之间的区别
+或者 git diff HEAD数字 HEAD数字
+git tag tt HEAD~4 给倒数第5次提交打一个tag tag名字是tt
+git diff tt 就是倒数第5个版本与第一个版本之间的差异
+git diff –cached tt 暂存区与倒数第5个版本之间的比对
+
+查看提交信息
+
+git show HEAD // 查看最后一次提交修改的详细信息 也</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/8%E6%9C%88">8月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Git">Git</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/08/17/2019-8-17-third-day/">
+        <p class="h4 index-header">常用git命令</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+常用git 命令
+
+git init // 初始化 在工作路径上创建主分支
+git clone 地址 // 克隆远程仓库
+git clone -b 分支名 地址 // 克隆分支的代码到本地
+git status // 查看状态
+git add 文件名 // 将某个文件存入暂存区
+git add b c //把b和c存入暂存区
+git add . // 将所有文件提交到暂存区
+git add -p 文件名 // 一个文件分多次提交
+git stash -u -k // 提交部分文件内容 到仓库 例如本地有3个文件 a b c 只想提交a b到远程仓库 
+git add a b 然后 git stash -u -k 再然后git 
+commit -m “备注信息” 然后再push push之后 git stash pop 把之前放入堆栈的c拿出来 继续下一波操作
+git commit -m “提交的备注信息”  // 提交到仓库若已经有若干文件放入仓库，再次提交可以不用git add和git commit -m “备注信息” 这2步， 直接用
+git commit -am “备注信息” </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-17&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/8%E6%9C%88">8月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Git">Git</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/08/16/2019-8-16-secend-day/">
+        <p class="h4 index-header">git部分用法</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+强制推送（慎用，除非你认为其他冲突等可以丢弃 或者不是很重要）
+
+git push – force
+
+创建文件等小命令
+
+touch a // 创建一个a文件
+echo 1234 &gt;&gt; a // 把1234这个内容放入a文件
+cat a // 打开a文件 读取出a文件中的内容
+mkdir test // 创建test文件夹
+rm 文件名 // 删除文件
+pwd // 打印当前工作路径
+
+安装git的时候 都会安装git bash和git GUI 我们完全也可以使用git GUI来提交版本 与sourcetree等功能相同
+
+gitk // 用git命令快速打开git GUI
+
+文件信息
+
+ls // 查看当前路径下面的所有文件名
+ls 文件夹名 // 查看对应文件夹中的内容
+ls -l // 拉出最近git提交记录以及对应修改的文件名
+ls -l -a // 拉出最近git提交记录以及对应修改的文件名，隐藏的文件也会显示
+
+cd快速切换路径
+
+cd ~ // 将工作路径快速切换到root
+cd - // 将工作路径切换到上一状态
+cd ../ // 切回到上一个工作路径
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-16&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/8%E6%9C%88">8月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Git">Git</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/08/16/2019-8-16-dd-day/">
+        <p class="h4 index-header">16日日报</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">HEAD：指向当前的工作路径config：当前仓库的配置信息,core,用户,远程,分支等信息refs/heads:  存放项目所有的分支refs/tags :    存放tag （tag又名标签）objects：存放对象</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-16&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/8%E6%9C%88">8月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%97%A5%E6%8A%A5">日报</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/08/15/2019-8-15-first-day/">
         <p class="h4 index-header">15日日报</p>
         

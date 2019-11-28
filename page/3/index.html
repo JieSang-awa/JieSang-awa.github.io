@@ -131,6 +131,190 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/09/2019-11-9-servlet/">
+        <p class="h4 index-header">Servlet简介</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">HTTP协议:超文本传输协议 , 是一个应用层的网络传输协议 !
+
+特点:
+    1.    简单, 快速.
+    2.    无连接协议 , 每次连接服务器只处理一次客户端的请求 ,处理完毕, 立即断开.
+    3.    无状态协议 , 处理请求, 以及进行响应时 ,没有记忆能力 !
+    4.    支持多种不同的数据提交方式 ,GET/POST 等等
+    5.    数据传输很灵活, 支持任意数据类型 .HTTP协议的组成部分1.    请求 
+        请求由四部分组成:
+            -    请求头
+                    请求头部的信息, 由一个个的键值对组成 , 描述的是有关客户端的信息.
+            -    请求体
+                    GET请求没有请求体. 当请求方式为POST时 ,存在请求体, 请求体是用于存储数据的数据容器 !
+            -    请求空行
+                    请求头部与请求体之间的一行空白
+            -    请求行
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-09&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/08/2019-11-8-jdbc/">
+        <p class="h4 index-header">连接池</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">DBCP(DataBase connection pool),数据库连接池。是 apache 上的一个 java 连接池项目，也是 tomcat 使用的连接池组件。单独使用dbcp需要2个包：commons-dbcp.jar,commons-pool.jar,配置文件 db.properties 如下:  
+12345678driverClassName=oracle.jdbc.OracleDriverurl=jdbc:oracle:thin:@localhost:1521:xeusername=systempassword=254615initialSize=10maxActive=50minIdle=5maxWait=60000
+
+Properties文件 是以键值对形式存放数据，一个键对应且只对应一个值，键与值都不能有空格DBCP连接池如下:
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-08&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/07/2019-11-7-jdbc/">
+        <p class="h4 index-header">JDBC事务</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">JDBC 事务在dos命令行操作oracle时 , 执行DML , 需要结束事务 (commit提交 或 rollback回退)
+在JDBC中, 事务是自动提交的, 每执行一条DML语句, 事务就自动提交一次. 
+
+我们可以通过JDBC的事务API , 开始事务的手动提交, 将多条DML语句看作一个整体, 要么一起成功, 要么一起失败.JDBC事务操作格式:注意:    开启事务的手动提交 ,是通过连接对象完成的. 
+        某个数据连接对象的事务开启手动提交后, 这个连接对象的事务需要手动控制.  其他连接对象不受影响.
+
+操作方法:
+    1.    开始事务的手动提交:
+            conn.setAutoCommit(boolean flag);
+            参数含义:    true表示自动提交 . false表示手动提交.
+
+    2.    提交事务:
+            conn.commit();
+
+    3.    回退事务:
+            rollback();事务案例:    public class Demo</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/06/2019-11-6-jdbc/">
+        <p class="h4 index-header">JDBC访问数据库</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">JDBC访问数据库的步骤
+加载驱动  Class.forName(“包名.驱动名”)  
+获取连接  DriverManager.getConnection(url,username,password)  比如连接oracle 的url 是  jdbc:oracle:thin:@127.0.0.1:1521:xe
+定义sql 并获取sql的执行环境 Statement (PrepareadStatement)   conn.createStatement() 这里以后会使用 prepareadStatement   
+执行sql 处理sql 返回值 select  返回ResultSet  遍历       st.executeQuery dml     返回int  代表影响的数据行数  st.executeUpdate  
+释放资源 Connection    Statement   ResultSet  等  close()
+
+使用PreparedStatement  替换  Statement    
+
+可以防止拼接的sql注入   原理就是你输入的数据不拼接 直接作为真实数据</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-06&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/11/05/2019-11-5-suanfa/">
         <p class="h4 index-header">冒泡排序快速排序简单代码实现</p>
         
@@ -326,159 +510,6 @@ Class类基本概念   java.lang.Class类的实例用于表示正在运行Java�
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-31&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/30/2019-10-30-udp/">
-        <p class="h4 index-header">基于UDP的编程模型</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">基于udp协议的编程模型 编程模型接收方：   (1)创建    DatagramSocket类型的对象并提供端口号；   (2)创建DatagramPacket类型的对象用于接收数据并记录；   (3)调用receive()方法接收数据内容；   (4)关闭Socket；发送方：   (1)创建DatagramSocket类型的对象；   (2)创建DatagramPacket类型的对象并提供接收方的通信地址和端口号；   (3)调用send()方法发送数据内容；   (4)关闭Socket；  
-相关类和方法的解析DatagramSocket类  java.net.DatagramSocket类用于描述发送/接收数据的套接字(码头)  DatagramSocket() - 使用无参方式构造对象 DatagramSocket(int port) - 根据参数指定端口构造对象   void receive(DatagramPacket p) - 用于接收数据并记录到参数指定的数据报中   void send(DatagramPacket p)- 用于发送参数指定的数据报内容 void </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-30&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/29/2019-10-29-tcp/">
-        <p class="h4 index-header">基于TCP的编程模型</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">七层网络模型  为了保证数据传输的可靠和安全等，ISO将数据的传递从逻辑上划分为以下七层：     应用层、表示层、会话层、传输层、网络层、数据链路层、物理层  当发送数据时，需要按照上述七层进行层层加包然后发送出去  当接收数据时，需要按照上述七层相反的次序层层拆包再解析出来   
-常用的协议   http - 超文本传输协议，用于浏览网页时使用   ftp  - 文件传输协议，用于上传和下载文件时使用   tcp  - 传输控制协议，用于网络通信时使用   udp  - 用户数据报协议，用于网络通信时使用   ip   - 互联网协议，是上述协议的底层协议  
-   协议 - 本质上就是一种规则，用于约定双方通信的机制 
- *IP地址 *如：   192.168.1.1  - 是绝大多数路由器的登录地址，进行MAC地址的过滤  
-   IP地址是互联网中的唯一地址标识，本质上是由32位二进制组成的整数，叫做IPv4，当然也有128位二进制组成的整数，叫做IPv6，目前的主流是IPv4.   日常生活中采用点分十进制表示法进行IP地址的描述，也就是让每个字节的二进制转换为一个十进制整</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-29&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/28/2019-10-28-synchronized/">
-        <p class="h4 index-header">Thread类</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">线程的状态和方法线程的主要状态(了解、笔试题)   新建状态 - 当线程对象使用new关键字创建完毕后进入的状态            - 此时线程还没有开始执行   就绪状态 - 当线程对象调用start()方法后进入的状态            - 此时线程依然没有开始执行   运行状态 - 当线程调度器调度就绪线程后进入的状态            - 此时线程开始执行            - 当时间片执行完毕后线程的任务没有完成时回到就绪状态   消亡状态 - 当时间执行完毕后线程的任务已经完成时进入的状态            - 此时线程已经终止   阻塞状态 - 当线程执行的过程中发生了阻塞事件后进入的状态，如：sleep()方法            - 当阻塞状态解除后回到就绪状态  
-线程的常用方法   static void sleep(long millis) - 用于使得调用线程休眠参数指定的毫秒数   int getPriority()- 用于获取线程的优先级  void setPriority(int newPriority) - 用于设置线程的优先级 </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-28&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/26/2019-10-26-throad/">
-        <p class="h4 index-header">Thread类</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">线程基本概念   程序 - 数据结构 + 算法，主要指存放在硬盘上的可执行文件   进程 - 主要指运行在内存中的程序
-   目前主流的操作系统都支持多进程，是为了让操作系统可以同时执行多个任务，但进程是重量级的，新建进程对系统资源的消耗比较大，因此进程的数量比较局限   线程是进程内部的程序流，也就是说操作系统支持多进程，而每个进程的内部又支持多线程，并且线程是轻量级的，会共享所在进程的资源，因此以后主流的开发都采用多线程技术   多线程技术是采用时间片轮转法来保证并发执行的效果，所谓并发就是指宏观并行微观串行的机制。
-线程的创建创建的方式   java.lang.Thread类用于描述线程，Java虚拟机允许运行多个执行线程，而线程的创建和启动方式如下:
-
-自定义类继承Thread类并重写run()方法，创建该类的对象调用start()方法  
-自定义类实现Runnable接口并重写run()方法，创建该类的对象作为实参来构造  Thread类的对象，然后使用Thread类对象调用start()方法  
-
-相关的方法   Thread() - 使用无参形式构造对象   Thread</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-26&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>

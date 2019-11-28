@@ -131,6 +131,159 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/30/2019-10-30-udp/">
+        <p class="h4 index-header">基于UDP的编程模型</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">基于udp协议的编程模型 编程模型接收方：   (1)创建    DatagramSocket类型的对象并提供端口号；   (2)创建DatagramPacket类型的对象用于接收数据并记录；   (3)调用receive()方法接收数据内容；   (4)关闭Socket；发送方：   (1)创建DatagramSocket类型的对象；   (2)创建DatagramPacket类型的对象并提供接收方的通信地址和端口号；   (3)调用send()方法发送数据内容；   (4)关闭Socket；  
+相关类和方法的解析DatagramSocket类  java.net.DatagramSocket类用于描述发送/接收数据的套接字(码头)  DatagramSocket() - 使用无参方式构造对象 DatagramSocket(int port) - 根据参数指定端口构造对象   void receive(DatagramPacket p) - 用于接收数据并记录到参数指定的数据报中   void send(DatagramPacket p)- 用于发送参数指定的数据报内容 void </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-30&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/29/2019-10-29-tcp/">
+        <p class="h4 index-header">基于TCP的编程模型</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">七层网络模型  为了保证数据传输的可靠和安全等，ISO将数据的传递从逻辑上划分为以下七层：     应用层、表示层、会话层、传输层、网络层、数据链路层、物理层  当发送数据时，需要按照上述七层进行层层加包然后发送出去  当接收数据时，需要按照上述七层相反的次序层层拆包再解析出来   
+常用的协议   http - 超文本传输协议，用于浏览网页时使用   ftp  - 文件传输协议，用于上传和下载文件时使用   tcp  - 传输控制协议，用于网络通信时使用   udp  - 用户数据报协议，用于网络通信时使用   ip   - 互联网协议，是上述协议的底层协议  
+   协议 - 本质上就是一种规则，用于约定双方通信的机制 
+ *IP地址 *如：   192.168.1.1  - 是绝大多数路由器的登录地址，进行MAC地址的过滤  
+   IP地址是互联网中的唯一地址标识，本质上是由32位二进制组成的整数，叫做IPv4，当然也有128位二进制组成的整数，叫做IPv6，目前的主流是IPv4.   日常生活中采用点分十进制表示法进行IP地址的描述，也就是让每个字节的二进制转换为一个十进制整</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-29&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/28/2019-10-28-synchronized/">
+        <p class="h4 index-header">Thread类</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">线程的状态和方法线程的主要状态(了解、笔试题)   新建状态 - 当线程对象使用new关键字创建完毕后进入的状态            - 此时线程还没有开始执行   就绪状态 - 当线程对象调用start()方法后进入的状态            - 此时线程依然没有开始执行   运行状态 - 当线程调度器调度就绪线程后进入的状态            - 此时线程开始执行            - 当时间片执行完毕后线程的任务没有完成时回到就绪状态   消亡状态 - 当时间执行完毕后线程的任务已经完成时进入的状态            - 此时线程已经终止   阻塞状态 - 当线程执行的过程中发生了阻塞事件后进入的状态，如：sleep()方法            - 当阻塞状态解除后回到就绪状态  
+线程的常用方法   static void sleep(long millis) - 用于使得调用线程休眠参数指定的毫秒数   int getPriority()- 用于获取线程的优先级  void setPriority(int newPriority) - 用于设置线程的优先级 </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-28&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/26/2019-10-26-throad/">
+        <p class="h4 index-header">Thread类</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">线程基本概念   程序 - 数据结构 + 算法，主要指存放在硬盘上的可执行文件   进程 - 主要指运行在内存中的程序
+   目前主流的操作系统都支持多进程，是为了让操作系统可以同时执行多个任务，但进程是重量级的，新建进程对系统资源的消耗比较大，因此进程的数量比较局限   线程是进程内部的程序流，也就是说操作系统支持多进程，而每个进程的内部又支持多线程，并且线程是轻量级的，会共享所在进程的资源，因此以后主流的开发都采用多线程技术   多线程技术是采用时间片轮转法来保证并发执行的效果，所谓并发就是指宏观并行微观串行的机制。
+线程的创建创建的方式   java.lang.Thread类用于描述线程，Java虚拟机允许运行多个执行线程，而线程的创建和启动方式如下:
+
+自定义类继承Thread类并重写run()方法，创建该类的对象调用start()方法  
+自定义类实现Runnable接口并重写run()方法，创建该类的对象作为实参来构造  Thread类的对象，然后使用Thread类对象调用start()方法  
+
+相关的方法   Thread() - 使用无参形式构造对象   Thread</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-26&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/25/2019-10-25-IoLiu/">
         <p class="h4 index-header">I/O流(二)</p>
         
@@ -337,189 +490,6 @@ boolean containsKey(Object key)
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/19/2019-10-19-List-Collection/">
-        <p class="h4 index-header">List集合简介</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Collection 集合在Java中 集合框架的顶层接口就是java.util.Collection 和 java.util.Map 其中Collection接口中存放元素的基本单位是：单个元素 而Map接口中存放元素的基本单位是：单对元素  
- 而我们今天学习的是List集合，它是Collection接口的子接口 ，其实我们开发中很少直接使用Collection接口，而是更多的使用该接口的子接口：List接口、Queue接口以及Set接口
-
-常用方法 boolean add(E e) 用于将参数指定的元素e放入当前集合中  boolean addAll(Collection&lt;? extends E&gt; c)        用于将参数集合c中的所有元素放入当前集合中   boolean contains(Object o)用于判断当前集合是否包含参数指定的单个元素  boolean containsAll(Collection&lt;?&gt; c)   用于判断是否包含参数c中的所有元素   boolean remove(Object o)  用于将参数指定的单个元素从当</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-19&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/18/2019-10-18-date/">
-        <p class="h4 index-header">日期日历类</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">日期相关的类Date类基本概念   java.util.Date类用于描述特征的瞬间，可以精确到毫秒数
-常用的方法
-   Date() 使用无参的方式构造对象，默认采用当前系统时间来初始化   Date(long date)  根据参数指定的毫秒数来构造对象。
-
-其中参数为距离1970年1月1日0时0分0秒以来的毫秒数  
-1秒 = 1000毫秒
-
-
-可File类中的方法搭配使用。  
-long getTime()用于获取当前调用对象距离1970年1月1日0时0分0秒的毫秒数void setTime(long time)用于设置当前调用对象的时间为距离1970年1月1日0时0分0秒的毫秒数。
-
-
-SimpleDateFormat类基本概念java.text.SimpleDateFormat类主要用于实现日期和文本之间的转换  
-常用的方法   SimpleDateFormat(String pattern)  根据参数指定的模式来构造对象
-
-常用的模式有：y-年  M-月  d-日  H-时  m-分  s-秒  
-
-public final String format(Date da</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-18&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/17/2019-10-17-String StringBuilder StringBuffer/">
-        <p class="h4 index-header">String,StringBuffer,StringBuilder</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">String类String类用于描述字符串，Java程序中的所有字符串字面值都可以使用该类的实例/对象加以描述String类描述的字符串内容是个常量，因此可以被共享String类被final关键字修饰 表示不能被继承构造方法(常见的)String()  使用无参方式构造对象得到空字符序列
-String(byte[] bytes)  使用bytes数组中的所有内容构造对象 
-String(char[] value)  使用value数组中的所有内容构造对象。
-成员方法(常见的)
-char charAt(int index)  根据参数指定的下标返回对应的单个字符boolean contains(CharSequence s) 用于判断当前字符串是否包含参数指定的内容(参数传递接口类的引用，所以实参传递实现类的对象，String类 刚好实现了这个接口)boolean endsWith(String suffix)  判断当前字符串是否以参数指定的内容为结尾boolean startsWith(String prefix)判断当前字符串中是否以参数指定的内容为开头String toLower</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-17&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/16/2019-10-16-abstractClass/">
-        <p class="h4 index-header">抽象类与接口</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">抽象类抽象类主要指不能具体实现的类，体现在该类不能实例化/构造对象并使用abstract修饰。  
-抽象方法  
-抽象方法主要指不能具体实现的方法，体现在该方法没有方法体并使用abstract关键字修饰 
-
-public abstract void 方法名(); 
-
-注意事项  
-
-抽象类中可以有成员变量、成员方法以及构造方法。
-抽象类中可以有抽象方法也可以没有。
-拥有抽象方法的类必须是抽象类，因此严格来说，具有抽象方法并使用abstract  关键字修饰的类才是真正意义上的抽象类  
-
-意义
-抽象类的意义在于被继承而不是自身实例化对象，当一个类继承另一个类，必须重写抽象方法，否则自身也必须是抽象类，所以抽象类对子类具有规范性
-接口接口是一种比抽象类还抽象的类，因此也不能实例化对象 定义接口的关键字是interface,实现接口的关键字是implements  
-抽象类和接口之间的区别  
-
-定义抽象类的关键字是class，而定义接口的关键字是interface。
-继承抽象类的关键字是extends，而实现接口的关键字是implements。
-继承抽象类支持单继承，而实现接口支持多实现</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-16&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
