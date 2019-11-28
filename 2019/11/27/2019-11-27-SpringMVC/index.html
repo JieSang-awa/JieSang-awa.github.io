@@ -158,23 +158,20 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <p>##Spring  MVC 控制器中接收页面请求参数</p>
-<ol>
+            <h2 id="Spring-MVC-控制器中接收页面请求参数"><a href="#Spring-MVC-控制器中接收页面请求参数" class="headerlink" title="Spring  MVC 控制器中接收页面请求参数"></a>Spring  MVC 控制器中接收页面请求参数</h2><ol>
 <li>在控制器方法上定义 HttpServletRequest 参数 然后使用 request 获取 </li>
 <li>直接定义和页面参数相同的控制器参数  参数名相同则容器自动获取 </li>
 <li>当页面参数  和 控制器参数不一致  如何解决?<br><code>@RequestParam(&quot;参数名&quot;)</code>  可以让请求参数  和 控制器参数对应 </li>
 <li>定义对象类型的参数 —  请求参数名 和 set方法保持对应 </li>
 </ol>
-<p>##Spring 控制器中 如何将数据传递给页面 </p>
-<ol>
+<h2 id="Spring-控制器中-如何将数据传递给页面"><a href="#Spring-控制器中-如何将数据传递给页面" class="headerlink" title="Spring 控制器中 如何将数据传递给页面"></a>Spring 控制器中 如何将数据传递给页面</h2><ol>
 <li>使用域对象 向页面传输<br><code>request</code>   <code>session</code>   <code>ServletContext</code><br><code>setAttribute(&quot;key&quot;,value)</code></li>
 <li>使用 ModelAndView  进行数据传递<br><code>getModel().put(key,value)</code><br><code>getModelMap().addAttribute(key,value)</code></li>
 <li>使用 Model  进行数据传输<br><code>addAttribute(&quot;key&quot;,value)</code></li>
 <li>使用ModelMap 传递数据<br><code>addAttribute(key,value)</code><br><code>put(key,value)</code></li>
 <li>使用默认的传输机制<br>当定义复杂的自定义控制器参数时  则控制器会自动把这个类型的数据放入<code>request</code>中<br>默认是类名首字母小写  可以使用 <code>@ModelAttribute(&quot;名字&quot;)</code>  改变默认规范  </li>
 </ol>
-<p>##Spring 控制器中如何实现重定向?</p>
-<ol>
+<h2 id="Spring-控制器中如何实现重定向"><a href="#Spring-控制器中如何实现重定向" class="headerlink" title="Spring 控制器中如何实现重定向?"></a>Spring 控制器中如何实现重定向?</h2><ol>
 <li>当控制器方法返回 String 类型时<br>在请求路径前  加 redirect:</li>
 <li>当控制器方法返回ModelAndView 时<br><code>RedirectView</code>  结合请求来完成     </li>
 </ol>

@@ -14,7 +14,7 @@
   <meta name="description" content="JieSangQAQ&#39;s blog">
   <meta name="author" content="JieSangQAQ">
   <meta name="keywords" content>
-  <title>rest ~ JieSangQAQ-兄弟会</title>
+  <title>SpringAOP ~ JieSangQAQ-兄弟会</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
@@ -108,7 +108,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期四 十一月 28
+                  星期五 十一月 29
                 </p>
               
 
@@ -117,7 +117,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    480 字
+                    1.1k 字
                   </span>&nbsp;
                 
 
@@ -125,7 +125,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      4 分钟
                   </span>&nbsp;
                 
 
@@ -158,34 +158,47 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <p>##Spring MVC 控制器中如何返回JSON</p>
-<ol>
-<li>搭建一个基于标注的 Spring  MVC</li>
-<li>设计一个控制器方法<br><code>@RequestMapping(&quot;/请求路径&quot;)</code><br><code>@ResponseBody</code><br>返回值类型就是JSON转换前对应的类型     方法名(){<br> return  类型对应的对象；<br>}<br><code>@ReponseBody</code>  需要依赖于 JSON转换包 </li>
+            <h2 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h2><p> <code>Aspect  Orientied    Programming</code>   面向切面编程(面向方面编程)<br>  它其实是对面向对象思想的一个扩展<br>  它可以在不修改原有组件 源代码的情况下 给组件增强功能</p>
+<p> AOP 关注重点是切面   通过配置手段就可以将切面嵌入到合适的位置<br>这样 能实现组件的重复利用  解除切面和目标组件之间的耦合度   大大提供程序的灵活性和可扩展性</p>
+<h2 id="AOP-中涉及到的概念"><a href="#AOP-中涉及到的概念" class="headerlink" title="AOP 中涉及到的概念"></a>AOP 中涉及到的概念</h2><pre><code>Aspect       切面        切面是用来封装共通业务逻辑的   用切面类型创建的对象叫切面对象
+JoinPoint    连接点      要被加入共通业务的位置   一般封装了方法的信息
+Pointcut     切点        切点是一堆连接点的集合  
+Target       目标        要被切入共通业务逻辑的组件 
+Proxy        代理        被增强之后的目标 叫代理  
+Advice       通知        通知是一种时机   目标方法调用开始之前   目标方法调用之后 
+目标方法调用前后    目标方法执行过程中一定执行    目标方法出现异常</code></pre><blockquote>
+<p>简单总结: 切面  –  通知  –  切点    </p>
+</blockquote>
+<h2 id="AOP-编程的实现步骤"><a href="#AOP-编程的实现步骤" class="headerlink" title="AOP 编程的实现步骤"></a>AOP 编程的实现步骤</h2><ol>
+<li>建立一个项目  导入jar包(ioc  aop)   拷贝配置文件到src下<br>建立一个服务类  里面定义两个方法     使用伪代码完成逻辑      使用Spring 容器创建<br>组件  并通过容器获取组件 调用方法 </li>
+<li>定义一个切面类    共通业务逻辑是 在方法调用前打印</li>
+<li>在Spring 容器中创建切面对象  并且通过配置手段 将切面嵌入到方法调用位置  测试   </li>
+<li>写一个DAO 接口  ,写一个DAO 接口的实现类  实现类的代码<br>在Spring 容器中创建DAO 接口的实现类对象<br>并通过容器获取这个对象  调用上面的方法。 然后写一个切面类  里面定义一个方法  这个<br>方法可以打印系统时间  格式  yyyy-MM-dd hh:mm:ss@1970到现在的毫秒数<br>然后通过AOP的手段 将系统时间打印嵌入到 上面的DAO 方法中。</li>
 </ol>
-<p>##什么是rest<br><strong><code>REST</code>即表述性状态传递（英文：Representational State Transfer，简称REST）</strong><br>它可以提高系统的可伸缩性   降低组件之间的耦合度   便于分布应用程序的设计和开发<br>具体做了两个方法的规范  </p>
-<ol>
-<li>对URL的风格做了规范   </li>
-<li>把原来基于操作的设计  </li>
-<li>转换成了基于资源的设计 </li>
+<h2 id="切点表达式的写法"><a href="#切点表达式的写法" class="headerlink" title="切点表达式的写法"></a>切点表达式的写法</h2><ol>
+<li>bean 限定表达式<br><code>bean(符合条件的对象id)</code>    如果符合对象的id  则对象对应的类型中对应 所有的方法都将切入共通逻辑<br>   允许使用通配符  如 *Dao    既所有的以Dao 结尾的组件id 都将被匹配   </li>
+<li>类型限定表达式<br><code>within(符合条件的类型表达式)</code>     这个表达式的最后一部分一定是类型</li>
+<li>方法限定表达式<br><code>execution(方法限定表达式)</code>     方法限定表达式 包括  <pre><code>权限修饰     返回值类型   方法名(参数说明) throws 异常   </code></pre>其中  返回值类  方法名()  是必须的 </li>
 </ol>
-<p>对http协议的请求方式做了规范<br>     get   查询       post  增加       put  更新        delete 删除<br>##restful<br>  符合rest 设计风格和规范的应用程序设计 叫restful<br>##Spring MVC  对 rest的支持 </p>
-<ol>
-<li><p>建立基于标注的 Spring MVC</p>
-</li>
-<li><p>对控制器方法做设计<br><code>@RequestMapping(value=&quot;/请求路径/{路径变量}&quot;,method=RequestMethod.请求方式枚举值)</code><br>public  返回值类型   方法名(@PathVariable(“路径变量名”) 类型  变量{</p>
-<p> }<br>如果要返回JSON  则加 @ResponseBody    —-  依赖json转换包 </p>
-</li>
-<li><p>由于rest风格的请求路径上  没有后缀   所有 DispatcherServlet  上 需要使用  /<br>所有的静态资源 都将被拦截处理   所以要放行静态资源<br>在spring 配置文件中 加 &lt;mvc:default-servlet-handler /&gt;</p>
-</li>
+<h2 id="Spring-AOP-中的五种通知类型"><a href="#Spring-AOP-中的五种通知类型" class="headerlink" title="Spring AOP 中的五种通知类型"></a>Spring AOP 中的五种通知类型</h2><pre><code>&lt;aop:before            前置通知   在目标方法调用前调用 
+&lt;aop:after             最终通知   在目标方法调用后 一定会调用
+&lt;aop:after-returing   后置通知   在目标方法调用后 调用   目标方法出现异常就不调用 
+&lt;aop:after-throwing   异常通知   在目标方法出现异常时调用 
+&lt;aop:around              环绕通知   在目标方法调用前后 都会调用 </code></pre><h2 id="基于标注的AOP"><a href="#基于标注的AOP" class="headerlink" title="基于标注的AOP"></a>基于标注的AOP</h2><ol>
+<li>建立一个项目 导入jar包(ioc aop)   拷贝配置文件到src下</li>
+<li>开启组件扫描<br>&lt;context:component-scan   base-package=”” /&gt;</li>
+<li>写一个 DAO 接口  </li>
+<li>写一个DAO 的实现类 </li>
+<li>在DAO 实现类上加对应的标注   让其在容器中创建对象  测试 </li>
+<li>写一个切面组件   并在容器中创建对象 </li>
+<li>开启标注形式的  aop<br>&lt;aop:aspectj-autoproxy   proxy-target-class=”true” /&gt;</li>
+<li>在切面类上加 把切面类 变成真正的切面的标注 @Aspect<br>在切面方法上加对应的通知标注   然后在标注中写切点表达式 </li>
 </ol>
-<p>##基于rest的修改  </p>
-<ol>
-<li>先把 post 请求 改成 put 请求 </li>
-<li>前端<br>需要把  post 请求改成 put<br>需要加ajax的请求设置   contentType:”application/json”<br>当有上面的设置时  要求参数必须以 json字符串进行传递     把json对象 转换成 json字符串<br><code>eval(&#39;(&#39; + jsonStr +&#39;)&#39;)</code>   JSON.parse(json字符串)<br><code>JSON.stringify(json对象)</code>  可以把json对象转换成json字符串</li>
-<li>服务端<br>把post 请求改成  put<br>还需要对象类型的参数上 加 <code>@RequestBody</code></li>
-</ol>
-
+<h2 id="Spring-中的通知对应的标注"><a href="#Spring-中的通知对应的标注" class="headerlink" title="Spring 中的通知对应的标注"></a>Spring 中的通知对应的标注</h2><pre><code>&lt;aop:before            前置通知   在目标方法调用前调用      @Before
+&lt;aop:after             最终通知   在目标方法调用后 一定会调用  @After
+&lt;aop:after-returning  后置通知   在目标方法调用后 调用   目标方法出现异常就不调用 @AfterReturning
+&lt;aop:after-throwing   异常通知   在目标方法出现异常时调用  @AfterThrowing
+&lt;aop:around              环绕通知   在目标方法调用前后 都会调用   @Around  </code></pre>
             <hr>
           </div>
           <br>
@@ -241,8 +254,8 @@
     <div id="disqus_thread"></div>
     <script>
       var disqus_config = function () {
-        this.page.url = 'https://github.com/JieSangQAQ/2019/11/28/2019-11-28-SpringMVC/';
-        this.page.identifier = '/2019/11/28/2019-11-28-SpringMVC/';
+        this.page.url = 'https://github.com/JieSangQAQ/2019/11/29/2019-11-29-SpringAOP/';
+        this.page.identifier = '/2019/11/29/2019-11-29-SpringAOP/';
       };
       var oldLoad = window.onload;
       window.onload = function () {
@@ -361,7 +374,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "rest&nbsp;",
+        "SpringAOP&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
