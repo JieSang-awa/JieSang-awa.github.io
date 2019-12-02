@@ -293,6 +293,48 @@ emmm... 过了 ，毫无瑕疵</div>
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/07/2019-9-7-dddd/">
+        <p class="h4 index-header">重装系统后重新与github建立连接</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">解决办法是，再次生成一个密钥，然后完成跟github远程仓库的认证即可建立连接。
+默认你已经安装好了git，如果没有安装，windows下安装gitbash自带git，linux系统的话sudo apt-get  install -g git就可以了
+
+生成SSH秘钥第一步先生成ssh秘钥。在系统根目录下打开命令行终端，执行命令：ssh-keygen -t rsa -C "填写你的任意邮箱"，
+
+执行完成后，会生成一个.ssh文件夹，里面的id_rsa.pub文件内容就是秘钥，那么我们就进入ssh文件夹打开该文件后复制它的内容。或者命令行快速打开cd ./.ssh && cat id_rsa.pub然后会有一大串字符打印在终端，这个是秘钥内容，全部复制下来。
+
+登录github新建SSH Key登录自己的github，在右上角头像框点击邮件选择Settings，然后在左边菜单选择SSH and GPG keys,在SSH keys一栏点击New SSH key的绿色按钮，title随便写，key那一个框框里把刚才复制的id_rsa.pub的内容粘贴到这里，确定复制的是完整的秘钥不要漏了</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%97%A5%E6%8A%A5">日报</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/09/07/2019-9-7-wwebstorm/">
         <p class="h4 index-header">webstrom安装</p>
         
@@ -340,48 +382,6 @@ shttps://www.jetbrains.com/we</div>
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/%E5%85%B6%E4%BB%96">其他</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/07/2019-9-7-dddd/">
-        <p class="h4 index-header">重装系统后重新与github建立连接</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">解决办法是，再次生成一个密钥，然后完成跟github远程仓库的认证即可建立连接。
-默认你已经安装好了git，如果没有安装，windows下安装gitbash自带git，linux系统的话sudo apt-get  install -g git就可以了
-
-生成SSH秘钥第一步先生成ssh秘钥。在系统根目录下打开命令行终端，执行命令：ssh-keygen -t rsa -C "填写你的任意邮箱"，
-
-执行完成后，会生成一个.ssh文件夹，里面的id_rsa.pub文件内容就是秘钥，那么我们就进入ssh文件夹打开该文件后复制它的内容。或者命令行快速打开cd ./.ssh && cat id_rsa.pub然后会有一大串字符打印在终端，这个是秘钥内容，全部复制下来。
-
-登录github新建SSH Key登录自己的github，在右上角头像框点击邮件选择Settings，然后在左边菜单选择SSH and GPG keys,在SSH keys一栏点击New SSH key的绿色按钮，title随便写，key那一个框框里把刚才复制的id_rsa.pub的内容粘贴到这里，确定复制的是完整的秘钥不要漏了</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%97%A5%E6%8A%A5">日报</a>&nbsp;
           
         
       </div>
