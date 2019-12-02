@@ -131,6 +131,106 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/02/2019-12-01-Mybatis /">
+        <p class="h4 index-header">Spring和mybatis的整合</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Spring 和  Mybatis的整合新建一个项目  导入jar包  
+根据银行账户表  建立一个实体类package com.bankaccount.bean;
+
+public class BankAccount {
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getAcc_no() {
+        return acc_no;
+    }
+    public void setAcc_no(String acc_no) {
+        this.acc_no = acc_no;
+    }
+    public String getAcc_password() {
+        return acc_password;
+    }
+    public void setAcc_password(String acc_password) {
+        th</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/30/2019-11-30-Mybatis/">
+        <p class="h4 index-header">mybatis</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Mybatis 的作用  可以用来执行普通的sql操作   存储过程 它是一个高级的ORM(Object Relation  Mapping  对象关系映射  以面向对象的思想操作数据库)框架 它封装了几乎所有的jdbc 操作    以及参数的手工设置 结果集检索(把结果集自动转换成对象)  
+Mybatis 框架的构成实体类            封住数据和业务逻辑 
+SQL定义文件        写SQL语句的XML 文件 
+主配置文件        用来定义连接数据库信息 和 加载SQL定义文件 以及做一些特殊设置的 XML文件 
+框架的API        主要通过SqlSession 来体现   (SqlSession 略微麻烦一些)  用来完成增删改查 案例使用Mybatis 完成根据id 查询银行账户 
+建立一个项目 导入jar包(mybatis.jar 数据库驱动)
+根据表建立对应的实体类 
+拷贝sql 定义文件的模板 到 一个包中     在sql 定义文件中 定义SQL语句
+拷贝主配置文件模板 到src下     定义连接数据的信息  并加载sql定义文件 
+获取S</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-30&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/11/29/2019-11-29-SpringAOP/">
         <p class="h4 index-header">SpringAOP</p>
         
@@ -411,87 +511,6 @@ Spring </div>
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/%E6%97%A5%E6%8A%A5">日报</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/22/2019-11-22-DIImplements/">
-        <p class="h4 index-header">DI实现</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">什么是DI
-Dependence  Injection   依赖注入把一个组件的值  设置给另外一个组件的过程 叫依赖注入  DI  解决的问题就是组件的装配问题 
-
-DI的三种实现方式
-setter 注入参考类型对应的set方法    来进行值的设置在bean 标记中 出现如下配置   属性名这是设置值 所以参考的是 set方法去掉set 然后首字母小写如果要赋值复杂的值 则需要使用 ref, value 能赋值的类型有  八种基本类型 和 封装类   String  枚举
-
-构造器注入参考的是构造方法的参数   只要构造方法的参数能匹配上 则直接调用对应的带参构造在bean 标记中 出现如下配置   把上面的    property 标记 换成   constructor-arg注意我们可以使用 index  替换 name,index 代表参数的编号   编号0开始 
-
-自动化注入主要解决复杂值的注入问题只要在bean 标记中 使用  autowire 属性 指定自动化注入的方式即可autowire   的取值有  byName  byType   constructorbyNa</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/21/2019-11-21-Spring/">
-        <p class="h4 index-header">DI(Dependence Injection)</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">bean 对象的延迟实例化在Spring 容器中  对象默认的作用域是单例的    Spring容器对单例对象 默认是容器
-启动时创建  可以通过bean 标记的 lazy-init=&quot;true&quot;  让其使用到的时候创建容器启动时不创建。什么是DIDependence  Injection   依赖注入(依赖注射)
-把一个组件的值  设置给另外一个组件的过程 叫依赖注入DI的三种实现方式setter注入构造器注入自动化注入  
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
           
         
       </div>

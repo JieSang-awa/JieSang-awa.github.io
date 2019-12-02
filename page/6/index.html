@@ -131,6 +131,96 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/11/2019-10-11-ribao/">
+        <p class="h4 index-header">mysql碎片整理优化</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">MysqL碎片整理优化
+先来说一下什么是碎片，怎么知道碎片有多大！
+
+简单的说,删除数据必然会在数据文件中造成不连续的空白空间,而当插入数据时,这些空白空间则会被利用起来.于是造成了数据的存储位置不连续,以及物理存储顺序与理论上的排序顺序不同,这种是数据碎片.实际上数据碎片分为两种,一种是单行数据碎片,另一种是多行数据碎片.前者的意思就是一行数据,被分成N个片段,存储在N个位置.后者的就是多行数据并未按照逻辑上的顺序排列.当有大量的删除和插入操作时,必然会产生很多未使用的空白空间,这些空间就是多出来的额外空间.索引也是文件数据,所以也会产生索引碎片,理由同上,大概就是顺序紊乱的问题.Engine 不同,OPTIMIZE 的操作也不一样的,MyISAM 因为索引和数据是分开的,所以 OPTIMIZE 可以整理数据文件,并重排索引。这样不但会浪费空间，并且查询速度也更慢。
+
+
+解决方案：（切记，一定要在夜里执行，表越大，越耗资源时间，不要频繁修复，可以几个月甚至一年修复一次，如果表频繁被更改，可以按周/月来整理。）
+
+查看表碎片的方法select ROW_FORMAT,TABLE_ROWS</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-11&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/10/2019-10-10-ribao/">
+        <p class="h4 index-header">mysql简单整理</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+windows键+r启动小黑框，输入 mysql -u用户名 p密码，会出现WELCOME to MYSQL 等字眼
+
+我们经常用小黑框查询以及测试数据是否正常： 首先看看有没有数据库，或者创建数据库
+查看数据库: SHOW DATABASES; 
+
+
+2.或者如果没有你想选择的数据库，你可以创建一个数据库
+CREATE DATABASE IF NOT EXISTS数据库名;
+记住数据库名后要写分号’;’
+选取创建的数据库 ： USE 数据库名;
+创建数据表：
+1234567891011 CREATE TABLE IF NOT EXISTS 表名(    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,    name VARCHAR(255) UNIQUE, -- 如果你想让你的字段名的值是唯一值的话就加上UNIQUE，否则就去掉   age TINYINT UNSIGNED NOT NULL DEFAULT 1,  -- 默认值请为1， UNSIGNED 字段值不能有符号   sex TINYINNT UNSIGNED NOT NULL )E</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/09/2019-10-9-ribao/">
         <p class="h4 index-header">MongoDB</p>
         
@@ -481,86 +571,6 @@ select  id,first_name,to_char(start_date,’yyyy-</div>
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/23/2019-9-23-stuey-select/">
-        <p class="h4 index-header">数据库(1)</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">** 内连接 **      内连接的特点就是 符合连接条件的数据 被选中  不符合连接条件的数据被过滤掉。      上面的  等值连接    非等值连接   自连接 都是内连接。** 外连接 **   外连接的结果集 等于 内连接的结果集  加上 匹配不上的记录(一个也不能少)  
-  (+)  (+) 所在的表的字段 对面的表的数据全部被匹配出来
-               底层通过 NULL 记录匹配出来的  
-  >select distinct m.id,m.first_name from  s_emp  e,s_emp m  where e.manager_id(+) = m.id and  e.manager_id is null;
-
-1234567891011121314151617181920212223242526272829303132333435363738练习   s_emp   s_dept      显示每个员工的id, first_name  和 对应的 部门名(name)    select  e.id,first_name,name       </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-23&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/22/2019-9-22-windows/">
-        <p class="h4 index-header">22日日报</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">终于我还是败给了deepin
-今天又安回了win10系统,因为我Linux下安装数据库安装了好长时间
-于是我自闭了，安回了win10。看见熟悉的画面，emmm.... 还是windows看着舒服
-今天安装各种软件安装了好长时间,所以学习时间就少了好多
-但是这并不是我不努力的理由,所以只有更努力的学习了嘛
-you can</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%97%A5%E6%8A%A5">日报</a>&nbsp;
           
         
       </div>

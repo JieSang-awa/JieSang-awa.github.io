@@ -131,6 +131,103 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/01/2019-11-1-suanfa/">
+        <p class="h4 index-header">基本查找算法和排序算法</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">常用的查找算法线性/顺序查找算法算法流程  
+
+使用目标元素与样本数列中的元素从前向后依次比较大小；  
+若找到与目标元素相等的元素，则表示查找成功；  
+若所有元素与目标元素比较完毕也没有相等的元素，则表示查找失败；  
+
+二分/折半查找算法算法流程  
+
+假定样本数列中的所有元素从小到大有序排列；  
+使用目标元素与样本数列中的中间元素比较大小，若相等则查找成功；  
+若目标元素小于中间元素，则应该去中间元素的左边进行查找；  
+若目标元素大于中间元素，则应该去中间元素的右边进行查找；  
+直到处理完毕所有元素也没有相等的元素，则表示查找失败；  
+
+常见的排序算法冒泡排序算法算法流程  
+
+比较相邻位置两个元素的大小，若第一个元素比第二个大则交换两个元素的位置；  
+从开始的第一对一直比较到结尾的最后的一对，经过这一步，最后的元素将是这组  元素的最大值；  
+重复步骤b持续对越来越少的元素进行比较，直到处理完毕所有元素为止；  (任何相邻位置的两个元素都不再需要交换为止)
+
+插入排序算法算法流程
+
+取出第一个元素，可以认定该元素已经有序；
+取出下一个元素，让取出的元素与左边的有</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-01&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/31/2019-10-31-fanshe/">
+        <p class="h4 index-header">反射机制</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">反射机制如：   Person p = new Person(); - 表示声明Person类型的引用指向Person类型的对象   p.show();                - 表示调用show方法  
+基本概念   通常情况下编写的代码都是固定的，运行的结果也是固定的，若编写代码时不确定会创建什么类型的对象以及调用什么样的方法，由运行时传入的参数决定，这种技术就叫动态编程或反射机制。   反射机制是目前主流框架的底层原理。
+Class类基本概念   java.lang.Class类的实例用于表示正在运行Java程序中的类和接口，也就是用于代表一种数据类型   该类没有公共构造方法，该类的实例由Java虚拟机和类加载器自动构造  
+获取Class对象的方式   a.使用数据类型.class的方式获取对应类型的Class对象；   b.使用对象.getClass()的方式获取对应类型的Class对象；   c.使用包装类.TYPE的方式获取对应基本数据类型的Class对象；   d.使用Class.forName()的方式获取对应类型的Class对象；  
+常用的方法  sta</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-31&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/30/2019-10-30-udp/">
         <p class="h4 index-header">基于UDP的编程模型</p>
         
@@ -398,98 +495,6 @@ NumberFormatException - 数字格式异常
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-23&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/22/2019-10-22-Map-collection/">
-        <p class="h4 index-header">Map集合简介</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Map集合基本概念   java.util.Map&lt;K,V&gt;接口中存放元素的基本单位是：单对元素 (键值对) 
-
-K - 用于描述键(Key)的类型
-
-V - 用于描述值(Value)的类型
-该接口的主要实现类：HashMap类 和 TreeMap类该接口中key(键)不允许重复，而且每个key(键)能且只能对应一个Value(值)  
-
-
-常用方法V put(K key, V value)   用于将key和value组成一对放入当前集合中  
-
-若实现增加功能则返回null；若实现修改功能则返回原来的value.    
-boolean containsKey(Object key)
-用于判断当前集合中是否存在参数指定的key  boolean containsValue(Object value) 
-用于判断当前集合中是否存在参数指定的value   V get(Object key)
-用于根据参数指定的key返回对应的value，若key不存在则返回null  V remove(Object key)
-用于根据参数指定的key来删除键值对，返回该key对应的valu</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/21/2019-10-21-Set-Collection/">
-        <p class="h4 index-header">Set集合简介</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Set集合基本概念   java.util.Set接口是Collection接口的子接口，与List接口是平级关系   该接口与List接口相比元素没有先后次序，并且不允许有重复的元素。无序且唯一   该接口的主要实现类：HashSet类 和 TreeSet类   其中HashSet类的底层是采用哈希表进行数据管理的   其中TreeSet类的底层是采用有序二叉树进行数据管理的  
-常用的方法   其实Set集合好多方法都是从Collection中继承过来的，所以常用方法参照Collection集合 
-   Iterator&lt;E&gt; iterator()  获取当前集合中的迭代器对象，用于迭代/遍历集合中所有元素   其中Iterator是个接口，常用方法如下：       boolean hasNext() 用于判断是否拥有可以访问的元素      E next()  用于取出一个元素并指向下一个位置      void remove()   用于将刚刚取出的元素删除  
-小知识—forEach循环
-
-语法格式for(
- 元素类型 变量名 : 集合/数组的名称){
-  循环</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-21&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>

@@ -131,6 +131,105 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/12/2019-11-12-cookieandsession/">
+        <p class="h4 index-header">Cookie与Session</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">会话跟踪 ( 状态管理 )HTTP协议是无状态的 , 我们的服务器在与客户端进行交互时, 没有记忆.
+
+两种方式来实现状态管理:
+
+    1.    Cookie技术:        将状态 , 存储到客户端中  
+    2.    Session技术:        将id存储在客户端中,  将状态存储在服务器中.Cookie技术技术实现步骤以及原理:
+
+    1.    当服务器向客户端响应时 , 可以向响应头部加入Cookie , 每一个Cookie表示一个键值对.
+    2.    浏览器在接收到响应后, 如果存在Cookie , 则会将Cookie存储在文本文件中 (.txt)
+        存储时, 会存储的信息有:    服务器的域 , 路径 , Cookie键 ,Cookie的值, 存储时长...
+    3.    当浏览器向客户端请求时, 会遍历 Cookie的文本文件, 将匹配新请求地址的Cookie 携带上, 放在请求头部, 发送给服务器 !
+        Cookie匹配的规则:    
+            当cookie存储的域相同时,  路</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/11/2019-11-11-servlet/">
+        <p class="h4 index-header">Servlet请求与响应</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">HttpGET请求 与 HttpPOST请求的区别:GET请求:
+    -    请求的参数 ,以键值对的形式    存储在网址中 ,在网址中, 编写在?后, 由1个或多个键值对组成, 键与值之间使用等号连接, 多个键值对之间使用&amp;分割.
+    -    只能传输字符串类型的参数.
+    -    网址的最大长度为4kb 通常支持的文字 2048 个文字
+    -    数据传输不安全
+
+    tomcat8+版本    :    GET请求不会乱码
+
+POST请求:
+    -    请求的数据, 以键值对的形式存储在请求体中, 
+    -    请求体是一个单独的数据包 , 较GET请求而言, 安全.
+    -    可以传输任意类型的数据
+    -    数据的大小 ,理论上是无上限的.
+
+    tomcat8+版本    :    Post请求默认编码为 ISO-8859-1 (不支持中文)什么样的请求是GET以我们目前所学习的技术来说 , 除了表单提交时method=&quot;POST&quot; ,其他的访问方式都是GET请求
+
+例如:
+    </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-11&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/11/09/2019-11-9-servlet/">
         <p class="h4 index-header">Servlet简介</p>
         
@@ -418,103 +517,6 @@ Properties文件 是以键值对形式存放数据，一个键对应且只对应
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/01/2019-11-1-suanfa/">
-        <p class="h4 index-header">基本查找算法和排序算法</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">常用的查找算法线性/顺序查找算法算法流程  
-
-使用目标元素与样本数列中的元素从前向后依次比较大小；  
-若找到与目标元素相等的元素，则表示查找成功；  
-若所有元素与目标元素比较完毕也没有相等的元素，则表示查找失败；  
-
-二分/折半查找算法算法流程  
-
-假定样本数列中的所有元素从小到大有序排列；  
-使用目标元素与样本数列中的中间元素比较大小，若相等则查找成功；  
-若目标元素小于中间元素，则应该去中间元素的左边进行查找；  
-若目标元素大于中间元素，则应该去中间元素的右边进行查找；  
-直到处理完毕所有元素也没有相等的元素，则表示查找失败；  
-
-常见的排序算法冒泡排序算法算法流程  
-
-比较相邻位置两个元素的大小，若第一个元素比第二个大则交换两个元素的位置；  
-从开始的第一对一直比较到结尾的最后的一对，经过这一步，最后的元素将是这组  元素的最大值；  
-重复步骤b持续对越来越少的元素进行比较，直到处理完毕所有元素为止；  (任何相邻位置的两个元素都不再需要交换为止)
-
-插入排序算法算法流程
-
-取出第一个元素，可以认定该元素已经有序；
-取出下一个元素，让取出的元素与左边的有</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-01&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/31/2019-10-31-fanshe/">
-        <p class="h4 index-header">反射机制</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">反射机制如：   Person p = new Person(); - 表示声明Person类型的引用指向Person类型的对象   p.show();                - 表示调用show方法  
-基本概念   通常情况下编写的代码都是固定的，运行的结果也是固定的，若编写代码时不确定会创建什么类型的对象以及调用什么样的方法，由运行时传入的参数决定，这种技术就叫动态编程或反射机制。   反射机制是目前主流框架的底层原理。
-Class类基本概念   java.lang.Class类的实例用于表示正在运行Java程序中的类和接口，也就是用于代表一种数据类型   该类没有公共构造方法，该类的实例由Java虚拟机和类加载器自动构造  
-获取Class对象的方式   a.使用数据类型.class的方式获取对应类型的Class对象；   b.使用对象.getClass()的方式获取对应类型的Class对象；   c.使用包装类.TYPE的方式获取对应基本数据类型的Class对象；   d.使用Class.forName()的方式获取对应类型的Class对象；  
-常用的方法  sta</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-31&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
           &nbsp;
         
         

@@ -131,6 +131,101 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/08/20/2019-8-20-sixth-technology/">
+        <p class="h4 index-header">ubantu安装QQ</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">安装 wine
+git clone https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.gitcd deepin-wine-for-ubuntusudo sh install.sh安装QQ
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/deepin.com.qq.im_8.9.19983deepin23_i386.debsudo dpkg -i deepin.com.qq.im_8.9.19983deepin23_i386.debsudo apt-get install -f
+卸载QQ请自行百度
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-20&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/8%E6%9C%88">8月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%85%B6%E4%BB%96">其他</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/08/19/2019-8-19-fifth-day/">
+        <p class="h4 index-header">git变基和标签操作</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+变基操作，改写历史提交 把多次提交合并起来
+
+git rebase -i HEAD~3 变基之后的哈希值与之前的不同 证明变基是重新做的提交 把多次提交合并成了几次提交
+
+回撤操作
+
+git commit –amend -m “提交信息” // 回撤上一次提交并与本次工作区一起提交
+git reset HEAD~2 –hard // 回撤2步
+git reset –files // 从仓库回撤到暂存区
+git reset HEAD // 回撤暂存区内容到工作目录
+git reset HEAD –soft 回撤提交到暂存区
+git reset HEAD –hard // 回撤提交 放弃变更(慎用)
+git reset HEAD^  // 回撤仓库最后一次提交
+git reset –hard commitid // 回撤到该次提交id的位置
+git push -f -u origin 分支名 所有内容都回撤完了 将回撤后的操作强制推送到远程分支
+
+标签操作
+
+git tag // 查看列出所有打过的标签名
+git tag -d 标签名 // 删除对应标签
+git tag 标签名字 // </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-19&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/8%E6%9C%88">8月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Git">Git</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/08/18/2019-8-18-fourth-day/">
         <p class="h4 index-header">查看提交信息</p>
         

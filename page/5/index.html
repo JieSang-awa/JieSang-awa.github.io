@@ -131,6 +131,98 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/22/2019-10-22-Map-collection/">
+        <p class="h4 index-header">Map集合简介</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Map集合基本概念   java.util.Map&lt;K,V&gt;接口中存放元素的基本单位是：单对元素 (键值对) 
+
+K - 用于描述键(Key)的类型
+
+V - 用于描述值(Value)的类型
+该接口的主要实现类：HashMap类 和 TreeMap类该接口中key(键)不允许重复，而且每个key(键)能且只能对应一个Value(值)  
+
+
+常用方法V put(K key, V value)   用于将key和value组成一对放入当前集合中  
+
+若实现增加功能则返回null；若实现修改功能则返回原来的value.    
+boolean containsKey(Object key)
+用于判断当前集合中是否存在参数指定的key  boolean containsValue(Object value) 
+用于判断当前集合中是否存在参数指定的value   V get(Object key)
+用于根据参数指定的key返回对应的value，若key不存在则返回null  V remove(Object key)
+用于根据参数指定的key来删除键值对，返回该key对应的valu</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/21/2019-10-21-Set-Collection/">
+        <p class="h4 index-header">Set集合简介</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Set集合基本概念   java.util.Set接口是Collection接口的子接口，与List接口是平级关系   该接口与List接口相比元素没有先后次序，并且不允许有重复的元素。无序且唯一   该接口的主要实现类：HashSet类 和 TreeSet类   其中HashSet类的底层是采用哈希表进行数据管理的   其中TreeSet类的底层是采用有序二叉树进行数据管理的  
+常用的方法   其实Set集合好多方法都是从Collection中继承过来的，所以常用方法参照Collection集合 
+   Iterator&lt;E&gt; iterator()  获取当前集合中的迭代器对象，用于迭代/遍历集合中所有元素   其中Iterator是个接口，常用方法如下：       boolean hasNext() 用于判断是否拥有可以访问的元素      E next()  用于取出一个元素并指向下一个位置      void remove()   用于将刚刚取出的元素删除  
+小知识—forEach循环
+
+语法格式for(
+ 元素类型 变量名 : 集合/数组的名称){
+  循环</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-21&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/19/2019-10-19-List-Collection/">
         <p class="h4 index-header">List集合简介</p>
         
@@ -501,96 +593,6 @@ MySQL软件采用了双授权政策，分为社区版和商业版，由于其体
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/11/2019-10-11-ribao/">
-        <p class="h4 index-header">mysql碎片整理优化</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">MysqL碎片整理优化
-先来说一下什么是碎片，怎么知道碎片有多大！
-
-简单的说,删除数据必然会在数据文件中造成不连续的空白空间,而当插入数据时,这些空白空间则会被利用起来.于是造成了数据的存储位置不连续,以及物理存储顺序与理论上的排序顺序不同,这种是数据碎片.实际上数据碎片分为两种,一种是单行数据碎片,另一种是多行数据碎片.前者的意思就是一行数据,被分成N个片段,存储在N个位置.后者的就是多行数据并未按照逻辑上的顺序排列.当有大量的删除和插入操作时,必然会产生很多未使用的空白空间,这些空间就是多出来的额外空间.索引也是文件数据,所以也会产生索引碎片,理由同上,大概就是顺序紊乱的问题.Engine 不同,OPTIMIZE 的操作也不一样的,MyISAM 因为索引和数据是分开的,所以 OPTIMIZE 可以整理数据文件,并重排索引。这样不但会浪费空间，并且查询速度也更慢。
-
-
-解决方案：（切记，一定要在夜里执行，表越大，越耗资源时间，不要频繁修复，可以几个月甚至一年修复一次，如果表频繁被更改，可以按周/月来整理。）
-
-查看表碎片的方法select ROW_FORMAT,TABLE_ROWS</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-11&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/10/2019-10-10-ribao/">
-        <p class="h4 index-header">mysql简单整理</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-windows键+r启动小黑框，输入 mysql -u用户名 p密码，会出现WELCOME to MYSQL 等字眼
-
-我们经常用小黑框查询以及测试数据是否正常： 首先看看有没有数据库，或者创建数据库
-查看数据库: SHOW DATABASES; 
-
-
-2.或者如果没有你想选择的数据库，你可以创建一个数据库
-CREATE DATABASE IF NOT EXISTS数据库名;
-记住数据库名后要写分号’;’
-选取创建的数据库 ： USE 数据库名;
-创建数据表：
-1234567891011 CREATE TABLE IF NOT EXISTS 表名(    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,    name VARCHAR(255) UNIQUE, -- 如果你想让你的字段名的值是唯一值的话就加上UNIQUE，否则就去掉   age TINYINT UNSIGNED NOT NULL DEFAULT 1,  -- 默认值请为1， UNSIGNED 字段值不能有符号   sex TINYINNT UNSIGNED NOT NULL )E</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-10&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
