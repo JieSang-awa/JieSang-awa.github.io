@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Spring和mybatis的整合</title>
-    <url>/2019/12/02/2019-12-01-Mybatis%20/</url>
+    <url>/2019/12/02/2019-12-02-Mybatis2/</url>
     <content><![CDATA[<h2 id="Spring-和-Mybatis的整合"><a href="#Spring-和-Mybatis的整合" class="headerlink" title="Spring 和  Mybatis的整合"></a>Spring 和  Mybatis的整合</h2><h3 id="新建一个项目-导入jar包"><a href="#新建一个项目-导入jar包" class="headerlink" title="新建一个项目  导入jar包"></a>新建一个项目  导入jar包</h3><p><img src="https://img-blog.csdn.net/20180829150633210?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMTcyNDE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="undefined" alt>  </p>
 <h3 id="根据银行账户表-建立一个实体类"><a href="#根据银行账户表-建立一个实体类" class="headerlink" title="根据银行账户表  建立一个实体类"></a>根据银行账户表  建立一个实体类</h3><pre><code>package com.bankaccount.bean;
 
@@ -128,7 +128,7 @@ public class BankAccountDAOTest {
 
 }</code></pre>]]></content>
       <categories>
-        <category>11月</category>
+        <category>12月</category>
       </categories>
       <tags>
         <tag>Java</tag>
