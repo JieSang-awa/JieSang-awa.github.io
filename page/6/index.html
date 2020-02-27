@@ -131,6 +131,98 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/12/2019-10-12-ribao/">
+        <p class="h4 index-header">orcale,mysql,mongodb,redis对比</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">MySQL概述：
+
+关系型数据库。无论数据还是索引都存放在硬盘中。到要使用的时候才交换到内存中。能够处理远超过内存总量的数据。
+
+
+在不同的引擎上有不同 的存储方式。
+
+
+查询语句是使用传统的 SQL 语句，拥有较为成熟的体系，成熟度很高。
+
+
+开源数据库的份额在不断增加，MySQL 的份额页在持续增长。
+
+
+缺点：在海量数据处理的时候效率会显著变慢。
+
+MySQL特点：
+
+
+使用c和c++编写，并使用了多种编译器进行测试，保证源代码的可移植性
+
+
+
+
+支持多种操作系统
+
+
+
+
+为多种编程语言提供可API
+
+
+
+
+支持多线程，充分利用CPU资源优化的SQL查询算法，有效的提高查询速度
+
+
+
+
+提供多语言支持，常见的编码如：GB2312、BIG5、UTF8
+
+
+
+
+提供TCP/IP、ODBC和JDBC等多种数据库连接途径提供用于管理、检查、优化数据库操作的管理工具
+
+
+
+
+大型的数据库。可以处理拥有上千万条记录的大型数据库
+
+
+
+8.支持多种存储引擎
+
+
+
+MySQL软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是开放源码这一特点，一般中小型网站的开</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/11/2019-10-11-ribao/">
         <p class="h4 index-header">mysql碎片整理优化</p>
         
@@ -508,58 +600,6 @@ select  id,first_name,to_char(start_date,’yyyy-</div>
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/24/2019-9-24-study_select/">
-        <p class="h4 index-header">数据库(2)</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1"> 表连接
-内连接 
-        等值连接     员工和部门       部门和地区        
-        非等值连接   员工的工资 和 对应的工资级别
-        自连接          谁是领导?
- 外连接
-        等值连接     员工和部门 (找出没有部门的员工)      部门和地区 (没有地区编号的部门)        
-        非等值连接   员工的工资 和 对应的工资级别  (超出统计范围的工资)
-        自连接          谁是普通员工?
-
-  外连接的结果集 等于 内连接的结果集  加上匹配不上的记录 
-        如何实现的?
-  (+)   (+)的意思所在字段的对面的表的数据全部被匹配出来
-         本质上 底层是通过 NULL 记录进行的匹配   SQL99 内外连接
-内连接标准 
- from  a表  join b表  on 连接条件  where 过滤条件;
- from  a表  inner join b表  on 连接条件  where 过滤条件;
-       显示 每个部门的名字 和 </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-24&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
