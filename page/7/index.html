@@ -131,6 +131,59 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/25/2019-9-25-data/">
+        <p class="h4 index-header">数据库(3)</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">** 日期类型 **
+1.日期类型的默认表现&gt; dd-MON-yy   
+   select  id,start_date from  s_emp; 按照入职日期排序 显示  id  first_name start_date
+    > select  id,first_name,start_date from s_emp order by start_date;
+
+2.使用 to_char 来改变显示的格式&lt;p&gt;新的日期格式:&lt;/p&gt;    yyyy     四位年
+    mm       两位月
+    dd       天
+    hh       12小时制 
+    hh24     24小时制 
+    mi       分钟 
+    ss       秒  
+    day      星期几 
+    MON      英文月的缩写 
+    month    英文月的全写 
+    pm       上午 显示成 am  下午显示成pm
+
+
+select  id,first_name,to_char(start_date,’yyyy-</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-25&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/09/24/2019-9-24-study_select/">
         <p class="h4 index-header">数据库(2)</p>
         
@@ -420,62 +473,6 @@ you can</div>
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/%E6%97%A5%E6%8A%A5">日报</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/16/2019-9-16-dsaf-day/">
-        <p class="h4 index-header">vue.js安装</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">1. 独立版本我们可以在 Vue.js 的官网上直接下载 vue.min.js 并用 &lt;script&gt; 标签引入
-2. 使用 CDN 方法以下推荐国外比较稳定的两个 CDN，国内还没发现哪一家比较好，目前还是建议下载到本地。
-
-Staticfile CDN（国内） : https://cdn.staticfile.org/vue/2.2.2/vue.min.js
-
-
-unpkg：https://unpkg.com/vue/dist/vue.js, 会保持和 npm 发布的最新的版本一致。
-
-
-cdnjs : https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js
-
-3. NPM 方法npm 版本需要大于 3.0，如果低于此版本需要升级它
-升级npm
-npm install npm -g
-
-全局安装 vue-cli
-$ cnpm install –global vue-cli
-
-创建一个基于 webpack 模板的新项目
-$ vue init webpack my-project
-
-这里需要进行一些配置，默认回车</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-16&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/9%E6%9C%88">9月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Vue">Vue</a>&nbsp;
           
         
       </div>

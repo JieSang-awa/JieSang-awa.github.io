@@ -131,6 +131,53 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/25/2019-11-25-SpringDAO/">
+        <p class="h4 index-header">SpringDAO</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Spring DAO 对JDBC的改进简化了DAO 实现类组件的编写  对jdbc的操作步骤 做了简化和封装 
+提供了基于AOP的事务管理  
+对JDBC中的异常 做了封装   把原来的检查异常 封装成了继承自 运行异常的一个异常类  `DataAccessException` SpringDAO的核心类
+JdbcTemplate    Jdbc模板类自动加载驱动   自动获取连接   自动获取sql执行环境    以及 自动释放资源 
+JdbcDaoSupport   JdbcDAO 的支持类这个类 可以提供模板对象
+
+
+
+不继承JdbcDaoSupport
+不继承JdbcDaoSupport的方式 完成对数据库的访问 和之前的不同在于 需要我们自己在容器中创建一个模板对象(模板对象依赖于 dataSource) 再把模板 注入给 DAO 的实现类  使用自己的模板完成对应的操作
+
+Spring 的声明式事务    通过Spring 的配置 讲操作纳入到事务管理之中    解除了事务管理代码 和  业务代码的耦合度    当不需要事务管理时  可以从配置文件中将其移除
+Spring </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-25&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/11/23/2019-11-23-ribao/">
         <p class="h4 index-header">日报哦</p>
         
@@ -477,48 +524,6 @@ url = response.encodeRedirectUrl(url);EL表达式作用:
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-15&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/14/2019-11-14-jspneizhiduixiang/">
-        <p class="h4 index-header">JSP内置对象</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">include 指令用于将一个JSP 或 HTML文件 引入到另一个JSP中.
-
-格式:
-    &lt;%@ include file=&quot;引入的路径&quot; %&gt;include 动作用于将一个 JSP 或 HTML文件 引入到另一个JSP中.
-
-格式:
-    &lt;jsp:include page=&quot;引入的路径&quot; flush=&quot;true&quot;/&gt;include 指令 与 include动作得到区别include指令:        在JSP程序的转换时期, 将被引入的JSP文件嵌入到include指令的位置, 然后统一编译执行 (最终生成了一个.java文件)
-include动作:        在JSP程序的转换时期, 被引入的文件不会嵌入到include动作的位置, 而是等客户端请求时, 再临时将被引入的文件以额外的servlet的方式加载到响应中, (最终生成的是多个.java文件)JSP的内置对象 (隐含对象)内置对象指的是:    JSP引擎在转换JSP文件时, 帮我们的代码在执行之前 创建的一些 供我们使用</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-14&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>

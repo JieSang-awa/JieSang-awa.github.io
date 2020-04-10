@@ -131,6 +131,48 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/14/2019-11-14-jspneizhiduixiang/">
+        <p class="h4 index-header">JSP内置对象</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">include 指令用于将一个JSP 或 HTML文件 引入到另一个JSP中.
+
+格式:
+    &lt;%@ include file=&quot;引入的路径&quot; %&gt;include 动作用于将一个 JSP 或 HTML文件 引入到另一个JSP中.
+
+格式:
+    &lt;jsp:include page=&quot;引入的路径&quot; flush=&quot;true&quot;/&gt;include 指令 与 include动作得到区别include指令:        在JSP程序的转换时期, 将被引入的JSP文件嵌入到include指令的位置, 然后统一编译执行 (最终生成了一个.java文件)
+include动作:        在JSP程序的转换时期, 被引入的文件不会嵌入到include动作的位置, 而是等客户端请求时, 再临时将被引入的文件以额外的servlet的方式加载到响应中, (最终生成的是多个.java文件)JSP的内置对象 (隐含对象)内置对象指的是:    JSP引擎在转换JSP文件时, 帮我们的代码在执行之前 创建的一些 供我们使用</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-14&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/11/13/2019-11-13-jspjichu/">
         <p class="h4 index-header">JSP引擎</p>
         
@@ -486,55 +528,6 @@ Properties文件 是以键值对形式存放数据，一个键对应且只对应
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/11%E6%9C%88">11月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/04/2019-11-4-shejiyuanze/">
-        <p class="h4 index-header">设计原则与设计模式</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">常用的设计原则软件/项目开发的流程   需求分析文档 =&gt; 概要设计文档 =&gt; 详细设计文档 =&gt; 编码和测试 =&gt; 安装和调试=&gt; 维护和升级
-常用的设计原则   开闭原则 
-
-对扩展开放，对修改关闭
-实现热插拔的效果，从而提高软件的可维护性
-
-
-
-如：  class Person&#123;12345678    private String name;    private int age;       ... &#125;public class SubPerson extends Person&#123;    private boolean gender;&#125;
-   里氏代换原则
-
-任何父类可以出现的地方，子类一定可以出现
-尽量多使用继承和多态的方式编程
-
-如：   static void draw(Shape s)&#123;1234567891011121314151617181920212223242526272829       s.show();   &#125;   draw(new Rect(1, 2, 3, 4));  </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-04&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
           &nbsp;
         
         

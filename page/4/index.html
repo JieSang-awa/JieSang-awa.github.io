@@ -131,6 +131,55 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/04/2019-11-4-shejiyuanze/">
+        <p class="h4 index-header">设计原则与设计模式</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">常用的设计原则软件/项目开发的流程   需求分析文档 =&gt; 概要设计文档 =&gt; 详细设计文档 =&gt; 编码和测试 =&gt; 安装和调试=&gt; 维护和升级
+常用的设计原则   开闭原则 
+
+对扩展开放，对修改关闭
+实现热插拔的效果，从而提高软件的可维护性
+
+
+
+如：  class Person&#123;12345678    private String name;    private int age;       ... &#125;public class SubPerson extends Person&#123;    private boolean gender;&#125;
+   里氏代换原则
+
+任何父类可以出现的地方，子类一定可以出现
+尽量多使用继承和多态的方式编程
+
+如：   static void draw(Shape s)&#123;1234567891011121314151617181920212223242526272829       s.show();   &#125;   draw(new Rect(1, 2, 3, 4));  </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/11/02/2019-11-2-suanfa/">
         <p class="h4 index-header">线性查找与二分查找简单代码实现</p>
         
@@ -443,49 +492,6 @@ FileInputStream类
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/10%E6%9C%88">10月</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/24/2019-10-24-IoLiu/">
-        <p class="h4 index-header">I/O流(一)</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">I/O流
-基本概念I/O就是Input/Output的简写，也就是输入/输出的含义I/O流就是指像流水一样不间断地进行读写数据的状态  
-
-基本分类按照数据读写的单位不同分为：字节流 和 字符流其中字节流主要指以字节为单位进行读写的过程，可以读写任意类型的文件其中字符流主要指以字符(2个字节)为单位进行读写的过程，只能读写文本文件  
-按照数据流动的方向不同分为：输入流 和 输出流(站在程序的角度)其中输入流主要指从文件中读取数据内容输入到程序中其中输出流主要指将程序中的数据内容输出到文件中，也就是写入文件  
-
-基本框架字节流的顶层父类：InputStream类 和 OutputStream类 InputStream类的常用子类：  
-FileInputStream类、DataInputStream类、ObjectInputStream类     OutputStream类的常用子类：  
-FileOutputStream类、  DataOutputStream类、  ObjectOutputStream类`字符流的顶层父类：Reader类  和  Writer类Reader类的常用</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-24&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
